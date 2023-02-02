@@ -35,9 +35,14 @@ namespace PC_Service
             string log = "name";
             string pas = "123Qwe";
 
-           if (textBoxLogin.Text == log) {
-                MessageBox.Show("Ура");
-           }
+            if (TextBoxLogin.Text == log && TextBoxPasswrod.Text == pas)
+            {
+                MessageBox.Show("Вы прошли");
+            }
+            else 
+            {
+                MessageBox.Show("Пароль неверный");
+            }
         }
     }
 }

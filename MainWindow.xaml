@@ -5,92 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Service"
         mc:Ignorable="d"
-        Title="Авторизация PC-Service" Height="350" Width="550"
+        Title="Авторизация PC-Service" Height="400" Width="700"
         ResizeMode="NoResize"
-        WindowStyle="ToolWindow">
+        WindowStyle="ToolWindow"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        >
+    <Window.Background>
+        <ImageBrush ImageSource="/BackGround.jpg"/>
+    </Window.Background>
 
-    <Border Background="#236690">
-        <Grid >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="130"/>
-                <RowDefinition Height="99"/>
-                <RowDefinition Height="105.04"/>
-            </Grid.RowDefinitions>
+    <Grid>
+        <Border Width="550" Height="250" Background="#37393F" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="30">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="40" Color="Purple" ShadowDepth="0"/>
+            </Border.Effect>
 
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <StackPanel Margin="15" HorizontalAlignment="Right" Orientation="Horizontal" >
+                <StackPanel Width="300">
+                    <TextBlock Text="С возвращением" FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="0 5"/>
+                    <TextBlock Margin="25 15 0 0" Text="Логин" Foreground="White" FontSize="15"/>
+                    <TextBox x:Name="TextBoxLogin" Margin="10 5 20 0" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignTextBox}" Background="#202225"
+                             Foreground="White"/>
+                    <TextBlock Margin="25 10 0 0" Text="Пароль" Foreground="White" FontSize="15"/>
+                    <TextBox x:Name="TextBoxPasswrod" Margin="10 5 20 0" materialDesign:HintAssist.Hint="Введите Пароль" Style="{StaticResource MaterialDesignTextBox}" Background="#202225"
+                             Foreground="White"/>
+                    <Grid Margin="10 15 20 0">
+                        <Button Content="Войти" HorizontalAlignment="Left" Width="130" Height="25" FontSize="12" Cursor="Hand" Click="Button_Click"/>
+                        <Button Content="Отмена" HorizontalAlignment="Right" Width="130" Height="25" FontSize="12" Cursor="Hand"/>
+                    </Grid>
+                </StackPanel>
 
-                <TextBlock
-                HorizontalAlignment="Right"
-                FontSize="16"
-                Text="Логин" Margin="0,23,0,57"/>
-
-                <TextBlock
-                FontSize="16"
-                Grid.Row="1"
-                Text="Пароль"
-                HorizontalAlignment="Right"
-                Margin="0,65,0,10"/>
-
-                <TextBox Grid.Column="1"
-                         HorizontalAlignment="Left"
-                         Margin="10,24,0,0"
-                         VerticalAlignment="Top"
-                         Width="350" 
-                         Height="24"
-                      
-                        Background="#3073B4"
-                         Name="textBoxLogin"
-                         />
-
-                <TextBox Grid.Column="1"
-                         HorizontalAlignment="Left"
-                         Margin="10,64,0,0"
-                         VerticalAlignment="Top"
-                         Width="350"
-                         Height="24"
-                       Background="#3073B4"
-                        
-                         Name="textBoxPassword"/>
-
-            </Grid>
-
-            <Grid Grid.Row="2">
-
-
-                <Button Content="Войти"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Height="25"
-                        Width="170"
-                        Margin="160,0,0,0" Click="Button_Click"
-                        Background="#5384B4"/>
-
-                <Button Content="Отмена"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Height="25"
-                        Width="170"
-                        Margin="342,0,0,0"
-                        Background="#5384B4"
-                        />
-
-
-            </Grid>
-
-
-
-            <Image
-                Margin="75,20,230,0"
-                Source="/PC-SERVICE.png"/>
-
-
-
-        </Grid>
-
-
-    </Border>
+                <StackPanel Width="220" VerticalAlignment="Center">
+                    <Image Source="PC-SERVICE.png"/>
+                </StackPanel>
+                
+            </StackPanel>
+        </Border>
+    </Grid>
 </Window>
