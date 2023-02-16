@@ -3,11 +3,9 @@ K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\bin\Debug\PC-Serv
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\bin\Debug\PC-Service.pdb
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\PC-Service.csproj.AssemblyReference.cache
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\PC-Service.csproj.SuggestedBindingRedirects.cache
-K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\MainWindow.g.cs
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\App.g.cs
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\PC-Service_MarkupCompile.cache
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\PC-Service_MarkupCompile.lref
-K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\MainWindow.baml
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\PC-Service.g.resources
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\PC_Service.Properties.Resources.resources
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\PC-Service.csproj.GenerateResource.cache
@@ -37,3 +35,8 @@ K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\bin\Debug\Materia
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\bin\Debug\Microsoft.Xaml.Behaviors.xml
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\PC-Service.csproj.CopyComplete
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\bin\Debug\QRCoder.dll
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\MainMenu.g.cs
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\MainMenu.baml
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\AuthorizationWindow.g.cs
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\AuthorizationWindow.baml

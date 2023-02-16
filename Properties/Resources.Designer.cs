@@ -83,9 +83,9 @@ namespace PC_Service.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PC_SERVICE {
+        internal static System.Drawing.Bitmap pc {
             get {
-                object obj = ResourceManager.GetObject("PC_SERVICE", resourceCulture);
+                object obj = ResourceManager.GetObject("pc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
