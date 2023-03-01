@@ -7,48 +7,44 @@
         mc:Ignorable="d"
         Title="MainMenu" Height="800" Width="1400">
 
- 
-    
-    <Window.Resources>
-        <ControlTemplate x:Key="TopMenuButtons" TargetType="Button">
-            <Grid Name="Brn"  Width="100" Margin="0,0,0,0">
-                <Border>
-                    <Grid>
-                        <Label Content="{TemplateBinding Content}"
-                               Background="Transparent" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Label.Style>
-                                <Style TargetType="Label">
-                                    <Setter Property="Foreground" Value="#FF9D9999"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Brn}" Value="True">
-                                            <Setter Property="Foreground" Value="White"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Label.Style>
-                        </Label>
-                               
-                    </Grid>
-                </Border>
-            </Grid>
-        </ControlTemplate>
-    </Window.Resources>
+
+
     <Grid>
-        <Grid Name="TopMenu" Grid.Row="0" Grid.ColumnSpan="2" Background="#FF37393F">
-            <Border  VerticalAlignment="Top">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top"  Height="100">
-                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Лого" Height="100"/>
-                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Главная" Height="100"/>
-                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Заказы" Height="100"/>
-                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Магаз" Height="100"/>
-                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Склад" Height="100"/>
-                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Прайсы" Height="100"/>
-                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Корзина" Height="100"/>
-                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Ещё" Height="100"/>
-                </StackPanel>
-            </Border>
-        </Grid>
+        <StackPanel
+            Background="#2f353b"
+            Orientation="Vertical"
+            HorizontalAlignment="Left"
+            Width="150">
+
+
+            <Menu Height="500" 
+                  Background="Transparent"
+                  Margin="0,100,0,0"
+                  TextBlock.Foreground="#bbbbbb" Grid.IsSharedSizeScope="True"
+                  >
+
+                <Menu.ItemsPanel >
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+
+                <MenuItem Name ="Order" Header="Заказы" HorizontalContentAlignment="Center" Click="Order_Click" />
+                <MenuItem Header="Кассы" HorizontalContentAlignment="Center" />
+                <MenuItem Header="Магазин" HorizontalContentAlignment="Center" />
+                <MenuItem Header="Склад" HorizontalContentAlignment="Center" />
+                <MenuItem Header="Клиенты" HorizontalContentAlignment="Center"/>
+                <MenuItem Name ="Doc"  Header="Документация" HorizontalContentAlignment="Center" Click="Doc_Click"/>
+                <MenuItem Name ="Settings" Header="Настройки" HorizontalContentAlignment="Center" Click="MenuItem_Settings"/>
+
+            </Menu>
+
+        </StackPanel>
+
+        <Frame Margin="150,0,0,0" Name="MainFrame" NavigationUIVisibility="Hidden"/>
+            
         
-        
+
     </Grid>
+    
 </Window>

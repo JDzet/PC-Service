@@ -40,3 +40,7 @@ K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\Ma
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\MainMenu.baml
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\AuthorizationWindow.g.cs
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\AuthorizationWindow.baml
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\Pages\Settings.g.cs
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\Pages\Settings.baml
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\Pages\Order.g.cs
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\Pages\Order.baml

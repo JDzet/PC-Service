@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PC_Service.View
@@ -22,6 +23,24 @@ namespace PC_Service.View
         public MainMenu()
         {
             InitializeComponent();
+            MainFrame.Content = new Settings();
+        }
+
+    
+
+        private void Doc_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void MenuItem_Settings(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new Settings();
+        }
+
+        private void Order_Click(object sender, RoutedEventArgs e)
+        {
+         MainFrame.Content = new Order();
         }
     }
 }

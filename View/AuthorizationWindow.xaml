@@ -29,7 +29,7 @@
                     <TextBox x:Name="TextBoxPasswrod" Margin="10 5 20 0" materialDesign:HintAssist.Hint="Введите Пароль" Style="{StaticResource MaterialDesignTextBox}" Background="#202225"
                         Foreground="White"/>
                     <Grid Margin="10 15 20 0">
-                        <Button Content="Войти" HorizontalAlignment="Left" Width="130" Height="25" FontSize="12" Cursor="Hand" Click="Button_Click"/>
+                        <Button Content="Войти" HorizontalAlignment="Left" Width="130" Height="25" FontSize="12" Cursor="Hand" Click="Button_Click" VerticalAlignment="Bottom"/>
                         <Button Content="Отмена" HorizontalAlignment="Right" Width="130" Height="25" FontSize="12" Cursor="Hand" Click="Button_Click_1"/>
                     </Grid>
                 </StackPanel>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\App.xaml
-31031632453
+51584623134
 
-71736384118
+9-1020861187
 271045954378
-View\AuthorizationWindow.xaml;Theme\TextBoxStyle.xaml;View\MainMenu.xaml;
+Pages\Order.xaml;Pages\Settings.xaml;View\AuthorizationWindow.xaml;Theme\TextBoxStyle.xaml;View\MainMenu.xaml;
 
 False
 
