@@ -5,10 +5,53 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PC_Service"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Order">
+      d:DesignHeight="800" d:DesignWidth="1250"
+      Title="Order"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" Initialized="Page_Initialized">
+    
 
-    <Grid Background ="Yellow">
-        
+    <Grid Background ="Gray">
+        <StackPanel>
+            <TextBlock Text="Заказы"
+                       FontSize="30"
+                       HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                       Margin="20,20,0,30"
+    
+                       />
+
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Stretch">
+                <Grid Width="1250">
+                    <Button Width="180"
+                        Height="45"
+                        Background="Gainsboro"
+                        HorizontalAlignment="Left"
+                        Margin="20,0,0,0" Cursor="Hand">
+                        <TextBlock Text="+ Добавить заказ"
+                               FontSize="16"/>
+                    </Button>
+                    <TextBox HorizontalAlignment ="Right" Width="200" Margin="0,0,30,0"
+                             materialDesign:HintAssist.Hint="Поиск" Style="{StaticResource MaterialDesignTextBox}"
+                             Background="#9E9E9E" Foreground="White"/>
+                </Grid>
+            </StackPanel>
+
+            <DataGrid x:Name="Grid" Margin="20,40,20,40" 
+                      Height="550" Background="#9E9E9E" 
+                      FontSize="16" FontWeight="Bold"
+                      AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Номер заказа" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Статус"/>
+                    <DataGridTextColumn Header="Крайний срок"/>
+                    <DataGridTextColumn Header= "Принял"/>
+                    <DataGridTextColumn Header="Тип устройтва"/>
+                    <DataGridTextColumn Header="Производитель"/>
+                    <DataGridTextColumn Header="Модель"/>
+                    <DataGridTextColumn Header="Клиент"/>
+                    <DataGridTextColumn Header="Цена"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </Page>
