@@ -25,7 +25,7 @@ namespace PC_Service
         public Order()
         {
             InitializeComponent();
-            Grid.ItemsSource = DemoMainEntities.Product.ToList();
+            DataGrid.ItemsSource = DemoMainEntities.Product.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

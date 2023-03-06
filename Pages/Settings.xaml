@@ -19,7 +19,7 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
         </StackPanel>
-        
+        <TextBox Text="Name" VerticalAlignment="Bottom"></TextBox>
             
        
         
