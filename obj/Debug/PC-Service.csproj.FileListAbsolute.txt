@@ -44,3 +44,5 @@ K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\bin\Debug\Materia
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\bin\Debug\MaterialDesignThemes.Wpf.xml
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\bin\Debug\de\MahApps.Metro.resources.dll
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\PC-Service_Content.g.cs
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\AddOrder.g.cs
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\AddOrder.baml

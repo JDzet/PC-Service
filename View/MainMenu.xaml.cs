@@ -23,7 +23,7 @@ namespace PC_Service.View
         public MainMenu()
         {
             InitializeComponent();
-            MainFrame.Content = new Settings();
+            MainFrame.Content = new Order();
         }
 
     

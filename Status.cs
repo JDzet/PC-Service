@@ -12,18 +12,18 @@ namespace PC_Service
     using System;
     using System.Collections.Generic;
     
-    public partial class Manufacture
+    public partial class Status
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Manufacture()
+        public Status()
         {
-            this.Product = new HashSet<Product>();
+            this.Orders = new HashSet<Orders>();
         }
     
-        public int ManufactureId { get; set; }
-        public string ManufactureName { get; set; }
+        public int StatusId { get; set; }
+        public string StatusName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

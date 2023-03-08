@@ -9,7 +9,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="Order"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" Initialized="Page_Initialized">
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     
 
     <Grid Background ="Gray" Name="MainGrid" >
@@ -27,7 +27,7 @@
                         Height="45"
                         Background="Gainsboro"
                         HorizontalAlignment="Left"
-                        Margin="20,0,0,0" Cursor="Hand">
+                        Margin="20,0,0,0" Cursor="Hand" Click="ButtonAdd">
                         <TextBlock Text="+ Добавить заказ"
                                FontSize="16"/>
                     </Button>
@@ -46,17 +46,19 @@
                       AutoGenerateColumns="False" IsReadOnly="True">
                     
                     <DataGrid.Columns>
-                        
-                        <DataGridTextColumn Header="Номер заказа" Binding="{Binding Name}"/>
-                        <DataGridTextColumn Header="Статус"/>
-                        <DataGridTextColumn Header="Крайний срок"/>
-                        <DataGridTextColumn Header= "Принял"/>
-                        <DataGridTextColumn Header="Тип устройтва"/>
-                        <DataGridTextColumn Header="Производитель"/>
-                        <DataGridTextColumn Header="Модель"/>
-                        <DataGridTextColumn Header="Клиент"/>
-                        <DataGridTextColumn Header="Цена"/>
-                    </DataGrid.Columns>
+
+                    <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderID}"/>
+                    <DataGridTextColumn Header="Статус" Binding="{Binding Status.StatusName}"/>
+                    <DataGridTextColumn Header="Крайний срок" Binding="{Binding Deadline, StringFormat=dd:MM:yyyy}"/>
+                    <DataGridTextColumn Header= "Принял" Binding="{Binding User.UserName}"/>
+                    <DataGridTextColumn Header="Тип устройтва" Binding="{Binding DeviceType1.NameDeviceType}"/>
+                    <DataGridTextColumn Header="Производитель" Binding="{Binding BrandDevice1.BrandName}"/>
+                    <DataGridTextColumn Header="Модель" Binding="{Binding ModelDevice}"/>
+                    <DataGridTextColumn Header="Клиент" Binding="{Binding Client1.ClientName}"/>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
+                  
+
+                </DataGrid.Columns>
                 </DataGrid>
             
            

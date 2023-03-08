@@ -13,10 +13,10 @@ namespace PC_Service
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DemoMainEntities : DbContext
+    public partial class EntitiesMain : DbContext
     {
-        public DemoMainEntities()
-            : base("name=DemoMainEntities")
+        public EntitiesMain()
+            : base("name=EntitiesMain")
         {
         }
     
@@ -25,11 +25,12 @@ namespace PC_Service
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<Manufacture> Manufacture { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<Provide> Provide { get; set; }
+        public virtual DbSet<BrandDevice> BrandDevice { get; set; }
+        public virtual DbSet<Client> Client { get; set; }
+        public virtual DbSet<DeviceType> DeviceType { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

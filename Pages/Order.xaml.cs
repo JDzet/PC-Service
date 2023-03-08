@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PC_Service.View;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -21,22 +22,19 @@ namespace PC_Service
     /// </summary>
     public partial class Order : Page
     {
-        DemoMainEntities DemoMainEntities = new DemoMainEntities();
+        EntitiesMain DemoMainEntities = new EntitiesMain();
         public Order()
         {
             InitializeComponent();
-            DataGrid.ItemsSource = DemoMainEntities.Product.ToList();
+            DataGrid.ItemsSource = DemoMainEntities.Orders.ToList();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd(object sender, RoutedEventArgs e)
         {
+            AddOrder addOrder = new AddOrder();
+            addOrder.ShowDialog();
+            
 
-        }
-
-        
-        private void Page_Initialized(object sender, EventArgs e)
-        {
-           
         }
     }
 }

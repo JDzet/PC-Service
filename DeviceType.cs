@@ -12,18 +12,18 @@ namespace PC_Service
     using System;
     using System.Collections.Generic;
     
-    public partial class Provide
+    public partial class DeviceType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Provide()
+        public DeviceType()
         {
-            this.Product = new HashSet<Product>();
+            this.Orders = new HashSet<Orders>();
         }
     
-        public int ProvideId { get; set; }
-        public string ProvideName { get; set; }
+        public int DeviceTypeId { get; set; }
+        public string NameDeviceType { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

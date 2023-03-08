@@ -10,7 +10,7 @@
 
     <Grid Background ="Gray">
         <StackPanel>
-            <TextBlock Text="Заказы"
+            <TextBlock Text="Настройки"
                        FontSize="30"
                        HorizontalAlignment="Left"
                         VerticalAlignment="Top"

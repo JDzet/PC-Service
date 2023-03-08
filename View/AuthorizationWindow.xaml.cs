@@ -25,6 +25,7 @@ namespace PC_Service
     /// </summary>
     public partial class AuthorizationWindow : Window
     {
+        EntitiesMain entities = new EntitiesMain();
         public AuthorizationWindow()
         {
             InitializeComponent();
@@ -37,10 +38,9 @@ namespace PC_Service
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string log = "name";
-            string pas = "123Qwe";
+            var user = entities.User.FirstOrDefault(X => X.Login == TextBoxLogin.Text && X.Password == TextBoxPasswrod.Text);
 
-            if (TextBoxLogin.Text == log && TextBoxPasswrod.Text == pas)
+            if (user != null) 
             {
                 MessageBox.Show("Добро пожаловать");
                 MainMenu mainMenu = new MainMenu();
