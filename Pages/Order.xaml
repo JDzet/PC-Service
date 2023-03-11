@@ -49,7 +49,7 @@
 
                     <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderID}"/>
                     <DataGridTextColumn Header="Статус" Binding="{Binding Status.StatusName}"/>
-                    <DataGridTextColumn Header="Крайний срок" Binding="{Binding Deadline, StringFormat=dd:MM:yyyy}"/>
+                    <DataGridTextColumn Header="Крайний срок" Binding="{Binding Deadline, Mode=TwoWay, StringFormat=dd:MM:yyyy}"/>
                     <DataGridTextColumn Header= "Принял" Binding="{Binding User.UserName}"/>
                     <DataGridTextColumn Header="Тип устройтва" Binding="{Binding DeviceType1.NameDeviceType}"/>
                     <DataGridTextColumn Header="Производитель" Binding="{Binding BrandDevice1.BrandName}"/>

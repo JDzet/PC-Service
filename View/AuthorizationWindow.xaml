@@ -24,10 +24,10 @@
                     <TextBlock Text="С возвращением" FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="0 5"/>
                     <TextBlock Margin="25 15 0 0" Text="Логин" Foreground="White" FontSize="15"/>
                     <TextBox x:Name="TextBoxLogin" Margin="10 5 20 0" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignTextBox}" Background="#202225"
-                        Foreground="White"/>
+                        Foreground="White" Text="JDzet"/>
                     <TextBlock Margin="25 10 0 0" Text="Пароль" Foreground="White" FontSize="15"/>
                     <TextBox x:Name="TextBoxPasswrod" Margin="10 5 20 0" materialDesign:HintAssist.Hint="Введите Пароль" Style="{StaticResource MaterialDesignTextBox}" Background="#202225"
-                        Foreground="White"/>
+                        Foreground="White" Text="123Qwe"/>
                     <Grid Margin="10 15 20 0">
                         <Button Content="Войти" HorizontalAlignment="Left" Width="130" Height="25" Background="Gainsboro"  FontSize="12" Cursor="Hand" Click="Button_Click" VerticalAlignment="Bottom"/>
                         <Button Content="Отмена" HorizontalAlignment="Right" Width="130" Height="25" Background="Gainsboro"  FontSize="12" Cursor="Hand" Click="Button_Click_1"/>

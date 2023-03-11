@@ -25,7 +25,7 @@ namespace PC_Service
     /// </summary>
     public partial class AuthorizationWindow : Window
     {
-        EntitiesMain entities = new EntitiesMain();
+        Entities entities = new Entities();
         public AuthorizationWindow()
         {
             InitializeComponent();

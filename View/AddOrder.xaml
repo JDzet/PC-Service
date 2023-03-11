@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
-        Title="AddOrder" Height="800" Width="600">
+        Title="AddOrder" Height="1000" Width="800">
     <Grid Background="Gray">
 
         <TextBlock Text="Новый заказ"
@@ -14,14 +15,15 @@
                         VerticalAlignment="Top"
                        Margin="20,20,0,30"
                        />
-        <ScrollViewer CanContentScroll="True" Height="707" VerticalAlignment="Top" Margin="0,77,0,0">
+        <ScrollViewer CanContentScroll="True" VerticalAlignment="Top" Margin="0,77,0,0">
             <StackPanel>
                 <TextBlock Text="Клиент" Foreground="Wheat" FontSize="25" Margin="120,0,0,20"/>
                 <StackPanel  Orientation="Horizontal" Height="100" VerticalAlignment="Top">
-                    <StackPanel>
+                    <StackPanel Width="270">
                         <TextBlock Text="Имя Фамилия Клиента"
                            FontSize="20"
-                           Margin="20,0,0,10"/>
+                           Margin="20,0,0,10"
+                           HorizontalAlignment="Right"/>
                         <TextBlock Text="Телефон"
                            FontSize="20" 
                            Margin="0,0,0,10"
@@ -32,21 +34,155 @@
                            HorizontalAlignment="Right"/>
                     </StackPanel>
                     <StackPanel>
-                        <TextBox Margin="20,0,0,5" FontSize="15" Width="320"
+                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460" Name="tbName"
+                                 HorizontalAlignment="Left"
+                                 
                                  Style="{StaticResource MaterialDesignTextBox}"
                                   Background="#9E9E9E"/>
-                        <TextBox Margin="20,0,0,5" FontSize="15" Width="320"
-                                  Style="{StaticResource MaterialDesignTextBox}"
-                                  Background="#9E9E9E"/>
-                        <TextBox Margin="20,0,0,5" FontSize="15" Width="320"
-                                  Style="{StaticResource MaterialDesignTextBox}"
+                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                 Name="tbPhone"
+                                 HorizontalAlignment="Left"
+                                 Style="{StaticResource MaterialDesignTextBox}"
+                                  Background="#9E9E9E"
+                                 />
+                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                 HorizontalAlignment="Left"
+                                 Style="{StaticResource MaterialDesignTextBox}"
+                                 Name="tbAdress"
                                   Background="#9E9E9E"/>
                     </StackPanel>
                 </StackPanel>
 
                 <TextBlock Text="Устройство" Foreground="Wheat" FontSize="25" Margin="120,30,0,20"/>
-                <StackPanel>
-                    
+                <StackPanel  Orientation="Horizontal" VerticalAlignment="Top">
+                    <StackPanel Width="270">
+                        <TextBlock Text="Тип устройства"
+                           FontSize="20"
+                           Margin="20,0,0,10"
+                           HorizontalAlignment="Right"/>
+                        <TextBlock Text="Бренд устройства"
+                           FontSize="20"
+                           Margin="20,0,0,10"
+                           HorizontalAlignment="Right"/>
+                        <TextBlock Text="Модель"
+                           FontSize="20"
+                           Margin="20,0,0,10"
+                           HorizontalAlignment="Right"/>
+                        <TextBlock Text="Неисправность"
+                           FontSize="20"
+                           Margin="20,0,0,10"
+                           HorizontalAlignment="Right"/>
+                        <TextBlock Text="Внешний вид устройства"
+                           FontSize="20"
+                           Margin="20,0,0,10"
+                           HorizontalAlignment="Right"/>
+                        <TextBlock Text="Комплектация"
+                           FontSize="20"
+                           Margin="20,0,0,10"
+                           HorizontalAlignment="Right"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <ComboBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                  Background="#9E9E9E"
+                                  SelectedItem="{Binding DeviceType1}"
+                                 HorizontalAlignment="Left"
+                                  Name="cbDevice"
+                                  DisplayMemberPath="NameDeviceType"
+                                  ItemStringFormat="String"/>
+                        <ComboBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                  Background="#9E9E9E"
+                                  SelectedItem="{Binding BrandDevice1}"
+                                 HorizontalAlignment="Left"
+                                  DisplayMemberPath="BrandName"
+                                  Name="cbBrand"/>
+                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                  Style="{StaticResource MaterialDesignTextBox}"
+                                 Text="{Binding ModelDevice}"
+                                  Background="#9E9E9E"
+                                 Name="tbModel"
+                                 HorizontalAlignment="Left"/>
+                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                  Style="{StaticResource MaterialDesignTextBox}"
+                                 Text="{Binding Malfunction}"
+                                  Background="#9E9E9E"
+                                   Name="tbMalfunction"
+                                 HorizontalAlignment="Left"/>
+                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                  Style="{StaticResource MaterialDesignTextBox}"
+                                  Background="#9E9E9E"
+                                 Text="{Binding AppearanceDevice}"
+                                    Name="tbApperance"
+                                 HorizontalAlignment="Left"/>
+                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                  Style="{StaticResource MaterialDesignTextBox}"
+                                 Text="{Binding Equipment}"
+                                   Name="tbEquipment"
+                                  Background="#9E9E9E"
+                                 HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock Text="Дополнительная информация" Foreground="Wheat" FontSize="25" Margin="120,30,0,20"/>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                    <StackPanel Width="270">
+                        <TextBlock Text="Примичание"
+                                   
+                           FontSize="20"
+                           Margin="20,0,0,80"
+                           HorizontalAlignment="Right"/>
+                        <TextBlock Text="Дата приема устройства"
+                           FontSize="20"
+                           Margin="20,0,0,10"
+                           HorizontalAlignment="Right"/>
+                        <TextBlock Text="Крайняя дата ремонта"
+                           FontSize="20"
+                           Margin="20,0,0,10"
+                           HorizontalAlignment="Right"/>
+                        <TextBlock Text="Ориентировочная цена"
+                           FontSize="20"
+                           Margin="20,0,0,10"
+                           HorizontalAlignment="Right"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460" Height="100"
+                                 Style="{StaticResource MaterialDesignTextBox}"
+                                 AcceptsReturn="True"
+                                 Text="{Binding Note}"
+                                 VerticalScrollBarVisibility="Auto"
+                                 TextWrapping="Wrap"
+                                 HorizontalAlignment="Left"
+                                 Name="tbNote"
+                                  Background="#9E9E9E"/>
+                        
+                        <DatePicker Margin="20,0,0,8" FontSize="15" Width="460"
+                                 Background="#9E9E9E"
+                                 Name="dpReceiptTime"
+                                 SelectedDate="{x:Static sys:DateTime.Now}"
+                                 HorizontalAlignment="Left"/>
+                        
+                        <DatePicker
+                            Margin="20,0,0,8" FontSize="15" Width="460"
+                                 Background="#9E9E9E"
+                                 Name="dpDeadLine"
+                                 SelectedDate="{x:Static sys:DateTime.Now}"
+                                 HorizontalAlignment="Left"/>
+                        
+                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                  Style="{StaticResource MaterialDesignTextBox}"
+                                  Background="#9E9E9E"
+                                 Name="tbPrice"
+                                 Text="{Binding Price}" 
+                                 HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,40,0,0">
+                    <Button Width="180"
+                        Height="45"
+                        Background="Gainsboro"
+                        HorizontalAlignment="Left"
+                        Margin="20,0,0,0" Cursor="Hand"
+                        Content="Добавить"
+                        FontSize="16" Click="Button_Click">
+                    </Button>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

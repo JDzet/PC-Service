@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,55 @@ namespace PC_Service.View
     /// </summary>
     public partial class AddOrder : Window
     {
+        Entities entities = new Entities();
+        private Orders new_order = new Orders();
+        private Client new_client = new Client();
+        Order page = new Order();
+
         public AddOrder()
         {
             InitializeComponent();
+            DataContext = new_order;
+            cbDevice.ItemsSource = entities.DeviceType.ToList();
+            cbBrand.ItemsSource = entities.BrandDevice.ToList();
+           
+        }
+
+        private void ComboBox_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var user = entities.Client.FirstOrDefault(x => x.ClientName == tbName.Text);
+            if (user == null)
+            {
+                new_client.ClientName = tbName.Text;
+                new_client.PhoneNumber = tbPhone.Text;
+                new_client.ClientAddress = tbAdress.Text;
+                entities.Client.Add(new_client);
+                entities.SaveChanges();
+            }
+
+            var usernow = entities.Client.FirstOrDefault(x => x.ClientName == tbName.Text);
+
+
+            if (new_order.OrderID == 0) 
+            {
+                new_order.Client = usernow.ClientId;
+                new_order.Status = entities.Status.First();
+                var id = entities.User.FirstOrDefault(x => x.UserId == 2);
+                new_order.UserReceipt = id.UserId;
+                new_order.ReceiptTime = dpReceiptTime.SelectedDate.Value;
+                new_order.Deadline = dpDeadLine.SelectedDate.Value;
+                entities.Orders.Add(new_order);
+                entities.SaveChanges();
+                MessageBox.Show("Заказ добавлен");
+                this.Close();
+            }
+
+
         }
     }
 }

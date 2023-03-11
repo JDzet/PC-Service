@@ -22,7 +22,8 @@ namespace PC_Service
     /// </summary>
     public partial class Order : Page
     {
-        EntitiesMain DemoMainEntities = new EntitiesMain();
+        Entities DemoMainEntities = new Entities();
+       
         public Order()
         {
             InitializeComponent();
@@ -30,11 +31,11 @@ namespace PC_Service
         }
 
         private void ButtonAdd(object sender, RoutedEventArgs e)
-        {
+        { 
             AddOrder addOrder = new AddOrder();
             addOrder.ShowDialog();
-            
-
+            DataGrid.ItemsSource = null;
+            DataGrid.ItemsSource = DemoMainEntities.Orders.ToList();
         }
     }
 }
