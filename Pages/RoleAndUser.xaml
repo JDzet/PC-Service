@@ -1,0 +1,77 @@
+﻿<Page x:Class="PC_Service.RoleAndUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PC_Service"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1100"
+      Title="RoleAndUser">
+
+    <Grid Background="Gray" Name="GridUserAndRole">
+        <StackPanel Margin="0,0,0,20" Height="{Binding ActualHeight,ElementName=MainGrid}"
+                   >
+
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left">
+                <Grid Width="{Binding ActualWidth,ElementName=GridUserAndRole}"/>
+            </StackPanel>
+
+            <TextBlock Text="Сотрудники"
+                       FontSize="25"
+                       HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                       Margin="20,10,0,20"
+                       />
+
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left">
+                <Grid Width="{Binding ActualWidth,ElementName=GridUserAndRole}">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Width="180"
+                        Content="+ Добавить сотрудника"
+                        Height="45"
+                        Background="Gainsboro"
+                        HorizontalAlignment="Left"
+                        Margin="20,0,0,0" Cursor="Hand" 
+                            Name="ButtonAddUser" Click="ButtonAddUser_Click">
+                        </Button>
+                        <Button Width="180"
+                        Content="Удалить сотрудника"
+                        Height="45"
+                        Background="Gainsboro"
+                        HorizontalAlignment="Left"
+                        Margin="20,0,0,0" Cursor="Hand" 
+                            Name="ButtonDeleteUser" Click="ButtonDeleteUser_Click">
+                        </Button>
+
+                    </StackPanel>
+                   
+                </Grid>
+            </StackPanel>
+
+            <DataGrid Name="DataGridUser" Margin="20,20,20,0"
+                      Height="600" Background="#9E9E9E"
+                      VerticalAlignment="Bottom"
+                          
+                      FontSize="16" FontWeight="Bold"
+                          
+                      AutoGenerateColumns="False" IsReadOnly="True">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Сотрудник" Binding="{Binding UserName}"/>
+                    <DataGridTextColumn Header="Логин" Binding="{Binding Login}"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                    <DataGridTextColumn Header="Телефон" Binding="{Binding PhoneNumber}"/>
+                    <DataGridTextColumn Header="Роль"  Binding="{Binding Role.RoleName}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Редактировать" Name="BtnEdit" Background="Gainsboro"
+                                        Click="BtnEdit_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

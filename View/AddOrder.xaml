@@ -174,12 +174,13 @@
                                  HorizontalAlignment="Left"/>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,40,0,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,40,0,0"
+                            HorizontalAlignment="Right">
                     <Button Width="180"
                         Height="45"
                         Background="Gainsboro"
                         HorizontalAlignment="Left"
-                        Margin="20,0,0,0" Cursor="Hand"
+                        Margin="0,0,30,0" Cursor="Hand"
                         Content="Добавить"
                         FontSize="16" Click="Button_Click">
                     </Button>

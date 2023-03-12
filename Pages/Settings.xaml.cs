@@ -25,5 +25,10 @@ namespace PC_Service
             InitializeComponent();
           
         }
+
+        private void User_Click(object sender, RoutedEventArgs e)
+        {
+          SettingsFrame.Content = new RoleAndUser();
+        }
     }
 }

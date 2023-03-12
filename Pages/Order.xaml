@@ -37,7 +37,7 @@
                 </Grid>
             </StackPanel>
 
-                <DataGrid x:Name="DataGrid" Margin="20,40,20,0"
+            <DataGrid x:Name="DataGrid" Margin="20,40,20,0"
                       Height="{Binding ActualHeight,ElementName=MainGrid}" Background="#9E9E9E"
                         Padding="0,0,0,195"
                           

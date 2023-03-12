@@ -13,10 +13,10 @@ namespace PC_Service
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class EntitiesMain : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public EntitiesMain()
+            : base("name=EntitiesMain")
         {
         }
     

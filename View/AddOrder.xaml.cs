@@ -20,7 +20,7 @@ namespace PC_Service.View
     /// </summary>
     public partial class AddOrder : Window
     {
-        Entities entities = new Entities();
+        EntitiesMain entities = new EntitiesMain();
         private Orders new_order = new Orders();
         private Client new_client = new Client();
         Order page = new Order();

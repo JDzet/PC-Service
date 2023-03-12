@@ -46,3 +46,7 @@ K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\bin\Debug\de\MahA
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\PC-Service_Content.g.cs
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\AddOrder.g.cs
 K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\AddOrder.baml
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\Pages\RoleAndUser.g.cs
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\Pages\RoleAndUser.baml
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\AddUser.g.cs
+K:\Users\Yaros\Documents\Visual Studio 2022\project\PC-Service\obj\Debug\View\AddUser.baml

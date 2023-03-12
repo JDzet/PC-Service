@@ -9,19 +9,34 @@
       Title="Settings">
 
     <Grid Background ="Gray">
-        <StackPanel>
-            <TextBlock Text="Настройки"
-                       FontSize="30"
-                       HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                       Margin="20,20,0,30"
-                       />
+        <StackPanel
+            Background="#57626E"
+            Orientation="Vertical"
+            HorizontalAlignment="Left"
+            Width="150">
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        </StackPanel>
-        <TextBox Text="Name" VerticalAlignment="Bottom"></TextBox>
+
+            <Menu Height="500" 
+                  Background="Transparent"
+                  Margin="0,100,0,0"
+                  TextBlock.Foreground="#bbbbbb" Grid.IsSharedSizeScope="True"
+                  >
+
+                <Menu.ItemsPanel >
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+
+                <MenuItem Name ="User" Header="Сотрудники" HorizontalContentAlignment="Center" Click="User_Click" Height="48" VerticalAlignment="Top"  />
+                <MenuItem Header="Статусы" HorizontalContentAlignment="Center" />
+                <MenuItem Header="Мастерские" HorizontalContentAlignment="Center" />
+                <MenuItem Header="Общие" HorizontalContentAlignment="Center" />
+
+            </Menu>
             
-       
-        
+        </StackPanel>
+        <Frame Margin="150,0,0,0" Name="SettingsFrame" NavigationUIVisibility="Hidden"/>
+
     </Grid>
 </Page>

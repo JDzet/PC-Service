@@ -1,0 +1,126 @@
+﻿<Window x:Class="PC_Service.AddUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PC_Service"
+        mc:Ignorable="d"
+        Title="AddUser" Height="550" Width="800">
+    <Grid Background="Gray">
+        <StackPanel>
+            <TextBlock Text="Пользователь"
+                   FontSize="30"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="20,20,0,30"/>
+
+            <StackPanel  Orientation="Horizontal" Height="200" VerticalAlignment="Top"
+                         Margin="0,0,0,10">
+                <StackPanel Width="270">
+                    <TextBlock Text="Имя Фамилия"
+                           FontSize="20"
+                           Margin="20,0,0,13"
+                           HorizontalAlignment="Right"/>
+                    <TextBlock Text="Email"
+                           FontSize="20" 
+                           Margin="0,0,0,13"
+                           HorizontalAlignment="Right"/>
+                    <TextBlock Text="Телефон"
+                           FontSize="20" 
+                           Margin="0,0,0,13"
+                           HorizontalAlignment="Right"/>
+                    <TextBlock Text="Примечание"
+                           FontSize="20" 
+                           Margin="0,0,0,13"
+                           HorizontalAlignment="Right"/>
+
+                </StackPanel>
+                <StackPanel>
+                    <TextBox Margin="20,0,0,5" FontSize="20" Width="460" Name="tbName"
+                             HorizontalAlignment="Left"
+                             Text="{Binding UserName}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             Background="#9E9E9E"/>
+                    <TextBox Margin="20,0,0,5" FontSize="20" Width="460"
+                             Name="tbPhone"
+                             HorizontalAlignment="Left"
+                             Text="{Binding Email}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             Background="#9E9E9E"
+                                 />
+                    <TextBox Margin="20,0,0,8" FontSize="20" Width="460"
+                             HorizontalAlignment="Left"
+                             Text="{Binding PhoneNumber}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             Name="tbAdress"
+                             Background="#9E9E9E"/>
+                    <TextBox Margin="20,0,0,8" FontSize="20" Width="460"
+                             Height="70"
+                             HorizontalAlignment="Left"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             TextWrapping="Wrap"
+                             Text="{Binding Note}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             Name="tbNote"
+                             Background="#9E9E9E"/>
+                </StackPanel>
+            </StackPanel>
+            <Separator Height="5" Background="Black" Margin="40,0,40,0">
+            </Separator>
+            
+            <StackPanel  Orientation="Horizontal" Height="130" VerticalAlignment="Top"
+                         Margin="0,10,0,0">
+                <StackPanel Width="270">
+                    <TextBlock Text="Логин"
+                           FontSize="20"
+                           Margin="20,0,0,13"
+                           HorizontalAlignment="Right"/>
+                    <TextBlock Text="Пароль"
+                           FontSize="20" 
+                           Margin="0,0,0,13"
+                           HorizontalAlignment="Right"/>
+                    <TextBlock Text="Роль"
+                           FontSize="20" 
+                           Margin="0,0,0,11"
+                           HorizontalAlignment="Right"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox Margin="20,0,0,5" FontSize="20" Width="460" Name="TbLogin"
+                             HorizontalAlignment="Left"
+                             Text="{Binding Login}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             Background="#9E9E9E"/>
+                    <TextBox Margin="20,0,0,5" FontSize="20" Width="460"
+                             Name="TbPassword"
+                             HorizontalAlignment="Left"
+                             Text="{Binding Password}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             Background="#9E9E9E"
+                                 />
+                    <ComboBox Margin="20,0,0,5"
+                              FontSize="20" 
+                              Width="460"
+                              HorizontalAlignment="Left"
+                              SelectedItem="{Binding Role}"
+                              DisplayMemberPath="RoleName"
+                              Name="CbRole"
+                              Background="#9E9E9E"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,10,0,0"
+                        HorizontalAlignment="Right">
+                <Button Width="180"
+                        Height="45"
+                        Background="Gainsboro"
+                        HorizontalAlignment="Left"
+                        Margin="0,0,50,0" Cursor="Hand"
+                        Content="Сохранить"
+                        FontSize="16" 
+                        Name="DataBaseUserAdd" Click="DataBaseUserAdd_Click">
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

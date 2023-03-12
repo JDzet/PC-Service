@@ -25,7 +25,12 @@ namespace PC_Service
     /// </summary>
     public partial class AuthorizationWindow : Window
     {
-        Entities entities = new Entities();
+        EntitiesMain entities = new EntitiesMain();
+        MainMenu mainMenu = new MainMenu();
+
+        public User userAutho { get; set; }
+
+
         public AuthorizationWindow()
         {
             InitializeComponent();
@@ -36,15 +41,15 @@ namespace PC_Service
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
-            var user = entities.User.FirstOrDefault(X => X.Login == TextBoxLogin.Text && X.Password == TextBoxPasswrod.Text);
+            userAutho = entities.User.FirstOrDefault(X => X.Login == TextBoxLogin.Text && X.Password == TextBoxPasswrod.Text);
 
-            if (user != null) 
+            if (userAutho != null) 
             {
-                MessageBox.Show("Добро пожаловать");
-                MainMenu mainMenu = new MainMenu();
+                MessageBox.Show($"Добро пожаловать {userAutho.UserName}");
                 mainMenu.Show();
+                mainMenu.worker = userAutho;
                 this.Close();
             }
             else 

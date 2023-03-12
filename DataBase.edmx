@@ -335,7 +335,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EntitiesMain" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BrandDevice" EntityType="Self.BrandDevice" />
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="DeviceType" EntityType="Self.DeviceType" />
@@ -373,7 +373,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="EntitiesMain">
           <EntitySetMapping Name="BrandDevice">
             <EntityTypeMapping TypeName="Model.BrandDevice">
               <MappingFragment StoreEntitySet="BrandDevice">
