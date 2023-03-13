@@ -8,10 +8,10 @@
         Title="Авторизация PC-Service" Height="400" Width="700"
         ResizeMode="NoResize"
         WindowStyle="ToolWindow"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" Loaded="Window_Loaded"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" Loaded="Window_Loaded" Icon="/resources/logo.ico"
         >
     <Window.Background>
-        <ImageBrush ImageSource="/resources/BackGround.jpg"/>
+        <ImageBrush ImageSource="/resources/Fon.png"/>
     </Window.Background>
 
 

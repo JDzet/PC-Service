@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
-        Title="AddOrder" Height="1000" Width="800">
+        Title="Заказ" Height="600" Width="800">
     <Grid Background="Gray">
 
         <TextBlock Text="Новый заказ"
@@ -80,6 +80,10 @@
                            FontSize="20"
                            Margin="20,0,0,10"
                            HorizontalAlignment="Right"/>
+                        <TextBlock Text="Мастер"
+                           FontSize="20"
+                           Margin="20,0,0,10"
+                           HorizontalAlignment="Right"/>
                     </StackPanel>
                     <StackPanel>
                         <ComboBox Margin="20,0,0,8" FontSize="15" Width="460"
@@ -119,6 +123,13 @@
                                    Name="tbEquipment"
                                   Background="#9E9E9E"
                                  HorizontalAlignment="Left"/>
+                        <ComboBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                  Background="#9E9E9E"
+                                  SelectedItem="{Binding User}"
+                                 HorizontalAlignment="Left"
+                                  Name="cbMaster"
+                                  DisplayMemberPath="UserName"
+                                  ItemStringFormat="String"/>
                     </StackPanel>
                 </StackPanel>
                 <TextBlock Text="Дополнительная информация" Foreground="Wheat" FontSize="25" Margin="120,30,0,20"/>

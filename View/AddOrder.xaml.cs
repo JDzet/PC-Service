@@ -31,6 +31,7 @@ namespace PC_Service.View
             DataContext = new_order;
             cbDevice.ItemsSource = entities.DeviceType.ToList();
             cbBrand.ItemsSource = entities.BrandDevice.ToList();
+            cbMaster.ItemsSource = entities.User.Where(x => x.Role.RoleId == 1).ToList();
            
         }
 
