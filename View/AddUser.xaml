@@ -61,7 +61,7 @@
                              VerticalScrollBarVisibility="Auto"
                              TextWrapping="Wrap"
                              Text="{Binding Note}"
-                             Style="{StaticResource MaterialDesignTextBox}"
+                              Style="{StaticResource MaterialDesignTextBox}"
                              Name="tbNote"
                              Background="#9E9E9E"/>
                 </StackPanel>

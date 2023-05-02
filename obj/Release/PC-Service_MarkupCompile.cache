@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Release\
 PC_Service
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\App.xaml
 8511741537
 2-867671577

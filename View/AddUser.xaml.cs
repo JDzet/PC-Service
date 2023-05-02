@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,38 +20,51 @@ namespace PC_Service
     /// </summary>
     public partial class AddUser : Window
     {
-        public User new_user = new User();
-        EntitiesMain entities = new EntitiesMain();
+        private readonly EntitiesMain _entities;
+        private readonly User _user;
 
-        public AddUser(User selectedUser)
+        public AddUser(User user, EntitiesMain entities)
         {
             InitializeComponent();
-            if(selectedUser != null)
-                new_user = selectedUser;
+            _entities = entities;
+            _user = user ?? new User();
+            DataContext = _user;
+            CbRole.ItemsSource = _entities.Role.ToList();
 
 
-            DataContext = new_user;
-            CbRole.ItemsSource = entities.Role.ToList();
-         
-   
+
+
         }
 
         private void DataBaseUserAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (new_user.UserId == 0)
-                entities.User.Add(new_user);
-
-            try
+            if (_user.UserId == 0)
             {
-                entities.SaveChanges();
+               
+                _entities.User.Add(_user);
+                _entities.SaveChanges();
                 MessageBox.Show("Данные сохранены");
                 this.Close();
-                
             }
-            catch(Exception ex)
+            else 
             {
-                MessageBox.Show(ex.Message.ToString());
+                try // если идет редактирование пользователя, а не добавление 
+                {
+
+                    _entities.Entry(_user).State = EntityState.Modified;
+                    _entities.SaveChanges();
+                    MessageBox.Show("Данные сохранены");
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
+                
+            
+
+           
 
         }
     }

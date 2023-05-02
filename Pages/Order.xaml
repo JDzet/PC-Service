@@ -57,7 +57,7 @@
                     <DataGridTextColumn Header="Поломка" Binding="{Binding Malfunction}"/>
                     <DataGridTextColumn Header="Клиент" Binding="{Binding Client1.ClientName}"/>
                     <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
-                  
+
 
                 </DataGrid.Columns>
                 </DataGrid>

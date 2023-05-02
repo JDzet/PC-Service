@@ -21,8 +21,7 @@ namespace PC_Service
     /// Логика взаимодействия для RoleAndUser.xaml
     /// </summary>
     public partial class RoleAndUser : Page
-    {
-        EntitiesMain entities = new EntitiesMain();
+    { EntitiesMain entities = new EntitiesMain();
         public RoleAndUser()
         {
             InitializeComponent();
@@ -31,27 +30,19 @@ namespace PC_Service
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            AddUser addUser = new AddUser((sender as Button).DataContext as User);
+            AddUser addUser = new AddUser((sender as Button).DataContext as User, entities);
             addUser.ShowDialog();
 
-
-            try
-            {
-                entities.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                
-            }
 
 
             DataGridUser.ItemsSource = null;
             DataGridUser.ItemsSource = entities.User.ToList();
         }
+       
 
         private void ButtonAddUser_Click(object sender, RoutedEventArgs e)
         {
-            AddUser addUser = new AddUser(null);
+            AddUser addUser = new AddUser(null, entities);
             addUser.ShowDialog();
             DataGridUser.ItemsSource = null;
             DataGridUser.ItemsSource = entities.User.ToList();
