@@ -58,7 +58,7 @@ namespace PC_Service
                 }
                 else
                 {
-                    MessageBox.Show("Пароль неверный");
+                    MessageBox.Show("Пароль или логин неверный");
                 }
 
             }
@@ -88,7 +88,12 @@ namespace PC_Service
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Environment.Exit(0);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

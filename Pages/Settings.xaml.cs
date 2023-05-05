@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PC_Service.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,11 @@ namespace PC_Service
         private void User_Click(object sender, RoutedEventArgs e)
         {
           SettingsFrame.Content = new RoleAndUser();
+        }
+
+        private void GeneralSettings_Clik(object sender, RoutedEventArgs e)
+        {
+            SettingsFrame.Content = new GeneralSettings();
         }
     }
 }

@@ -30,9 +30,9 @@
                 </Menu.ItemsPanel>
 
                 <MenuItem Name ="Order" Header="Заказы" HorizontalContentAlignment="Center" Click="Order_Click" />
-                <MenuItem Header="Кассы" HorizontalContentAlignment="Center" />
-                <MenuItem Header="Магазин" HorizontalContentAlignment="Center" />
+                <MenuItem Header="Задачи" HorizontalContentAlignment="Center" />
                 <MenuItem Header="Склад" HorizontalContentAlignment="Center" />
+                <MenuItem Header="Финансы" HorizontalContentAlignment="Center" />
                 <MenuItem Header="Клиенты" HorizontalContentAlignment="Center"/>
                 <MenuItem Name ="Doc"  Header="Документация" HorizontalContentAlignment="Center" Click="Doc_Click"/>
                 <MenuItem Name ="Settings" Header="Настройки" HorizontalContentAlignment="Center" Click="MenuItem_Settings"/>

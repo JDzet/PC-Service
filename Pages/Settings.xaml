@@ -28,10 +28,11 @@
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
 
+                <MenuItem Name = "General" Header="Общие" HorizontalContentAlignment="Center" Click="GeneralSettings_Clik" />
                 <MenuItem Name ="User" Header="Сотрудники" HorizontalContentAlignment="Center" Click="User_Click" Height="48" VerticalAlignment="Top"  />
                 <MenuItem Header="Статусы" HorizontalContentAlignment="Center" />
                 <MenuItem Header="Мастерские" HorizontalContentAlignment="Center" />
-                <MenuItem Header="Общие" HorizontalContentAlignment="Center" />
+                
 
             </Menu>
             

@@ -102,3 +102,5 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\PC-Service.csproj.CoreCom
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\PC-Service.csproj.CopyComplete
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\PC-Service.exe
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\PC-Service.pdb
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\GeneralSettings.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\GeneralSettings.baml

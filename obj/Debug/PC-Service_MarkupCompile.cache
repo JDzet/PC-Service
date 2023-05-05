@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\
+C:\Users\jaros\source\repos\JDzet\PC-Service\obj\Debug\
 PC_Service
 none
 false
 DEBUG;TRACE
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\App.xaml
-8511741537
+C:\Users\jaros\source\repos\JDzet\PC-Service\App.xaml
+9-2014102434
 2-867671577
-21-469001244
-28-496309557
-View\AddUser.xaml;Pages\Order.xaml;Pages\Settings.xaml;Pages\RoleAndUser.xaml;View\AddOrder.xaml;View\AuthorizationWindow.xaml;Theme\TextBoxStyle.xaml;View\MainMenu.xaml;
+22193935199
+28623931851
+Pages\GeneralSettings.xaml;View\AddUser.xaml;Pages\Order.xaml;Pages\Settings.xaml;Pages\RoleAndUser.xaml;View\AddOrder.xaml;View\AuthorizationWindow.xaml;Theme\TextBoxStyle.xaml;View\MainMenu.xaml;
 
 True
 
