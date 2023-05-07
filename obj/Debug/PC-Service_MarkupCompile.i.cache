@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\App.xaml
-9-2014102434
+121621382546
 2-867671577
-232115713320
+26-1965903372
 28-496309557
-Pages\GeneralSettings.xaml;View\AddUser.xaml;Pages\Order.xaml;Pages\Settings.xaml;Pages\RoleAndUser.xaml;View\AddOrder.xaml;View\AuthorizationWindow.xaml;Theme\TextBoxStyle.xaml;View\MainMenu.xaml;
+Pages\GeneralSettings.xaml;Pages\StatusPag.xaml;Pages\WarehouseMenu.xaml;Pages\WorkshopLokal.xaml;View\AddUser.xaml;Pages\Order.xaml;Pages\Settings.xaml;Pages\RoleAndUser.xaml;View\AddOrder.xaml;View\AuthorizationWindow.xaml;Theme\TextBoxStyle.xaml;View\MainMenu.xaml;
 
 True
 

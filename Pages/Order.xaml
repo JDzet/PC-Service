@@ -40,34 +40,34 @@
                              Background="#9E9E9E" Foreground="White"/>
                 </Grid>
             </StackPanel>
+        </StackPanel>
+        <Grid VerticalAlignment="Stretch" Margin="20,160,20,30">
 
-            <DataGrid x:Name="DataGrid" Margin="20,40,20,0"
-                      Height="{Binding ActualHeight,ElementName=MainGrid}" Background="#9E9E9E"
-                        Padding="0,0,0,195"
-                          
-                      FontSize="14" FontWeight="Bold"
-                          
+            <DataGrid x:Name="DataGrid"  
+                      Background="#9E9E9E"    
+                      FontSize="14" FontWeight="Bold"    
                       AutoGenerateColumns="False" IsReadOnly="True">
-                    
-                    <DataGrid.Columns>
+                <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderID}"/>
-                    <DataGridTextColumn Header="Статус" Binding="{Binding Status.StatusName}"/>
-                    <DataGridTextColumn Header="Крайний срок" Binding="{Binding Deadline, Mode=TwoWay, StringFormat=dd:MM:yyyy}"/>
-                    <DataGridTextColumn Header= "Мастер" Binding="{Binding User.UserName}"/>
-                    <DataGridTextColumn Header="Тип устройтва" Binding="{Binding DeviceType1.NameDeviceType}"/>
-                    <DataGridTextColumn Header="Производитель" Binding="{Binding BrandDevice1.BrandName}"/>
-                    <DataGridTextColumn Header="Модель" Binding="{Binding ModelDevice}"/>
-                    <DataGridTextColumn Header="Поломка" Binding="{Binding Malfunction}"/>
-                    <DataGridTextColumn Header="Клиент" Binding="{Binding Client1.ClientName}"/>
-                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
+                        <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderID}"/>
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Status.StatusName}"/>
+                        <DataGridTextColumn Header="Крайний срок" Binding="{Binding Deadline, Mode=TwoWay, StringFormat=dd:MM:yyyy}"/>
+                        <DataGridTextColumn Header= "Мастер" Binding="{Binding User.UserName}"/>
+                        <DataGridTextColumn Header="Тип устройтва" Binding="{Binding DeviceType1.NameDeviceType}"/>
+                        <DataGridTextColumn Header="Производитель" Binding="{Binding BrandDevice1.BrandName}"/>
+                        <DataGridTextColumn Header="Модель" Binding="{Binding ModelDevice}"/>
+                        <DataGridTextColumn Header="Поломка" Binding="{Binding Malfunction}"/>
+                        <DataGridTextColumn Header="Клиент" Binding="{Binding Client1.ClientName}"/>
+                        <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
 
 
-                </DataGrid.Columns>
+                    </DataGrid.Columns>
                 </DataGrid>
+            </Grid>
+           
             
            
-        </StackPanel>
+       
         
         
     </Grid>

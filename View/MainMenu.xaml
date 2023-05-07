@@ -31,7 +31,7 @@
 
                 <MenuItem Name ="Order" Header="Заказы" HorizontalContentAlignment="Center" Click="Order_Click" />
                 <MenuItem Header="Задачи" HorizontalContentAlignment="Center" />
-                <MenuItem Header="Склад" HorizontalContentAlignment="Center" />
+                <MenuItem Name ="ItemWarehouseMenu" Header="Склад" HorizontalContentAlignment="Center" Click="ItemWarehouseMenu_Click" />
                 <MenuItem Header="Финансы" HorizontalContentAlignment="Center" />
                 <MenuItem Header="Клиенты" HorizontalContentAlignment="Center"/>
                 <MenuItem Name ="Doc"  Header="Документация" HorizontalContentAlignment="Center" Click="Doc_Click"/>

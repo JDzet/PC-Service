@@ -104,3 +104,9 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\PC-Service.exe
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\PC-Service.pdb
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\GeneralSettings.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\GeneralSettings.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\StatusPag.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\StatusPag.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\WorkshopLokal.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\WorkshopLokal.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\WarehouseMenu.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\WarehouseMenu.baml

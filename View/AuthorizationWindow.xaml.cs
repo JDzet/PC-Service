@@ -91,9 +91,6 @@ namespace PC_Service
             Environment.Exit(0);
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Environment.Exit(0);
-        }
+    
     }
 }

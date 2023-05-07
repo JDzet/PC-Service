@@ -28,10 +28,10 @@
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
 
-                <MenuItem Name = "General" Header="Общие" HorizontalContentAlignment="Center" Click="GeneralSettings_Clik" />
-                <MenuItem Name ="User" Header="Сотрудники" HorizontalContentAlignment="Center" Click="User_Click" Height="48" VerticalAlignment="Top"  />
-                <MenuItem Header="Статусы" HorizontalContentAlignment="Center" />
-                <MenuItem Header="Мастерские" HorizontalContentAlignment="Center" />
+                <MenuItem Name = "ItemGeneral" Header="Общие" HorizontalContentAlignment="Center" Click="ItemGeneralSettings_Clik" Height="48" VerticalAlignment="Top" />
+                <MenuItem Name ="ItemUser" Header="Сотрудники" HorizontalContentAlignment="Center" Click="ItemUser_Click" Height="48" VerticalAlignment="Top"  />
+                <MenuItem Name ="ItemStatus"  Header="Статусы" HorizontalContentAlignment="Center" Click="ItemStatus_Click" />
+                <MenuItem Name ="ItemWorkShop" Header="Мастерские" HorizontalContentAlignment="Center" Click="ItemWorkShop_Click" />
                 
 
             </Menu>

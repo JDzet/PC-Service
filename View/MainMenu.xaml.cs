@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PC_Service.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,6 +50,11 @@ namespace PC_Service.View
         private void Order_Click(object sender, RoutedEventArgs e)
         {
          MainFrame.Content = new Order();
+        }
+
+        private void ItemWarehouseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new WarehouseMenu();
         }
     }
 }

@@ -134,6 +134,15 @@
     <Compile Include="Pages\GeneralSettings.xaml.cs">
       <DependentUpon>GeneralSettings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\StatusPag.xaml.cs">
+      <DependentUpon>StatusPag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WarehouseMenu.xaml.cs">
+      <DependentUpon>WarehouseMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WorkshopLokal.xaml.cs">
+      <DependentUpon>WorkshopLokal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -162,6 +171,18 @@
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\GeneralSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StatusPag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WarehouseMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WorkshopLokal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
