@@ -24,6 +24,8 @@ namespace PC_Service
         public string ClientName { get; set; }
         public string PhoneNumber { get; set; }
         public string ClientAddress { get; set; }
+        public string ClientEmail { get; set; }
+        public string Note { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }

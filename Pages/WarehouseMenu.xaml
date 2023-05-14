@@ -27,7 +27,7 @@
                      Background="Gainsboro"
                      HorizontalAlignment="Left"
                      Margin="20,0,0,0" Cursor="Hand">
-                <TextBlock Text="+ Добавить склад"
+                <TextBlock Text="Настройки скалада" 
                      FontSize="16"/>
             </Button>
 
@@ -50,9 +50,16 @@
                       AutoGenerateColumns="False" IsReadOnly="True">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Назваени" />
-                    <DataGridTextColumn Header="Тип"/>
-                    <DataGridTextColumn Header="Адрес"/>
+                    <DataGridTextColumn Header="Артикула" />
+                    <DataGridTextColumn Header="Название"/>
+                    <DataGridTextColumn Header="Изображение"/>
+                    <DataGridTextColumn Header="Количество"/>
+                    <DataGridTextColumn Header="Цена за еденицу"/>
+                    <DataGridTextColumn Header="Сумма"/>
+                    <DataGridTextColumn Header="Дата поставка"/>
+                    <DataGridTextColumn Header="Поставщик"/>
+                    <DataGridTextColumn Header="Примичание"/>
+
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

@@ -13,8 +13,10 @@
     </Key>
     <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ClientName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ClientEmail" Type="nvarchar(max)" />
     <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="ClientAddress" Type="nvarchar(max)" />
+    <Property Name="Note" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="DeviceType">
     <Key>

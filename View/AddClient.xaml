@@ -1,0 +1,102 @@
+﻿<Window x:Class="PC_Service.View.AddClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PC_Service.View"
+        mc:Ignorable="d"
+        Title="AddClient" Height="450" Width="800">
+    <Grid  Background="Gray">
+        <StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Клиент"
+                   FontSize="30"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="20,20,0,10"/>
+                <Border Grid.Row="1" Height="1" Background="Gray" Margin="0,0,0,20">
+                    <Border.Effect>
+                        <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" />
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+            
+            <StackPanel  Orientation="Horizontal" Height="250" VerticalAlignment="Top"
+                         Margin="0,0,0,10">
+                <StackPanel Width="270">
+                    <TextBlock Text="Имя клиента"
+                           FontSize="20"
+                           Margin="20,0,0,14"
+                           HorizontalAlignment="Right"/>
+                    <TextBlock Text="Email"
+                           FontSize="20" 
+                           Margin="0,0,0,14"
+                           HorizontalAlignment="Right"/>
+                    <TextBlock Text="Телефон"
+                           FontSize="20" 
+                           Margin="0,0,0,14"
+                           HorizontalAlignment="Right"/>
+                    <TextBlock Text="Адресс"
+                           FontSize="20" 
+                           Margin="0,0,0,14"
+                           HorizontalAlignment="Right"/>
+                    <TextBlock Text="Примечание"
+                           FontSize="20" 
+                           HorizontalAlignment="Right"/>
+
+                </StackPanel>
+                
+                <StackPanel>
+                    <TextBox Margin="20,0,0,5" FontSize="20" Width="460" Name="tbName"
+                             HorizontalAlignment="Left"
+                             Text="{Binding ClientName}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             Background="#9E9E9E"/>
+                    <TextBox Margin="20,0,0,5" FontSize="20" Width="460"
+                             Name="tbPhone"
+                             HorizontalAlignment="Left"
+                             Text="{Binding ClientEmail}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             Background="#9E9E9E"
+                                 />
+                    <TextBox Margin="20,0,0,5" FontSize="20" Width="460"
+                             HorizontalAlignment="Left"
+                             Text="{Binding PhoneNumber}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             Name="tbAdress"
+                             Background="#9E9E9E"/>
+                    <TextBox Margin="20,0,0,8" FontSize="20" Width="460" Name="tbNae"
+                             HorizontalAlignment="Left"
+                             Text="{Binding ClientAddress}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             Background="#9E9E9E"/>
+                    <TextBox Margin="20,0,0,8" FontSize="20" Width="460"
+                             Height="70"
+                             HorizontalAlignment="Left"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             TextWrapping="Wrap"
+                             Text="{Binding Note}"
+                              Style="{StaticResource MaterialDesignTextBox}"
+                             Name="tbNote"
+                             Background="#9E9E9E"/>
+                </StackPanel>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,10,0,0"
+                        HorizontalAlignment="Right">
+                <Button Width="180"
+                        Height="45"
+                        Background="Gainsboro"
+                        HorizontalAlignment="Left"
+                        Margin="0,0,50,0" Cursor="Hand"
+                        Content="Сохранить"
+                        FontSize="16" 
+                        Name="DataBaseClientAdd" Click="DataBaseClientAdd_Click">
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

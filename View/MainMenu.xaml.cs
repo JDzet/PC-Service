@@ -56,5 +56,10 @@ namespace PC_Service.View
         {
             MainFrame.Content = new WarehouseMenu();
         }
+
+        private void ItemClient_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new ClientPage();
+        }
     }
 }

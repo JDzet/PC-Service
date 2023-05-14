@@ -23,13 +23,6 @@
                 </StackPanel>
             
 
-
-
-
-
-
-
-
             <StackPanel  Orientation="Horizontal" Height="200" VerticalAlignment="Top"
                          Margin="0,0,0,10">
                 <StackPanel Width="270">
@@ -62,8 +55,7 @@
                              HorizontalAlignment="Left"
                              Text="{Binding Email}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             Background="#9E9E9E"
-                                 />
+                             Background="#9E9E9E"/>
                     <TextBox Margin="20,0,0,8" FontSize="20" Width="460"
                              HorizontalAlignment="Left"
                              Text="{Binding PhoneNumber}"
@@ -82,7 +74,7 @@
                              Background="#9E9E9E"/>
                 </StackPanel>
             </StackPanel>
-            <Separator Height="5" Background="Black" Margin="40,0,40,0">
+            <Separator Height="1" Background="Black" Margin="40,0,40,0">
             </Separator>
             
             <StackPanel  Orientation="Horizontal" Height="130" VerticalAlignment="Top"

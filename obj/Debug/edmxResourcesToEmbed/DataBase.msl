@@ -12,6 +12,8 @@
     <EntitySetMapping Name="Client">
       <EntityTypeMapping TypeName="Model.Client">
         <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ClientEmail" ColumnName="ClientEmail" />
           <ScalarProperty Name="ClientId" ColumnName="ClientId" />
           <ScalarProperty Name="ClientName" ColumnName="ClientName" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />

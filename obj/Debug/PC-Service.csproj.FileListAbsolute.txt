@@ -110,3 +110,9 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\WorkshopLokal.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\WorkshopLokal.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\WarehouseMenu.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\WarehouseMenu.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\ClientPage.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Finance.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\ClientPage.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Finance.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\AddClient.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\AddClient.baml
