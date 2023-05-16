@@ -78,5 +78,51 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="Model.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductPhoto" ColumnName="ProductPhoto" />
+          <ScalarProperty Name="ProductArticle" ColumnName="ProductArticle" />
+          <ScalarProperty Name="ProductCod" ColumnName="ProductCod" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductRemnants">
+      <EntityTypeMapping TypeName="Model.ProductRemnants">
+        <MappingFragment StoreEntitySet="ProductRemnants">
+          <ScalarProperty Name="RemnantsQuantity" ColumnName="RemnantsQuantity" />
+          <ScalarProperty Name="RemnantsProduct" ColumnName="RemnantsProduct" />
+          <ScalarProperty Name="RemnantsRegist" ColumnName="RemnantsRegist" />
+          <ScalarProperty Name="RemnantsID" ColumnName="RemnantsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistrationProduct">
+      <EntityTypeMapping TypeName="Model.RegistrationProduct">
+        <MappingFragment StoreEntitySet="RegistrationProduct">
+          <ScalarProperty Name="RegAmount" ColumnName="RegAmount" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="RegProduct" ColumnName="RegProduct" />
+          <ScalarProperty Name="RegWarehouse" ColumnName="RegWarehouse" />
+          <ScalarProperty Name="RegClient" ColumnName="RegClient" />
+          <ScalarProperty Name="RegUser" ColumnName="RegUser" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouse">
+      <EntityTypeMapping TypeName="Model.Warehouse">
+        <MappingFragment StoreEntitySet="Warehouse">
+          <ScalarProperty Name="WarehouseAddress" ColumnName="WarehouseAddress" />
+          <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
+          <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -1,0 +1,35 @@
+﻿<Page x:Class="PC_Service.Pages.Warehouse.WarehouseRemains"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PC_Service.Pages.Warehouse"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1250"
+      Title="WarehouseRemains">
+
+    <Grid Background = "Gray" Name="MainGrid">
+        <Grid VerticalAlignment="Stretch" Margin="20,50,20,70">
+            <DataGrid x:Name="DataGrid"  
+                      Background="#9E9E9E"    
+                      FontSize="14" FontWeight="Bold"    
+                      AutoGenerateColumns="False" IsReadOnly="True">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Артикула" Binding="{Binding Product.ProductArticle}"/>
+                    <DataGridTextColumn Header="Название"/>
+                    <DataGridTextColumn Header="Изображение"/>
+                    <DataGridTextColumn Header="Количество"/>
+                    <DataGridTextColumn Header="Цена за еденицу"/>
+                    <DataGridTextColumn Header="Сумма"/>
+                    <DataGridTextColumn Header="Примичание"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <TextBlock Text="Всего - 0" FontSize="15" Margin="20,20,0,30"
+                   VerticalAlignment="Bottom"
+                   />
+    </Grid>
+</Page>

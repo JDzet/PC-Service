@@ -19,6 +19,7 @@
     <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Client" FromRole="Client" ToRole="Orders" />
     <Property Name="ClientEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_RegistrationProduct_Client" FromRole="Client" ToRole="RegistrationProduct" />
   </EntityType>
   <EntityType Name="DeviceType">
     <Key>
@@ -81,6 +82,7 @@
     <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_User" FromRole="User" ToRole="Orders" />
     <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_RegistrationProduct_User" FromRole="User" ToRole="RegistrationProduct" />
   </EntityType>
   <Association Name="FK_Orders_BrandDevice">
     <End Role="BrandDevice" Type="Self.BrandDevice" Multiplicity="1" />
@@ -186,5 +188,157 @@
       <End Role="Role" EntitySet="Role" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
+    <EntitySet Name="Product" EntityType="Model.Product" />
+    <EntitySet Name="ProductRemnants" EntityType="Model.ProductRemnants" />
+    <EntitySet Name="RegistrationProduct" EntityType="Model.RegistrationProduct" />
+    <EntitySet Name="Warehouse" EntityType="Model.Warehouse" />
+    <AssociationSet Name="FK_RegistrationProduct_Client" Association="Model.FK_RegistrationProduct_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRemnants_Product" Association="Model.FK_ProductRemnants_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductRemnants" EntitySet="ProductRemnants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistrationProduct_Product" Association="Model.FK_RegistrationProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRemnants_RegistrationProduct" Association="Model.FK_ProductRemnants_RegistrationProduct">
+      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
+      <End Role="ProductRemnants" EntitySet="ProductRemnants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistrationProduct_User" Association="Model.FK_RegistrationProduct_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistrationProduct_Warehouse" Association="Model.FK_RegistrationProduct_Warehouse">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductArticle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProductRemnants" Relationship="Model.FK_ProductRemnants_Product" FromRole="Product" ToRole="ProductRemnants" />
+    <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_RegistrationProduct_Product" FromRole="Product" ToRole="RegistrationProduct" />
+  </EntityType>
+  <EntityType Name="ProductRemnants">
+    <Key>
+      <PropertyRef Name="RemnantsID" />
+    </Key>
+    <Property Name="RemnantsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RemnantsRegist" Type="Int32" Nullable="false" />
+    <Property Name="RemnantsProduct" Type="Int32" Nullable="false" />
+    <Property Name="RemnantsQuantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Model.FK_ProductRemnants_Product" FromRole="ProductRemnants" ToRole="Product" />
+    <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_ProductRemnants_RegistrationProduct" FromRole="ProductRemnants" ToRole="RegistrationProduct" />
+  </EntityType>
+  <EntityType Name="RegistrationProduct">
+    <Key>
+      <PropertyRef Name="RegistrationID" />
+    </Key>
+    <Property Name="RegistrationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegUser" Type="Int32" Nullable="false" />
+    <Property Name="RegClient" Type="Int32" Nullable="false" />
+    <Property Name="RegWarehouse" Type="Int32" Nullable="false" />
+    <Property Name="RegProduct" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegAmount" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <NavigationProperty Name="Client" Relationship="Model.FK_RegistrationProduct_Client" FromRole="RegistrationProduct" ToRole="Client" />
+    <NavigationProperty Name="Product" Relationship="Model.FK_RegistrationProduct_Product" FromRole="RegistrationProduct" ToRole="Product" />
+    <NavigationProperty Name="ProductRemnants" Relationship="Model.FK_ProductRemnants_RegistrationProduct" FromRole="RegistrationProduct" ToRole="ProductRemnants" />
+    <NavigationProperty Name="User" Relationship="Model.FK_RegistrationProduct_User" FromRole="RegistrationProduct" ToRole="User" />
+    <NavigationProperty Name="Warehouse" Relationship="Model.FK_RegistrationProduct_Warehouse" FromRole="RegistrationProduct" ToRole="Warehouse" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="WarehouseID" />
+    </Key>
+    <Property Name="WarehouseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WarehouseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WarehouseAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_RegistrationProduct_Warehouse" FromRole="Warehouse" ToRole="RegistrationProduct" />
+  </EntityType>
+  <Association Name="FK_RegistrationProduct_Client">
+    <End Type="Model.Client" Role="Client" Multiplicity="1" />
+    <End Type="Model.RegistrationProduct" Role="RegistrationProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="RegistrationProduct">
+        <PropertyRef Name="RegClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductRemnants_Product">
+    <End Type="Model.Product" Role="Product" Multiplicity="1" />
+    <End Type="Model.ProductRemnants" Role="ProductRemnants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductRemnants">
+        <PropertyRef Name="RemnantsProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistrationProduct_Product">
+    <End Type="Model.Product" Role="Product" Multiplicity="1" />
+    <End Type="Model.RegistrationProduct" Role="RegistrationProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="RegistrationProduct">
+        <PropertyRef Name="RegProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductRemnants_RegistrationProduct">
+    <End Type="Model.RegistrationProduct" Role="RegistrationProduct" Multiplicity="1" />
+    <End Type="Model.ProductRemnants" Role="ProductRemnants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistrationProduct">
+        <PropertyRef Name="RegistrationID" />
+      </Principal>
+      <Dependent Role="ProductRemnants">
+        <PropertyRef Name="RemnantsRegist" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistrationProduct_User">
+    <End Type="Model.User" Role="User" Multiplicity="1" />
+    <End Type="Model.RegistrationProduct" Role="RegistrationProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="RegistrationProduct">
+        <PropertyRef Name="RegUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistrationProduct_Warehouse">
+    <End Type="Model.Warehouse" Role="Warehouse" Multiplicity="1" />
+    <End Type="Model.RegistrationProduct" Role="RegistrationProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="WarehouseID" />
+      </Principal>
+      <Dependent Role="RegistrationProduct">
+        <PropertyRef Name="RegWarehouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

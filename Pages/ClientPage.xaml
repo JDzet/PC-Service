@@ -40,11 +40,12 @@
         </StackPanel>
 
         <Grid VerticalAlignment="Stretch" Margin="20,160,20,30">
-
             <DataGrid x:Name="DataGridClient"  
-                      Background="#9E9E9E"    
+                      Background="#9E9E9E"  
+                      GridLinesVisibility="All"
                       FontSize="14" FontWeight="Bold"    
                       AutoGenerateColumns="False" IsReadOnly="True">
+                
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ClientId}"/>
                     <DataGridTextColumn Header="Имя/компания" Binding="{Binding ClientName}"/>

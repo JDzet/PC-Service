@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="022fc730ce864c0392420992cdfa6ea2" Name="Diagram1">
+      <Diagram DiagramId="022fc730ce864c0392420992cdfa6ea2" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="Model.BrandDevice" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.DeviceType" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="8.125" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DeviceType" Width="1.5" PointX="3.25" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Orders" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Status" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Status" Width="1.5" PointX="3.125" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_Orders_BrandDevice" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Orders_Client" ManuallyRouted="false" />
@@ -18,6 +18,16 @@
         <AssociationConnector Association="Model.FK_Orders_Status" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Orders_User" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_User_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="10.125" PointY="7" />
+        <EntityTypeShape EntityType="Model.ProductRemnants" Width="1.5" PointX="14.625" PointY="3" />
+        <EntityTypeShape EntityType="Model.RegistrationProduct" Width="1.5" PointX="12.375" PointY="2.25" />
+        <EntityTypeShape EntityType="Model.Warehouse" Width="1.5" PointX="10.125" PointY="0.5" />
+        <AssociationConnector Association="Model.FK_RegistrationProduct_Client" />
+        <AssociationConnector Association="Model.FK_ProductRemnants_Product" />
+        <AssociationConnector Association="Model.FK_RegistrationProduct_Product" />
+        <AssociationConnector Association="Model.FK_ProductRemnants_RegistrationProduct" />
+        <AssociationConnector Association="Model.FK_RegistrationProduct_User" />
+        <AssociationConnector Association="Model.FK_RegistrationProduct_Warehouse" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

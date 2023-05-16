@@ -43,6 +43,40 @@
     <Property Name="AppearanceDevice" Type="nvarchar(max)" />
     <Property Name="Equipment" Type="nvarchar(max)" />
   </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductDescription" Type="nvarchar(max)" />
+    <Property Name="ProductCod" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductArticle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductPhoto" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProductRemnants">
+    <Key>
+      <PropertyRef Name="RemnantsID" />
+    </Key>
+    <Property Name="RemnantsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RemnantsRegist" Type="int" Nullable="false" />
+    <Property Name="RemnantsProduct" Type="int" Nullable="false" />
+    <Property Name="RemnantsQuantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RegistrationProduct">
+    <Key>
+      <PropertyRef Name="RegistrationID" />
+    </Key>
+    <Property Name="RegistrationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="InvoiceNumber" Type="nvarchar(max)" />
+    <Property Name="RegUser" Type="int" Nullable="false" />
+    <Property Name="RegClient" Type="int" Nullable="false" />
+    <Property Name="RegWarehouse" Type="int" Nullable="false" />
+    <Property Name="RegProduct" Type="int" Nullable="false" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="RegAmount" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+  </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="RoleId" />
@@ -69,6 +103,14 @@
     <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="UserRole" Type="int" Nullable="false" />
     <Property Name="Note" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="WarehouseID" />
+    </Key>
+    <Property Name="WarehouseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WarehouseName" Type="nvarchar(max)" />
+    <Property Name="WarehouseAddress" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="FK_Orders_BrandDevice">
     <End Role="BrandDevice" Type="Self.BrandDevice" Multiplicity="1" />
@@ -130,6 +172,78 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProductRemnants_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductRemnants" Type="Self.ProductRemnants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductRemnants">
+        <PropertyRef Name="RemnantsProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductRemnants_RegistrationProduct">
+    <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="1" />
+    <End Role="ProductRemnants" Type="Self.ProductRemnants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistrationProduct">
+        <PropertyRef Name="RegistrationID" />
+      </Principal>
+      <Dependent Role="ProductRemnants">
+        <PropertyRef Name="RemnantsRegist" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistrationProduct_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="RegistrationProduct">
+        <PropertyRef Name="RegClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistrationProduct_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="RegistrationProduct">
+        <PropertyRef Name="RegProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistrationProduct_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="RegistrationProduct">
+        <PropertyRef Name="RegUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegistrationProduct_Warehouse">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+    <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="WarehouseID" />
+      </Principal>
+      <Dependent Role="RegistrationProduct">
+        <PropertyRef Name="RegWarehouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_User_Role">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -147,9 +261,13 @@
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DeviceType" EntityType="Self.DeviceType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductRemnants" EntityType="Self.ProductRemnants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegistrationProduct" EntityType="Self.RegistrationProduct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Orders_BrandDevice" Association="Self.FK_Orders_BrandDevice">
       <End Role="BrandDevice" EntitySet="BrandDevice" />
       <End Role="Orders" EntitySet="Orders" />
@@ -169,6 +287,30 @@
     <AssociationSet Name="FK_Orders_User" Association="Self.FK_Orders_User">
       <End Role="User" EntitySet="User" />
       <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRemnants_Product" Association="Self.FK_ProductRemnants_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductRemnants" EntitySet="ProductRemnants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRemnants_RegistrationProduct" Association="Self.FK_ProductRemnants_RegistrationProduct">
+      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
+      <End Role="ProductRemnants" EntitySet="ProductRemnants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistrationProduct_Client" Association="Self.FK_RegistrationProduct_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistrationProduct_Product" Association="Self.FK_RegistrationProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistrationProduct_User" Association="Self.FK_RegistrationProduct_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegistrationProduct_Warehouse" Association="Self.FK_RegistrationProduct_Warehouse">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
       <End Role="Role" EntitySet="Role" />
