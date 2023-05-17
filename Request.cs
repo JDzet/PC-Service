@@ -27,6 +27,12 @@ namespace PC_Service
             return remnants;
         }
 
+        public List<RegistrationProduct> registrationProduct() 
+        {
+            List<RegistrationProduct> remnants = entities.RegistrationProduct.ToList();
+            return remnants;
+        }
+
         public void WorkClient(Client client) 
         {
             client = client ?? new Client();

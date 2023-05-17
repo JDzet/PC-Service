@@ -93,6 +93,9 @@
     <EntitySetMapping Name="ProductRemnants">
       <EntityTypeMapping TypeName="Model.ProductRemnants">
         <MappingFragment StoreEntitySet="ProductRemnants">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="RemnantsAmount" ColumnName="RemnantsAmount" />
+          <ScalarProperty Name="RemnantsPForOne" ColumnName="RemnantsPForOne" />
           <ScalarProperty Name="RemnantsQuantity" ColumnName="RemnantsQuantity" />
           <ScalarProperty Name="RemnantsProduct" ColumnName="RemnantsProduct" />
           <ScalarProperty Name="RemnantsRegist" ColumnName="RemnantsRegist" />
@@ -105,7 +108,6 @@
         <MappingFragment StoreEntitySet="RegistrationProduct">
           <ScalarProperty Name="RegAmount" ColumnName="RegAmount" />
           <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="RegProduct" ColumnName="RegProduct" />
           <ScalarProperty Name="RegWarehouse" ColumnName="RegWarehouse" />
           <ScalarProperty Name="RegClient" ColumnName="RegClient" />
           <ScalarProperty Name="RegUser" ColumnName="RegUser" />

@@ -18,6 +18,9 @@ namespace PC_Service
         public int RemnantsRegist { get; set; }
         public int RemnantsProduct { get; set; }
         public int RemnantsQuantity { get; set; }
+        public decimal RemnantsPForOne { get; set; }
+        public decimal RemnantsAmount { get; set; }
+        public string Note { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual RegistrationProduct RegistrationProduct { get; set; }

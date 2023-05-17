@@ -32,10 +32,10 @@ namespace PC_Service.Pages
             switch (MainTabControl.SelectedIndex)
             {
                 case 0:
-                    WarehouseFrame.Content = new WarehouseRemains();
+                    RemainsFrame.Content = new WarehouseRemains();
                     break;
                 case 1:
-                    WarehouseFrame.Content = new WarehouseRegistration();
+                    RegistrationFrame.Content = new WarehouseRegistration();
                     break;
                 case 2:
                     break;
@@ -44,5 +44,7 @@ namespace PC_Service.Pages
             }
 
         }
+
+
     }
 }

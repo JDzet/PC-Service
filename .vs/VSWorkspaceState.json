@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Pages",
+    "\\Pages\\Warehouse"
   ],
-  "SelectedNode": "\\PC-Service.sln",
+  "SelectedNode": "\\Pages\\Warehouse\\WarehouseRegistration.xaml",
   "PreviewInSolutionExplorer": false
 }

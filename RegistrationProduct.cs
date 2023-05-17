@@ -26,12 +26,10 @@ namespace PC_Service
         public int RegUser { get; set; }
         public int RegClient { get; set; }
         public int RegWarehouse { get; set; }
-        public int RegProduct { get; set; }
         public string Note { get; set; }
         public decimal RegAmount { get; set; }
     
         public virtual Client Client { get; set; }
-        public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductRemnants> ProductRemnants { get; set; }
         public virtual User User { get; set; }

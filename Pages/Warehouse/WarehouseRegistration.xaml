@@ -9,6 +9,20 @@
       Title="WarehouseRegistration">
 
     <Grid Background = "Gray" Name="MainGrid">
+
+        <Button 
+            Name="ButtonAddRegistration"
+                Width="180"
+                Height="45"
+                Background="Gainsboro"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Margin="20,40,0,0" Cursor="Hand" Click="ButtonAddRegistration_Click">
+            
+        <TextBlock Text="+ Оприходвание"
+                               FontSize="16"/>
+        </Button>
+
         <Grid VerticalAlignment="Stretch" Margin="20,100,20,70">
             <DataGrid x:Name="DataGrid"  
                       Background="#9E9E9E"    
@@ -16,14 +30,14 @@
                       AutoGenerateColumns="False" IsReadOnly="True">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Оприходование №" Binding="{Binding }"/>
-                    <DataGridTextColumn Header="Дата и время"/>
-                    <DataGridTextColumn Header="Наклданая номер"/>
-                    <DataGridTextColumn Header="Сотрудник"/>
-                    <DataGridTextColumn Header="Поставщик"/>
-                    <DataGridTextColumn Header="Склад"/>
-                    <DataGridTextColumn Header="Комментарий"/>
-                    <DataGridTextColumn Header="Сумма"/>
+                    <DataGridTextColumn Header="Оприходование №" Binding="{Binding RegistrationID}"/>
+                    <DataGridTextColumn Header="Дата и время" Binding="{Binding Date}"/>
+                    <DataGridTextColumn Header="Наклданая номер" Binding="{Binding InvoiceNumber}"/>
+                    <DataGridTextColumn Header="Сотрудник" Binding="{Binding User.UserName}"/>
+                    <DataGridTextColumn Header="Поставщик" Binding="{Binding Client.ClientName}"/>
+                    <DataGridTextColumn Header="Склад" Binding="{Binding Warehouse.WarehouseName}"/>
+                    <DataGridTextColumn Header="Комментарий" Binding="{Binding Note}"/>
+                    <DataGridTextColumn Header="Сумма" Binding="{Binding RegAmount}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

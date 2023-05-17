@@ -200,10 +200,6 @@
       <End Role="Product" EntitySet="Product" />
       <End Role="ProductRemnants" EntitySet="ProductRemnants" />
     </AssociationSet>
-    <AssociationSet Name="FK_RegistrationProduct_Product" Association="Model.FK_RegistrationProduct_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
-    </AssociationSet>
     <AssociationSet Name="FK_ProductRemnants_RegistrationProduct" Association="Model.FK_ProductRemnants_RegistrationProduct">
       <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
       <End Role="ProductRemnants" EntitySet="ProductRemnants" />
@@ -228,7 +224,6 @@
     <Property Name="ProductArticle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ProductPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ProductRemnants" Relationship="Model.FK_ProductRemnants_Product" FromRole="Product" ToRole="ProductRemnants" />
-    <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_RegistrationProduct_Product" FromRole="Product" ToRole="RegistrationProduct" />
   </EntityType>
   <EntityType Name="ProductRemnants">
     <Key>
@@ -240,6 +235,9 @@
     <Property Name="RemnantsQuantity" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Product" Relationship="Model.FK_ProductRemnants_Product" FromRole="ProductRemnants" ToRole="Product" />
     <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_ProductRemnants_RegistrationProduct" FromRole="ProductRemnants" ToRole="RegistrationProduct" />
+    <Property Name="RemnantsPForOne" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="RemnantsAmount" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="RegistrationProduct">
     <Key>
@@ -251,11 +249,9 @@
     <Property Name="RegUser" Type="Int32" Nullable="false" />
     <Property Name="RegClient" Type="Int32" Nullable="false" />
     <Property Name="RegWarehouse" Type="Int32" Nullable="false" />
-    <Property Name="RegProduct" Type="Int32" Nullable="false" />
     <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="RegAmount" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
     <NavigationProperty Name="Client" Relationship="Model.FK_RegistrationProduct_Client" FromRole="RegistrationProduct" ToRole="Client" />
-    <NavigationProperty Name="Product" Relationship="Model.FK_RegistrationProduct_Product" FromRole="RegistrationProduct" ToRole="Product" />
     <NavigationProperty Name="ProductRemnants" Relationship="Model.FK_ProductRemnants_RegistrationProduct" FromRole="RegistrationProduct" ToRole="ProductRemnants" />
     <NavigationProperty Name="User" Relationship="Model.FK_RegistrationProduct_User" FromRole="RegistrationProduct" ToRole="User" />
     <NavigationProperty Name="Warehouse" Relationship="Model.FK_RegistrationProduct_Warehouse" FromRole="RegistrationProduct" ToRole="Warehouse" />
@@ -290,18 +286,6 @@
       </Principal>
       <Dependent Role="ProductRemnants">
         <PropertyRef Name="RemnantsProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_RegistrationProduct_Product">
-    <End Type="Model.Product" Role="Product" Multiplicity="1" />
-    <End Type="Model.RegistrationProduct" Role="RegistrationProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="RegistrationProduct">
-        <PropertyRef Name="RegProduct" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

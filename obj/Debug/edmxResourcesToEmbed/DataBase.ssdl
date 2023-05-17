@@ -62,6 +62,9 @@
     <Property Name="RemnantsRegist" Type="int" Nullable="false" />
     <Property Name="RemnantsProduct" Type="int" Nullable="false" />
     <Property Name="RemnantsQuantity" Type="int" Nullable="false" />
+    <Property Name="RemnantsPForOne" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="RemnantsAmount" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Note" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="RegistrationProduct">
     <Key>
@@ -73,7 +76,6 @@
     <Property Name="RegUser" Type="int" Nullable="false" />
     <Property Name="RegClient" Type="int" Nullable="false" />
     <Property Name="RegWarehouse" Type="int" Nullable="false" />
-    <Property Name="RegProduct" Type="int" Nullable="false" />
     <Property Name="Note" Type="nvarchar(max)" />
     <Property Name="RegAmount" Type="decimal" Precision="15" Scale="2" Nullable="false" />
   </EntityType>
@@ -208,18 +210,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_RegistrationProduct_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="RegistrationProduct">
-        <PropertyRef Name="RegProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_RegistrationProduct_User">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="*" />
@@ -298,10 +288,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_RegistrationProduct_Client" Association="Self.FK_RegistrationProduct_Client">
       <End Role="Client" EntitySet="Client" />
-      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RegistrationProduct_Product" Association="Self.FK_RegistrationProduct_Product">
-      <End Role="Product" EntitySet="Product" />
       <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_RegistrationProduct_User" Association="Self.FK_RegistrationProduct_User">

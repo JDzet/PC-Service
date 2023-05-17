@@ -21,32 +21,32 @@
                     <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" />
                 </Border.Effect>
             </Border>
-
-            <TabControl  Width="576" HorizontalAlignment="Left" Margin="20,0,0,0"
-                         BorderThickness="0"
-                         SelectionChanged="TabControl_SelectionChanged"
-                         Name="MainTabControl">
+        </StackPanel>
+        
+        <Grid Margin="0,90,0,0">
+            <TabControl Background="Transparent"
+            Style="{x:Null}"
+            Name="MainTabControl"
+            SelectionChanged ="TabControl_SelectionChanged">
+                
                 <TabItem Header="Остатки" >
-                    <!-- Содержимое первого раздела -->
+                    <Frame Margin="0,0,0,0" Name="RemainsFrame" NavigationUIVisibility="Hidden"/>
                 </TabItem>
                 <TabItem Header="Оприходования">
-                    <!-- Содержимое второго раздела -->
+                    <Frame Margin="0,0,0,0" Name="RegistrationFrame" NavigationUIVisibility="Hidden"/>
                 </TabItem>
                 <TabItem Header="Списание">
-                    <!-- Содержимое третьего раздела -->
+                    
                 </TabItem>
                 <TabItem Header="Инвенторизация">
-                    <!-- Содержимое третьего раздела -->
+                   
                 </TabItem>
             </TabControl>
-            <Border Grid.Row="5" Height="1" Background="Black" Margin="20,0,20,20">
-
-            </Border>
-        </StackPanel>
+        </Grid>
 
 
-        <Frame Margin="0,150,0,0" Name="WarehouseFrame" NavigationUIVisibility="Hidden"/>
 
-        
+
+
     </Grid>
 </Page>

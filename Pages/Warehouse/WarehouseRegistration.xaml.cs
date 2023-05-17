@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PC_Service.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace PC_Service.Pages.Warehouse
     /// </summary>
     public partial class WarehouseRegistration : Page
     {
+        Request request = new Request();
+        RegistrationAdd regAdd;
         public WarehouseRegistration()
         {
             InitializeComponent();
+            DataGrid.ItemsSource = request.registrationProduct();
+        }
+
+        private void ButtonAddRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            regAdd = new RegistrationAdd();
+            regAdd.ShowDialog();
         }
     }
 }
