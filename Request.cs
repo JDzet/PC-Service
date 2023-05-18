@@ -13,7 +13,7 @@ namespace PC_Service
 
     public class Request
     {
-        EntitiesMain entities = new EntitiesMain();
+        public EntitiesMain entities = new EntitiesMain();
 
         public List<Client> GridClient() 
         {

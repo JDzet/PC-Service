@@ -122,3 +122,5 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\bin\Debug\de\MahApps.Metro.resource
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WindowCountProducReg.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WindowCountProducReg.baml

@@ -27,6 +27,9 @@
         <AssociationConnector Association="Model.FK_ProductRemnants_RegistrationProduct" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_User" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_Warehouse" />
+        <EntityTypeShape EntityType="Model.ProductHistoryRegitration" Width="1.5" PointX="13" PointY="6.875" />
+        <AssociationConnector Association="Model.FK_ProductHistoryRegitration_Product" />
+        <AssociationConnector Association="Model.FK_ProductHistoryRegitration_RegistrationProduct" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

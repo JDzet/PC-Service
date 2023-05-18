@@ -95,7 +95,7 @@
                     <StackPanel>
                         <ComboBox Margin="20,0,0,8" FontSize="15" Width="460"
                                   Background="#9E9E9E"
-                                  SelectedItem="{Binding DeviceType1}"
+                                 
                                  HorizontalAlignment="Left"
                                   Name="cbDevice"
                                   DisplayMemberPath="NameDeviceType"

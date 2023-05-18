@@ -126,5 +126,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ProductHistoryRegitration">
+      <EntityTypeMapping TypeName="Model.ProductHistoryRegitration">
+        <MappingFragment StoreEntitySet="ProductHistoryRegitration">
+          <ScalarProperty Name="RegProduct" ColumnName="RegProduct" />
+          <ScalarProperty Name="ProductHAmount" ColumnName="ProductHAmount" />
+          <ScalarProperty Name="ProductHPForOne" ColumnName="ProductHPForOne" />
+          <ScalarProperty Name="ProductHQuantity" ColumnName="ProductHQuantity" />
+          <ScalarProperty Name="ProductHName" ColumnName="ProductHName" />
+          <ScalarProperty Name="ProductHistory" ColumnName="ProductHistory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

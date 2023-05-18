@@ -152,10 +152,16 @@
     <Compile Include="Pages\Warehouse\WarehouseRemains.xaml.cs">
       <DependentUpon>WarehouseRemains.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Warehouse\WindowCountProducReg.xaml.cs">
+      <DependentUpon>WindowCountProducReg.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\WorkshopLokal.xaml.cs">
       <DependentUpon>WorkshopLokal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductHistoryRegitration.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductRemnants.cs">
@@ -226,6 +232,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Warehouse\WarehouseRemains.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Warehouse\WindowCountProducReg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

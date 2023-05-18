@@ -1,5 +1,9 @@
-﻿using System;
+﻿using PC_Service.Pages.Warehouse;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +23,131 @@ namespace PC_Service.View
     /// </summary>
     public partial class RegistrationAdd : Window
     {
+        Request req = new Request();
+        WindowCountProducReg CountReg;
+        private ObservableCollection<TestData> testDatas;
+
         public RegistrationAdd()
         {
             InitializeComponent();
+            EntitiesMain entities = req.entities;
+            testDatas = new ObservableCollection<TestData>();
+
+            CBClient.ItemsSource = entities.Client.ToList();
+            CBProduct.ItemsSource = entities.Product.ToList();   
+            Warehouse.ItemsSource = entities.Warehouse.ToList();
+
+            DataGridProduct.ItemsSource = testDatas;
+
+           // Com.ItemsSource = entities.Warehouse.ToList();
         }
 
         private void DatePicker_GotStylusCapture(object sender, StylusEventArgs e)
         {
+            
+        }
+
+        private void BRegistration_Click(object sender, RoutedEventArgs e)
+        {
+
 
         }
+
+        
+
+        private void CBProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Product prod = CBProduct.SelectedItem as Product;
+            testDatas.Add(new TestData() { Column1 = prod.ProductName.ToString(), Column2 = "", Column3 = "", Column4 = "" });
+
+            
+
+
+
+        }
+        public class TestData : INotifyPropertyChanged
+        {
+            private string column1;
+            private string column2;
+            private string column3;
+            private string column4;
+
+            public string Column1
+            {
+                get { return column1; }
+                set
+                {
+                    if (column1 != value)
+                    {
+                        column1 = value;
+                        OnPropertyChanged(nameof(Column1));
+                    }
+                }
+            }
+
+            public string Column2
+            {
+                get { return column2; }
+                set
+                {
+                    if (column2 != value)
+                    {
+                        column2 = value;
+                        OnPropertyChanged(nameof(Column2));
+                        CalculateTotal();
+                    }
+                }
+            }
+
+            public string Column3
+            {
+                get { return column3; }
+                set
+                {
+                    if (column3 != value)
+                    {
+                        column3 = value;
+                        OnPropertyChanged(nameof(Column3));
+                        CalculateTotal();
+                    }
+                }
+            }
+
+            public string Column4
+            {
+                get { return column4; }
+                set
+                {
+                    if (column4 != value)
+                    {
+                        column4 = value;
+                        OnPropertyChanged(nameof(Column4));
+                    }
+                }
+            }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            protected virtual void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+
+            private void CalculateTotal()
+            {
+                if (double.TryParse(Column2, out double price) && double.TryParse(Column3, out double quantity))
+                {
+                    Column4 = (price * quantity).ToString();
+                }
+                else
+                {
+                    Column4 = "";
+                }
+            }
+
+        }
+
+
+
     }
 }
