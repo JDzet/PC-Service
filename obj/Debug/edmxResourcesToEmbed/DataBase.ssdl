@@ -54,15 +54,15 @@
     <Property Name="ProductArticle" Type="nvarchar" MaxLength="50" />
     <Property Name="ProductPhoto" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="ProductHistoryRegitration">
+  <EntityType Name="ProductHistoryRegistration">
     <Key>
-      <PropertyRef Name="ProductHistory" />
+      <PropertyRef Name="ProductHistoryID" />
     </Key>
-    <Property Name="ProductHistory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductHistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductHName" Type="int" Nullable="false" />
-    <Property Name="ProductHQuantity" Type="int" Nullable="false" />
     <Property Name="ProductHPForOne" Type="decimal" Precision="15" Scale="2" Nullable="false" />
     <Property Name="ProductHAmount" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="ProductHQuantity" Type="int" Nullable="false" />
     <Property Name="RegProduct" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProductRemnants">
@@ -70,7 +70,6 @@
       <PropertyRef Name="RemnantsID" />
     </Key>
     <Property Name="RemnantsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="RemnantsRegist" Type="int" Nullable="false" />
     <Property Name="RemnantsProduct" Type="int" Nullable="false" />
     <Property Name="RemnantsQuantity" Type="int" Nullable="false" />
     <Property Name="RemnantsPForOne" Type="decimal" Precision="15" Scale="2" Nullable="false" />
@@ -187,24 +186,24 @@
   </Association>
   <Association Name="FK_ProductHistoryRegitration_Product">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="ProductHistoryRegitration" Type="Self.ProductHistoryRegitration" Multiplicity="*" />
+    <End Role="ProductHistoryRegistration" Type="Self.ProductHistoryRegistration" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="ProductID" />
       </Principal>
-      <Dependent Role="ProductHistoryRegitration">
+      <Dependent Role="ProductHistoryRegistration">
         <PropertyRef Name="ProductHName" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ProductHistoryRegitration_RegistrationProduct">
     <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="1" />
-    <End Role="ProductHistoryRegitration" Type="Self.ProductHistoryRegitration" Multiplicity="*" />
+    <End Role="ProductHistoryRegistration" Type="Self.ProductHistoryRegistration" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RegistrationProduct">
         <PropertyRef Name="RegistrationID" />
       </Principal>
-      <Dependent Role="ProductHistoryRegitration">
+      <Dependent Role="ProductHistoryRegistration">
         <PropertyRef Name="RegProduct" />
       </Dependent>
     </ReferentialConstraint>
@@ -218,18 +217,6 @@
       </Principal>
       <Dependent Role="ProductRemnants">
         <PropertyRef Name="RemnantsProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductRemnants_RegistrationProduct">
-    <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="1" />
-    <End Role="ProductRemnants" Type="Self.ProductRemnants" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RegistrationProduct">
-        <PropertyRef Name="RegistrationID" />
-      </Principal>
-      <Dependent Role="ProductRemnants">
-        <PropertyRef Name="RemnantsRegist" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -287,7 +274,7 @@
     <EntitySet Name="DeviceType" EntityType="Self.DeviceType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ProductHistoryRegitration" EntityType="Self.ProductHistoryRegitration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductHistoryRegistration" EntityType="Self.ProductHistoryRegistration" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductRemnants" EntityType="Self.ProductRemnants" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RegistrationProduct" EntityType="Self.RegistrationProduct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
@@ -316,18 +303,14 @@
     </AssociationSet>
     <AssociationSet Name="FK_ProductHistoryRegitration_Product" Association="Self.FK_ProductHistoryRegitration_Product">
       <End Role="Product" EntitySet="Product" />
-      <End Role="ProductHistoryRegitration" EntitySet="ProductHistoryRegitration" />
+      <End Role="ProductHistoryRegistration" EntitySet="ProductHistoryRegistration" />
     </AssociationSet>
     <AssociationSet Name="FK_ProductHistoryRegitration_RegistrationProduct" Association="Self.FK_ProductHistoryRegitration_RegistrationProduct">
       <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
-      <End Role="ProductHistoryRegitration" EntitySet="ProductHistoryRegitration" />
+      <End Role="ProductHistoryRegistration" EntitySet="ProductHistoryRegistration" />
     </AssociationSet>
     <AssociationSet Name="FK_ProductRemnants_Product" Association="Self.FK_ProductRemnants_Product">
       <End Role="Product" EntitySet="Product" />
-      <End Role="ProductRemnants" EntitySet="ProductRemnants" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductRemnants_RegistrationProduct" Association="Self.FK_ProductRemnants_RegistrationProduct">
-      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
       <End Role="ProductRemnants" EntitySet="ProductRemnants" />
     </AssociationSet>
     <AssociationSet Name="FK_RegistrationProduct_Client" Association="Self.FK_RegistrationProduct_Client">

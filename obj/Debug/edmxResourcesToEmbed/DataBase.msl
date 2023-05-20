@@ -98,7 +98,6 @@
           <ScalarProperty Name="RemnantsPForOne" ColumnName="RemnantsPForOne" />
           <ScalarProperty Name="RemnantsQuantity" ColumnName="RemnantsQuantity" />
           <ScalarProperty Name="RemnantsProduct" ColumnName="RemnantsProduct" />
-          <ScalarProperty Name="RemnantsRegist" ColumnName="RemnantsRegist" />
           <ScalarProperty Name="RemnantsID" ColumnName="RemnantsID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -126,15 +125,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ProductHistoryRegitration">
-      <EntityTypeMapping TypeName="Model.ProductHistoryRegitration">
-        <MappingFragment StoreEntitySet="ProductHistoryRegitration">
+    <EntitySetMapping Name="ProductHistoryRegistration">
+      <EntityTypeMapping TypeName="Model.ProductHistoryRegistration">
+        <MappingFragment StoreEntitySet="ProductHistoryRegistration">
           <ScalarProperty Name="RegProduct" ColumnName="RegProduct" />
+          <ScalarProperty Name="ProductHQuantity" ColumnName="ProductHQuantity" />
           <ScalarProperty Name="ProductHAmount" ColumnName="ProductHAmount" />
           <ScalarProperty Name="ProductHPForOne" ColumnName="ProductHPForOne" />
-          <ScalarProperty Name="ProductHQuantity" ColumnName="ProductHQuantity" />
           <ScalarProperty Name="ProductHName" ColumnName="ProductHName" />
-          <ScalarProperty Name="ProductHistory" ColumnName="ProductHistory" />
+          <ScalarProperty Name="ProductHistoryID" ColumnName="ProductHistoryID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -15,7 +15,7 @@ namespace PC_Service
     {
         public EntitiesMain entities = new EntitiesMain();
 
-        public List<Client> GridClient() 
+        public List<Client> GridClient()
         {
             List<Client> Client = entities.Client.ToList();
             return Client;
@@ -27,13 +27,13 @@ namespace PC_Service
             return remnants;
         }
 
-        public List<RegistrationProduct> registrationProduct() 
+        public List<RegistrationProduct> registrationProduct()
         {
             List<RegistrationProduct> remnants = entities.RegistrationProduct.ToList();
             return remnants;
         }
 
-        public void WorkClient(Client client) 
+        public void WorkClient(Client client)
         {
             client = client ?? new Client();
 
@@ -55,9 +55,9 @@ namespace PC_Service
                         }
                     }
                 }
-              
+
             }
-            else 
+            else
             {
                 try // если идет редактирование пользователя, а не добавление 
                 {
@@ -70,8 +70,13 @@ namespace PC_Service
                     MessageBox.Show(ex.Message.ToString());
                 }
             }
+        }
 
-
+        public void WorkClient(RegistrationProduct product) 
+        {
+            entities.RegistrationProduct.Add(product);
+            entities.SaveChanges();
+            MessageBox.Show("Оприходование пройдено");
 
         }
 

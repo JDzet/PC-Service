@@ -21,8 +21,8 @@ namespace PC_Service.View
     /// </summary>
     public partial class MainMenu : Window
     {
-
-        public User worker { get; set; }
+        UserAuthorization UserAuthorization = new UserAuthorization();
+        
        
 
         public MainMenu()
@@ -41,7 +41,7 @@ namespace PC_Service.View
 
         private void MenuItem_Settings(object sender, RoutedEventArgs e)
         {
-            if (worker.UserId != 1)
+            if (UserAuthorization.Worker.UserId != 1)
                 MessageBox.Show("У вас нет прав для перехода к данной форме", "Внимание");
             else
                 MainFrame.Content = new Settings();

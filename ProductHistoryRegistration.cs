@@ -12,13 +12,13 @@ namespace PC_Service
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductHistoryRegitration
+    public partial class ProductHistoryRegistration
     {
-        public int ProductHistory { get; set; }
+        public int ProductHistoryID { get; set; }
         public int ProductHName { get; set; }
-        public int ProductHQuantity { get; set; }
         public decimal ProductHPForOne { get; set; }
         public decimal ProductHAmount { get; set; }
+        public int ProductHQuantity { get; set; }
         public int RegProduct { get; set; }
     
         public virtual Product Product { get; set; }

@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Pages",
-    "\\Pages\\Warehouse"
+    "\\Pages\\Warehouse",
+    "\\View"
   ],
-  "SelectedNode": "\\Pages\\Warehouse\\WarehouseRegistration.xaml",
+  "SelectedNode": "\\View\\RegistrationAdd.xaml",
   "PreviewInSolutionExplorer": false
 }

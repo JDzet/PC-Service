@@ -26,51 +26,128 @@ namespace PC_Service.View
         Request req = new Request();
         WindowCountProducReg CountReg;
         private ObservableCollection<TestData> testDatas;
+        UserAuthorization UserAuthorization = new UserAuthorization();
+        MyData data;
+        EntitiesMain entities;
 
         public RegistrationAdd()
         {
             InitializeComponent();
-            EntitiesMain entities = req.entities;
+            entities = req.entities;
             testDatas = new ObservableCollection<TestData>();
 
-            CBClient.ItemsSource = entities.Client.ToList();
-            CBProduct.ItemsSource = entities.Product.ToList();   
-            Warehouse.ItemsSource = entities.Warehouse.ToList();
+            data = new MyData();
+            data.Client = entities.Client.ToList();
+            data.Product = entities.Product.ToList();
+            data.Warehouse = entities.Warehouse.ToList();
 
+            DataContext = data;
             DataGridProduct.ItemsSource = testDatas;
 
-           // Com.ItemsSource = entities.Warehouse.ToList();
+
+
         }
+
+        public class MyData  
+        {
+            public List<Client> Client { get; set; }
+            public List<Product> Product { get; set; }
+            public List<Warehouse> Warehouse { get; set; }
+        }
+
 
         private void DatePicker_GotStylusCapture(object sender, StylusEventArgs e)
         {
+           
             
+
+
+
         }
+
+
 
         private void BRegistration_Click(object sender, RoutedEventArgs e)
         {
+            RegistrationProduct regProd = new RegistrationProduct();
+            regProd.Date = DateTime.Now;
+            regProd.InvoiceNumber = $"{TBInvoiceNumber.Text} от {DataPicekt.Text}";
+            regProd.RegUser = UserAuthorization.Worker.UserId;
+
+            Client selectClient = CBClient.SelectedItem as Client;
+            regProd.RegClient = selectClient.ClientId;
+
+            Warehouse selectWarehouse = Warehouse.SelectedItem as Warehouse;
+            regProd.RegWarehouse = selectWarehouse.WarehouseID;
+
+            regProd.Note = TBNote.Text;
+            regProd.RegAmount = TestData.amount;
+
+
+            try
+            {
+                entities.RegistrationProduct.Add(regProd);
+                entities.SaveChanges();
+                MessageBox.Show("Данные сохранены");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("НЕт");
+            }
+
+
+
+
+            foreach (TestData item in DataGridProduct.Items)
+            {
+                Product product = entities.Product.FirstOrDefault(x => x.ProductName == item.Column1);
+                RegistrationProduct registrationProductLast = entities.RegistrationProduct.OrderByDescending(x => x.RegistrationID).FirstOrDefault();
+                ProductHistoryRegistration productHistory = new ProductHistoryRegistration()
+                {
+                    ProductHName = product.ProductID, // Название товара
+                    ProductHPForOne = decimal.Parse(item.Column2), // Цена за штуку
+                    ProductHAmount = decimal.Parse(item.Column4), // Общая стоимость
+                    ProductHQuantity = int.Parse(item.Column3), // Количество
+                    RegProduct = registrationProductLast.RegistrationID                                  // Дополнительные свойства, если есть
+                };
+
+                entities.ProductHistoryRegistration.Add(productHistory);
+                entities.SaveChanges();
+
+                ProductRemnants remnants = new ProductRemnants()
+                {
+                                                 
+                };
+
+
+
+
+            }
+
+
+
+
 
 
         }
-
         
 
         private void CBProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             Product prod = CBProduct.SelectedItem as Product;
             testDatas.Add(new TestData() { Column1 = prod.ProductName.ToString(), Column2 = "", Column3 = "", Column4 = "" });
-
-            
-
-
-
         }
+
+        
         public class TestData : INotifyPropertyChanged
         {
             private string column1;
             private string column2;
             private string column3;
             private string column4;
+            public static decimal amount { get; set; }
+            
 
             public string Column1
             {
@@ -126,6 +203,8 @@ namespace PC_Service.View
                 }
             }
 
+          
+
             public event PropertyChangedEventHandler PropertyChanged;
 
             protected virtual void OnPropertyChanged(string propertyName)
@@ -133,11 +212,15 @@ namespace PC_Service.View
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
 
+            
             private void CalculateTotal()
             {
+                
                 if (double.TryParse(Column2, out double price) && double.TryParse(Column3, out double quantity))
                 {
                     Column4 = (price * quantity).ToString();
+                    amount = decimal.Parse(Column4);
+                    
                 }
                 else
                 {
@@ -147,7 +230,10 @@ namespace PC_Service.View
 
         }
 
-
-
+        private void BtDellDate_Click(object sender, RoutedEventArgs e)
+        {
+            testDatas = new ObservableCollection<TestData>();
+            DataGridProduct.ItemsSource = testDatas;
+        }
     }
 }

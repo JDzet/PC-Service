@@ -17,8 +17,7 @@ namespace PC_Service
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RegistrationProduct()
         {
-            this.ProductRemnants = new HashSet<ProductRemnants>();
-            this.ProductHistoryRegitration = new HashSet<ProductHistoryRegitration>();
+            this.ProductHistoryRegistration = new HashSet<ProductHistoryRegistration>();
         }
     
         public int RegistrationID { get; set; }
@@ -31,11 +30,9 @@ namespace PC_Service
         public decimal RegAmount { get; set; }
     
         public virtual Client Client { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductRemnants> ProductRemnants { get; set; }
         public virtual User User { get; set; }
         public virtual Warehouse Warehouse { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductHistoryRegitration> ProductHistoryRegitration { get; set; }
+        public virtual ICollection<ProductHistoryRegistration> ProductHistoryRegistration { get; set; }
     }
 }

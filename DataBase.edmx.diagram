@@ -18,19 +18,18 @@
         <AssociationConnector Association="Model.FK_Orders_Status" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Orders_User" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_User_Role" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="10.125" PointY="7" />
-        <EntityTypeShape EntityType="Model.ProductRemnants" Width="1.5" PointX="16.125" PointY="3.25" />
-        <EntityTypeShape EntityType="Model.RegistrationProduct" Width="1.5" PointX="12.375" PointY="2.25" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="9.75" PointY="7.25" />
+        <EntityTypeShape EntityType="Model.ProductRemnants" Width="2.375" PointX="16.125" PointY="3" />
+        <EntityTypeShape EntityType="Model.RegistrationProduct" Width="2.25" PointX="12.375" PointY="2.25" />
         <EntityTypeShape EntityType="Model.Warehouse" Width="1.5" PointX="10.125" PointY="0.5" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_Client" />
         <AssociationConnector Association="Model.FK_ProductRemnants_Product" />
-        <AssociationConnector Association="Model.FK_ProductRemnants_RegistrationProduct" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_User" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_Warehouse" />
-        <EntityTypeShape EntityType="Model.ProductHistoryRegitration" Width="1.5" PointX="13" PointY="6.875" />
+        <EntityTypeShape EntityType="Model.ProductHistoryRegistration" Width="1.5" PointX="13.625" PointY="7.5" />
         <AssociationConnector Association="Model.FK_ProductHistoryRegitration_Product" />
         <AssociationConnector Association="Model.FK_ProductHistoryRegitration_RegistrationProduct" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

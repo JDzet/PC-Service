@@ -161,7 +161,7 @@
     <Compile Include="Product.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductHistoryRegitration.cs">
+    <Compile Include="ProductHistoryRegistration.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductRemnants.cs">
@@ -180,6 +180,7 @@
     <Compile Include="User.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserAuthorization .cs" />
     <Compile Include="View\AddClient.xaml.cs">
       <DependentUpon>AddClient.xaml</DependentUpon>
     </Compile>

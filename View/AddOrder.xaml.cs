@@ -52,8 +52,9 @@ namespace PC_Service.View
                 entities.SaveChanges();
             }
 
-            var usernow = entities.Client.FirstOrDefault(x => x.ClientName == tbName.Text);
 
+
+            var usernow = entities.Client.FirstOrDefault(x => x.ClientName == tbName.Text);
 
             if (new_order.OrderID == 0) 
             {

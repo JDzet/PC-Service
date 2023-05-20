@@ -27,7 +27,7 @@ namespace PC_Service
     {
         EntitiesMain entities = new EntitiesMain();
         MainMenu mainMenu = new MainMenu();
-
+        UserAuthorization UserAuthorization = new UserAuthorization();
         public User userAutho { get; set; }
 
 
@@ -53,7 +53,7 @@ namespace PC_Service
                 {
                     MessageBox.Show($"Добро пожаловать {userAutho.UserName}");
                     mainMenu.Show();
-                    mainMenu.worker = userAutho;
+                    UserAuthorization.Worker = userAutho;
                     this.Close();
                 }
                 else

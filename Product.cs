@@ -18,7 +18,7 @@ namespace PC_Service
         public Product()
         {
             this.ProductRemnants = new HashSet<ProductRemnants>();
-            this.ProductHistoryRegitration = new HashSet<ProductHistoryRegitration>();
+            this.ProductHistoryRegistration = new HashSet<ProductHistoryRegistration>();
         }
     
         public int ProductID { get; set; }
@@ -31,6 +31,6 @@ namespace PC_Service
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductRemnants> ProductRemnants { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductHistoryRegitration> ProductHistoryRegitration { get; set; }
+        public virtual ICollection<ProductHistoryRegistration> ProductHistoryRegistration { get; set; }
     }
 }
