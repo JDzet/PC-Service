@@ -90,18 +90,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ProductRemnants">
-      <EntityTypeMapping TypeName="Model.ProductRemnants">
-        <MappingFragment StoreEntitySet="ProductRemnants">
-          <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="RemnantsAmount" ColumnName="RemnantsAmount" />
-          <ScalarProperty Name="RemnantsPForOne" ColumnName="RemnantsPForOne" />
-          <ScalarProperty Name="RemnantsQuantity" ColumnName="RemnantsQuantity" />
-          <ScalarProperty Name="RemnantsProduct" ColumnName="RemnantsProduct" />
-          <ScalarProperty Name="RemnantsID" ColumnName="RemnantsID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RegistrationProduct">
       <EntityTypeMapping TypeName="Model.RegistrationProduct">
         <MappingFragment StoreEntitySet="RegistrationProduct">
@@ -129,11 +117,20 @@
       <EntityTypeMapping TypeName="Model.ProductHistoryRegistration">
         <MappingFragment StoreEntitySet="ProductHistoryRegistration">
           <ScalarProperty Name="RegProduct" ColumnName="RegProduct" />
-          <ScalarProperty Name="ProductHQuantity" ColumnName="ProductHQuantity" />
           <ScalarProperty Name="ProductHAmount" ColumnName="ProductHAmount" />
+          <ScalarProperty Name="ProductHQuantity" ColumnName="ProductHQuantity" />
           <ScalarProperty Name="ProductHPForOne" ColumnName="ProductHPForOne" />
           <ScalarProperty Name="ProductHName" ColumnName="ProductHName" />
           <ScalarProperty Name="ProductHistoryID" ColumnName="ProductHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductRemnants">
+      <EntityTypeMapping TypeName="Model.ProductRemnants">
+        <MappingFragment StoreEntitySet="ProductRemnants">
+          <ScalarProperty Name="RemnantsQuantity" ColumnName="RemnantsQuantity" />
+          <ScalarProperty Name="RemnantsProduct" ColumnName="RemnantsProduct" />
+          <ScalarProperty Name="RemnantsID" ColumnName="RemnantsID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

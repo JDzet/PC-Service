@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +31,7 @@ namespace PC_Service.View
         UserAuthorization UserAuthorization = new UserAuthorization();
         MyData data;
         EntitiesMain entities;
-
+        decimal totalAmount = 0;
         public RegistrationAdd()
         {
             InitializeComponent();
@@ -69,6 +71,7 @@ namespace PC_Service.View
 
         private void BRegistration_Click(object sender, RoutedEventArgs e)
         {
+           
             RegistrationProduct regProd = new RegistrationProduct();
             regProd.Date = DateTime.Now;
             regProd.InvoiceNumber = $"{TBInvoiceNumber.Text} от {DataPicekt.Text}";
@@ -81,7 +84,7 @@ namespace PC_Service.View
             regProd.RegWarehouse = selectWarehouse.WarehouseID;
 
             regProd.Note = TBNote.Text;
-            regProd.RegAmount = TestData.amount;
+            regProd.RegAmount = totalAmount;
 
 
             try
@@ -114,11 +117,31 @@ namespace PC_Service.View
                 entities.ProductHistoryRegistration.Add(productHistory);
                 entities.SaveChanges();
 
-                ProductRemnants remnants = new ProductRemnants()
-                {
-                                                 
-                };
 
+                ProductRemnants Remprod = entities.ProductRemnants.FirstOrDefault(x => x.RemnantsProduct == product.ProductID);
+                if(Remprod != null)
+                {
+                    Remprod.RemnantsQuantity += int.Parse(item.Column3);
+
+                    entities.Entry(Remprod).State = EntityState.Modified;
+                    entities.SaveChanges();
+
+                }
+                else
+                {
+                    ProductRemnants remnants = new ProductRemnants()
+                    {
+                        RemnantsProduct = product.ProductID,
+                        RemnantsQuantity = int.Parse(item.Column3),
+
+                    };
+
+                    entities.ProductRemnants.AddOrUpdate(x => x.RemnantsProduct, remnants);
+                    entities.SaveChanges();
+                }
+                
+
+               
 
 
 
@@ -218,14 +241,17 @@ namespace PC_Service.View
                 
                 if (double.TryParse(Column2, out double price) && double.TryParse(Column3, out double quantity))
                 {
+                    amount = 0;
                     Column4 = (price * quantity).ToString();
-                    amount = decimal.Parse(Column4);
+                    amount += decimal.Parse(Column4);
                     
                 }
                 else
                 {
                     Column4 = "";
                 }
+
+
             }
 
         }
@@ -234,6 +260,20 @@ namespace PC_Service.View
         {
             testDatas = new ObservableCollection<TestData>();
             DataGridProduct.ItemsSource = testDatas;
+        }
+
+        private void DataGridProduct_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            decimal totalAmount = 0;
+            foreach (var item in testDatas)
+            {
+                if (!string.IsNullOrEmpty(item.Column4))
+                {
+                    totalAmount += decimal.Parse(item.Column4);
+                }
+            }
+
+            TblockPrice.Text = totalAmount.ToString() + " Р";
         }
     }
 }

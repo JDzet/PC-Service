@@ -92,7 +92,7 @@
                     </Grid>
                 </StackPanel>
                 <DataGrid Margin="0,20,25,0" HorizontalAlignment="Right" Width="500" Background="#9E9E9E"
-                          Name="DataGridProduct" AutoGenerateColumns="False" CanUserAddRows="False">
+                          Name="DataGridProduct" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="DataGridProduct_CellEditEnding">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Наименование" IsReadOnly="True" Binding="{Binding Column1}"/>

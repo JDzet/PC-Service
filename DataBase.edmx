@@ -66,8 +66,8 @@
           <Property Name="ProductHistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductHName" Type="int" Nullable="false" />
           <Property Name="ProductHPForOne" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="ProductHAmount" Type="decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="ProductHQuantity" Type="int" Nullable="false" />
+          <Property Name="ProductHAmount" Type="decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="RegProduct" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductRemnants">
@@ -77,9 +77,6 @@
           <Property Name="RemnantsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RemnantsProduct" Type="int" Nullable="false" />
           <Property Name="RemnantsQuantity" Type="int" Nullable="false" />
-          <Property Name="RemnantsPForOne" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="RemnantsAmount" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="Note" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="RegistrationProduct">
           <Key>
@@ -528,16 +525,11 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
           <EntitySet Name="Product" EntityType="Model.Product" />
-          <EntitySet Name="ProductRemnants" EntityType="Model.ProductRemnants" />
           <EntitySet Name="RegistrationProduct" EntityType="Model.RegistrationProduct" />
           <EntitySet Name="Warehouse" EntityType="Model.Warehouse" />
           <AssociationSet Name="FK_RegistrationProduct_Client" Association="Model.FK_RegistrationProduct_Client">
             <End Role="Client" EntitySet="Client" />
             <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductRemnants_Product" Association="Model.FK_ProductRemnants_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductRemnants" EntitySet="ProductRemnants" />
           </AssociationSet>
           <AssociationSet Name="FK_RegistrationProduct_User" Association="Model.FK_RegistrationProduct_User">
             <End Role="User" EntitySet="User" />
@@ -548,9 +540,14 @@
             <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
           </AssociationSet>
           <EntitySet Name="ProductHistoryRegistration" EntityType="Model.ProductHistoryRegistration" />
+          <EntitySet Name="ProductRemnants" EntityType="Model.ProductRemnants" />
           <AssociationSet Name="FK_ProductHistoryRegitration_Product" Association="Model.FK_ProductHistoryRegitration_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductHistoryRegistration" EntitySet="ProductHistoryRegistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductRemnants_Product" Association="Model.FK_ProductRemnants_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductRemnants" EntitySet="ProductRemnants" />
           </AssociationSet>
           <AssociationSet Name="FK_ProductHistoryRegitration_RegistrationProduct" Association="Model.FK_ProductHistoryRegitration_RegistrationProduct">
             <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
@@ -567,20 +564,8 @@
           <Property Name="ProductCod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProductArticle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProductPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ProductRemnants" Relationship="Model.FK_ProductRemnants_Product" FromRole="Product" ToRole="ProductRemnants" />
           <NavigationProperty Name="ProductHistoryRegistration" Relationship="Model.FK_ProductHistoryRegitration_Product" FromRole="Product" ToRole="ProductHistoryRegistration" />
-        </EntityType>
-        <EntityType Name="ProductRemnants">
-          <Key>
-            <PropertyRef Name="RemnantsID" />
-          </Key>
-          <Property Name="RemnantsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RemnantsProduct" Type="Int32" Nullable="false" />
-          <Property Name="RemnantsQuantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Model.FK_ProductRemnants_Product" FromRole="ProductRemnants" ToRole="Product" />
-          <Property Name="RemnantsPForOne" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="RemnantsAmount" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductRemnants" Relationship="Model.FK_ProductRemnants_Product" FromRole="Product" ToRole="ProductRemnants" />
         </EntityType>
         <EntityType Name="RegistrationProduct">
           <Key>
@@ -620,18 +605,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductRemnants_Product">
-          <End Type="Model.Product" Role="Product" Multiplicity="1" />
-          <End Type="Model.ProductRemnants" Role="ProductRemnants" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="ProductRemnants">
-              <PropertyRef Name="RemnantsProduct" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RegistrationProduct_User">
           <End Type="Model.User" Role="User" Multiplicity="1" />
           <End Type="Model.RegistrationProduct" Role="RegistrationProduct" Multiplicity="*" />
@@ -663,11 +636,20 @@
           <Property Name="ProductHistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductHName" Type="Int32" Nullable="false" />
           <Property Name="ProductHPForOne" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="ProductHAmount" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
           <Property Name="ProductHQuantity" Type="Int32" Nullable="false" />
+          <Property Name="ProductHAmount" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
           <Property Name="RegProduct" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Model.FK_ProductHistoryRegitration_Product" FromRole="ProductHistoryRegistration" ToRole="Product" />
           <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_ProductHistoryRegitration_RegistrationProduct" FromRole="ProductHistoryRegistration" ToRole="RegistrationProduct" />
+        </EntityType>
+        <EntityType Name="ProductRemnants">
+          <Key>
+            <PropertyRef Name="RemnantsID" />
+          </Key>
+          <Property Name="RemnantsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RemnantsProduct" Type="Int32" Nullable="false" />
+          <Property Name="RemnantsQuantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Model.FK_ProductRemnants_Product" FromRole="ProductRemnants" ToRole="Product" />
         </EntityType>
         <Association Name="FK_ProductHistoryRegitration_Product">
           <End Type="Model.Product" Role="Product" Multiplicity="1" />
@@ -678,6 +660,18 @@
             </Principal>
             <Dependent Role="ProductHistoryRegistration">
               <PropertyRef Name="ProductHName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductRemnants_Product">
+          <End Type="Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="Model.ProductRemnants" Role="ProductRemnants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductRemnants">
+              <PropertyRef Name="RemnantsProduct" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -788,18 +782,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ProductRemnants">
-            <EntityTypeMapping TypeName="Model.ProductRemnants">
-              <MappingFragment StoreEntitySet="ProductRemnants">
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="RemnantsAmount" ColumnName="RemnantsAmount" />
-                <ScalarProperty Name="RemnantsPForOne" ColumnName="RemnantsPForOne" />
-                <ScalarProperty Name="RemnantsQuantity" ColumnName="RemnantsQuantity" />
-                <ScalarProperty Name="RemnantsProduct" ColumnName="RemnantsProduct" />
-                <ScalarProperty Name="RemnantsID" ColumnName="RemnantsID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="RegistrationProduct">
             <EntityTypeMapping TypeName="Model.RegistrationProduct">
               <MappingFragment StoreEntitySet="RegistrationProduct">
@@ -827,11 +809,20 @@
             <EntityTypeMapping TypeName="Model.ProductHistoryRegistration">
               <MappingFragment StoreEntitySet="ProductHistoryRegistration">
                 <ScalarProperty Name="RegProduct" ColumnName="RegProduct" />
-                <ScalarProperty Name="ProductHQuantity" ColumnName="ProductHQuantity" />
                 <ScalarProperty Name="ProductHAmount" ColumnName="ProductHAmount" />
+                <ScalarProperty Name="ProductHQuantity" ColumnName="ProductHQuantity" />
                 <ScalarProperty Name="ProductHPForOne" ColumnName="ProductHPForOne" />
                 <ScalarProperty Name="ProductHName" ColumnName="ProductHName" />
                 <ScalarProperty Name="ProductHistoryID" ColumnName="ProductHistoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductRemnants">
+            <EntityTypeMapping TypeName="Model.ProductRemnants">
+              <MappingFragment StoreEntitySet="ProductRemnants">
+                <ScalarProperty Name="RemnantsQuantity" ColumnName="RemnantsQuantity" />
+                <ScalarProperty Name="RemnantsProduct" ColumnName="RemnantsProduct" />
+                <ScalarProperty Name="RemnantsID" ColumnName="RemnantsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

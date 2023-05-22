@@ -33,9 +33,9 @@ namespace PC_Service
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<ProductRemnants> ProductRemnants { get; set; }
         public virtual DbSet<RegistrationProduct> RegistrationProduct { get; set; }
         public virtual DbSet<Warehouse> Warehouse { get; set; }
         public virtual DbSet<ProductHistoryRegistration> ProductHistoryRegistration { get; set; }
+        public virtual DbSet<ProductRemnants> ProductRemnants { get; set; }
     }
 }

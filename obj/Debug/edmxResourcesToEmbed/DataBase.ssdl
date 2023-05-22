@@ -61,8 +61,8 @@
     <Property Name="ProductHistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductHName" Type="int" Nullable="false" />
     <Property Name="ProductHPForOne" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-    <Property Name="ProductHAmount" Type="decimal" Precision="15" Scale="2" Nullable="false" />
     <Property Name="ProductHQuantity" Type="int" Nullable="false" />
+    <Property Name="ProductHAmount" Type="decimal" Precision="15" Scale="2" Nullable="false" />
     <Property Name="RegProduct" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProductRemnants">
@@ -72,9 +72,6 @@
     <Property Name="RemnantsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RemnantsProduct" Type="int" Nullable="false" />
     <Property Name="RemnantsQuantity" Type="int" Nullable="false" />
-    <Property Name="RemnantsPForOne" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-    <Property Name="RemnantsAmount" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-    <Property Name="Note" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="RegistrationProduct">
     <Key>
