@@ -21,18 +21,26 @@ namespace PC_Service.Pages.Warehouse
     /// </summary>
     public partial class WarehouseRegistration : Page
     {
-        Request request = new Request();
+        
         RegistrationAdd regAdd;
         public WarehouseRegistration()
         {
             InitializeComponent();
-            DataGrid.ItemsSource = request.registrationProduct();
+            DataRegistrationProduct();
         }
 
         private void ButtonAddRegistration_Click(object sender, RoutedEventArgs e)
         {
             regAdd = new RegistrationAdd();
             regAdd.ShowDialog();
+        }
+
+        public void DataRegistrationProduct()
+        {
+            using (DataDB.entities = new EntitiesMain())
+            {
+                DataGrid.ItemsSource = DataDB.entities.RegistrationProduct.ToList();
+            }
         }
     }
 }

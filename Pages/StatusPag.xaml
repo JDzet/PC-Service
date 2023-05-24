@@ -27,7 +27,7 @@
                      Background="Gainsboro"
                      HorizontalAlignment="Left"
                      Margin="20,0,0,0" Cursor="Hand">
-                <TextBlock Text="+ Добавить заказ"
+                <TextBlock Text="+ Добавить статус"
                      FontSize="16"/>
             </Button>
 
@@ -43,12 +43,6 @@
                 </StackPanel>
             </Grid>
 
-
-
-
-
-
-
         </StackPanel>
 
         <Grid VerticalAlignment="Stretch" Margin="20,200,20,30">
@@ -58,9 +52,8 @@
                       AutoGenerateColumns="False" IsReadOnly="True">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Код" />
-                    <DataGridTextColumn Header="Наименование"/>
-                    <DataGridTextColumn Header="Комментарий"/>
+                    <DataGridTextColumn Header="Код" Binding="{Binding StatusId}"/>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding StatusName}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

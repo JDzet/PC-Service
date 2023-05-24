@@ -17,6 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PC_Service.View
 {
@@ -25,141 +26,119 @@ namespace PC_Service.View
     /// </summary>
     public partial class RegistrationAdd : Window
     {
-        Request req = new Request();
-        WindowCountProducReg CountReg;
         private ObservableCollection<TestData> testDatas;
         UserAuthorization UserAuthorization = new UserAuthorization();
         MyData data;
-        EntitiesMain entities;
         decimal totalAmount = 0;
         public RegistrationAdd()
         {
             InitializeComponent();
-            entities = req.entities;
             testDatas = new ObservableCollection<TestData>();
 
             data = new MyData();
-            data.Client = entities.Client.ToList();
-            data.Product = entities.Product.ToList();
-            data.Warehouse = entities.Warehouse.ToList();
-
-            DataContext = data;
+            DataRegistation();
             DataGridProduct.ItemsSource = testDatas;
-
-
-
         }
 
-        public class MyData  
+        public class MyData  // используется для получения данных
         {
             public List<Client> Client { get; set; }
             public List<Product> Product { get; set; }
             public List<Warehouse> Warehouse { get; set; }
         }
 
-
-        private void DatePicker_GotStylusCapture(object sender, StylusEventArgs e)
+        public void DataRegistation() //Заполнения полей и получение данных из бд
         {
-           
-            
-
-
+            using (DataDB.entities = new EntitiesMain()) 
+            {
+                data.Client = DataDB.entities.Client.ToList();
+                data.Product = DataDB.entities.Product.ToList();
+                data.Warehouse = DataDB.entities.Warehouse.ToList();
+                DataContext = data;
+            }
 
         }
 
-
-
-        private void BRegistration_Click(object sender, RoutedEventArgs e)
+        private void BRegistration_Click(object sender, RoutedEventArgs e) // обработка добавления оприходования
         {
-           
-            RegistrationProduct regProd = new RegistrationProduct();
-            regProd.Date = DateTime.Now;
-            regProd.InvoiceNumber = $"{TBInvoiceNumber.Text} от {DataPicekt.Text}";
-            regProd.RegUser = UserAuthorization.Worker.UserId;
-
-            Client selectClient = CBClient.SelectedItem as Client;
-            regProd.RegClient = selectClient.ClientId;
-
-            Warehouse selectWarehouse = Warehouse.SelectedItem as Warehouse;
-            regProd.RegWarehouse = selectWarehouse.WarehouseID;
-
-            regProd.Note = TBNote.Text;
-            regProd.RegAmount = totalAmount;
-
-
-            try
+            using (DataDB.entities = new EntitiesMain()) 
             {
-                entities.RegistrationProduct.Add(regProd);
-                entities.SaveChanges();
-                MessageBox.Show("Данные сохранены");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("НЕт");
-            }
+                RegistrationProduct regProd = new RegistrationProduct();
+                regProd.Date = DateTime.Now;
+                regProd.InvoiceNumber = $"{TBInvoiceNumber.Text} от {DataPicekt.Text}";
+                regProd.RegUser = UserAuthorization.Worker.UserId;
+
+                Client selectClient = CBClient.SelectedItem as Client;
+                regProd.RegClient = selectClient.ClientId;
+
+                Warehouse selectWarehouse = Warehouse.SelectedItem as Warehouse;
+                regProd.RegWarehouse = selectWarehouse.WarehouseID;
+
+                regProd.Note = TBNote.Text;
+                regProd.RegAmount = totalAmount;
 
 
-
-
-            foreach (TestData item in DataGridProduct.Items)
-            {
-                Product product = entities.Product.FirstOrDefault(x => x.ProductName == item.Column1);
-                RegistrationProduct registrationProductLast = entities.RegistrationProduct.OrderByDescending(x => x.RegistrationID).FirstOrDefault();
-                ProductHistoryRegistration productHistory = new ProductHistoryRegistration()
+                try
                 {
-                    ProductHName = product.ProductID, // Название товара
-                    ProductHPForOne = decimal.Parse(item.Column2), // Цена за штуку
-                    ProductHAmount = decimal.Parse(item.Column4), // Общая стоимость
-                    ProductHQuantity = int.Parse(item.Column3), // Количество
-                    RegProduct = registrationProductLast.RegistrationID                                  // Дополнительные свойства, если есть
-                };
-
-                entities.ProductHistoryRegistration.Add(productHistory);
-                entities.SaveChanges();
-
-
-                ProductRemnants Remprod = entities.ProductRemnants.FirstOrDefault(x => x.RemnantsProduct == product.ProductID);
-                if(Remprod != null)
-                {
-                    Remprod.RemnantsQuantity += int.Parse(item.Column3);
-
-                    entities.Entry(Remprod).State = EntityState.Modified;
-                    entities.SaveChanges();
-
+                    DataDB.entities.RegistrationProduct.Add(regProd);
+                    MessageBox.Show("Данные сохранены");
                 }
-                else
+                catch (Exception)
                 {
-                    ProductRemnants remnants = new ProductRemnants()
-                    {
-                        RemnantsProduct = product.ProductID,
-                        RemnantsQuantity = int.Parse(item.Column3),
+                    MessageBox.Show("нет");
+                }
+                // создание и оприходования 
 
+
+
+                foreach (TestData item in DataGridProduct.Items)  // создания и добовление товара в бд
+                {
+                    Product product = DataDB.entities.Product.FirstOrDefault(x => x.ProductName == item.Column1);
+                    RegistrationProduct registrationProductLast = DataDB.entities.RegistrationProduct.OrderByDescending(x => x.RegistrationID).FirstOrDefault();
+                    ProductHistoryRegistration productHistory = new ProductHistoryRegistration()
+                    {
+                        ProductHName = product.ProductID, // Название товара
+                        ProductHPForOne = decimal.Parse(item.Column2), // Цена за штуку
+                        ProductHAmount = decimal.Parse(item.Column4), // Общая стоимость
+                        ProductHQuantity = int.Parse(item.Column3), // Количество
+                        RegProduct = registrationProductLast.RegistrationID // Связь с определенным оприходованием
                     };
 
-                    entities.ProductRemnants.AddOrUpdate(x => x.RemnantsProduct, remnants);
-                    entities.SaveChanges();
+                    DataDB.entities.ProductHistoryRegistration.Add(productHistory);
+
+
+                    ProductRemnants Remprod = DataDB.entities.ProductRemnants.FirstOrDefault(x => x.RemnantsProduct == product.ProductID); // получение товара из таблицы остатков
+                    if (Remprod != null) // если такой товар есть, то берем и увеличиваем коллчество
+                    {
+                        Remprod.RemnantsQuantity += int.Parse(item.Column3);
+                        DataDB.entities.Entry(Remprod).State = EntityState.Modified;
+                    }
+                    else // если товара нет, то добавляем в таблицу новый
+                    {
+                        ProductRemnants remnants = new ProductRemnants()
+                        {
+                            RemnantsProduct = product.ProductID,
+                            RemnantsQuantity = int.Parse(item.Column3),
+                        };
+                        DataDB.entities.ProductRemnants.AddOrUpdate(x => x.RemnantsProduct, remnants); 
+                    }
+                    DataDB.entities.SaveChanges();
                 }
-                
-
-               
-
-
-
             }
-
-
-
-
-
-
+             
         }
         
 
-        private void CBProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CBProduct_SelectionChanged(object sender, SelectionChangedEventArgs e) // оброботчик выбора товара и занисение в таблицу 
         {
 
             Product prod = CBProduct.SelectedItem as Product;
-            testDatas.Add(new TestData() { Column1 = prod.ProductName.ToString(), Column2 = "", Column3 = "", Column4 = "" });
+            if (prod == null) 
+            { return; }
+            if (testDatas.Any(data => data.Column1 == prod.ProductName))
+                MessageBox.Show("Товар уже добавлен в таблицу");
+            else
+                testDatas.Add(new TestData() { Column1 = prod.ProductName.ToString(), Column2 = "", Column3 = "", Column4 = "" });
         }
 
         
@@ -254,9 +233,9 @@ namespace PC_Service.View
 
             }
 
-        }
+        } // Класс для работы с таблицой
 
-        private void BtDellDate_Click(object sender, RoutedEventArgs e)
+        private void BtDellDate_Click(object sender, RoutedEventArgs e) // очистка таблицы
         {
             testDatas = new ObservableCollection<TestData>();
             DataGridProduct.ItemsSource = testDatas;
@@ -274,6 +253,26 @@ namespace PC_Service.View
             }
 
             TblockPrice.Text = totalAmount.ToString() + " Р";
+        } // счёт суммы
+
+        private void CBProduct_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            using (DataDB.entities = new EntitiesMain())
+            {
+                string serchText = CBProduct.Text;
+                if (!string.IsNullOrEmpty(serchText))
+                {
+                    CBProduct.ItemsSource = DataDB.entities.Product.Where(x => x.ProductName.Contains(serchText)).ToList();
+                    CBProduct.IsDropDownOpen = true;
+                }
+                else 
+                {
+                    CBProduct.ItemsSource = DataDB.entities.Product.ToList();
+                }
+
+                
+            }
+               
         }
     }
 }

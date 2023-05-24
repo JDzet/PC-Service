@@ -36,10 +36,10 @@
                     <Frame Margin="0,0,0,0" Name="RegistrationFrame" NavigationUIVisibility="Hidden"/>
                 </TabItem>
                 <TabItem Header="Списание">
-                    
+                    <Frame Margin="0,0,0,0" Name="WriteOffFrame" NavigationUIVisibility="Hidden"/>
                 </TabItem>
-                <TabItem Header="Инвенторизация">
-                   
+                <TabItem Header="Товар">
+                    <Frame Margin="0,0,0,0" Name="ProductFrame" NavigationUIVisibility="Hidden"/>
                 </TabItem>
             </TabControl>
         </Grid>

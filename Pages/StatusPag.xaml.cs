@@ -23,6 +23,16 @@ namespace PC_Service.Pages
         public StatusPag()
         {
             InitializeComponent();
+            DataStatus();
+        }
+
+        public void DataStatus() 
+        {
+            using (DataDB.entities = new EntitiesMain()) 
+            {
+                DataGrid.ItemsSource = DataDB.entities.Status.ToList();
+            }
+
         }
     }
 }

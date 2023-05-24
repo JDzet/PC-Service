@@ -38,8 +38,10 @@ namespace PC_Service.Pages
                     RegistrationFrame.Content = new WarehouseRegistration();
                     break;
                 case 2:
+                    WriteOffFrame.Content = new WarehouseWriteOff();
                     break;
                 case 3:
+                     ProductFrame.Content = new WarehouseProduct();
                     break;
             }
 

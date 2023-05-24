@@ -46,7 +46,7 @@ namespace PC_Service
 
         private void ItemWorkShop_Click(object sender, RoutedEventArgs e)
         {
-            SettingsFrame.Content = new WorkshopLokal();
+            SettingsFrame.Content = new WarehouseLokal();
         }
     }
 }

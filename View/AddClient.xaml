@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
         Title="AddClient" Height="450" Width="800">
@@ -66,10 +67,12 @@
                              Style="{StaticResource MaterialDesignTextBox}"
                              Name="tbAdress"
                              Background="#9E9E9E"/>
-                    <TextBox Margin="20,0,0,8" FontSize="20" Width="460" Name="tbNae"
+                    <ComboBox Margin="20,0,0,8" FontSize="20" Width="460" Name="CbNaem"
+                             IsEditable="True"
+                             TextBoxBase.TextChanged="tbAdress_TextChanged"
                              HorizontalAlignment="Left"
                              Text="{Binding ClientAddress}"
-                             Style="{StaticResource MaterialDesignTextBox}"
+                             Style="{StaticResource MaterialDesignComboBox}"
                              Background="#9E9E9E"/>
                     <TextBox Margin="20,0,0,8" FontSize="20" Width="460"
                              Height="70"

@@ -20,11 +20,14 @@ namespace PC_Service.Pages.Warehouse
     /// </summary>
     public partial class WarehouseRemains : Page
     {
-        Request request = new Request();
+        EntitiesMain entities = new EntitiesMain();
         public WarehouseRemains()
         {
             InitializeComponent();
-            DataGrid.ItemsSource = request.productRemnants();
+            DataGrid.ItemsSource = entities.ProductRemnants.ToList();
+           
         }
+
+
     }
 }

@@ -1,0 +1,53 @@
+﻿<Page x:Class="PC_Service.Pages.Warehouse.WarehouseWriteOff"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PC_Service.Pages.Warehouse"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1250"
+      Title="WarehouseWriteOff">
+    
+    <Grid Background = "Gray" Name="MainGrid">
+        <Button 
+            Name="ButtonAddProduct"
+                Width="180"
+                Height="45"
+                Background="Gainsboro"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Margin="20,40,0,0" Cursor="Hand" >
+
+            <TextBlock Text="+ Списание"
+                               FontSize="16"/>
+        </Button>
+
+        <Grid VerticalAlignment="Stretch" Margin="20,100,20,70">
+            <DataGrid x:Name="DataGrid"  
+                      Background="#9E9E9E"    
+                      FontSize="14" FontWeight="Bold"    
+                      AutoGenerateColumns="False" IsReadOnly="True">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Списание №" Binding="{Binding ProductCod}"/>
+                    <DataGridTextColumn Header="Дата и время" Binding="{Binding ProductArticle}"/>
+                    <DataGridTextColumn Header="Сотрудник" Binding="{Binding ProductName}"/>
+                    <DataGridTextColumn Header="Склад" Binding="{Binding ProductPhoto}"/>
+                    <DataGridTextColumn Header="Комментарий" Binding="{Binding ProductDescription}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Редактировать" Name="BtnEdit" Background="Gainsboro"
+                                        />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <TextBlock Text="Всего - 0" FontSize="15" Margin="20,20,0,30"
+                   VerticalAlignment="Bottom" Cursor=""
+                   />
+    </Grid>
+</Page>

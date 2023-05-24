@@ -20,10 +20,6 @@
                     <DataGridTextColumn Header="Название" Binding="{Binding Product.ProductName}"/>
                     <DataGridTextColumn Header="Изображение"/>
                     <DataGridTextColumn Header="Количество" Binding="{Binding RemnantsQuantity}"/>
-                    <DataGridTextColumn Header="Цена за еденицу" Binding="{Binding RemnantsPForOne}"/>
-                    <DataGridTextColumn Header="Сумма" Binding="{Binding RemnantsAmount}"/>
-                    <DataGridTextColumn Header="Примичание" Binding="{Binding Note}"/>
-
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

@@ -43,8 +43,6 @@ namespace PC_Service
 
         public void Button_Click(object sender, RoutedEventArgs e)
         {
-
-
             if (TextBoxLogin.Text != "" && TextBoxPasswrod.Text != "")
             {
                 userAutho = entities.User.FirstOrDefault(X => X.Login == TextBoxLogin.Text && X.Password == TextBoxPasswrod.Text);
@@ -67,8 +65,6 @@ namespace PC_Service
                 MessageBox.Show("Логин или пароль не введены");
             }
 
-          
-            
         }
 
     

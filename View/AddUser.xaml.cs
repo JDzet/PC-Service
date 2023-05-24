@@ -40,7 +40,7 @@ namespace PC_Service
         {
             if (_user.UserId == 0)
             {
-               
+                 
                 _entities.User.Add(_user);
                 _entities.SaveChanges();
                 MessageBox.Show("Данные сохранены");

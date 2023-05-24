@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace PC_Service.Pages
 {
     /// <summary>
@@ -21,33 +22,39 @@ namespace PC_Service.Pages
     /// </summary>
     public partial class ClientPage : Page
     {
-        Request request = new Request();
+        
         AddClient WindowClient;
+       
 
         public ClientPage()
         {
             InitializeComponent();
-            DataGridClient.ItemsSource = request.GridClient();
-            
+            DataBase();
         }
 
         private void ButAddClient_Click(object sender, RoutedEventArgs e)
         {
-            WindowClient = new AddClient(null, request);
+            WindowClient = new AddClient(null);
             WindowClient.ShowDialog();
             DataGridClient.ItemsSource = null;
-            DataGridClient.ItemsSource = request.GridClient();
-
-
+            DataBase();
         }
 
         private void BtnEditClient_Click(object sender, RoutedEventArgs e)
         {
-            WindowClient = new AddClient((sender as Button).DataContext as Client, request);
+            WindowClient = new AddClient((sender as Button).DataContext as Client); 
             WindowClient.ShowDialog();
             DataGridClient.ItemsSource = null;
-            DataGridClient.ItemsSource = request.GridClient();
+            DataBase();
 
+        }
+
+        public void DataBase() // заполнения данными из бд
+        {
+            using (DataDB.entities = new EntitiesMain()) 
+            {
+                DataGridClient.ItemsSource = DataDB.entities.Client.ToList();
+            }
         }
     }
 }
