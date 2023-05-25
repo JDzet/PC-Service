@@ -26,11 +26,12 @@
                      Height="45"
                      Background="Gainsboro"
                      HorizontalAlignment="Left"
-                     Margin="20,0,0,0" Cursor="Hand">
+                     Margin="20,0,0,0" Cursor="Hand"
+                    Click="Button_Click">
                 <TextBlock Text="+ Добавить статус"
                      FontSize="16"/>
-            </Button>
 
+            </Button>
 
             <Grid Width="{Binding ActualWidth,ElementName=GridStatus}">
                 <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left">
@@ -42,22 +43,51 @@
                     <TextBlock Text="Найден записей и колличество" VerticalAlignment="Bottom" Margin="60,0,0,0" FontSize="20"/>
                 </StackPanel>
             </Grid>
-
         </StackPanel>
-
+        
         <Grid VerticalAlignment="Stretch" Margin="20,200,20,30">
             <DataGrid x:Name="DataGrid"  
                       Background="#9E9E9E"    
                       FontSize="14" FontWeight="Bold"    
                       AutoGenerateColumns="False" IsReadOnly="True">
-
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Код" Binding="{Binding StatusId}"/>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding StatusName}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
+        
+        <Border x:Name="FormContainer" Grid.Column="1" Background="White" Margin="10" CornerRadius="5" Visibility="Collapsed" HorizontalAlignment="Right">
+            <Grid Cursor="">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
+                <!-- Заголовок формы -->
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Width="200">
+                    <TextBlock Text="Добавить статус" FontSize="16" Margin="10" FontWeight="Bold"/>
+                    <Button Name="WatchtCases" Style="{x:Null}" Background="Transparent"  
+                            Margin="5" Click="WatchtCases_Click"
+                            BorderThickness="0">
+                        <Button.Content>
+                            <Image Source="/Pages/close78.png" Height="30" Width="30"/>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+                
+
+                <!-- Поля для ввода -->
+                <TextBox Grid.Row="1" Margin="10" Text="{Binding StatusName}" Name="TbAddStatus"/>
+
+                <!-- Кнопка "Добавить" -->
+                <Button Grid.Row="2" Content="Добавить" HorizontalAlignment="Right" Margin="10" x:Name="BtAdd" Click="BtAdd_Click"/>
+                
+            </Grid>
+        </Border>
 
 
 

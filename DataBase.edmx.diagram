@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="8.125" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.DeviceType" Width="1.5" PointX="3.25" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Orders" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Status" Width="1.5" PointX="3.125" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_Orders_BrandDevice" ManuallyRouted="false" />
@@ -29,6 +29,7 @@
         <AssociationConnector Association="Model.FK_ProductHistoryRegitration_Product" />
         <AssociationConnector Association="Model.FK_ProductRemnants_Product" />
         <AssociationConnector Association="Model.FK_ProductHistoryRegitration_RegistrationProduct" />
+        <EntityTypeShape EntityType="Model.InformationService" Width="1.5" PointX="0.875" PointY="0.5" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

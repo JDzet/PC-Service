@@ -27,8 +27,11 @@
             <Button Width="200"    
                      Height="45"
                      Background="Gainsboro"
+                     Name="AddWarehouseClick"
                      HorizontalAlignment="Left"
-                     Margin="20,0,0,0" Cursor="Hand">
+                     Margin="20,0,0,0" Cursor="Hand" Click="AddWarehouseClickClick"
+                    >
+                     
                 <TextBlock Text="+ Добавить склад"
                      FontSize="16"/>
             </Button>
@@ -50,5 +53,43 @@
         <TextBlock Text="Всего - 0" FontSize="15" Margin="20,20,0,30"
                    VerticalAlignment="Bottom"
                    />
+
+        <Border x:Name="FormContainer" Grid.Column="1" Background="White" Margin="10" CornerRadius="5" Visibility="Collapsed" HorizontalAlignment="Right">
+            <Grid Cursor="">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Заголовок формы -->
+                <Grid Grid.Row="0" Width="300" >
+                    <TextBlock Text="Добавить склад" FontSize="16" Margin="10" FontWeight="Bold" 
+                               HorizontalAlignment="Left"/>
+                    <Button Name="WatchtCases" Style="{x:Null}" Background="Transparent"  
+                            Margin="5" 
+                            HorizontalAlignment="Right"
+                            BorderThickness="0"
+                            Click ="WatchtCases_Click">
+                        <Button.Content>
+                            <Image Source="/Pages/close78.png" Height="30" Width="30"/>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+
+                <!-- Поля для ввода -->
+                <TextBox Grid.Row="1" Margin="10" Text="{Binding WarehouseName}" Name="TbName"/>
+                <ComboBox Grid.Row="2" Margin="10" Text="{Binding WarehouseAddress}" Name="TbAddress" 
+                          IsEditable="True" 
+                          TextBoxBase.TextChanged="TbAddress_TextChanged"/>
+
+                <!-- Кнопка "Добавить" -->
+                <Button Grid.Row="3" Content="Добавить" HorizontalAlignment="Right" Margin="10" x:Name="BtAdd"
+                        Click="BtAdd_Click"/>
+
+            </Grid>
+        </Border>
     </Grid>
 </Page>

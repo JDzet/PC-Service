@@ -30,6 +30,17 @@
           <Property Name="DeviceTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameDeviceType" Type="nvarchar" MaxLength="150" Nullable="false" />
         </EntityType>
+        <EntityType Name="InformationService">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Requisites" Type="nvarchar(max)" />
+          <Property Name="AdditionalInformation" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Orders">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -274,6 +285,7 @@
           <EntitySet Name="BrandDevice" EntityType="Self.BrandDevice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeviceType" EntityType="Self.DeviceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformationService" EntityType="Self.InformationService" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductHistoryRegistration" EntityType="Self.ProductHistoryRegistration" Schema="dbo" store:Type="Tables" />
@@ -553,6 +565,7 @@
             <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
             <End Role="ProductHistoryRegistration" EntitySet="ProductHistoryRegistration" />
           </AssociationSet>
+          <EntitySet Name="InformationService" EntityType="Model.InformationService" />
           </EntityContainer>
         <EntityType Name="Product">
           <Key>
@@ -687,6 +700,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="InformationService">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Requisites" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AdditionalInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -823,6 +847,18 @@
                 <ScalarProperty Name="RemnantsQuantity" ColumnName="RemnantsQuantity" />
                 <ScalarProperty Name="RemnantsProduct" ColumnName="RemnantsProduct" />
                 <ScalarProperty Name="RemnantsID" ColumnName="RemnantsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformationService">
+            <EntityTypeMapping TypeName="Model.InformationService">
+              <MappingFragment StoreEntitySet="InformationService">
+                <ScalarProperty Name="AdditionalInformation" ColumnName="AdditionalInformation" />
+                <ScalarProperty Name="Requisites" ColumnName="Requisites" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

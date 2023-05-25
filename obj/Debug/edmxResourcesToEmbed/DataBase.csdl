@@ -217,6 +217,7 @@
       <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
       <End Role="ProductHistoryRegistration" EntitySet="ProductHistoryRegistration" />
     </AssociationSet>
+    <EntitySet Name="InformationService" EntityType="Model.InformationService" />
   </EntityContainer>
   <EntityType Name="Product">
     <Key>
@@ -351,4 +352,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="InformationService">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Requisites" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdditionalInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

@@ -102,21 +102,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.Toolkit, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -148,6 +133,9 @@
     <Compile Include="DeviceType.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="InformationService.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Orders.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -166,19 +154,19 @@
     <Compile Include="Pages\WarehouseLokal.xaml.cs">
       <DependentUpon>WarehouseLokal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Warehouse\WarehouseMenu.xaml.cs">
+    <Compile Include="Pages\WarehousePage\WarehouseMenu.xaml.cs">
       <DependentUpon>WarehouseMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Warehouse\WarehouseProduct.xaml.cs">
+    <Compile Include="Pages\WarehousePage\WarehouseProduct.xaml.cs">
       <DependentUpon>WarehouseProduct.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Warehouse\WarehouseRegistration.xaml.cs">
+    <Compile Include="Pages\WarehousePage\WarehouseRegistration.xaml.cs">
       <DependentUpon>WarehouseRegistration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Warehouse\WarehouseRemains.xaml.cs">
+    <Compile Include="Pages\WarehousePage\WarehouseRemains.xaml.cs">
       <DependentUpon>WarehouseRemains.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Warehouse\WarehouseWriteOff.xaml.cs">
+    <Compile Include="Pages\WarehousePage\WarehouseWriteOff.xaml.cs">
       <DependentUpon>WarehouseWriteOff.xaml</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
@@ -254,23 +242,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Warehouse\WarehouseMenu.xaml">
+    <Page Include="Pages\WarehousePage\WarehouseMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Warehouse\WarehouseProduct.xaml">
+    <Page Include="Pages\WarehousePage\WarehouseProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Warehouse\WarehouseRegistration.xaml">
+    <Page Include="Pages\WarehousePage\WarehouseRegistration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Warehouse\WarehouseRemains.xaml">
+    <Page Include="Pages\WarehousePage\WarehouseRemains.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Warehouse\WarehouseWriteOff.xaml">
+    <Page Include="Pages\WarehousePage\WarehouseWriteOff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -397,6 +385,14 @@
       <DependentUpon>DataBase.edmx</DependentUpon>
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
+    <Resource Include="Pages\close78.png" />
+    <None Include="resources\Close500.ico" />
+    <None Include="resources\close21.jpg" />
+    <None Include="resources\close78.png" />
+    <None Include="resources\close20.png" />
+    <None Include="resources\icons8-крестик-78.png" />
+    <None Include="resources\icons8-крестик-20.png" />
+    <None Include="resources\Close.ico" />
     <None Include="resources\edit.ico" />
     <None Include="resources\edit_icon-icons.com_61193.ico" />
     <None Include="resources\edit_icon-icons.com_61193.png" />

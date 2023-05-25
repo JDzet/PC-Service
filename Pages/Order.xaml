@@ -25,7 +25,7 @@
                 </Border.Effect>
             </Border>
 
-            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+          
                 <Grid Width="{Binding ActualWidth,ElementName=MainGrid}">
                     <Button Width="180"
                         Height="45"
@@ -39,7 +39,7 @@
                           
                              Background="#9E9E9E" Foreground="White"/>
                 </Grid>
-            </StackPanel>
+            
         </StackPanel>
         <Grid VerticalAlignment="Stretch" Margin="20,160,20,30">
 
