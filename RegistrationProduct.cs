@@ -31,8 +31,8 @@ namespace PC_Service
     
         public virtual Client Client { get; set; }
         public virtual User User { get; set; }
-        public virtual Warehouse Warehouse { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductHistoryRegistration> ProductHistoryRegistration { get; set; }
+        public virtual WarehouseService WarehouseService { get; set; }
     }
 }

@@ -124,7 +124,7 @@
     <Property Name="UserRole" Type="int" Nullable="false" />
     <Property Name="Note" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="Warehouse">
+  <EntityType Name="WarehouseService">
     <Key>
       <PropertyRef Name="WarehouseID" />
     </Key>
@@ -253,10 +253,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_RegistrationProduct_Warehouse">
-    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+    <End Role="WarehouseService" Type="Self.WarehouseService" Multiplicity="1" />
     <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Warehouse">
+      <Principal Role="WarehouseService">
         <PropertyRef Name="WarehouseID" />
       </Principal>
       <Dependent Role="RegistrationProduct">
@@ -289,7 +289,7 @@
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WarehouseService" EntityType="Self.WarehouseService" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Orders_BrandDevice" Association="Self.FK_Orders_BrandDevice">
       <End Role="BrandDevice" EntitySet="BrandDevice" />
       <End Role="Orders" EntitySet="Orders" />
@@ -331,7 +331,7 @@
       <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_RegistrationProduct_Warehouse" Association="Self.FK_RegistrationProduct_Warehouse">
-      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="WarehouseService" EntitySet="WarehouseService" />
       <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">

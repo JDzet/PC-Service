@@ -46,12 +46,33 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Назваени" Binding="{Binding WarehouseName}" />
                     <DataGridTextColumn Header="Адрес" Binding="{Binding WarehouseAddress}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button  Name="BtnEdit"
+                                          Background="Gainsboro" Click="BtnEdit_Click">
+                                        <Button.Content>
+                                            <Image Source="/Pages/EditMain.png" Height="15" Width="15" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                    <Button  Name="BtnDel"
+                                             
+                                          Background="Gainsboro" Click="BtnDel_Click">
+                                        <Button.Content>
+                                            <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
 
         <TextBlock Text="Всего - 0" FontSize="15" Margin="20,20,0,30"
-                   VerticalAlignment="Bottom"
+                   VerticalAlignment="Bottom" Name="Count"
                    />
 
         <Border x:Name="FormContainer" Grid.Column="1" Background="White" Margin="10" CornerRadius="5" Visibility="Collapsed" HorizontalAlignment="Right">
@@ -71,8 +92,9 @@
                     <Button Name="WatchtCases" Style="{x:Null}" Background="Transparent"  
                             Margin="5" 
                             HorizontalAlignment="Right"
+                            Click="WatchtCases_Click"
                             BorderThickness="0"
-                            Click ="WatchtCases_Click">
+                            >
                         <Button.Content>
                             <Image Source="/Pages/close78.png" Height="30" Width="30"/>
                         </Button.Content>

@@ -1,6 +1,7 @@
 ﻿using ControlzEx.Standard;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace PC_Service.Pages
     /// </summary>
     public partial class WarehouseLokal : Page
     {
+
+        WarehouseService warehouse;
         ApiYandex api = new ApiYandex();
         public WarehouseLokal()
         {
@@ -29,15 +32,22 @@ namespace PC_Service.Pages
             DataWarehouseLokal();
         }
 
-        public void DataWarehouseLokal() 
+        public void DataWarehouseLokal() // подгрузка данных 
         {
             using (DataDB.entities = new EntitiesMain()) 
             {
-                DataGrid.ItemsSource = DataDB.entities.Warehouse.ToList();
+                DataGrid.ItemsSource = DataDB.entities.WarehouseService.ToList();
+                Count.Text = "Количество складов: " + DataGrid.Items.Count.ToString();
             }
         }
 
         private void AddWarehouseClickClick(object sender, RoutedEventArgs e)
+        {
+            warehouse = new WarehouseService();
+            editWarehouse();
+        }
+
+        public void Menu() // работа над меню редактирования 
         {
             FormContainer.Visibility = Visibility.Visible;
 
@@ -49,7 +59,7 @@ namespace PC_Service.Pages
             FormContainer.BeginAnimation(Border.WidthProperty, animation);
         }
 
-        private async void TbAddress_TextChanged(object sender, TextChangedEventArgs e)
+        private async void TbAddress_TextChanged(object sender, TextChangedEventArgs e) 
         {
             using (DataDB.entities = new EntitiesMain()) 
             {
@@ -61,21 +71,83 @@ namespace PC_Service.Pages
                 
         }
 
-        private void BtAdd_Click(object sender, RoutedEventArgs e)
+        private void BtAdd_Click(object sender, RoutedEventArgs e) // действие на кнопку добавления 
         {
-            using (DataDB.entities = new EntitiesMain())
+            using (DataDB.entities = new EntitiesMain()) 
             {
-                
-
-
-
+                try 
+                {
+                    if (warehouse.WarehouseID != 0)
+                    {
+                        DataDB.entities.Entry(warehouse).State = EntityState.Modified;
+                        DataDB.entities.SaveChanges();
+                        MessageBox.Show("Данные сохранены");
+                    }
+                    else
+                    {
+                        DataDB.entities.WarehouseService.Add(warehouse);
+                        DataDB.entities.SaveChanges();
+                        MessageBox.Show("Данные сохранены");
+                    }
+                }
+                catch (Exception ex) 
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                FormContainer.Visibility = Visibility.Collapsed;
             }
-
+            DataWarehouseLokal();
         }
 
         private void WatchtCases_Click(object sender, RoutedEventArgs e)
         {
             FormContainer.Visibility = Visibility.Collapsed;
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e) // действие на кнопкку редактирования
+        {
+            warehouse = (sender as Button).DataContext as WarehouseService;
+            editWarehouse();
+
+        }
+
+        public void editWarehouse() // процес создания/редактирования склада
+        {
+            using (DataDB.entities = new EntitiesMain()) 
+            {
+               
+               WarehouseService _editwarehouse = warehouse ?? new WarehouseService();
+
+                DataContext = _editwarehouse;
+                Menu();
+
+            }
+                
+        }
+
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+            using (DataDB.entities = new EntitiesMain()) 
+            {
+                warehouse = (sender as Button).DataContext as WarehouseService;
+
+                if (MessageBox.Show($"Вы точно хотите удалить этот склад", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        DataDB.entities.Entry(warehouse).State = EntityState.Deleted;
+                        DataDB.entities.SaveChanges();
+                        MessageBox.Show("Склад удален");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
+                    DataWarehouseLokal();
+                }
+            }
+               
+
         }
     }
 }

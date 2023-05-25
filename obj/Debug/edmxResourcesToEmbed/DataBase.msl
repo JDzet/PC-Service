@@ -104,15 +104,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Warehouse">
-      <EntityTypeMapping TypeName="Model.Warehouse">
-        <MappingFragment StoreEntitySet="Warehouse">
-          <ScalarProperty Name="WarehouseAddress" ColumnName="WarehouseAddress" />
-          <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
-          <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ProductHistoryRegistration">
       <EntityTypeMapping TypeName="Model.ProductHistoryRegistration">
         <MappingFragment StoreEntitySet="ProductHistoryRegistration">
@@ -143,6 +134,15 @@
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseService">
+      <EntityTypeMapping TypeName="Model.WarehouseService">
+        <MappingFragment StoreEntitySet="WarehouseService">
+          <ScalarProperty Name="WarehouseAddress" ColumnName="WarehouseAddress" />
+          <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
+          <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

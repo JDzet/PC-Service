@@ -154,19 +154,19 @@
     <Compile Include="Pages\WarehouseLokal.xaml.cs">
       <DependentUpon>WarehouseLokal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\WarehousePage\WarehouseMenu.xaml.cs">
+    <Compile Include="Pages\Warehouse\WarehouseMenu.xaml.cs">
       <DependentUpon>WarehouseMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\WarehousePage\WarehouseProduct.xaml.cs">
+    <Compile Include="Pages\Warehouse\WarehouseProduct.xaml.cs">
       <DependentUpon>WarehouseProduct.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\WarehousePage\WarehouseRegistration.xaml.cs">
+    <Compile Include="Pages\Warehouse\WarehouseRegistration.xaml.cs">
       <DependentUpon>WarehouseRegistration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\WarehousePage\WarehouseRemains.xaml.cs">
+    <Compile Include="Pages\Warehouse\WarehouseRemains.xaml.cs">
       <DependentUpon>WarehouseRemains.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\WarehousePage\WarehouseWriteOff.xaml.cs">
+    <Compile Include="Pages\Warehouse\WarehouseWriteOff.xaml.cs">
       <DependentUpon>WarehouseWriteOff.xaml</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
@@ -177,6 +177,11 @@
     </Compile>
     <Compile Include="ProductRemnants.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RegistrationProduct.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
@@ -219,7 +224,7 @@
     <Compile Include="View\RegistrationAdd.xaml.cs">
       <DependentUpon>RegistrationAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Warehouse.cs">
+    <Compile Include="WarehouseService.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Page Include="Pages\ClientPage.xaml">
@@ -242,23 +247,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\WarehousePage\WarehouseMenu.xaml">
+    <Page Include="Pages\Warehouse\WarehouseMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\WarehousePage\WarehouseProduct.xaml">
+    <Page Include="Pages\Warehouse\WarehouseProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\WarehousePage\WarehouseRegistration.xaml">
+    <Page Include="Pages\Warehouse\WarehouseRegistration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\WarehousePage\WarehouseRemains.xaml">
+    <Page Include="Pages\Warehouse\WarehouseRemains.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\WarehousePage\WarehouseWriteOff.xaml">
+    <Page Include="Pages\Warehouse\WarehouseWriteOff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -319,11 +324,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -331,8 +331,8 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EntityDeploy Include="DataBase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -385,6 +385,11 @@
       <DependentUpon>DataBase.edmx</DependentUpon>
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
+    <Resource Include="Pages\EditMain.png" />
+    <None Include="resources\EditMain.png" />
+    <Resource Include="Pages\Del.png" />
+    <None Include="resources\Del.png" />
+    <None Include="resources\Edit.png" />
     <Resource Include="Pages\close78.png" />
     <None Include="resources\Close500.ico" />
     <None Include="resources\close21.jpg" />

@@ -20,16 +20,16 @@
         <AssociationConnector Association="Model.FK_User_Role" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="9.75" PointY="7.25" />
         <EntityTypeShape EntityType="Model.RegistrationProduct" Width="2.25" PointX="12.375" PointY="2.25" />
-        <EntityTypeShape EntityType="Model.Warehouse" Width="1.5" PointX="10.125" PointY="0.5" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_Client" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_User" />
-        <AssociationConnector Association="Model.FK_RegistrationProduct_Warehouse" />
         <EntityTypeShape EntityType="Model.ProductHistoryRegistration" Width="1.5" PointX="15.375" PointY="4.75" />
         <EntityTypeShape EntityType="Model.ProductRemnants" Width="2.25" PointX="11.875" PointY="7.125" />
         <AssociationConnector Association="Model.FK_ProductHistoryRegitration_Product" />
         <AssociationConnector Association="Model.FK_ProductRemnants_Product" />
         <AssociationConnector Association="Model.FK_ProductHistoryRegitration_RegistrationProduct" />
         <EntityTypeShape EntityType="Model.InformationService" Width="1.5" PointX="0.875" PointY="0.5" />
+        <EntityTypeShape EntityType="Model.WarehouseService" Width="1.5" PointX="10.5" PointY="1.5" />
+        <AssociationConnector Association="Model.FK_RegistrationProduct_Warehouse" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

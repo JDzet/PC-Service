@@ -36,15 +36,6 @@
                         Margin="20,0,0,0" Cursor="Hand" 
                             Name="ButtonAddUser" Click="ButtonAddUser_Click">
                         </Button>
-                        <Button Width="180"
-                        Content="Удалить сотрудника"
-                        Height="45"
-                        Background="Gainsboro"
-                        HorizontalAlignment="Left"
-                        Margin="20,0,0,0" Cursor="Hand" 
-                            Name="ButtonDeleteUser" Click="ButtonDeleteUser_Click">
-                        </Button>
-
                     </StackPanel>
                    
                 </Grid>
@@ -67,8 +58,22 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Редактировать" Name="BtnEdit" Background="Gainsboro"
-                                        Click="BtnEdit_Click"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button  Name="BtnEdit"
+                                             Click="BtnEdit_Click"
+                                          Background="Gainsboro" >
+                                        <Button.Content>
+                                            <Image Source="/Pages/EditMain.png" Height="15" Width="15" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                    <Button  Name="BtnDel"
+                                          Background="Gainsboro" 
+                                             Click="ButtonDeleteUser_Click">
+                                        <Button.Content>
+                                            <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

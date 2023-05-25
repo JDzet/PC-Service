@@ -1,6 +1,7 @@
 ﻿using PC_Service.View;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,8 +34,6 @@ namespace PC_Service
             AddUser addUser = new AddUser((sender as Button).DataContext as User, entities);
             addUser.ShowDialog();
 
-
-
             DataGridUser.ItemsSource = null;
             DataGridUser.ItemsSource = entities.User.ToList();
         }
@@ -50,23 +49,27 @@ namespace PC_Service
 
         private void ButtonDeleteUser_Click(object sender, RoutedEventArgs e)
         {
-            var UserForRemoving = DataGridUser.SelectedItems.Cast<User>().ToList();
+            
+            
+                User user = (sender as Button).DataContext as User;
 
-            if (MessageBox.Show($"Вы точно хотите удалить этих пользователей{UserForRemoving.Count()} элементов", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) 
-            {
-                try
+                if (MessageBox.Show($"Вы точно хотите удалить пользователя", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    entities.User.RemoveRange(UserForRemoving);
-                    entities.SaveChanges();
-                    MessageBox.Show("Данные удалены");
+                    try
+                    {
+                        entities.Entry(user).State = EntityState.Deleted;
+                        entities.SaveChanges();
+                        MessageBox.Show("Пользователь удален");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
                 }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
-            }
-            DataGridUser.ItemsSource = null;
-            DataGridUser.ItemsSource = entities.User.ToList();
+                DataGridUser.ItemsSource = null;
+                DataGridUser.ItemsSource = entities.User.ToList();
+            
+          
 
         }
     }

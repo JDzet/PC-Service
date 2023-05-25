@@ -44,7 +44,7 @@ namespace PC_Service.View
         {
             public List<Client> Client { get; set; }
             public List<Product> Product { get; set; }
-            public List<Warehouse> Warehouse { get; set; }
+            public List<WarehouseService> Warehouse { get; set; }
         }
 
         public void DataRegistation() //Заполнения полей и получение данных из бд
@@ -53,7 +53,7 @@ namespace PC_Service.View
             {
                 data.Client = DataDB.entities.Client.ToList();
                 data.Product = DataDB.entities.Product.ToList();
-                data.Warehouse = DataDB.entities.Warehouse.ToList();
+                data.Warehouse = DataDB.entities.WarehouseService.ToList();
                 DataContext = data;
             }
 
@@ -71,7 +71,7 @@ namespace PC_Service.View
                 Client selectClient = CBClient.SelectedItem as Client;
                 regProd.RegClient = selectClient.ClientId;
 
-                Warehouse selectWarehouse = Warehouse.SelectedItem as Warehouse;
+                WarehouseService selectWarehouse = Warehouse.SelectedItem as WarehouseService;
                 regProd.RegWarehouse = selectWarehouse.WarehouseID;
 
                 regProd.Note = TBNote.Text;

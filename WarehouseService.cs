@@ -12,10 +12,10 @@ namespace PC_Service
     using System;
     using System.Collections.Generic;
     
-    public partial class Warehouse
+    public partial class WarehouseService
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Warehouse()
+        public WarehouseService()
         {
             this.RegistrationProduct = new HashSet<RegistrationProduct>();
         }

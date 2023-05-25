@@ -190,17 +190,12 @@
     </AssociationSet>
     <EntitySet Name="Product" EntityType="Model.Product" />
     <EntitySet Name="RegistrationProduct" EntityType="Model.RegistrationProduct" />
-    <EntitySet Name="Warehouse" EntityType="Model.Warehouse" />
     <AssociationSet Name="FK_RegistrationProduct_Client" Association="Model.FK_RegistrationProduct_Client">
       <End Role="Client" EntitySet="Client" />
       <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_RegistrationProduct_User" Association="Model.FK_RegistrationProduct_User">
       <End Role="User" EntitySet="User" />
-      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RegistrationProduct_Warehouse" Association="Model.FK_RegistrationProduct_Warehouse">
-      <End Role="Warehouse" EntitySet="Warehouse" />
       <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
     </AssociationSet>
     <EntitySet Name="ProductHistoryRegistration" EntityType="Model.ProductHistoryRegistration" />
@@ -218,6 +213,11 @@
       <End Role="ProductHistoryRegistration" EntitySet="ProductHistoryRegistration" />
     </AssociationSet>
     <EntitySet Name="InformationService" EntityType="Model.InformationService" />
+    <EntitySet Name="WarehouseService" EntityType="Model.WarehouseService" />
+    <AssociationSet Name="FK_RegistrationProduct_Warehouse" Association="Model.FK_RegistrationProduct_Warehouse">
+      <End Role="WarehouseService" EntitySet="WarehouseService" />
+      <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Product">
     <Key>
@@ -246,17 +246,8 @@
     <Property Name="RegAmount" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
     <NavigationProperty Name="Client" Relationship="Model.FK_RegistrationProduct_Client" FromRole="RegistrationProduct" ToRole="Client" />
     <NavigationProperty Name="User" Relationship="Model.FK_RegistrationProduct_User" FromRole="RegistrationProduct" ToRole="User" />
-    <NavigationProperty Name="Warehouse" Relationship="Model.FK_RegistrationProduct_Warehouse" FromRole="RegistrationProduct" ToRole="Warehouse" />
     <NavigationProperty Name="ProductHistoryRegistration" Relationship="Model.FK_ProductHistoryRegitration_RegistrationProduct" FromRole="RegistrationProduct" ToRole="ProductHistoryRegistration" />
-  </EntityType>
-  <EntityType Name="Warehouse">
-    <Key>
-      <PropertyRef Name="WarehouseID" />
-    </Key>
-    <Property Name="WarehouseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="WarehouseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="WarehouseAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_RegistrationProduct_Warehouse" FromRole="Warehouse" ToRole="RegistrationProduct" />
+    <NavigationProperty Name="WarehouseService" Relationship="Model.FK_RegistrationProduct_Warehouse" FromRole="RegistrationProduct" ToRole="WarehouseService" />
   </EntityType>
   <Association Name="FK_RegistrationProduct_Client">
     <End Type="Model.Client" Role="Client" Multiplicity="1" />
@@ -279,18 +270,6 @@
       </Principal>
       <Dependent Role="RegistrationProduct">
         <PropertyRef Name="RegUser" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_RegistrationProduct_Warehouse">
-    <End Type="Model.Warehouse" Role="Warehouse" Multiplicity="1" />
-    <End Type="Model.RegistrationProduct" Role="RegistrationProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Warehouse">
-        <PropertyRef Name="WarehouseID" />
-      </Principal>
-      <Dependent Role="RegistrationProduct">
-        <PropertyRef Name="RegWarehouse" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -363,4 +342,25 @@
     <Property Name="Requisites" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="AdditionalInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="WarehouseService">
+    <Key>
+      <PropertyRef Name="WarehouseID" />
+    </Key>
+    <Property Name="WarehouseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WarehouseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WarehouseAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_RegistrationProduct_Warehouse" FromRole="WarehouseService" ToRole="RegistrationProduct" />
+  </EntityType>
+  <Association Name="FK_RegistrationProduct_Warehouse">
+    <End Type="Model.WarehouseService" Role="WarehouseService" Multiplicity="1" />
+    <End Type="Model.RegistrationProduct" Role="RegistrationProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WarehouseService">
+        <PropertyRef Name="WarehouseID" />
+      </Principal>
+      <Dependent Role="RegistrationProduct">
+        <PropertyRef Name="RegWarehouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
