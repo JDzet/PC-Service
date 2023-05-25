@@ -12,6 +12,7 @@
     <EntitySetMapping Name="Client">
       <EntityTypeMapping TypeName="Model.Client">
         <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Supplier" ColumnName="Supplier" />
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="ClientEmail" ColumnName="ClientEmail" />
           <ScalarProperty Name="ClientId" ColumnName="ClientId" />

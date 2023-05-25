@@ -41,7 +41,7 @@ namespace PC_Service.Pages
                     WriteOffFrame.Content = new WarehouseWriteOff();
                     break;
                 case 3:
-                     ProductFrame.Content = new WarehouseProduct();
+                     ProductFrame.Content = new WarehouseProducts();
                     break;
             }
 

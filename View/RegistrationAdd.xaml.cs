@@ -51,7 +51,7 @@ namespace PC_Service.View
         {
             using (DataDB.entities = new EntitiesMain()) 
             {
-                data.Client = DataDB.entities.Client.ToList();
+                data.Client = DataDB.entities.Client.Where(x => x.Supplier == true).ToList();
                 data.Product = DataDB.entities.Product.ToList();
                 data.Warehouse = DataDB.entities.WarehouseService.ToList();
                 DataContext = data;
@@ -81,7 +81,9 @@ namespace PC_Service.View
                 try
                 {
                     DataDB.entities.RegistrationProduct.Add(regProd);
+                    DataDB.entities.SaveChanges();
                     MessageBox.Show("Данные сохранены");
+                    
                 }
                 catch (Exception)
                 {
@@ -243,7 +245,7 @@ namespace PC_Service.View
 
         private void DataGridProduct_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            decimal totalAmount = 0;
+            totalAmount = 0;
             foreach (var item in testDatas)
             {
                 if (!string.IsNullOrEmpty(item.Column4))

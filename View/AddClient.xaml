@@ -6,7 +6,7 @@
         
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
-        Title="AddClient" Height="450" Width="800">
+        Title="AddClient" Height="480" Width="800">
     <Grid  Background="Gray">
         <StackPanel>
 
@@ -23,24 +23,24 @@
                 </Border>
             </StackPanel>
             
-            <StackPanel  Orientation="Horizontal" Height="250" VerticalAlignment="Top"
+            <StackPanel  Orientation="Horizontal" Height="270" VerticalAlignment="Top"
                          Margin="0,0,0,10">
                 <StackPanel Width="270">
                     <TextBlock Text="Имя клиента"
                            FontSize="20"
-                           Margin="20,0,0,14"
+                           Margin="20,0,0,6"
                            HorizontalAlignment="Right"/>
                     <TextBlock Text="Email"
                            FontSize="20" 
-                           Margin="0,0,0,14"
+                           Margin="0,0,0,6"
                            HorizontalAlignment="Right"/>
                     <TextBlock Text="Телефон"
                            FontSize="20" 
-                           Margin="0,0,0,14"
+                           Margin="0,0,0,6"
                            HorizontalAlignment="Right"/>
                     <TextBlock Text="Адресс"
                            FontSize="20" 
-                           Margin="0,0,0,14"
+                           Margin="0,0,0,6"
                            HorizontalAlignment="Right"/>
                     <TextBlock Text="Примечание"
                            FontSize="20" 
@@ -49,32 +49,32 @@
                 </StackPanel>
                 
                 <StackPanel>
-                    <TextBox Margin="20,0,0,5" FontSize="20" Width="460" Name="tbName"
+                    <TextBox Margin="20,0,0,5" FontSize="15" Width="460" Name="tbName"
                              HorizontalAlignment="Left"
                              Text="{Binding ClientName}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              Background="#9E9E9E"/>
-                    <TextBox Margin="20,0,0,5" FontSize="20" Width="460"
+                    <TextBox Margin="20,0,0,5" FontSize="15" Width="460"
                              Name="tbPhone"
                              HorizontalAlignment="Left"
                              Text="{Binding ClientEmail}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              Background="#9E9E9E"
                                  />
-                    <TextBox Margin="20,0,0,5" FontSize="20" Width="460"
+                    <TextBox Margin="20,0,0,5" FontSize="15" Width="460"
                              HorizontalAlignment="Left"
                              Text="{Binding PhoneNumber}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              Name="tbAdress"
                              Background="#9E9E9E"/>
-                    <ComboBox Margin="20,0,0,8" FontSize="20" Width="460" Name="CbNaem"
+                    <ComboBox Margin="20,0,0,8" FontSize="15" Width="460" Name="CbNaem"
                              IsEditable="True"
                              TextBoxBase.TextChanged="tbAdress_TextChanged"
                              HorizontalAlignment="Left"
                              Text="{Binding ClientAddress}"
                              Style="{StaticResource MaterialDesignComboBox}"
                              Background="#9E9E9E"/>
-                    <TextBox Margin="20,0,0,8" FontSize="20" Width="460"
+                    <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                              Height="70"
                              HorizontalAlignment="Left"
                              AcceptsReturn="True"
@@ -84,11 +84,16 @@
                               Style="{StaticResource MaterialDesignTextBox}"
                              Name="tbNote"
                              Background="#9E9E9E"/>
+                    
+                    <CheckBox Margin="20,0,0,0" Content="Поставщик" FontSize="20"
+                              Name="CheckBSapline"/>
                 </StackPanel>
+               
             </StackPanel>
             
+
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,10,0,0"
-                        HorizontalAlignment="Right">
+                        HorizontalAlignment="Right" Cursor="">
                 <Button Width="180"
                         Height="45"
                         Background="Gainsboro"

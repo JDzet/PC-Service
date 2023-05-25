@@ -1,4 +1,4 @@
-﻿<Page x:Class="PC_Service.Pages.Warehouse.WarehouseProduct"
+﻿<Page x:Class="PC_Service.Pages.Warehouse.WarehouseProducts"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:PC_Service.Pages.Warehouse"
       mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="1250"
-      Title="WarehouseProduct">
-    
+      Title="WarehouseProducts">
     <Grid Background = "Gray" Name="MainGrid">
         <Button 
             Name="ButtonAddProduct"
@@ -16,7 +15,7 @@
                 Background="Gainsboro"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
-                Margin="20,40,0,0" Cursor="Hand" >
+                Margin="20,40,0,0" Cursor="Hand" Click="ButtonAddProduct_Click" >
 
             <TextBlock Text="+ Товар"
                                FontSize="16"/>
@@ -37,8 +36,21 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Редактировать" Name="BtnEdit" Background="Gainsboro"
-                                        />
+                                <StackPanel Orientation="Horizontal">
+                                    <Button  Name="BtnEdit"
+                                          Background="Gainsboro" PreviewMouseDown="BtnEdit_PreviewMouseDown">
+                                        <Button.Content>
+                                            <Image Source="/Pages/EditMain.png" Height="15" Width="15" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                    <Button  Name="BtnDel"
+                                             
+                                          Background="Gainsboro" PreviewMouseDown="BtnDel_PreviewMouseDown">
+                                        <Button.Content>
+                                            <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -46,8 +58,8 @@
             </DataGrid>
         </Grid>
 
-        <TextBlock Text="Всего - 0" FontSize="15" Margin="20,20,0,30"
-                   VerticalAlignment="Bottom" Cursor=""
+        <TextBlock Text="" FontSize="15" Margin="20,20,0,30"
+                   VerticalAlignment="Bottom" Name="ConutText" 
                    />
     </Grid>
 </Page>

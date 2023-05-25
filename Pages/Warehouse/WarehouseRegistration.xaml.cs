@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Migrations;
+using System.Data.Entity;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -26,7 +28,7 @@ namespace PC_Service.Pages.Warehouse
         public WarehouseRegistration()
         {
             InitializeComponent();
-            DataRegistrationProduct();
+            DaRegistrationProduct();
         }
 
         private void ButtonAddRegistration_Click(object sender, RoutedEventArgs e)
@@ -35,11 +37,13 @@ namespace PC_Service.Pages.Warehouse
             regAdd.ShowDialog();
         }
 
-        public void DataRegistrationProduct()
+        public void DaRegistrationProduct()
         {
             using (DataDB.entities = new EntitiesMain())
             {
-                DataGrid.ItemsSource = DataDB.entities.RegistrationProduct.ToList();
+                DataGrid.ItemsSource = DataDB.entities.RegistrationProduct.Include(x=>x.User)
+                    .Include(x=>x.Client)
+                    .Include(x=>x.WarehouseService).ToList();
             }
         }
     }

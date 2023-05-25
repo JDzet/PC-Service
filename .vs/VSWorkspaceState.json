@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Pages",
+    "\\Pages\\Warehouse",
     "\\View"
   ],
-  "SelectedNode": "\\View\\AddClient.xaml.cs",
+  "SelectedNode": "\\Pages\\Warehouse\\WarehouseProduct.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

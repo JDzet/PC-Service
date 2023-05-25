@@ -29,12 +29,19 @@ namespace PC_Service.View
             InitializeComponent();
             _client = client ?? new Client();
             DataContext = _client;
+            CheckBSapline.IsChecked = _client.Supplier;
         }
 
         private void DataBaseClientAdd_Click(object sender, RoutedEventArgs e)
         {
             
              _client = (Client)this.DataContext;
+
+            if(CheckBSapline.IsChecked == true) 
+            {
+                _client.Supplier = true;
+            }
+            else { _client.Supplier = false; }
 
             using (DataDB.entities = new EntitiesMain()) 
             {

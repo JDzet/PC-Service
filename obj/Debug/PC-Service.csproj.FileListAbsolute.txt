@@ -121,12 +121,12 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\AddProduct.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\WarehouseLokal.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\WarehouseLokal.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseMenu.g.cs
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseProduct.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseRegistration.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseRemains.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseWriteOff.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseMenu.baml
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseProduct.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseRegistration.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseRemains.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseWriteOff.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseProducts.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseProducts.baml

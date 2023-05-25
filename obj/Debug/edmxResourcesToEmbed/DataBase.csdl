@@ -20,6 +20,7 @@
     <Property Name="ClientEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_RegistrationProduct_Client" FromRole="Client" ToRole="RegistrationProduct" />
+    <Property Name="Supplier" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="DeviceType">
     <Key>

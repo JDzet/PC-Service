@@ -17,6 +17,7 @@
     <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="ClientAddress" Type="nvarchar(max)" />
     <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="Supplier" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="DeviceType">
     <Key>

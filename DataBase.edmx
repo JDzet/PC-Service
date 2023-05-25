@@ -89,6 +89,7 @@
           <Property Name="RemnantsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RemnantsProduct" Type="int" Nullable="false" />
           <Property Name="RemnantsQuantity" Type="int" Nullable="false" />
+          <Property Name="RemanantsWarehouse" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="RegistrationProduct">
           <Key>
@@ -234,6 +235,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProductRemnants_WarehouseService">
+          <End Role="WarehouseService" Type="Self.WarehouseService" Multiplicity="1" />
+          <End Role="ProductRemnants" Type="Self.ProductRemnants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WarehouseService">
+              <PropertyRef Name="WarehouseID" />
+            </Principal>
+            <Dependent Role="ProductRemnants">
+              <PropertyRef Name="RemanantsWarehouse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_RegistrationProduct_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="*" />
@@ -326,6 +339,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_ProductRemnants_Product" Association="Self.FK_ProductRemnants_Product">
             <End Role="Product" EntitySet="Product" />
+            <End Role="ProductRemnants" EntitySet="ProductRemnants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductRemnants_WarehouseService" Association="Self.FK_ProductRemnants_WarehouseService">
+            <End Role="WarehouseService" EntitySet="WarehouseService" />
             <End Role="ProductRemnants" EntitySet="ProductRemnants" />
           </AssociationSet>
           <AssociationSet Name="FK_RegistrationProduct_Client" Association="Self.FK_RegistrationProduct_Client">
@@ -568,6 +585,10 @@
             <End Role="WarehouseService" EntitySet="WarehouseService" />
             <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProductRemnants_WarehouseService" Association="Model.FK_ProductRemnants_WarehouseService">
+            <End Role="WarehouseService" EntitySet="WarehouseService" />
+            <End Role="ProductRemnants" EntitySet="ProductRemnants" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Product">
           <Key>
@@ -644,6 +665,8 @@
           <Property Name="RemnantsProduct" Type="Int32" Nullable="false" />
           <Property Name="RemnantsQuantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Model.FK_ProductRemnants_Product" FromRole="ProductRemnants" ToRole="Product" />
+          <Property Name="RemanantsWarehouse" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="WarehouseService" Relationship="Model.FK_ProductRemnants_WarehouseService" FromRole="ProductRemnants" ToRole="WarehouseService" />
         </EntityType>
         <Association Name="FK_ProductHistoryRegitration_Product">
           <End Type="Model.Product" Role="Product" Multiplicity="1" />
@@ -700,6 +723,7 @@
           <Property Name="WarehouseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="WarehouseAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_RegistrationProduct_Warehouse" FromRole="WarehouseService" ToRole="RegistrationProduct" />
+          <NavigationProperty Name="ProductRemnants" Relationship="Model.FK_ProductRemnants_WarehouseService" FromRole="WarehouseService" ToRole="ProductRemnants" />
         </EntityType>
         <Association Name="FK_RegistrationProduct_Warehouse">
           <End Type="Model.WarehouseService" Role="WarehouseService" Multiplicity="1" />
@@ -710,6 +734,18 @@
             </Principal>
             <Dependent Role="RegistrationProduct">
               <PropertyRef Name="RegWarehouse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductRemnants_WarehouseService">
+          <End Type="Model.WarehouseService" Role="WarehouseService" Multiplicity="1" />
+          <End Type="Model.ProductRemnants" Role="ProductRemnants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WarehouseService">
+              <PropertyRef Name="WarehouseID" />
+            </Principal>
+            <Dependent Role="ProductRemnants">
+              <PropertyRef Name="RemanantsWarehouse" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -838,6 +874,7 @@
           <EntitySetMapping Name="ProductRemnants">
             <EntityTypeMapping TypeName="Model.ProductRemnants">
               <MappingFragment StoreEntitySet="ProductRemnants">
+                <ScalarProperty Name="RemanantsWarehouse" ColumnName="RemanantsWarehouse" />
                 <ScalarProperty Name="RemnantsQuantity" ColumnName="RemnantsQuantity" />
                 <ScalarProperty Name="RemnantsProduct" ColumnName="RemnantsProduct" />
                 <ScalarProperty Name="RemnantsID" ColumnName="RemnantsID" />

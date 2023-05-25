@@ -18,6 +18,7 @@ namespace PC_Service
         public WarehouseService()
         {
             this.RegistrationProduct = new HashSet<RegistrationProduct>();
+            this.ProductRemnants = new HashSet<ProductRemnants>();
         }
     
         public int WarehouseID { get; set; }
@@ -26,5 +27,7 @@ namespace PC_Service
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RegistrationProduct> RegistrationProduct { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductRemnants> ProductRemnants { get; set; }
     }
 }

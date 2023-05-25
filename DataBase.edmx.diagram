@@ -28,8 +28,9 @@
         <AssociationConnector Association="Model.FK_ProductRemnants_Product" />
         <AssociationConnector Association="Model.FK_ProductHistoryRegitration_RegistrationProduct" />
         <EntityTypeShape EntityType="Model.InformationService" Width="1.5" PointX="0.875" PointY="0.5" />
-        <EntityTypeShape EntityType="Model.WarehouseService" Width="1.5" PointX="10.5" PointY="1.5" />
+        <EntityTypeShape EntityType="Model.WarehouseService" Width="1.875" PointX="10" PointY="1.5" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_Warehouse" />
+        <AssociationConnector Association="Model.FK_ProductRemnants_WarehouseService" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

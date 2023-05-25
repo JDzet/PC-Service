@@ -5,8 +5,108 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
-        Title="AddProduct" Height="450" Width="800">
-    <Grid>
-        
+        Title="AddProduct" Height="450" Width="900">
+    <Grid Background="Gray" Name="GridUserAndRole">
+        <StackPanel Margin="0,0,0,0" Height="{Binding ActualHeight,ElementName=MainGrid}">
+            <StackPanel>
+                <TextBlock Text="Товар"
+                   FontSize="30"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="20,20,0,10"/>
+                <Border Grid.Row="1" Height="1" Background="Gray" Margin="0,0,0,20">
+                    <Border.Effect>
+                        <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" />
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+
+            <StackPanel  Orientation="Horizontal" Height="240" VerticalAlignment="Top"
+                         Margin="0,0,0,10">
+                <StackPanel Width="270">
+                    <Image Height="220" Width="250" Margin="20,0,0,0" Source="/View/NonImage.jpg" Stretch="Fill">
+
+                    </Image>
+                </StackPanel>
+          
+
+                <StackPanel Margin="10,0,0,0" Width="590">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Строка название -->
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Название" VerticalAlignment="Center" Margin="10,10,10,10" 
+                                       HorizontalAlignment="Right" FontSize="15"/>
+                            <TextBox Grid.Column="1" Margin="5" Background="#9E9E9E"
+                                     FontSize="15" Cursor="" Text="{Binding ProductName}"/>
+                        </Grid>
+
+                        <!-- Строка описание -->
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Описание" VerticalAlignment="Center" Margin="10,10,10,10"
+                                       HorizontalAlignment="Right"
+                                       FontSize="15"/>
+                            <TextBox Grid.Column="1" Margin="5" Background="#9E9E9E" 
+                                     FontSize="15" TextWrapping="Wrap" Text="{Binding ProductDescription}"/>
+                        </Grid>
+
+                        <!-- Строка код -->
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Код" VerticalAlignment="Center" Margin="10,10,10,10"
+                                       HorizontalAlignment="Right"
+                                       FontSize="15"/>
+                            <TextBox Grid.Column="1" Margin="5" Background="#9E9E9E"
+                                     FontSize="15" Text="{Binding ProductCod}"/>
+                        </Grid>
+
+                        <!-- Строка артикул -->
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Артикул" VerticalAlignment="Center" Margin="10,10,10,10"
+                                       HorizontalAlignment="Right"
+                                       FontSize="15"/>
+                            <TextBox Grid.Column="1" Margin="5" Background="#9E9E9E"
+                                     FontSize="15" Text="{Binding ProductArticle}"/>
+                        </Grid>
+                    </Grid>
+                </StackPanel>
+
+            </StackPanel>
+            <Button Width="180"
+                        Height="45"
+                        Background="Gainsboro"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,50,0" Cursor="Hand"
+                        Content="Сохранить"
+                        FontSize="16" 
+                        Name="DataBaseProductAdd" Click="DataBaseProductAdd_Click">
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>

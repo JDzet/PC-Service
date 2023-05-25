@@ -35,7 +35,7 @@
                     <DataGridTextColumn Header="Наклданая номер" Binding="{Binding InvoiceNumber}"/>
                     <DataGridTextColumn Header="Сотрудник" Binding="{Binding User.UserName}"/>
                     <DataGridTextColumn Header="Поставщик" Binding="{Binding Client.ClientName}"/>
-                    <DataGridTextColumn Header="Склад" Binding="{Binding Warehouse.WarehouseName}"/>
+                    <DataGridTextColumn Header="Склад" Binding="{Binding WarehouseService.WarehouseName}"/>
                     <DataGridTextColumn Header="Комментарий" Binding="{Binding Note}"/>
                     <DataGridTextColumn Header="Сумма" Binding="{Binding RegAmount}"/>
                 </DataGrid.Columns>
