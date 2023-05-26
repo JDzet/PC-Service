@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="022fc730ce864c0392420992cdfa6ea2" Name="Diagram1" ZoomLevel="97">
+      <Diagram DiagramId="022fc730ce864c0392420992cdfa6ea2" Name="Diagram1" ZoomLevel="59">
         <EntityTypeShape EntityType="Model.BrandDevice" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="8.125" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.DeviceType" Width="1.5" PointX="3.25" PointY="9.125" IsExpanded="true" />
@@ -31,6 +31,12 @@
         <EntityTypeShape EntityType="Model.WarehouseService" Width="1.875" PointX="10" PointY="1.5" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_Warehouse" />
         <AssociationConnector Association="Model.FK_ProductRemnants_WarehouseService" />
+        <EntityTypeShape EntityType="Model.ProductWriteOff" Width="1.5" PointX="15.625" PointY="1.125" />
+        <EntityTypeShape EntityType="Model.ProductWriteOffHistory" Width="1.5" PointX="17.875" PointY="4.5" />
+        <AssociationConnector Association="Model.FK_ProductWriteOffHistory_Product" />
+        <AssociationConnector Association="Model.FK_ProductWriteOff_User" />
+        <AssociationConnector Association="Model.FK_ProductWriteOff_WarehouseService" />
+        <AssociationConnector Association="Model.FK_ProductWriteOffHistory_ProductWriteOff" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

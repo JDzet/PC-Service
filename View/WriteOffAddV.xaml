@@ -1,0 +1,145 @@
+﻿<Window x:Class="PC_Service.View.WriteOffAddV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PC_Service.View"
+        mc:Ignorable="d"
+        Title="WriteOffAddV" Height="600" Width="800">
+    <Grid  Background="Gray">
+        <StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Новое списание"
+                   FontSize="30"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="20,20,0,10"/>
+                <Border Grid.Row="1" Height="1" Background="Gray" Margin="0,0,0,20">
+                    <Border.Effect>
+                        <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" />
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+
+            <Grid Margin="50,0,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Строка название -->
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Склад" VerticalAlignment="Center" Margin="10,10,10,10" 
+                                       HorizontalAlignment="Right" FontSize="15"/>
+                    <ComboBox Grid.Column="1" Margin="5" Background="#9E9E9E"
+                                     FontSize="15" Name="CbWarehouse" DisplayMemberPath="WarehouseName" SelectionChanged="CbWarehouse_SelectionChanged"/>
+                </Grid>
+
+                <!-- Строка код -->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Наименование товара" VerticalAlignment="Center" Margin="10,10,10,10"
+                                       HorizontalAlignment="Right"
+                                       FontSize="15"/>
+                    <ComboBox Grid.Column="1" Margin="5" Background="#9E9E9E"
+                                     FontSize="15" Name="CbNameProduct" />
+                </Grid>
+
+                <!-- Строка артикул -->
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid Margin="0,20,0,0" HorizontalAlignment="Right" Width="685" Background="#9E9E9E"
+                          Name="DataGridProduct" AutoGenerateColumns="False" CanUserAddRows="False"  RenderTransformOrigin="0.5,0.5">
+                        <DataGrid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleY="0.136"/>
+                                <RotateTransform/>
+                                <TranslateTransform Y="-0.594"/>
+                            </TransformGroup>
+                        </DataGrid.RenderTransform>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Наименование" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="Колличество товара на складе"/>
+                            <DataGridTextColumn Header="Колличество списания"/>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button  Name="BtnDel"
+                                          Background="Gainsboro">
+                                            <Button.Content>
+                                                <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>
+                                            </Button.Content>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+
+                <!-- Строка код -->
+                <Grid Grid.Row="3" Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Комментарий" VerticalAlignment="Center" Margin="10,10,10,10"
+                                       HorizontalAlignment="Right"
+                                       FontSize="15"/>
+                    <TextBox Grid.Column="1" Margin="5" Background="#9E9E9E"
+                                     FontSize="15" Text="{Binding ProductCod}"/>
+                </Grid>
+                <Grid Grid.Row="4" Margin="203,24,0,-14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="152*" />
+                        <ColumnDefinition Width="97*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Width="180"
+                        Height="45"
+                        Background="Gainsboro"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center" 
+                        Margin="133,0,0,0" Cursor="Hand"
+                        Content="Оприходовать"
+                        FontSize="16" 
+                        Name="BRegistration" 
+                        Grid.ColumnSpan="2">
+                    </Button>
+                    <Button Width="180"
+                        Height="45"
+                        Grid.Column="1"
+                        Background="Gainsboro"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" Cursor="Hand"
+                        Content="Отчистить таблицу"
+                        FontSize="16" 
+                        Name="BtDellDate" 
+                       />
+                </Grid>
+            </Grid>
+
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>

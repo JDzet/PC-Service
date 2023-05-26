@@ -84,6 +84,26 @@
     <Property Name="RemnantsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RemnantsProduct" Type="int" Nullable="false" />
     <Property Name="RemnantsQuantity" Type="int" Nullable="false" />
+    <Property Name="RemanantsWarehouse" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductWriteOff">
+    <Key>
+      <PropertyRef Name="WriteOffID" />
+    </Key>
+    <Property Name="WriteOffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="WriteUser" Type="int" Nullable="false" />
+    <Property Name="WriteWarehouse" Type="int" Nullable="false" />
+    <Property Name="Note" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductWriteOffHistory">
+    <Key>
+      <PropertyRef Name="ProductHistoryWriteID" />
+    </Key>
+    <Property Name="ProductHistoryWriteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductW" Type="int" Nullable="false" />
+    <Property Name="ProductWQuantity" Type="int" Nullable="false" />
+    <Property Name="ProductWriteOff" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="RegistrationProduct">
     <Key>
@@ -229,6 +249,66 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProductRemnants_WarehouseService">
+    <End Role="WarehouseService" Type="Self.WarehouseService" Multiplicity="1" />
+    <End Role="ProductRemnants" Type="Self.ProductRemnants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WarehouseService">
+        <PropertyRef Name="WarehouseID" />
+      </Principal>
+      <Dependent Role="ProductRemnants">
+        <PropertyRef Name="RemanantsWarehouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductWriteOff_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ProductWriteOff" Type="Self.ProductWriteOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ProductWriteOff">
+        <PropertyRef Name="WriteUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductWriteOff_WarehouseService">
+    <End Role="WarehouseService" Type="Self.WarehouseService" Multiplicity="1" />
+    <End Role="ProductWriteOff" Type="Self.ProductWriteOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WarehouseService">
+        <PropertyRef Name="WarehouseID" />
+      </Principal>
+      <Dependent Role="ProductWriteOff">
+        <PropertyRef Name="WriteWarehouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductWriteOffHistory_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductWriteOffHistory" Type="Self.ProductWriteOffHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductWriteOffHistory">
+        <PropertyRef Name="ProductW" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductWriteOffHistory_ProductWriteOff">
+    <End Role="ProductWriteOff" Type="Self.ProductWriteOff" Multiplicity="1" />
+    <End Role="ProductWriteOffHistory" Type="Self.ProductWriteOffHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductWriteOff">
+        <PropertyRef Name="WriteOffID" />
+      </Principal>
+      <Dependent Role="ProductWriteOffHistory">
+        <PropertyRef Name="ProductWriteOff" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_RegistrationProduct_Client">
     <End Role="Client" Type="Self.Client" Multiplicity="1" />
     <End Role="RegistrationProduct" Type="Self.RegistrationProduct" Multiplicity="*" />
@@ -286,6 +366,8 @@
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductHistoryRegistration" EntityType="Self.ProductHistoryRegistration" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductRemnants" EntityType="Self.ProductRemnants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductWriteOff" EntityType="Self.ProductWriteOff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductWriteOffHistory" EntityType="Self.ProductWriteOffHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RegistrationProduct" EntityType="Self.RegistrationProduct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
@@ -322,6 +404,26 @@
     <AssociationSet Name="FK_ProductRemnants_Product" Association="Self.FK_ProductRemnants_Product">
       <End Role="Product" EntitySet="Product" />
       <End Role="ProductRemnants" EntitySet="ProductRemnants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRemnants_WarehouseService" Association="Self.FK_ProductRemnants_WarehouseService">
+      <End Role="WarehouseService" EntitySet="WarehouseService" />
+      <End Role="ProductRemnants" EntitySet="ProductRemnants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductWriteOff_User" Association="Self.FK_ProductWriteOff_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ProductWriteOff" EntitySet="ProductWriteOff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductWriteOff_WarehouseService" Association="Self.FK_ProductWriteOff_WarehouseService">
+      <End Role="WarehouseService" EntitySet="WarehouseService" />
+      <End Role="ProductWriteOff" EntitySet="ProductWriteOff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductWriteOffHistory_Product" Association="Self.FK_ProductWriteOffHistory_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductWriteOffHistory" EntitySet="ProductWriteOffHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductWriteOffHistory_ProductWriteOff" Association="Self.FK_ProductWriteOffHistory_ProductWriteOff">
+      <End Role="ProductWriteOff" EntitySet="ProductWriteOff" />
+      <End Role="ProductWriteOffHistory" EntitySet="ProductWriteOffHistory" />
     </AssociationSet>
     <AssociationSet Name="FK_RegistrationProduct_Client" Association="Self.FK_RegistrationProduct_Client">
       <End Role="Client" EntitySet="Client" />

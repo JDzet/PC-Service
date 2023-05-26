@@ -25,7 +25,6 @@ namespace PC_Service.Pages.Warehouse
         {
             InitializeComponent();
             DataGrid.ItemsSource = entities.ProductRemnants.ToList();
-           
         }
 
 

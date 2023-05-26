@@ -5,12 +5,44 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PC_Service.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1250"
       Title="Finance">
 
     <Grid Background ="Gray" Name="MainGridFinance">
+        <!-- Верхнее меню -->
 
-      
+        <!-- Основной контент страницы -->
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
+            <!-- Общий баланс и кнопки -->
+            <Grid Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Общий баланс:" FontSize="20" Margin="10" HorizontalAlignment="Center" />
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Приход" FontSize="16" Margin="5" Background="Green" Foreground="White" />
+                    <Button Content="Расход" FontSize="16" Margin="5" Background="Red" Foreground="White" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Таблица с историей операций -->
+            <DataGrid Grid.Column="1" Margin="10" Background="#9E9E9E">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Создал" Width="80"/>
+                    <DataGridTextColumn Header="Комментарий" Width="*"/>
+                    <DataGridTextColumn Header="Приход" Width="90"/>
+                    <DataGridTextColumn Header="Расход" Width="90"/>
+                    <DataGridTextColumn Header="Остаток" Width="90"/>
+                </DataGrid.Columns>
+
+
+            </DataGrid>
+        </Grid>
     </Grid>
 </Page>

@@ -10,6 +10,7 @@
       Title="WarehouseMenu">
 
     <Grid Background ="Gray" Name="MainGrid" >
+        
         <StackPanel Margin="0,0,0,20" Height="{Binding ActualHeight,ElementName=MainGrid}">
             <TextBlock Text="Склад"
                    FontSize="30"

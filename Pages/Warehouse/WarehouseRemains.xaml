@@ -9,17 +9,20 @@
       Title="WarehouseRemains">
 
     <Grid Background = "Gray" Name="MainGrid">
-        <Grid VerticalAlignment="Stretch" Margin="20,40,20,70">
+        <Grid VerticalAlignment="Stretch" Margin="20,0,20,70">
+         
+            
             <DataGrid x:Name="DataGrid"  
                       Background="#9E9E9E"    
                       FontSize="14" FontWeight="Bold"    
-                      AutoGenerateColumns="False" IsReadOnly="True">
+                      AutoGenerateColumns="False" IsReadOnly="True" Margin="0,50,0,0">
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Артикула" Binding="{Binding Product.ProductArticle}"/>
                     <DataGridTextColumn Header="Название" Binding="{Binding Product.ProductName}"/>
                     <DataGridTextColumn Header="Изображение"/>
                     <DataGridTextColumn Header="Количество" Binding="{Binding RemnantsQuantity}"/>
+                    <DataGridTextColumn Header="Склад" Binding="{Binding WarehouseService.WarehouseName}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

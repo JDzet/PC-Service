@@ -151,6 +151,12 @@
     <Compile Include="Pages\StatusPag.xaml.cs">
       <DependentUpon>StatusPag.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TasksPages\AtWorkPages.xaml.cs">
+      <DependentUpon>AtWorkPages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TasksPages\TasksPage.xaml.cs">
+      <DependentUpon>TasksPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\WarehouseLokal.xaml.cs">
       <DependentUpon>WarehouseLokal.xaml</DependentUpon>
     </Compile>
@@ -176,6 +182,12 @@
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductRemnants.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductWriteOff.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductWriteOffHistory.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -224,6 +236,9 @@
     <Compile Include="View\RegistrationAdd.xaml.cs">
       <DependentUpon>RegistrationAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\WriteOffAddV.xaml.cs">
+      <DependentUpon>WriteOffAddV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WarehouseService.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -240,6 +255,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StatusPag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TasksPages\AtWorkPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TasksPages\TasksPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -316,6 +339,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RegistrationAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WriteOffAddV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

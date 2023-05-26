@@ -109,7 +109,7 @@ namespace PC_Service.View
                     DataDB.entities.ProductHistoryRegistration.Add(productHistory);
 
 
-                    ProductRemnants Remprod = DataDB.entities.ProductRemnants.FirstOrDefault(x => x.RemnantsProduct == product.ProductID); // получение товара из таблицы остатков
+                    ProductRemnants Remprod = DataDB.entities.ProductRemnants.FirstOrDefault(x => x.RemnantsProduct == product.ProductID && x.RemanantsWarehouse == selectWarehouse.WarehouseID); // получение товара из таблицы остатков
                     if (Remprod != null) // если такой товар есть, то берем и увеличиваем коллчество
                     {
                         Remprod.RemnantsQuantity += int.Parse(item.Column3);
@@ -121,8 +121,9 @@ namespace PC_Service.View
                         {
                             RemnantsProduct = product.ProductID,
                             RemnantsQuantity = int.Parse(item.Column3),
+                            RemanantsWarehouse = selectWarehouse.WarehouseID
                         };
-                        DataDB.entities.ProductRemnants.AddOrUpdate(x => x.RemnantsProduct, remnants); 
+                        DataDB.entities.ProductRemnants.Add(remnants); 
                     }
                     DataDB.entities.SaveChanges();
                 }

@@ -120,6 +120,7 @@
     <EntitySetMapping Name="ProductRemnants">
       <EntityTypeMapping TypeName="Model.ProductRemnants">
         <MappingFragment StoreEntitySet="ProductRemnants">
+          <ScalarProperty Name="RemanantsWarehouse" ColumnName="RemanantsWarehouse" />
           <ScalarProperty Name="RemnantsQuantity" ColumnName="RemnantsQuantity" />
           <ScalarProperty Name="RemnantsProduct" ColumnName="RemnantsProduct" />
           <ScalarProperty Name="RemnantsID" ColumnName="RemnantsID" />
@@ -144,6 +145,27 @@
           <ScalarProperty Name="WarehouseAddress" ColumnName="WarehouseAddress" />
           <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
           <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductWriteOff">
+      <EntityTypeMapping TypeName="Model.ProductWriteOff">
+        <MappingFragment StoreEntitySet="ProductWriteOff">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="WriteWarehouse" ColumnName="WriteWarehouse" />
+          <ScalarProperty Name="WriteUser" ColumnName="WriteUser" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="WriteOffID" ColumnName="WriteOffID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductWriteOffHistory">
+      <EntityTypeMapping TypeName="Model.ProductWriteOffHistory">
+        <MappingFragment StoreEntitySet="ProductWriteOffHistory">
+          <ScalarProperty Name="ProductWriteOff" ColumnName="ProductWriteOff" />
+          <ScalarProperty Name="ProductWQuantity" ColumnName="ProductWQuantity" />
+          <ScalarProperty Name="ProductW" ColumnName="ProductW" />
+          <ScalarProperty Name="ProductHistoryWriteID" ColumnName="ProductHistoryWriteID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

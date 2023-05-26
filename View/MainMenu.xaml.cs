@@ -61,5 +61,15 @@ namespace PC_Service.View
         {
             MainFrame.Content = new ClientPage();
         }
+
+        private void FinanceMeny_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new Finance();
+        }
+
+        private void Tasks_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new TasksPage();
+        }
     }
 }

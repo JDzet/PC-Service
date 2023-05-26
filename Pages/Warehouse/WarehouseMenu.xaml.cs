@@ -21,6 +21,7 @@ namespace PC_Service.Pages
     /// </summary>
     public partial class WarehouseMenu : Page
     {
+     
         public WarehouseMenu()
         {
             InitializeComponent();
@@ -32,7 +33,8 @@ namespace PC_Service.Pages
             switch (MainTabControl.SelectedIndex)
             {
                 case 0:
-                    RemainsFrame.Content = new WarehouseRemains();
+                    WarehouseRemains page = new WarehouseRemains();
+                    RemainsFrame.Content = page;
                     break;
                 case 1:
                     RegistrationFrame.Content = new WarehouseRegistration();

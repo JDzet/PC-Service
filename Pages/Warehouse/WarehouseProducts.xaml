@@ -8,6 +8,7 @@
       d:DesignHeight="650" d:DesignWidth="1250"
       Title="WarehouseProducts">
     <Grid Background = "Gray" Name="MainGrid">
+
         <Button 
             Name="ButtonAddProduct"
                 Width="180"

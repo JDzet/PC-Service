@@ -38,5 +38,7 @@ namespace PC_Service
         public virtual DbSet<ProductRemnants> ProductRemnants { get; set; }
         public virtual DbSet<InformationService> InformationService { get; set; }
         public virtual DbSet<WarehouseService> WarehouseService { get; set; }
+        public virtual DbSet<ProductWriteOff> ProductWriteOff { get; set; }
+        public virtual DbSet<ProductWriteOffHistory> ProductWriteOffHistory { get; set; }
     }
 }

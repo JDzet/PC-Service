@@ -16,7 +16,7 @@
                 Background="Gainsboro"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
-                Margin="20,40,0,0" Cursor="Hand" >
+                Margin="20,40,0,0" Cursor="Hand" Click="ButtonAddProduct_Click" >
 
             <TextBlock Text="+ Списание"
                                FontSize="16"/>

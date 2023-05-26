@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PC_Service.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace PC_Service.Pages.Warehouse
         public WarehouseWriteOff()
         {
             InitializeComponent();
+        }
+
+        private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            WriteOffAddV offAddV = new WriteOffAddV();
+            offAddV.ShowDialog();
         }
     }
 }
