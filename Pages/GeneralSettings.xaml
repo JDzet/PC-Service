@@ -72,7 +72,7 @@
                         HorizontalAlignment="Left"
                         Text="{Binding Requisites}"
                         Style="{StaticResource MaterialDesignTextBox}"
-                        Background="#9E9e9e"/>
+                        Background="#B3B3B3"/>
 
 
                     <TextBlock Text="Дополнительная информация" FontSize="14" FontWeight="Bold"/>

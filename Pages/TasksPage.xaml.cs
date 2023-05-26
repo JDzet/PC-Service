@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,21 +26,20 @@ namespace PC_Service.Pages
         public TasksPage()
         {
             InitializeComponent();
+            DataTask();
+        }
+
+        public void DataTask()
+        {
+            using (DataDB.entities = new EntitiesMain())
+            {
+                DataGridTaskAtWork.ItemsSource = DataDB.entities.Task.Include(x => x.User).ToList();
+            }
         }
 
         private void MainTabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (MainTabControl.SelectedIndex)
-            {
-                case 0:
-                    
-                    FrameTasks.Content = new AtWorkPages();
-                    break;
-                case 1:
-                   
-                    break;
-               
-            }
+           
         }
     }
 }

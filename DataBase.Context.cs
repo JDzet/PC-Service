@@ -40,5 +40,6 @@ namespace PC_Service
         public virtual DbSet<WarehouseService> WarehouseService { get; set; }
         public virtual DbSet<ProductWriteOff> ProductWriteOff { get; set; }
         public virtual DbSet<ProductWriteOffHistory> ProductWriteOffHistory { get; set; }
+        public virtual DbSet<Task> Task { get; set; }
     }
 }

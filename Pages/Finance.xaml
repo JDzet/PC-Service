@@ -10,13 +10,26 @@
 
     <Grid Background ="Gray" Name="MainGridFinance">
         <!-- Верхнее меню -->
-
+        <StackPanel Margin="0,0,0,20" Height="{Binding ActualHeight,ElementName=MainGrid}">
+            <TextBlock Text="Задачи"
+               FontSize="30"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="20,20,0,10"/>
+            <Border Grid.Row="1" Height="1" Background="Gray" Margin="0,0,0,0">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" />
+                </Border.Effect>
+            </Border>
+        </StackPanel>
         <!-- Основной контент страницы -->
         <Grid Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+
+           
 
             <!-- Общий баланс и кнопки -->
             <Grid Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -26,13 +39,13 @@
                 </Grid.RowDefinitions>
                 <TextBlock Text="Общий баланс:" FontSize="20" Margin="10" HorizontalAlignment="Center" />
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Content="Приход" FontSize="16" Margin="5" Background="Green" Foreground="White" />
-                    <Button Content="Расход" FontSize="16" Margin="5" Background="Red" Foreground="White" />
+                    <Button Content="+ Приход" FontSize="16" Margin="5" Background="#696" Foreground="White" />
+                    <Button Content="- Расход" FontSize="16" Margin="5" Background="#c66" Foreground="White" />
                 </StackPanel>
             </Grid>
 
             <!-- Таблица с историей операций -->
-            <DataGrid Grid.Column="1" Margin="10" Background="#9E9E9E">
+            <DataGrid Grid.Column="1" Margin="10,80,10,10" Background="#B3B3B3">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Создал" Width="80"/>
                     <DataGridTextColumn Header="Комментарий" Width="*"/>

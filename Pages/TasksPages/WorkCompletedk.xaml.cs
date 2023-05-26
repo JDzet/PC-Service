@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Data.Entity;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -17,15 +16,13 @@ using System.Windows.Shapes;
 namespace PC_Service.Pages.TasksPages
 {
     /// <summary>
-    /// Логика взаимодействия для AtWorkPages.xaml
+    /// Логика взаимодействия для WorkCompletedk.xaml
     /// </summary>
-    public partial class AtWorkPages : Page
+    public partial class WorkCompletedk : Page
     {
-        public AtWorkPages()
+        public WorkCompletedk()
         {
             InitializeComponent();
         }
-
-       
     }
 }

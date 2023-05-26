@@ -8,7 +8,7 @@
       d:DesignHeight="650" d:DesignWidth="1250"
       Title="AtWorkPages">
 
-    <Grid  Background ="Gray" Name="MainGridFinance">
+    <Grid  Background ="Gray" Name="MainGridAtWork">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -20,8 +20,15 @@
         </Grid>
 
         <!-- Дата грид -->
-        <DataGrid Grid.Row="1" Background="#9E9E9E" Margin="20">
-            <!-- Настройки столбцов и привязка данных -->
+        <DataGrid Grid.Row="1" Background="#9E9E9E" Margin="20" Name="DataGridTaskAtWork" 
+                  AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название задачи" Binding="{Binding TaskName}"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="Крайний срок" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Исполнитель" Binding="{Binding User.UserName}"/>
+                <DataGridCheckBoxColumn/>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Page>

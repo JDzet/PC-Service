@@ -154,8 +154,11 @@
     <Compile Include="Pages\TasksPages\AtWorkPages.xaml.cs">
       <DependentUpon>AtWorkPages.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TasksPages\TasksPage.xaml.cs">
+    <Compile Include="Pages\TasksPage.xaml.cs">
       <DependentUpon>TasksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TasksPages\WorkCompletedk.xaml.cs">
+      <DependentUpon>WorkCompletedk.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\WarehouseLokal.xaml.cs">
       <DependentUpon>WarehouseLokal.xaml</DependentUpon>
@@ -203,6 +206,9 @@
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Status.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
@@ -262,7 +268,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\TasksPages\TasksPage.xaml">
+    <Page Include="Pages\TasksPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TasksPages\WorkCompletedk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -418,18 +428,8 @@
     <None Include="resources\EditMain.png" />
     <Resource Include="Pages\Del.png" />
     <None Include="resources\Del.png" />
-    <None Include="resources\Edit.png" />
     <Resource Include="Pages\close78.png" />
-    <None Include="resources\Close500.ico" />
-    <None Include="resources\close21.jpg" />
     <None Include="resources\close78.png" />
-    <None Include="resources\close20.png" />
-    <None Include="resources\icons8-крестик-78.png" />
-    <None Include="resources\icons8-крестик-20.png" />
-    <None Include="resources\Close.ico" />
-    <None Include="resources\edit.ico" />
-    <None Include="resources\edit_icon-icons.com_61193.ico" />
-    <None Include="resources\edit_icon-icons.com_61193.png" />
     <Resource Include="resources\logo.ico" />
     <Resource Include="resources\Fon.png" />
   </ItemGroup>

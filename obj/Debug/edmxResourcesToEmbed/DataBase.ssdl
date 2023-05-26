@@ -132,6 +132,17 @@
     <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StatusName" Type="nvarchar" MaxLength="200" Nullable="false" />
   </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="TaskUser" Type="int" Nullable="false" />
+    <Property Name="TaskStatus" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="UserId" />
@@ -345,6 +356,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Task_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="TaskUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_User_Role">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -371,6 +394,7 @@
     <EntitySet Name="RegistrationProduct" EntityType="Self.RegistrationProduct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WarehouseService" EntityType="Self.WarehouseService" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Orders_BrandDevice" Association="Self.FK_Orders_BrandDevice">
@@ -436,6 +460,10 @@
     <AssociationSet Name="FK_RegistrationProduct_Warehouse" Association="Self.FK_RegistrationProduct_Warehouse">
       <End Role="WarehouseService" EntitySet="WarehouseService" />
       <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_User" Association="Self.FK_Task_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Task" EntitySet="Task" />
     </AssociationSet>
     <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
       <End Role="Role" EntitySet="Role" />

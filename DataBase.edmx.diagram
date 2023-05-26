@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="022fc730ce864c0392420992cdfa6ea2" Name="Diagram1" ZoomLevel="59">
-        <EntityTypeShape EntityType="Model.BrandDevice" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+      <Diagram DiagramId="022fc730ce864c0392420992cdfa6ea2" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="Model.BrandDevice" Width="1.5" PointX="7.625" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="8.125" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.DeviceType" Width="1.5" PointX="3.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DeviceType" Width="1.5" PointX="2.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Orders" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Status" Width="1.5" PointX="3.125" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Status" Width="1.5" PointX="3.375" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_Orders_BrandDevice" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Orders_Client" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Orders_DeviceType" ManuallyRouted="false" />
@@ -37,6 +37,8 @@
         <AssociationConnector Association="Model.FK_ProductWriteOff_User" />
         <AssociationConnector Association="Model.FK_ProductWriteOff_WarehouseService" />
         <AssociationConnector Association="Model.FK_ProductWriteOffHistory_ProductWriteOff" />
+        <EntityTypeShape EntityType="Model.Task" Width="1.5" PointX="0.625" PointY="5.25" />
+        <AssociationConnector Association="Model.FK_Task_User" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
