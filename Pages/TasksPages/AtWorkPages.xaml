@@ -20,7 +20,7 @@
         </Grid>
 
         <!-- Дата грид -->
-        <DataGrid Grid.Row="1" Background="#9E9E9E" Margin="20" Name="DataGridTaskAtWork" 
+        <DataGrid Grid.Row="1"  Background="{StaticResource BackElement}" Margin="20" Name="DataGridTaskAtWork" 
                   AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название задачи" Binding="{Binding TaskName}"/>

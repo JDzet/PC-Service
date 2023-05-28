@@ -25,7 +25,7 @@
 
         <Grid VerticalAlignment="Stretch" Margin="20,100,20,70">
             <DataGrid x:Name="DataGrid"  
-                      Background="#9E9E9E"    
+                       Background="{StaticResource BackElement}"    
                       FontSize="14" FontWeight="Bold"    
                       AutoGenerateColumns="False" IsReadOnly="True">
 

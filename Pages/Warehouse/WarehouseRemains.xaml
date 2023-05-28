@@ -13,7 +13,7 @@
          
             
             <DataGrid x:Name="DataGrid"  
-                      Background="#9E9E9E"    
+                       Background="{StaticResource BackElement}"    
                       FontSize="14" FontWeight="Bold"    
                       AutoGenerateColumns="False" IsReadOnly="True" Margin="0,50,0,0">
 

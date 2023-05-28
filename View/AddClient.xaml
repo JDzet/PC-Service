@@ -53,27 +53,27 @@
                              HorizontalAlignment="Left"
                              Text="{Binding ClientName}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             Background="#9E9E9E"/>
+                             Background="{StaticResource BackElement}"/>
                     <TextBox Margin="20,0,0,5" FontSize="15" Width="460"
                              Name="tbPhone"
                              HorizontalAlignment="Left"
                              Text="{Binding ClientEmail}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             Background="#9E9E9E"
+                             Background="{StaticResource BackElement}"
                                  />
                     <TextBox Margin="20,0,0,5" FontSize="15" Width="460"
                              HorizontalAlignment="Left"
                              Text="{Binding PhoneNumber}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              Name="tbAdress"
-                             Background="#9E9E9E"/>
+                             Background="{StaticResource BackElement}"/>
                     <ComboBox Margin="20,0,0,8" FontSize="15" Width="460" Name="CbNaem"
                              IsEditable="True"
                              TextBoxBase.TextChanged="tbAdress_TextChanged"
                              HorizontalAlignment="Left"
                              Text="{Binding ClientAddress}"
                              Style="{StaticResource MaterialDesignComboBox}"
-                             Background="#9E9E9E"/>
+                              Background="{StaticResource BackElement}"/>
                     <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                              Height="70"
                              HorizontalAlignment="Left"
@@ -81,9 +81,9 @@
                              VerticalScrollBarVisibility="Auto"
                              TextWrapping="Wrap"
                              Text="{Binding Note}"
-                              Style="{StaticResource MaterialDesignTextBox}"
+                             Style="{StaticResource MaterialDesignTextBox}"
                              Name="tbNote"
-                             Background="#9E9E9E"/>
+                             Background="{StaticResource BackElement}"/>
                     
                     <CheckBox Margin="20,0,0,0" Content="Поставщик" FontSize="20"
                               Name="CheckBSapline"/>

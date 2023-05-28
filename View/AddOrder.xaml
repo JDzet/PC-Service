@@ -45,18 +45,18 @@
                                  HorizontalAlignment="Left"
                                  
                                  Style="{StaticResource MaterialDesignTextBox}"
-                                  Background="#9E9E9E"/>
+                                   Background="{StaticResource BackElement}"/>
                         <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                                  Name="tbPhone"
                                  HorizontalAlignment="Left"
                                  Style="{StaticResource MaterialDesignTextBox}"
-                                  Background="#9E9E9E"
+                                   Background="{StaticResource BackElement}"
                                  />
                         <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                                  HorizontalAlignment="Left"
                                  Style="{StaticResource MaterialDesignTextBox}"
                                  Name="tbAdress"
-                                  Background="#9E9E9E"/>
+                                   Background="{StaticResource BackElement}"/>
                     </StackPanel>
                 </StackPanel>
 
@@ -94,14 +94,14 @@
                     </StackPanel>
                     <StackPanel>
                         <ComboBox Margin="20,0,0,8" FontSize="15" Width="460"
-                                  Background="#9E9E9E"
+                                   Background="{StaticResource BackElement}"
                                  
                                  HorizontalAlignment="Left"
                                   Name="cbDevice"
                                   DisplayMemberPath="NameDeviceType"
                                   ItemStringFormat="String"/>
                         <ComboBox Margin="20,0,0,8" FontSize="15" Width="460"
-                                  Background="#9E9E9E"
+                                   Background="{StaticResource BackElement}"
                                   SelectedItem="{Binding BrandDevice1}"
                                  HorizontalAlignment="Left"
                                   DisplayMemberPath="BrandName"
@@ -109,18 +109,18 @@
                         <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                                   Style="{StaticResource MaterialDesignTextBox}"
                                  Text="{Binding ModelDevice}"
-                                  Background="#9E9E9E"
+                                   Background="{StaticResource BackElement}"
                                  Name="tbModel"
                                  HorizontalAlignment="Left"/>
                         <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                                   Style="{StaticResource MaterialDesignTextBox}"
                                  Text="{Binding Malfunction}"
-                                  Background="#9E9E9E"
+                                   Background="{StaticResource BackElement}"
                                    Name="tbMalfunction"
                                  HorizontalAlignment="Left"/>
                         <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                                   Style="{StaticResource MaterialDesignTextBox}"
-                                  Background="#9E9E9E"
+                                   Background="{StaticResource BackElement}"
                                  Text="{Binding AppearanceDevice}"
                                     Name="tbApperance"
                                  HorizontalAlignment="Left"/>
@@ -128,10 +128,10 @@
                                   Style="{StaticResource MaterialDesignTextBox}"
                                  Text="{Binding Equipment}"
                                    Name="tbEquipment"
-                                  Background="#9E9E9E"
+                                   Background="{StaticResource BackElement}"
                                  HorizontalAlignment="Left"/>
                         <ComboBox Margin="20,0,0,8" FontSize="15" Width="460"
-                                  Background="#9E9E9E"
+                                   Background="{StaticResource BackElement}"
                                   SelectedItem="{Binding User}"
                                  HorizontalAlignment="Left"
                                   Name="cbMaster"
@@ -169,24 +169,24 @@
                                  TextWrapping="Wrap"
                                  HorizontalAlignment="Left"
                                  Name="tbNote"
-                                  Background="#9E9E9E"/>
+                                   Background="{StaticResource BackElement}"/>
                         
                         <DatePicker Margin="20,0,0,8" FontSize="15" Width="460"
-                                 Background="#9E9E9E"
+                                  Background="{StaticResource BackElement}"
                                  Name="dpReceiptTime"
                                  SelectedDate="{x:Static sys:DateTime.Now}"
                                  HorizontalAlignment="Left"/>
                         
                         <DatePicker
                             Margin="20,0,0,8" FontSize="15" Width="460"
-                                 Background="#9E9E9E"
+                                  Background="{StaticResource BackElement}"
                                  Name="dpDeadLine"
                                  SelectedDate="{x:Static sys:DateTime.Now}"
                                  HorizontalAlignment="Left"/>
                         
                         <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                                   Style="{StaticResource MaterialDesignTextBox}"
-                                  Background="#9E9E9E"
+                                   Background="{StaticResource BackElement}"
                                  Name="tbPrice"
                                  Text="{Binding Price}" 
                                  HorizontalAlignment="Left"/>

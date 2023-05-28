@@ -42,7 +42,7 @@
             </StackPanel>
 
             <DataGrid Name="DataGridUser" Margin="20,20,20,0"
-                      Height="600" Background="#9E9E9E"
+                      Height="600"  Background="{StaticResource BackElement}"
                       VerticalAlignment="Bottom"
                           
                       FontSize="16" FontWeight="Bold"

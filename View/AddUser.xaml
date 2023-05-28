@@ -49,19 +49,19 @@
                              HorizontalAlignment="Left"
                              Text="{Binding UserName}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             Background="#9E9E9E"/>
+                              Background="{StaticResource BackElement}"/>
                     <TextBox Margin="20,0,0,5" FontSize="20" Width="460"
                              Name="tbPhone"
                              HorizontalAlignment="Left"
                              Text="{Binding Email}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             Background="#9E9E9E"/>
+                              Background="{StaticResource BackElement}"/>
                     <TextBox Margin="20,0,0,8" FontSize="20" Width="460"
                              HorizontalAlignment="Left"
                              Text="{Binding PhoneNumber}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              Name="tbAdress"
-                             Background="#9E9E9E"/>
+                              Background="{StaticResource BackElement}"/>
                     <TextBox Margin="20,0,0,8" FontSize="20" Width="460"
                              Height="70"
                              HorizontalAlignment="Left"
@@ -71,7 +71,7 @@
                              Text="{Binding Note}"
                               Style="{StaticResource MaterialDesignTextBox}"
                              Name="tbNote"
-                             Background="#9E9E9E"/>
+                              Background="{StaticResource BackElement}"/>
                 </StackPanel>
             </StackPanel>
             <Separator Height="1" Background="Black" Margin="40,0,40,0">
@@ -98,13 +98,13 @@
                              HorizontalAlignment="Left"
                              Text="{Binding Login}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             Background="#9E9E9E"/>
+                              Background="{StaticResource BackElement}"/>
                     <TextBox Margin="20,0,0,5" FontSize="20" Width="460"
                              Name="TbPassword"
                              HorizontalAlignment="Left"
                              Text="{Binding Password}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             Background="#9E9E9E"
+                              Background="{StaticResource BackElement}"
                                  />
                     <ComboBox Margin="20,0,0,5"
                               FontSize="20" 
@@ -113,7 +113,7 @@
                               SelectedItem="{Binding Role}"
                               DisplayMemberPath="RoleName"
                               Name="CbRole"
-                              Background="#9E9E9E"/>
+                               Background="{StaticResource BackElement}"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,10,0,0"

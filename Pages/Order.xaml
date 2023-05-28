@@ -37,14 +37,14 @@
                     </Button>
                     <TextBox HorizontalAlignment ="Right" Width="200" Margin="0,0,20,0"
                           
-                             Background="#9E9E9E" Foreground="White"/>
+                              Background="{StaticResource BackElement}" Foreground="White"/>
                 </Grid>
             
         </StackPanel>
         <Grid VerticalAlignment="Stretch" Margin="20,160,20,30">
 
             <DataGrid x:Name="DataGrid"  
-                      Background="#9E9E9E"    
+                       Background="{StaticResource BackElement}"    
                       FontSize="14" FontWeight="Bold"    
                       AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>

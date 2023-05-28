@@ -20,7 +20,7 @@
         </Grid>
 
         <!-- Дата грид -->
-        <DataGrid Grid.Row="1" Background="#9E9E9E" Margin="20">
+        <DataGrid Grid.Row="1"  Background="{StaticResource BackElement}" Margin="20">
             <!-- Настройки столбцов и привязка данных -->
         </DataGrid>
     </Grid>

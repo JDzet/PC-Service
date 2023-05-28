@@ -31,7 +31,7 @@
                                 Name="CBClient"
                                 SelectedIndex="{Binding Client}"
                                 ItemsSource="{Binding Client}"
-                                Background="#9E9E9E"/>
+                                 Background="{StaticResource BackElement}"/>
                             <TextBlock
                                  Margin="0,10,0,5"
                                  Text="Накладная №"/>
@@ -39,10 +39,10 @@
                                 <TextBox
                                     Name="TBInvoiceNumber"
                                     Width="160"
-                                    Background="#9E9E9E"/>
+                                     Background="{StaticResource BackElement}"/>
                                 <TextBlock Text="от" Margin=" 10,0,10,0"/>
                                 <DatePicker
-                                    Background="#9E9E9E" VerticalAlignment="Stretch" Width="107"
+                                     Background="{StaticResource BackElement}" VerticalAlignment="Stretch" Width="107"
                                     Name="DataPicekt"/>
                             </StackPanel>
                             <TextBlock
@@ -53,7 +53,7 @@
                                 SelectedItem="{Binding Warehouse.WarehouseName}"
                                 ItemsSource="{Binding Warehouse}"
                                 Name="Warehouse"
-                                Background="#9E9E9E"
+                                 Background="{StaticResource BackElement}"
                                 Margin="0,0,0,10"/>
                             <TextBlock
                                 Text="Наименование товара"
@@ -65,12 +65,12 @@
                                         DisplayMemberPath = "ProductName"
                                         TextBoxBase.TextChanged="CBProduct_TextChanged"
                                         ItemsSource="{Binding Product}"
-                                        Background="#9E9E9E"
+                                         Background="{StaticResource BackElement}"
                                         Name="CBProduct"
                                         IsEditable="True"
                                         Margin="0,0,50,0"/>
                                 <Button HorizontalAlignment="Right"
-                                        Background="#9E9E9E"
+                                         Background="{StaticResource BackElement}"
                                         Content="+">
                                 </Button>
 
@@ -88,12 +88,12 @@
                                  TextWrapping="Wrap"
                                  HorizontalAlignment="Left"
                                  Name="TBNote"
-                                  Background="#9E9E9E"/>
+                                   Background="{StaticResource BackElement}"/>
 
                         </StackPanel>
                     </Grid>
                 </StackPanel>
-                <DataGrid Margin="0,20,25,0" HorizontalAlignment="Right" Width="500" Background="#9E9E9E"
+                <DataGrid Margin="0,20,25,0" HorizontalAlignment="Right" Width="500"  Background="{StaticResource BackElement}"
                           Name="DataGridProduct" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="DataGridProduct_CellEditEnding">
 
                     <DataGrid.Columns>
