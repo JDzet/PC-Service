@@ -4,9 +4,7 @@ FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\ClientPage.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\Finance.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\GeneralSettings.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\StatusPag.xaml;;
-FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\TasksPages\AtWorkPages.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\TasksPage.xaml;;
-FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\TasksPages\WorkCompletedk.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\WarehouseLokal.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\Warehouse\WarehouseMenu.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\Warehouse\WarehouseProducts.xaml;;
@@ -15,6 +13,7 @@ FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\Warehouse\WarehouseRemains.x
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\Warehouse\WarehouseWriteOff.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\View\AddClient.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\View\AddProduct.xaml;;
+FC:\Users\jaros\Source\Repos\JDzet\PC-Service\View\AddTask.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\View\AddUser.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\Order.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\Settings.xaml;;

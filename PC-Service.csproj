@@ -151,14 +151,8 @@
     <Compile Include="Pages\StatusPag.xaml.cs">
       <DependentUpon>StatusPag.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TasksPages\AtWorkPages.xaml.cs">
-      <DependentUpon>AtWorkPages.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\TasksPage.xaml.cs">
       <DependentUpon>TasksPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\TasksPages\WorkCompletedk.xaml.cs">
-      <DependentUpon>WorkCompletedk.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\WarehouseLokal.xaml.cs">
       <DependentUpon>WarehouseLokal.xaml</DependentUpon>
@@ -221,6 +215,9 @@
     <Compile Include="View\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddTask.xaml.cs">
+      <DependentUpon>AddTask.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
@@ -264,15 +261,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\TasksPages\AtWorkPages.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\TasksPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\TasksPages\WorkCompletedk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -305,6 +294,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -422,6 +415,8 @@
       <DependentUpon>DataBase.edmx</DependentUpon>
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
+    <Resource Include="Pages\info.png" />
+    <None Include="resources\info.png" />
     <Resource Include="View\NonImage.jpg" />
     <None Include="resources\NonImage.jpg" />
     <Resource Include="Pages\EditMain.png" />

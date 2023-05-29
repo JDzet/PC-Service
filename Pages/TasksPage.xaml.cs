@@ -1,5 +1,4 @@
-﻿using PC_Service.Pages.TasksPages;
-using PC_Service.Pages.Warehouse;
+﻿using PC_Service.Pages.Warehouse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using PC_Service.View;
 
 namespace PC_Service.Pages
 {
@@ -24,18 +24,21 @@ namespace PC_Service.Pages
     /// </summary>
     public partial class TasksPage : Page
     {
+
+        Task task1 = new Task();
         public TasksPage()
         {
             InitializeComponent();
             DataTask();
+
         }
 
         public void DataTask()
         {
             using (DataDB.entities = new EntitiesMain())
             {
-                DataGridTaskAtWork.ItemsSource = DataDB.entities.Task.Include(x => x.User).Where(x=>x.TaskStatus == false).ToList();
-                DataGridWorkCompletedk.ItemsSource = DataDB.entities.Task.Include(x => x.User).Where(x => x.TaskStatus == true).ToList();
+                DataGridTaskAtWork.ItemsSource = DataDB.entities.Task.Include(x => x.User).Where(x=>x.TaskStatus == false).OrderByDescending(x=>x.TaskID).ToList();
+                DataGridWorkCompletedk.ItemsSource = DataDB.entities.Task.Include(x => x.User).Where(x => x.TaskStatus == true).OrderByDescending(x => x.TaskID).ToList();
             }
         }
 
@@ -69,7 +72,7 @@ namespace PC_Service.Pages
                     check.IsChecked = false;
                 }
             }
-        }
+        }// выполненые задачи
 
         private void CheckBox_CheckedDel(object sender, RoutedEventArgs e) 
         {
@@ -97,23 +100,39 @@ namespace PC_Service.Pages
                 }
             }
 
-        }
+        }// пересос из выполененых задач
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FormContainer.Visibility = Visibility.Visible;
-
-            // Добавьте анимацию, чтобы панель выезжала вправо
-            DoubleAnimation animation = new DoubleAnimation();
-            animation.From = 0;
-            animation.To = 900; // Ширина формы (можете настроить под свои нужды)
-            animation.Duration = TimeSpan.FromSeconds(0.3);
-            FormContainer.BeginAnimation(Border.WidthProperty, animation);
+            AddTask add = new AddTask(null);
+            add.ShowDialog();
+            DataTask();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Btn_Click(object sender, RoutedEventArgs e)
         {
+            task1 = (sender as Button).DataContext as Task;
+            AddTask add = new AddTask(task1);
+            add.ShowDialog();
+            DataTask();
+        }
 
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+            task1 = (sender as Button).DataContext as Task;
+
+            bool confirmed = MessageBox.Show("Удалить задачу", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
+
+            if (confirmed) 
+            {
+                using (DataDB.entities = new EntitiesMain()) 
+                {
+                    DataDB.entities.Entry(task1).State = EntityState.Deleted;
+                    DataDB.entities.SaveChanges();
+                    MessageBox.Show("Задача удалена");
+                }
+                DataTask();
+            }
         }
     }
 }

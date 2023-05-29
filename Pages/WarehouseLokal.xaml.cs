@@ -69,7 +69,7 @@ namespace PC_Service.Pages
                 TbAddress.IsDropDownOpen = true;
             }
                 
-        }
+        } // работа с api
 
         private void BtAdd_Click(object sender, RoutedEventArgs e) // действие на кнопку добавления 
         {
@@ -130,8 +130,9 @@ namespace PC_Service.Pages
             using (DataDB.entities = new EntitiesMain()) 
             {
                 warehouse = (sender as Button).DataContext as WarehouseService;
+                bool confirmed = MessageBox.Show("Вы точно хотите удалить этот склад", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
 
-                if (MessageBox.Show($"Вы точно хотите удалить этот склад", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (confirmed)
                 {
                     try
                     {

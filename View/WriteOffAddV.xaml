@@ -22,7 +22,7 @@
                 </Border>
             </StackPanel>
 
-            <Grid Margin="50,0,20,0">
+            <Grid Margin="20,0,20,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -55,7 +55,7 @@
                                        HorizontalAlignment="Right"
                                        FontSize="15"/>
                     <ComboBox Grid.Column="1" Margin="5"  Background="{StaticResource BackElement}"
-                                     FontSize="15" Name="CbNameProduct" />
+                                     FontSize="15" Name="CbNameProduct" SelectionChanged="CbNameProduct_SelectionChanged"/>
                 </Grid>
 
                 <!-- Строка артикул -->
@@ -64,7 +64,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid Margin="0,20,0,0" HorizontalAlignment="Right" Width="685"  Background="{StaticResource BackElement}"
+                    <DataGrid Margin="0,20,0,0" HorizontalAlignment="Right" Width="750"  Background="{StaticResource BackElement}"
                           Name="DataGridProduct" AutoGenerateColumns="False" CanUserAddRows="False"  RenderTransformOrigin="0.5,0.5">
                         <DataGrid.RenderTransform>
                             <TransformGroup>
@@ -76,13 +76,25 @@
                         </DataGrid.RenderTransform>
 
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Наименование" IsReadOnly="True" Width="200"/>
-                            <DataGridTextColumn Header="Колличество товара на складе"/>
-                            <DataGridTextColumn Header="Колличество списания"/>
+                            <DataGridTextColumn Header="Наименование" IsReadOnly="True" Width="170" Binding="{Binding Column1}"/>
+                            <DataGridTextColumn Header="Колличество товара на складе" Binding="{Binding Column2}"/>
+                            <DataGridTextColumn Header="Колличество списания" Binding="{Binding Column3}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <EventSetter Event="PreviewTextInput" Handler="DataGridTextColumn_PreviewTextInput" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                                <DataGridTextColumn.EditingElementStyle>
+                                    <Style TargetType="TextBox">
+                                        <EventSetter Event="PreviewTextInput" Handler="DataGridTextColumn_PreviewTextInput" />
+                                    </Style>
+                                </DataGridTextColumn.EditingElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Склад" Binding="{Binding Column4}"/>
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button  Name="BtnDel"
+                                        <Button  Name="BtnDel" Click="BtnDel_Click"
                                           Background="Gainsboro">
                                             <Button.Content>
                                                 <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>
@@ -106,7 +118,7 @@
                                        HorizontalAlignment="Right"
                                        FontSize="15"/>
                     <TextBox Grid.Column="1" Margin="5"  Background="{StaticResource BackElement}"
-                                     FontSize="15" Text="{Binding ProductCod}"/>
+                                     FontSize="15" Text="{Binding ProductCod}" Name="TbNote"/>
                 </Grid>
                 <Grid Grid.Row="4" Margin="203,24,0,-14">
                     <Grid.ColumnDefinitions>
@@ -119,10 +131,10 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center" 
                         Margin="133,0,0,0" Cursor="Hand"
-                        Content="Оприходовать"
+                        Content="Списать"
                         FontSize="16" 
-                        Name="BRegistration" 
-                        Grid.ColumnSpan="2">
+                        Name="WriteOff" 
+                        Grid.ColumnSpan="2" Click="WriteOff_Click">
                     </Button>
                     <Button Width="180"
                         Height="45"
@@ -132,7 +144,7 @@
                         VerticalAlignment="Center" Cursor="Hand"
                         Content="Отчистить таблицу"
                         FontSize="16" 
-                        Name="BtDellDate" 
+                        Name="BtDellDate" Click="BtDellDate_Click" 
                        />
                 </Grid>
             </Grid>

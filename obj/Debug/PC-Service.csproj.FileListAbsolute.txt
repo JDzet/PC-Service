@@ -132,9 +132,7 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\Warehouse
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Warehouse\WarehouseProducts.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\WriteOffAddV.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\WriteOffAddV.baml
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\TasksPages\AtWorkPages.g.cs
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\TasksPages\AtWorkPages.baml
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\TasksPages\WorkCompletedk.g.cs
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\TasksPages\WorkCompletedk.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\TasksPage.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\TasksPage.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\AddTask.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\AddTask.baml
