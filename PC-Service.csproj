@@ -142,11 +142,17 @@
     <Compile Include="Pages\ClientPage.xaml.cs">
       <DependentUpon>ClientPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DeviceDirectoryPage.xaml.cs">
+      <DependentUpon>DeviceDirectoryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Finance.xaml.cs">
       <DependentUpon>Finance.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\GeneralSettings.xaml.cs">
       <DependentUpon>GeneralSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProfilPage.xaml.cs">
+      <DependentUpon>ProfilPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StatusPag.xaml.cs">
       <DependentUpon>StatusPag.xaml</DependentUpon>
@@ -239,6 +245,9 @@
     <Compile Include="View\RegistrationAdd.xaml.cs">
       <DependentUpon>RegistrationAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RegistratoinInfo.xaml.cs">
+      <DependentUpon>RegistratoinInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WriteOffAddV.xaml.cs">
       <DependentUpon>WriteOffAddV.xaml</DependentUpon>
     </Compile>
@@ -249,11 +258,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\DeviceDirectoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Finance.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\GeneralSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProfilPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,6 +359,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RegistrationAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RegistratoinInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

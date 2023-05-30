@@ -39,10 +39,12 @@
                                 <TextBox
                                     Name="TBInvoiceNumber"
                                     Width="160"
+                                    Text="{Binding InvoiceNumber}"
                                      Background="{StaticResource BackElement}"/>
                                 <TextBlock Text="от" Margin=" 10,0,10,0"/>
                                 <DatePicker
                                      Background="{StaticResource BackElement}" VerticalAlignment="Stretch" Width="107"
+                                    DataContext="Date"
                                     Name="DataPicekt"/>
                             </StackPanel>
                             <TextBlock
@@ -51,7 +53,7 @@
                             <ComboBox
                                 DisplayMemberPath = "WarehouseName"
                                 SelectedItem="{Binding Warehouse.WarehouseName}"
-                                ItemsSource="{Binding Warehouse}"
+                                ItemsSource="{Binding WarehouseService}"
                                 Name="Warehouse"
                                  Background="{StaticResource BackElement}"
                                 Margin="0,0,0,10"/>
@@ -71,7 +73,8 @@
                                         Margin="0,0,50,0"/>
                                 <Button HorizontalAlignment="Right"
                                          Background="{StaticResource BackElement}"
-                                        Content="+">
+                                        Content="+"
+                                        Name="BrAddProduct">
                                 </Button>
 
 
@@ -83,10 +86,10 @@
                             <TextBox FontSize="15" Width="300" Height="120"
                                  Style="{StaticResource MaterialDesignTextBox}"
                                  AcceptsReturn="True"
-                                 Text=""
                                  VerticalScrollBarVisibility="Auto"
                                  TextWrapping="Wrap"
                                  HorizontalAlignment="Left"
+                                 Text="{Binding Note}"
                                  Name="TBNote"
                                    Background="{StaticResource BackElement}"/>
 

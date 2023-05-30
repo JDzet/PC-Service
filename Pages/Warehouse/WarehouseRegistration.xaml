@@ -38,12 +38,33 @@
                     <DataGridTextColumn Header="Склад" Binding="{Binding WarehouseService.WarehouseName}"/>
                     <DataGridTextColumn Header="Комментарий" Binding="{Binding Note}"/>
                     <DataGridTextColumn Header="Сумма" Binding="{Binding RegAmount}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button  Name="Btn"
+                                          Background="Gainsboro" PreviewMouseDown="Btn_PreviewMouseDown">
+                                        <Button.Content>
+                                            <Image Source="/Pages/info.png" Height="15" Width="15" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                    <Button  Name="BtnDel"
+                                             PreviewMouseDown="BtnDel_PreviewMouseDown"
+                                          Background="Gainsboro">
+                                        <Button.Content>
+                                            <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill" />
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
 
         <TextBlock Text="Всего - 0" FontSize="15" Margin="20,20,0,30"
-                   VerticalAlignment="Bottom"
+                   VerticalAlignment="Bottom" Name="CountText"
                    />
     </Grid>
 

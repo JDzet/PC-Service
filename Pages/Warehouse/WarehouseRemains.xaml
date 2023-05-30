@@ -28,7 +28,7 @@
         </Grid>
 
         <TextBlock Text="Всего - 0" FontSize="15" Margin="20,20,0,30"
-                   VerticalAlignment="Bottom"
+                   VerticalAlignment="Bottom" Name="CountText"
                    />
     </Grid>
 </Page>

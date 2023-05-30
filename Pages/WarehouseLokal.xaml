@@ -41,7 +41,7 @@
             <DataGrid x:Name="DataGrid"  
                        Background="{StaticResource BackElement}"    
                       FontSize="14" FontWeight="Bold"    
-                      AutoGenerateColumns="False" IsReadOnly="True">
+                      AutoGenerateColumns="False" IsReadOnly="True" Cursor="">
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Назваени" Binding="{Binding WarehouseName}" />

@@ -29,16 +29,29 @@
                       AutoGenerateColumns="False" IsReadOnly="True">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Списание №" Binding="{Binding ProductCod}"/>
-                    <DataGridTextColumn Header="Дата и время" Binding="{Binding ProductArticle}"/>
-                    <DataGridTextColumn Header="Сотрудник" Binding="{Binding ProductName}"/>
-                    <DataGridTextColumn Header="Склад" Binding="{Binding ProductPhoto}"/>
-                    <DataGridTextColumn Header="Комментарий" Binding="{Binding ProductDescription}"/>
+                    <DataGridTextColumn Header="Списание №" Binding="{Binding WriteOffID}"/>
+                    <DataGridTextColumn Header="Дата и время" Binding="{Binding Date}"/>
+                    <DataGridTextColumn Header="Сотрудник" Binding="{Binding User.UserName}"/>
+                    <DataGridTextColumn Header="Склад" Binding="{Binding WarehouseService.WarehouseName}"/>
+                    <DataGridTextColumn Header="Комментарий" Binding="{Binding Note}"/>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Редактировать" Name="BtnEdit" Background="Gainsboro"
-                                        />
+                                <StackPanel Orientation="Horizontal">
+                                    <Button  Name="Btn"
+                                          Background="Gainsboro" >
+                                        <Button.Content>
+                                            <Image Source="/Pages/info.png" Height="15" Width="15" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                    <Button  Name="BtnDel"
+                                             
+                                          Background="Gainsboro" >
+                                        <Button.Content>
+                                            <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -47,7 +60,7 @@
         </Grid>
 
         <TextBlock Text="Всего - 0" FontSize="15" Margin="20,20,0,30"
-                   VerticalAlignment="Bottom" Cursor=""
+                   VerticalAlignment="Bottom" x:Name="CountText"
                    />
     </Grid>
 </Page>

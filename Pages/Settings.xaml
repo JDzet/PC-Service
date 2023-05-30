@@ -32,7 +32,7 @@
                 <MenuItem Name ="ItemUser" Header="Сотрудники" HorizontalContentAlignment="Center" Click="ItemUser_Click" Height="48" VerticalAlignment="Top"  />
                 <MenuItem Name ="ItemStatus"  Header="Статусы" HorizontalContentAlignment="Center" Click="ItemStatus_Click" />
                 <MenuItem Name ="ItemWorkShop" Header="Склады" HorizontalContentAlignment="Center" Click="ItemWorkShop_Click" />
-                
+                <MenuItem Name="ItemDeviceDirectoryPage" HorizontalContentAlignment="Center" Header="Устройства" Click="ItemDeviceDirectoryPage_Click" />
 
             </Menu>
             

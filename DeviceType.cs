@@ -18,6 +18,7 @@ namespace PC_Service
         public DeviceType()
         {
             this.Orders = new HashSet<Orders>();
+            this.BrandDevice = new HashSet<BrandDevice>();
         }
     
         public int DeviceTypeId { get; set; }
@@ -25,5 +26,7 @@ namespace PC_Service
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BrandDevice> BrandDevice { get; set; }
     }
 }

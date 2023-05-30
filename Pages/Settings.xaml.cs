@@ -48,5 +48,10 @@ namespace PC_Service
         {
             SettingsFrame.Content = new WarehouseLokal();
         }
+
+        private void ItemDeviceDirectoryPage_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsFrame.Content = new DeviceDirectoryPage();
+        }
     }
 }

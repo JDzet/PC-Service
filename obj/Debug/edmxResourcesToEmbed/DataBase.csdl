@@ -7,6 +7,8 @@
     <Property Name="BrandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="BrandName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_BrandDevice" FromRole="BrandDevice" ToRole="Orders" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DeviceType" Relationship="Model.FK_BrandDevice_DeviceType" FromRole="BrandDevice" ToRole="DeviceType" />
   </EntityType>
   <EntityType Name="Client">
     <Key>
@@ -29,6 +31,7 @@
     <Property Name="DeviceTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NameDeviceType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_DeviceType" FromRole="DeviceType" ToRole="Orders" />
+    <NavigationProperty Name="BrandDevice" Relationship="Model.FK_BrandDevice_DeviceType" FromRole="DeviceType" ToRole="BrandDevice" />
   </EntityType>
   <EntityType Name="Orders">
     <Key>
@@ -247,6 +250,10 @@
     <AssociationSet Name="FK_Task_User" Association="Model.FK_Task_User">
       <End Role="User" EntitySet="User" />
       <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BrandDevice_DeviceType" Association="Model.FK_BrandDevice_DeviceType">
+      <End Role="DeviceType" EntitySet="DeviceType" />
+      <End Role="BrandDevice" EntitySet="BrandDevice" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Product">
@@ -503,6 +510,18 @@
       </Principal>
       <Dependent Role="Task">
         <PropertyRef Name="TaskUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BrandDevice_DeviceType">
+    <End Type="Model.DeviceType" Role="DeviceType" Multiplicity="1" />
+    <End Type="Model.BrandDevice" Role="BrandDevice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeviceType">
+        <PropertyRef Name="DeviceTypeId" />
+      </Principal>
+      <Dependent Role="BrandDevice">
+        <PropertyRef Name="Type" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

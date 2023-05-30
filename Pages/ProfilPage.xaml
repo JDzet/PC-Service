@@ -1,0 +1,46 @@
+﻿<Page x:Class="PC_Service.Pages.ProfilPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PC_Service.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1250"
+      Title="ProfilPage">
+
+    <Grid Background ="Gray" Name="MainGrid">
+        <StackPanel Margin="0,0,0,20" Height="{Binding ActualHeight,ElementName=MainGrid}">
+            <TextBlock Text="Профиль"
+                   FontSize="30"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="20,20,0,10"/>
+            <Border Grid.Row="1" Height="1" Background="Gray" Margin="0,0,0,20">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" />
+                </Border.Effect>
+            </Border>
+
+            <TextBlock Text="" FontSize="20" Margin="20,25,0,20"/>
+
+
+        </StackPanel>
+        <Grid VerticalAlignment="Stretch" Margin="20,160,20,30">
+
+            <DataGrid x:Name="DataGrid"  
+                       Background="{StaticResource BackElement}"    
+                      FontSize="14" FontWeight="Bold"    
+                      AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="Дата операции" Binding="{Binding OrderID}"/>
+                    <DataGridTextColumn Header="Выплата" Binding="{Binding Status.StatusName}"/>
+                    <DataGridTextColumn Header="Тип операции" Binding="{Binding Deadline, Mode=TwoWay, StringFormat=dd:MM:yyyy}"/>
+                   
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Page>

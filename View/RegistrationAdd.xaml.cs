@@ -18,6 +18,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Security.Cryptography.X509Certificates;
+using System.Drawing;
+using System.Web.UI;
+using Control = System.Windows.Controls.Control;
+using PC_Service.Pages;
 
 namespace PC_Service.View
 {
@@ -28,36 +32,43 @@ namespace PC_Service.View
     {
         private ObservableCollection<TestData> testDatas;
         UserAuthorization UserAuthorization = new UserAuthorization();
-        MyData data;
+      
         decimal totalAmount = 0;
+      
         public RegistrationAdd()
         {
             InitializeComponent();
             testDatas = new ObservableCollection<TestData>();
-
-            data = new MyData();
+            
             DataRegistation();
             DataGridProduct.ItemsSource = testDatas;
         }
 
-        public class MyData  // используется для получения данных
-        {
-            public List<Client> Client { get; set; }
-            public List<Product> Product { get; set; }
-            public List<WarehouseService> Warehouse { get; set; }
-        }
+    
 
         public void DataRegistation() //Заполнения полей и получение данных из бд
         {
             using (DataDB.entities = new EntitiesMain()) 
             {
-                data.Client = DataDB.entities.Client.Where(x => x.Supplier == true).ToList();
-                data.Product = DataDB.entities.Product.ToList();
-                data.Warehouse = DataDB.entities.WarehouseService.ToList();
-                DataContext = data;
+                CBClient.ItemsSource = DataDB.entities.Client.Where(x => x.Supplier == true).ToList();
+                CBProduct.ItemsSource = DataDB.entities.Product.ToList();
+                Warehouse.ItemsSource = DataDB.entities.WarehouseService.ToList();
             }
 
         }
+
+        public void Disable(Control control) // блокировка элементов формы
+        {
+            control.IsEnabled = false;
+            foreach (var child in LogicalTreeHelper.GetChildren(control).OfType<Control>())
+            {
+                Disable(child);
+            }
+
+        }
+
+        
+
 
         private void BRegistration_Click(object sender, RoutedEventArgs e) // обработка добавления оприходования
         {
@@ -277,5 +288,6 @@ namespace PC_Service.View
             }
                
         }
+
     }
 }

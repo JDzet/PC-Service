@@ -6,6 +6,7 @@
     </Key>
     <Property Name="BrandId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="BrandName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Client">
     <Key>
@@ -164,6 +165,18 @@
     <Property Name="WarehouseName" Type="nvarchar(max)" />
     <Property Name="WarehouseAddress" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <Association Name="FK_BrandDevice_DeviceType">
+    <End Role="DeviceType" Type="Self.DeviceType" Multiplicity="1" />
+    <End Role="BrandDevice" Type="Self.BrandDevice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeviceType">
+        <PropertyRef Name="DeviceTypeId" />
+      </Principal>
+      <Dependent Role="BrandDevice">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Orders_BrandDevice">
     <End Role="BrandDevice" Type="Self.BrandDevice" Multiplicity="1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
@@ -397,6 +410,10 @@
     <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WarehouseService" EntityType="Self.WarehouseService" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BrandDevice_DeviceType" Association="Self.FK_BrandDevice_DeviceType">
+      <End Role="DeviceType" EntitySet="DeviceType" />
+      <End Role="BrandDevice" EntitySet="BrandDevice" />
+    </AssociationSet>
     <AssociationSet Name="FK_Orders_BrandDevice" Association="Self.FK_Orders_BrandDevice">
       <End Role="BrandDevice" EntitySet="BrandDevice" />
       <End Role="Orders" EntitySet="Orders" />

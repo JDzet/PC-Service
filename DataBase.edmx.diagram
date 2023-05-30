@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="022fc730ce864c0392420992cdfa6ea2" Name="Diagram1" ZoomLevel="115">
+      <Diagram DiagramId="022fc730ce864c0392420992cdfa6ea2" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="Model.BrandDevice" Width="1.5" PointX="7.625" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="8.125" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.DeviceType" Width="1.5" PointX="2.75" PointY="5.25" IsExpanded="true" />
@@ -22,7 +22,7 @@
         <EntityTypeShape EntityType="Model.RegistrationProduct" Width="2.25" PointX="12.375" PointY="2.25" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_Client" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_User" />
-        <EntityTypeShape EntityType="Model.ProductHistoryRegistration" Width="1.5" PointX="15.375" PointY="4.75" />
+        <EntityTypeShape EntityType="Model.ProductHistoryRegistration" Width="2" PointX="15.375" PointY="4.75" />
         <EntityTypeShape EntityType="Model.ProductRemnants" Width="2.25" PointX="11.875" PointY="7.125" />
         <AssociationConnector Association="Model.FK_ProductHistoryRegitration_Product" />
         <AssociationConnector Association="Model.FK_ProductRemnants_Product" />
@@ -32,13 +32,14 @@
         <AssociationConnector Association="Model.FK_RegistrationProduct_Warehouse" />
         <AssociationConnector Association="Model.FK_ProductRemnants_WarehouseService" />
         <EntityTypeShape EntityType="Model.ProductWriteOff" Width="1.5" PointX="15.625" PointY="1.125" />
-        <EntityTypeShape EntityType="Model.ProductWriteOffHistory" Width="1.5" PointX="17.875" PointY="4.5" />
+        <EntityTypeShape EntityType="Model.ProductWriteOffHistory" Width="1.5" PointX="19.5" PointY="4.5" />
         <AssociationConnector Association="Model.FK_ProductWriteOffHistory_Product" />
         <AssociationConnector Association="Model.FK_ProductWriteOff_User" />
         <AssociationConnector Association="Model.FK_ProductWriteOff_WarehouseService" />
         <AssociationConnector Association="Model.FK_ProductWriteOffHistory_ProductWriteOff" />
         <EntityTypeShape EntityType="Model.Task" Width="1.5" PointX="0.625" PointY="5.25" />
         <AssociationConnector Association="Model.FK_Task_User" />
+        <AssociationConnector Association="Model.FK_BrandDevice_DeviceType" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

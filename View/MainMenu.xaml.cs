@@ -29,6 +29,7 @@ namespace PC_Service.View
         {
             InitializeComponent();
             MainFrame.Content = new Order();
+            Doc.IsEnabled = false;
             
         }
 
@@ -70,6 +71,19 @@ namespace PC_Service.View
         private void Tasks_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new TasksPage();
+        }
+
+        private void Profil_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new ProfilPage();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            AuthorizationWindow authorization = new AuthorizationWindow();
+            authorization.Show();
+            this.Close();
+           
         }
     }
 }

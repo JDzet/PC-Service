@@ -23,12 +23,13 @@ namespace PC_Service.Pages.Warehouse
     /// </summary>
     public partial class WarehouseRegistration : Page
     {
-        
+        RegistrationProduct reg = new RegistrationProduct();
         RegistrationAdd regAdd;
+        
         public WarehouseRegistration()
         {
             InitializeComponent();
-            DaRegistrationProduct();
+            DataRegistrationProduct();
         }
 
         private void ButtonAddRegistration_Click(object sender, RoutedEventArgs e)
@@ -37,13 +38,46 @@ namespace PC_Service.Pages.Warehouse
             regAdd.ShowDialog();
         }
 
-        public void DaRegistrationProduct()
+        public void DataRegistrationProduct()
         {
             using (DataDB.entities = new EntitiesMain())
             {
                 DataGrid.ItemsSource = DataDB.entities.RegistrationProduct.Include(x=>x.User)
                     .Include(x=>x.Client)
                     .Include(x=>x.WarehouseService).ToList();
+                CountText.Text = "Всего записей: " + DataGrid.Items.Count.ToString();
+            }
+        }
+
+        private void Btn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            reg = (sender as Button).DataContext as RegistrationProduct;
+
+            RegistratoinInfo registratoinInfo = new RegistratoinInfo(reg);
+            registratoinInfo.ShowDialog();
+
+        }
+
+        private void BtnDel_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            using (DataDB.entities = new EntitiesMain())
+            {
+                reg = (sender as Button).DataContext as RegistrationProduct;
+                var relatedRecords = DataDB.entities.ProductHistoryRegistration.Where(x => x.RegProduct == reg.RegistrationID).ToList();
+                bool confirmed = MessageBox.Show("Удалить задачу", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
+
+                if (confirmed)
+                {
+                    foreach (var record in relatedRecords)
+                    {
+                        DataDB.entities.Entry(record).State = EntityState.Deleted;
+                    }
+
+                    DataDB.entities.Entry(reg).State = EntityState.Deleted;
+                    DataDB.entities.SaveChanges();
+                    MessageBox.Show("Запись удалена");
+                    DataRegistrationProduct();
+                }
             }
         }
     }

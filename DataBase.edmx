@@ -11,6 +11,7 @@
           </Key>
           <Property Name="BrandId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BrandName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -169,6 +170,18 @@
           <Property Name="WarehouseName" Type="nvarchar(max)" />
           <Property Name="WarehouseAddress" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <Association Name="FK_BrandDevice_DeviceType">
+          <End Role="DeviceType" Type="Self.DeviceType" Multiplicity="1" />
+          <End Role="BrandDevice" Type="Self.BrandDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceType">
+              <PropertyRef Name="DeviceTypeId" />
+            </Principal>
+            <Dependent Role="BrandDevice">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Orders_BrandDevice">
           <End Role="BrandDevice" Type="Self.BrandDevice" Multiplicity="1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
@@ -402,6 +415,10 @@
           <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WarehouseService" EntityType="Self.WarehouseService" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BrandDevice_DeviceType" Association="Self.FK_BrandDevice_DeviceType">
+            <End Role="DeviceType" EntitySet="DeviceType" />
+            <End Role="BrandDevice" EntitySet="BrandDevice" />
+          </AssociationSet>
           <AssociationSet Name="FK_Orders_BrandDevice" Association="Self.FK_Orders_BrandDevice">
             <End Role="BrandDevice" EntitySet="BrandDevice" />
             <End Role="Orders" EntitySet="Orders" />
@@ -486,6 +503,8 @@
           <Property Name="BrandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BrandName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_BrandDevice" FromRole="BrandDevice" ToRole="Orders" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DeviceType" Relationship="Model.FK_BrandDevice_DeviceType" FromRole="BrandDevice" ToRole="DeviceType" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -508,6 +527,7 @@
           <Property Name="DeviceTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameDeviceType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_DeviceType" FromRole="DeviceType" ToRole="Orders" />
+          <NavigationProperty Name="BrandDevice" Relationship="Model.FK_BrandDevice_DeviceType" FromRole="DeviceType" ToRole="BrandDevice" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
@@ -726,6 +746,10 @@
           <AssociationSet Name="FK_Task_User" Association="Model.FK_Task_User">
             <End Role="User" EntitySet="User" />
             <End Role="Task" EntitySet="Task" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrandDevice_DeviceType" Association="Model.FK_BrandDevice_DeviceType">
+            <End Role="DeviceType" EntitySet="DeviceType" />
+            <End Role="BrandDevice" EntitySet="BrandDevice" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Product">
@@ -985,6 +1009,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_BrandDevice_DeviceType">
+          <End Type="Model.DeviceType" Role="DeviceType" Multiplicity="1" />
+          <End Type="Model.BrandDevice" Role="BrandDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceType">
+              <PropertyRef Name="DeviceTypeId" />
+            </Principal>
+            <Dependent Role="BrandDevice">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -994,6 +1030,7 @@
           <EntitySetMapping Name="BrandDevice">
             <EntityTypeMapping TypeName="Model.BrandDevice">
               <MappingFragment StoreEntitySet="BrandDevice">
+                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="BrandId" ColumnName="BrandId" />
                 <ScalarProperty Name="BrandName" ColumnName="BrandName" />
               </MappingFragment>

@@ -4,6 +4,7 @@
     <EntitySetMapping Name="BrandDevice">
       <EntityTypeMapping TypeName="Model.BrandDevice">
         <MappingFragment StoreEntitySet="BrandDevice">
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="BrandId" ColumnName="BrandId" />
           <ScalarProperty Name="BrandName" ColumnName="BrandName" />
         </MappingFragment>

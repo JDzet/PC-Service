@@ -136,3 +136,9 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\TasksPage.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\TasksPage.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\AddTask.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\AddTask.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\RegistratoinInfo.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\RegistratoinInfo.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\DeviceDirectoryPage.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\DeviceDirectoryPage.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\ProfilPage.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\ProfilPage.baml

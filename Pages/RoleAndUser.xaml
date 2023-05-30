@@ -9,7 +9,7 @@
       Title="RoleAndUser">
 
     <Grid Background="Gray" Name="GridUserAndRole">
-        <StackPanel Margin="0,0,0,0" Height="{Binding ActualHeight,ElementName=MainGrid}">
+        <StackPanel Margin="0,0,0,0">
 
 
             <StackPanel>
@@ -37,17 +37,16 @@
                             Name="ButtonAddUser" Click="ButtonAddUser_Click">
                         </Button>
                     </StackPanel>
-                   
+
                 </Grid>
             </StackPanel>
-
-            <DataGrid Name="DataGridUser" Margin="20,20,20,0"
-                      Height="600"  Background="{StaticResource BackElement}"
-                      VerticalAlignment="Bottom"
-                          
-                      FontSize="16" FontWeight="Bold"
-                          
-                      AutoGenerateColumns="False" IsReadOnly="True">
+        </StackPanel>
+       
+        <Grid VerticalAlignment="Stretch" Margin="20,150,20,70">
+            <DataGrid x:Name="DataGridUser"  
+                       Background="{StaticResource BackElement}"    
+                      FontSize="14" FontWeight="Bold"    
+                      AutoGenerateColumns="False" IsReadOnly="True" Cursor="">
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Сотрудник" Binding="{Binding UserName}"/>
@@ -79,6 +78,7 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-        </StackPanel>
+        </Grid>
+
     </Grid>
 </Page>
