@@ -24,7 +24,7 @@ namespace PC_Service.Pages.Warehouse
         public WarehouseRemains()
         {
             InitializeComponent();
-            DataGrid.ItemsSource = entities.ProductRemnants.ToList();
+            DataGrid.ItemsSource = entities.ProductRemnants.OrderByDescending(x=>x.RemnantsID).ToList();
             CountText.Text = "Всего записей: " + DataGrid.Items.Count.ToString();
         }
 

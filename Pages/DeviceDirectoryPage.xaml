@@ -51,6 +51,27 @@
                           SelectionChanged="DataGridDevice_SelectionChanged" FontWeight="Bold">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Тип устройства" Width="*" Binding="{Binding NameDeviceType}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button  Name="BtnEditType"
+                                          Background="Gainsboro" PreviewMouseDown="BtnEditType_Click">
+                                            <Button.Content>
+                                                <Image Source="/Pages/EditMain.png" Height="15" Width="15" Stretch="Fill"/>
+                                            </Button.Content>
+                                        </Button>
+                                        <Button  Name="BtnDel"
+                                          Background="Gainsboro"
+                                                 PreviewMouseDown="BtnDel_PreviewMouseDown">
+                                            <Button.Content>
+                                                <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>
+                                            </Button.Content>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
 
@@ -58,6 +79,27 @@
                           Margin="0,0,0,0" Name="DataGridBrand" AutoGenerateColumns="False" FontWeight="Bold" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Брэнд устройства" Width="*"  Binding="{Binding BrandName}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button  Name="BtnEditModel"
+                                          Background="Gainsboro" PreviewMouseDown="BtnEditModel_PreviewMouseDown">
+                                            <Button.Content>
+                                                <Image Source="/Pages/EditMain.png" Height="15" Width="15" Stretch="Fill"/>
+                                            </Button.Content>
+                                        </Button>
+                                        <Button  Name="BtnDelModel"
+                                          Background="Gainsboro"
+                                                 PreviewMouseDown="BtnDelModel_PreviewMouseDown">
+                                            <Button.Content>
+                                                <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>
+                                            </Button.Content>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
@@ -93,14 +135,15 @@
 
                 <!-- Поля для ввода -->
                 <TextBox Grid.Row="1" Margin="10" Text="{Binding WarehouseName}" Name="TbName" materialDesign:HintAssist.Hint="Введите название"/>
-                <ComboBox Grid.Row="2" Margin="10" Text="{Binding WarehouseName}" Name="CbType"/>
 
                 <!-- Кнопка "Добавить" -->
-                <Button Grid.Row="3" Content="Сохранить" HorizontalAlignment="Right" Margin="10" x:Name="BtAdd"
+                <Button Grid.Row="2" Content="Сохранить" HorizontalAlignment="Right" Margin="10" x:Name="BtAdd"
                         Click="BtAdd_Click"/>
 
             </Grid>
         </Border>
+        
+        
         <!-- форма добавления брэнда -->
         <Border x:Name="FormContainerBrand" Grid.Column="1" Background="White" Height="200" Margin="10" CornerRadius="5" Visibility="Collapsed" HorizontalAlignment="Center">
             <Grid Cursor="">
@@ -116,10 +159,10 @@
                 <Grid Grid.Row="0" Width="200" >
                     <TextBlock Text="Брэнд устройства" FontSize="16" Margin="10" FontWeight="Bold" 
                                HorizontalAlignment="Left" />
-                    <Button Name="WatchtCass" Style="{x:Null}" Background="Transparent"  
+                    <Button Name="WatchtCasesBrand" Style="{x:Null}" Background="Transparent"  
                             Margin="5" 
                             HorizontalAlignment="Right"
-                            Click="WatchtCases_Click"
+                            Click="WatchtCasesBrand_Click"
                             BorderThickness="0"
                             >
                         <Button.Content>
@@ -129,12 +172,12 @@
                 </Grid>
 
                 <!-- Поля для ввода -->
-                <TextBox Grid.Row="1" Margin="10" Text="{Binding WarehouseName}" materialDesign:HintAssist.Hint="Введите название"/>
-                <ComboBox Grid.Row="2" Margin="10" Text="{Binding WarehouseName}"/>
+                <TextBox Grid.Row="1" Margin="10"  materialDesign:HintAssist.Hint="Введите название" Name="TbNameBrand"/>
+                <ComboBox Grid.Row="2" Margin="10" Text="{Binding NameDeviceType}" Name="CbBrand" DisplayMemberPath="NameDeviceType"/>
 
                 <!-- Кнопка "Добавить" -->
-                <Button Grid.Row="3" Content="Сохранить" HorizontalAlignment="Right" Margin="10"
-                        Click="BtAdd_Click"/>
+                <Button Grid.Row="3" Content="Сохранить" HorizontalAlignment="Right" Margin="10" Name="BrandAdd"
+                        Click="BrandAdd_Click"/>
 
             </Grid>
         </Border>

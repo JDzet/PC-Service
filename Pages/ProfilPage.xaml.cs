@@ -24,7 +24,10 @@ namespace PC_Service.Pages
         public ProfilPage()
         {
             InitializeComponent();
+            TbName.Text = UserAuthorization.Worker.UserName.ToString();
+            Role.Text = UserAuthorization.Worker.Role.RoleName.ToString();
         }
 
+     
     }
 }

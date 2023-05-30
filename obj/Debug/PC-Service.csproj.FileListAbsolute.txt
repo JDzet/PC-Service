@@ -78,7 +78,6 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\App.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\PC-Service_Content.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\PC-Service_MarkupCompile.cache
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\PC-Service_MarkupCompile.lref
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\App.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\AddUser.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Order.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\Settings.baml
@@ -142,3 +141,4 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\DeviceDirectoryPage
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\DeviceDirectoryPage.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\ProfilPage.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\ProfilPage.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\App.baml

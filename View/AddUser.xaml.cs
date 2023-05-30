@@ -1,6 +1,8 @@
-﻿using System;
+﻿using PC_Service.ClassProject;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Text.RegularExpressions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,34 +40,55 @@ namespace PC_Service
 
         private void DataBaseUserAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (_user.UserId == 0)
+            Protection(TbPassword.Text);
+        }
+
+
+        public void BtRandom_Click(object sender, RoutedEventArgs e)
+        {
+            string password = PasswordGenerator.GeneratePassword();
+            TbPassword.Text = password.ToString();
+        }
+
+        public int Protection(String str) 
+        {
+            bool isValid = Regex.IsMatch(str, @"^(?=.*[A-Z])(?=.*\d{2}).{8}$");
+            if (isValid)
             {
-                 
-                _entities.User.Add(_user);
-                _entities.SaveChanges();
-                MessageBox.Show("Данные сохранены");
-                this.Close();
-            }
-            else 
-            {
-                try // если идет редактирование пользователя, а не добавление 
+                if (_user.UserId == 0)
                 {
 
-                    _entities.Entry(_user).State = EntityState.Modified;
+                    _entities.User.Add(_user);
                     _entities.SaveChanges();
                     MessageBox.Show("Данные сохранены");
                     this.Close();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    try // если идет редактирование пользователя, а не добавление 
+                    {
+
+                        _entities.Entry(_user).State = EntityState.Modified;
+                        _entities.SaveChanges();
+                        MessageBox.Show("Данные сохранены");
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
+                    
                 }
+                return 1;
             }
-                
-            
-
-           
-
+            else
+            {
+                MessageBox.Show("Пароль не соответсвует требованиям.\nВоспользуйтесь генератором пароля");
+                return 0;
+               
+            }
         }
     }
+
+
 }

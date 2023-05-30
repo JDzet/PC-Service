@@ -67,7 +67,7 @@ namespace PC_Service.View
         }
 
 
-        private void CbNameProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CbNameProduct_SelectionChanged(object sender, SelectionChangedEventArgs e) // добовление товара в таблицу при выборе товара
         {
           
                 using (DataDB.entities = new EntitiesMain())
@@ -163,7 +163,7 @@ namespace PC_Service.View
 
         } // Класс для работы с таблицой
 
-        private void WriteOff_Click(object sender, RoutedEventArgs e)
+        private void WriteOff_Click(object sender, RoutedEventArgs e) // действия при списание 
         {
             using (DataDB.entities = new EntitiesMain()) 
             {
@@ -177,38 +177,43 @@ namespace PC_Service.View
                 {
                     DataDB.entities.ProductWriteOff.Add(writeOff);
                     DataDB.entities.SaveChanges();
+
+
+
+                    foreach (TestData item in DataGridProduct.Items)
+                    {
+                        Product product = DataDB.entities.Product.FirstOrDefault(x => x.ProductName == item.Column1);
+                        ProductWriteOff productWriteOff = DataDB.entities.ProductWriteOff.OrderByDescending(x => x.WriteOffID).FirstOrDefault();
+                        ProductWriteOffHistory writeOffHistory = new ProductWriteOffHistory()
+                        {
+                            ProductW = product.ProductID,
+                            ProductWQuantity = item.Column3,
+                            ProductWriteOff = productWriteOff.WriteOffID
+                        };
+
+                        DataDB.entities.ProductWriteOffHistory.Add(writeOffHistory);
+
+                        ProductRemnants Remn = DataDB.entities.ProductRemnants.FirstOrDefault(x => x.RemnantsProduct == product.ProductID && x.RemanantsWarehouse == selectedWarehouseID);
+                        if (Remn != null) // если такой товар есть, то берем и уменьшаем коллчество
+                        {
+                            Remn.RemnantsQuantity -= item.Column3;
+                            DataDB.entities.Entry(Remn).State = EntityState.Modified;
+                            if (Remn.RemnantsQuantity == 0) 
+                            {
+                                DataDB.entities.Entry(Remn).State = EntityState.Deleted;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Товара нет");
+                        }
+                        DataDB.entities.SaveChanges();
+                        MessageBox.Show("Списание успешно");
+                    }
                 }
-                catch 
+                catch
                 {
                     MessageBox.Show("Что-то пошло не так");
-                }
-
-                foreach (TestData item in DataGridProduct.Items) 
-                {
-                    Product product = DataDB.entities.Product.FirstOrDefault(x => x.ProductName == item.Column1);
-                    ProductWriteOff productWriteOff = DataDB.entities.ProductWriteOff.OrderByDescending(x => x.WriteOffID).FirstOrDefault();
-                    ProductWriteOffHistory writeOffHistory = new ProductWriteOffHistory()
-                    {
-                        ProductW = product.ProductID,
-                        ProductWQuantity = item.Column3,
-                        ProductWriteOff = productWriteOff.WriteOffID
-                    };
-
-                    DataDB.entities.ProductWriteOffHistory.Add(writeOffHistory);
-
-                    ProductRemnants Remn = DataDB.entities.ProductRemnants.FirstOrDefault(x => x.RemnantsProduct == product.ProductID && x.RemanantsWarehouse == selectedWarehouseID);
-                    if (Remn != null) // если такой товар есть, то берем и увеличиваем коллчество
-                    {
-                        Remn.RemnantsQuantity -= item.Column3;
-                        DataDB.entities.Entry(Remn).State = EntityState.Modified;
-                    }
-                    else 
-                    {
-                        MessageBox.Show("Товара нет");
-                    }
-                    DataDB.entities.SaveChanges();
-                    MessageBox.Show("Списание успешно");
-
                 }
 
             }
@@ -252,6 +257,31 @@ namespace PC_Service.View
         private bool IsNumericInput(string text)
         {
             return text.All(char.IsDigit); // Проверить, является ли текст только цифрами
+        }
+
+        private void DataGridProduct_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e) // проверка введеного количества списания
+        {
+            if (e.Column.DisplayIndex == 2) // Проверяем, что это вторая колонка (индекс 2)
+            {
+                var editedCell = e.EditingElement as TextBox;
+                var editedRow = e.Row.Item as TestData; 
+
+                if (editedCell != null && editedRow != null)
+                {
+                    // Получаем значение второй ячейки
+                    int editedCellValue = int.Parse(editedCell.Text);
+
+                    // Получаем значение первой ячейки из связанного свойства в классе TestData
+                    int firstCellValue = int.Parse(editedRow.Column2);
+
+                        // Проверяем, что значение списание больше количества на складе
+                        if (firstCellValue < editedCellValue)
+                        { 
+                            MessageBox.Show("Товара на складе меньше чем вы хотите списать");
+                            editedCell.Text = firstCellValue.ToString();
+                        }
+                }
+            }
         }
     }
 }

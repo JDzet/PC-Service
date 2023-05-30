@@ -8,20 +8,20 @@
         Title="Пользователь" Height="550" Width="800">
     <Grid Background="Gray">
         <StackPanel>
-            
-                <StackPanel>
-                    <TextBlock Text="Пользователь"
+
+            <StackPanel>
+                <TextBlock Text="Пользователь"
                    FontSize="30"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
                    Margin="20,20,0,10"/>
-                    <Border Grid.Row="1" Height="1" Background="Gray" Margin="0,0,0,20">
-                        <Border.Effect>
-                            <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" />
-                        </Border.Effect>
-                    </Border>
-                </StackPanel>
-            
+                <Border Grid.Row="1" Height="1" Background="Gray" Margin="0,0,0,20">
+                    <Border.Effect>
+                        <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" />
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+
 
             <StackPanel  Orientation="Horizontal" Height="200" VerticalAlignment="Top"
                          Margin="0,0,0,10">
@@ -76,7 +76,7 @@
             </StackPanel>
             <Separator Height="1" Background="Black" Margin="40,0,40,0">
             </Separator>
-            
+
             <StackPanel  Orientation="Horizontal" Height="130" VerticalAlignment="Top"
                          Margin="0,10,0,0">
                 <StackPanel Width="270">
@@ -98,14 +98,25 @@
                              HorizontalAlignment="Left"
                              Text="{Binding Login}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                              Background="{StaticResource BackElement}"/>
-                    <TextBox Margin="20,0,0,5" FontSize="20" Width="460"
+                             Background="{StaticResource BackElement}"/>
+                    <Grid >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Margin="20,0,0,5" FontSize="20" Width="400"
                              Name="TbPassword"
                              HorizontalAlignment="Left"
                              Text="{Binding Password}"
                              Style="{StaticResource MaterialDesignTextBox}"
                               Background="{StaticResource BackElement}"
                                  />
+                            <Button Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Name="BtRandom" Click="BtRandom_Click">
+                                <Button.Content>
+                                    <Image Source="/View/random.png" Height="15" Width="15" Stretch="Fill"/>
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+
+
                     <ComboBox Margin="20,0,0,5"
                               FontSize="20" 
                               Width="460"

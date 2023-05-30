@@ -80,10 +80,16 @@ namespace PC_Service.View
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            AuthorizationWindow authorization = new AuthorizationWindow();
-            authorization.Show();
-            this.Close();
-           
+            
+            bool confirmed = MessageBox.Show("Выйти из учётной записи ?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
+
+            if (confirmed)
+            {
+                AuthorizationWindow authorization = new AuthorizationWindow();
+                authorization.Show();
+                this.Close();
+            }
+
         }
     }
 }

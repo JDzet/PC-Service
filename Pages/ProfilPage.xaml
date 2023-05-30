@@ -21,9 +21,11 @@
                 </Border.Effect>
             </Border>
 
-            <TextBlock Text="" FontSize="20" Margin="20,25,0,20"/>
-
-
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Имя, фамилия" FontSize="20" Margin="20,25,0,20" Name="TbName"/>
+                <TextBlock Text="Роль пользователя" FontSize="20" Margin="100,25,0,20" Name="Role"/>
+            </StackPanel>
+            
         </StackPanel>
         <Grid VerticalAlignment="Stretch" Margin="20,160,20,30">
 

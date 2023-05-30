@@ -37,7 +37,7 @@
                 <MenuItem Name ="ItemClient" Header="Клиенты" HorizontalContentAlignment="Center" Click="ItemClient_Click"/>
                 <MenuItem Name ="Doc"  Header="Документация" HorizontalContentAlignment="Center" Click="Doc_Click"/>
                 <MenuItem Name ="Settings" Header="Настройки" HorizontalContentAlignment="Center" Click="MenuItem_Settings"/>
-                <MenuItem Name ="Exit" Header="Настройки" HorizontalContentAlignment="Center" Click="Exit_Click"/>
+                <MenuItem Name ="Exit" Header="Выйти" HorizontalContentAlignment="Center" Click="Exit_Click"/>
 
             </Menu>
 

@@ -33,7 +33,7 @@ namespace PC_Service.Pages.Warehouse
         {
             using (DataDB.entities = new EntitiesMain()) 
             {
-                DataGrid.ItemsSource = DataDB.entities.ProductWriteOff.Include(x=>x.User).Include(x=>x.WarehouseService).ToList();
+                DataGrid.ItemsSource = DataDB.entities.ProductWriteOff.OrderByDescending(x=>x.WriteOffID).Include(x=>x.User).Include(x=>x.WarehouseService).ToList();
                 CountText.Text = "Записей: " + DataGrid.Items.Count.ToString();
             }
         }
@@ -42,6 +42,7 @@ namespace PC_Service.Pages.Warehouse
         {
             WriteOffAddV offAddV = new WriteOffAddV();
             offAddV.ShowDialog();
+            DataWriteOff();
         }
     }
 }

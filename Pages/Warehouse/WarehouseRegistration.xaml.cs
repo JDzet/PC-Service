@@ -42,7 +42,7 @@ namespace PC_Service.Pages.Warehouse
         {
             using (DataDB.entities = new EntitiesMain())
             {
-                DataGrid.ItemsSource = DataDB.entities.RegistrationProduct.Include(x=>x.User)
+                DataGrid.ItemsSource = DataDB.entities.RegistrationProduct.OrderByDescending(x=>x.RegistrationID).Include(x=>x.User)
                     .Include(x=>x.Client)
                     .Include(x=>x.WarehouseService).ToList();
                 CountText.Text = "Всего записей: " + DataGrid.Items.Count.ToString();
