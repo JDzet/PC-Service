@@ -23,6 +23,7 @@
     <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_RegistrationProduct_Client" FromRole="Client" ToRole="RegistrationProduct" />
     <Property Name="Supplier" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HistoryTransaction" Relationship="Model.FK_HistoryTransaction_Client" FromRole="Client" ToRole="HistoryTransaction" />
   </EntityType>
   <EntityType Name="DeviceType">
     <Key>
@@ -89,6 +90,7 @@
     <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_RegistrationProduct_User" FromRole="User" ToRole="RegistrationProduct" />
     <NavigationProperty Name="ProductWriteOff" Relationship="Model.FK_ProductWriteOff_User" FromRole="User" ToRole="ProductWriteOff" />
     <NavigationProperty Name="Task" Relationship="Model.FK_Task_User" FromRole="User" ToRole="Task" />
+    <NavigationProperty Name="HistoryTransaction" Relationship="Model.FK_HistoryTransaction_User" FromRole="User" ToRole="HistoryTransaction" />
   </EntityType>
   <Association Name="FK_Orders_BrandDevice">
     <End Role="BrandDevice" Type="Self.BrandDevice" Multiplicity="1" />
@@ -194,7 +196,6 @@
       <End Role="Role" EntitySet="Role" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
-    <EntitySet Name="Product" EntityType="Model.Product" />
     <EntitySet Name="RegistrationProduct" EntityType="Model.RegistrationProduct" />
     <AssociationSet Name="FK_RegistrationProduct_Client" Association="Model.FK_RegistrationProduct_Client">
       <End Role="Client" EntitySet="Client" />
@@ -206,14 +207,6 @@
     </AssociationSet>
     <EntitySet Name="ProductHistoryRegistration" EntityType="Model.ProductHistoryRegistration" />
     <EntitySet Name="ProductRemnants" EntityType="Model.ProductRemnants" />
-    <AssociationSet Name="FK_ProductHistoryRegitration_Product" Association="Model.FK_ProductHistoryRegitration_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="ProductHistoryRegistration" EntitySet="ProductHistoryRegistration" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductRemnants_Product" Association="Model.FK_ProductRemnants_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="ProductRemnants" EntitySet="ProductRemnants" />
-    </AssociationSet>
     <AssociationSet Name="FK_ProductHistoryRegitration_RegistrationProduct" Association="Model.FK_ProductHistoryRegitration_RegistrationProduct">
       <End Role="RegistrationProduct" EntitySet="RegistrationProduct" />
       <End Role="ProductHistoryRegistration" EntitySet="ProductHistoryRegistration" />
@@ -230,10 +223,6 @@
     </AssociationSet>
     <EntitySet Name="ProductWriteOff" EntityType="Model.ProductWriteOff" />
     <EntitySet Name="ProductWriteOffHistory" EntityType="Model.ProductWriteOffHistory" />
-    <AssociationSet Name="FK_ProductWriteOffHistory_Product" Association="Model.FK_ProductWriteOffHistory_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="ProductWriteOffHistory" EntitySet="ProductWriteOffHistory" />
-    </AssociationSet>
     <AssociationSet Name="FK_ProductWriteOff_User" Association="Model.FK_ProductWriteOff_User">
       <End Role="User" EntitySet="User" />
       <End Role="ProductWriteOff" EntitySet="ProductWriteOff" />
@@ -255,21 +244,40 @@
       <End Role="DeviceType" EntitySet="DeviceType" />
       <End Role="BrandDevice" EntitySet="BrandDevice" />
     </AssociationSet>
+    <EntitySet Name="Capital" EntityType="Model.Capital" />
+    <EntitySet Name="HistoryTransaction" EntityType="Model.HistoryTransaction" />
+    <EntitySet Name="Product" EntityType="Model.Product" />
+    <EntitySet Name="Transactions" EntityType="Model.Transactions" />
+    <EntitySet Name="TransactionType" EntityType="Model.TransactionType" />
+    <AssociationSet Name="FK_HistoryTransaction_Client" Association="Model.FK_HistoryTransaction_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="HistoryTransaction" EntitySet="HistoryTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoryTransaction_Transactions" Association="Model.FK_HistoryTransaction_Transactions">
+      <End Role="Transactions" EntitySet="Transactions" />
+      <End Role="HistoryTransaction" EntitySet="HistoryTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoryTransaction_User" Association="Model.FK_HistoryTransaction_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="HistoryTransaction" EntitySet="HistoryTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductHistoryRegitration_Product" Association="Model.FK_ProductHistoryRegitration_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductHistoryRegistration" EntitySet="ProductHistoryRegistration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductRemnants_Product" Association="Model.FK_ProductRemnants_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductRemnants" EntitySet="ProductRemnants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductWriteOffHistory_Product" Association="Model.FK_ProductWriteOffHistory_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductWriteOffHistory" EntitySet="ProductWriteOffHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_TransactionsType" Association="Model.FK_Transactions_TransactionsType">
+      <End Role="TransactionType" EntitySet="TransactionType" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Product">
-    <Key>
-      <PropertyRef Name="ProductID" />
-    </Key>
-    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ProductCod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ProductArticle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ProductPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="ProductHistoryRegistration" Relationship="Model.FK_ProductHistoryRegitration_Product" FromRole="Product" ToRole="ProductHistoryRegistration" />
-    <NavigationProperty Name="ProductRemnants" Relationship="Model.FK_ProductRemnants_Product" FromRole="Product" ToRole="ProductRemnants" />
-    <NavigationProperty Name="ProductWriteOffHistory" Relationship="Model.FK_ProductWriteOffHistory_Product" FromRole="Product" ToRole="ProductWriteOffHistory" />
-  </EntityType>
   <EntityType Name="RegistrationProduct">
     <Key>
       <PropertyRef Name="RegistrationID" />
@@ -321,8 +329,8 @@
     <Property Name="ProductHQuantity" Type="Int32" Nullable="false" />
     <Property Name="ProductHAmount" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
     <Property Name="RegProduct" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Product" Relationship="Model.FK_ProductHistoryRegitration_Product" FromRole="ProductHistoryRegistration" ToRole="Product" />
     <NavigationProperty Name="RegistrationProduct" Relationship="Model.FK_ProductHistoryRegitration_RegistrationProduct" FromRole="ProductHistoryRegistration" ToRole="RegistrationProduct" />
+    <NavigationProperty Name="Product" Relationship="Model.FK_ProductHistoryRegitration_Product" FromRole="ProductHistoryRegistration" ToRole="Product" />
   </EntityType>
   <EntityType Name="ProductRemnants">
     <Key>
@@ -331,34 +339,10 @@
     <Property Name="RemnantsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RemnantsProduct" Type="Int32" Nullable="false" />
     <Property Name="RemnantsQuantity" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Product" Relationship="Model.FK_ProductRemnants_Product" FromRole="ProductRemnants" ToRole="Product" />
     <Property Name="RemanantsWarehouse" Type="Int32" Nullable="false" />
     <NavigationProperty Name="WarehouseService" Relationship="Model.FK_ProductRemnants_WarehouseService" FromRole="ProductRemnants" ToRole="WarehouseService" />
+    <NavigationProperty Name="Product" Relationship="Model.FK_ProductRemnants_Product" FromRole="ProductRemnants" ToRole="Product" />
   </EntityType>
-  <Association Name="FK_ProductHistoryRegitration_Product">
-    <End Type="Model.Product" Role="Product" Multiplicity="1" />
-    <End Type="Model.ProductHistoryRegistration" Role="ProductHistoryRegistration" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="ProductHistoryRegistration">
-        <PropertyRef Name="ProductHName" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductRemnants_Product">
-    <End Type="Model.Product" Role="Product" Multiplicity="1" />
-    <End Type="Model.ProductRemnants" Role="ProductRemnants" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="ProductRemnants">
-        <PropertyRef Name="RemnantsProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ProductHistoryRegitration_RegistrationProduct">
     <End Type="Model.RegistrationProduct" Role="RegistrationProduct" Multiplicity="1" />
     <End Type="Model.ProductHistoryRegistration" Role="ProductHistoryRegistration" Multiplicity="*" />
@@ -438,21 +422,9 @@
     <Property Name="ProductW" Type="Int32" Nullable="false" />
     <Property Name="ProductWQuantity" Type="Int32" Nullable="false" />
     <Property Name="ProductWriteOff" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Product" Relationship="Model.FK_ProductWriteOffHistory_Product" FromRole="ProductWriteOffHistory" ToRole="Product" />
     <NavigationProperty Name="ProductWriteOff1" Relationship="Model.FK_ProductWriteOffHistory_ProductWriteOff" FromRole="ProductWriteOffHistory" ToRole="ProductWriteOff" />
+    <NavigationProperty Name="Product" Relationship="Model.FK_ProductWriteOffHistory_Product" FromRole="ProductWriteOffHistory" ToRole="Product" />
   </EntityType>
-  <Association Name="FK_ProductWriteOffHistory_Product">
-    <End Type="Model.Product" Role="Product" Multiplicity="1" />
-    <End Type="Model.ProductWriteOffHistory" Role="ProductWriteOffHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="ProductWriteOffHistory">
-        <PropertyRef Name="ProductW" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ProductWriteOff_User">
     <End Type="Model.User" Role="User" Multiplicity="1" />
     <End Type="Model.ProductWriteOff" Role="ProductWriteOff" Multiplicity="*" />
@@ -521,6 +493,145 @@
         <PropertyRef Name="DeviceTypeId" />
       </Principal>
       <Dependent Role="BrandDevice">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Capital">
+    <Key>
+      <PropertyRef Name="CapitalID" />
+    </Key>
+    <Property Name="CapitalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+  </EntityType>
+  <EntityType Name="HistoryTransaction">
+    <Key>
+      <PropertyRef Name="HistoryId" />
+    </Key>
+    <Property Name="HistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HistoryNameTransactions" Type="Int32" Nullable="false" />
+    <Property Name="Coming" Type="Decimal" Precision="15" Scale="2" />
+    <Property Name="Expenses" Type="Decimal" Precision="15" Scale="2" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TransacUser" Type="Int32" />
+    <Property Name="TransacClient" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Client" Relationship="Model.FK_HistoryTransaction_Client" FromRole="HistoryTransaction" ToRole="Client" />
+    <NavigationProperty Name="Transactions" Relationship="Model.FK_HistoryTransaction_Transactions" FromRole="HistoryTransaction" ToRole="Transactions" />
+    <NavigationProperty Name="User" Relationship="Model.FK_HistoryTransaction_User" FromRole="HistoryTransaction" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductArticle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="ProductHistoryRegistration" Relationship="Model.FK_ProductHistoryRegitration_Product" FromRole="Product" ToRole="ProductHistoryRegistration" />
+    <NavigationProperty Name="ProductRemnants" Relationship="Model.FK_ProductRemnants_Product" FromRole="Product" ToRole="ProductRemnants" />
+    <NavigationProperty Name="ProductWriteOffHistory" Relationship="Model.FK_ProductWriteOffHistory_Product" FromRole="Product" ToRole="ProductWriteOffHistory" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="TransactionsID" />
+    </Key>
+    <Property Name="TransactionsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="TransactionsName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HistoryTransaction" Relationship="Model.FK_HistoryTransaction_Transactions" FromRole="Transactions" ToRole="HistoryTransaction" />
+    <NavigationProperty Name="TransactionType" Relationship="Model.FK_Transactions_TransactionsType" FromRole="Transactions" ToRole="TransactionType" />
+  </EntityType>
+  <EntityType Name="TransactionType">
+    <Key>
+      <PropertyRef Name="TransactionsTypeId" />
+    </Key>
+    <Property Name="TransactionsTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Transactions" Relationship="Model.FK_Transactions_TransactionsType" FromRole="TransactionType" ToRole="Transactions" />
+  </EntityType>
+  <Association Name="FK_HistoryTransaction_Client">
+    <End Type="Model.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="Model.HistoryTransaction" Role="HistoryTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="HistoryTransaction">
+        <PropertyRef Name="TransacClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoryTransaction_Transactions">
+    <End Type="Model.Transactions" Role="Transactions" Multiplicity="1" />
+    <End Type="Model.HistoryTransaction" Role="HistoryTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transactions">
+        <PropertyRef Name="TransactionsID" />
+      </Principal>
+      <Dependent Role="HistoryTransaction">
+        <PropertyRef Name="HistoryNameTransactions" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoryTransaction_User">
+    <End Type="Model.User" Role="User" Multiplicity="0..1" />
+    <End Type="Model.HistoryTransaction" Role="HistoryTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="HistoryTransaction">
+        <PropertyRef Name="TransacUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductHistoryRegitration_Product">
+    <End Type="Model.Product" Role="Product" Multiplicity="1" />
+    <End Type="Model.ProductHistoryRegistration" Role="ProductHistoryRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductHistoryRegistration">
+        <PropertyRef Name="ProductHName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductRemnants_Product">
+    <End Type="Model.Product" Role="Product" Multiplicity="1" />
+    <End Type="Model.ProductRemnants" Role="ProductRemnants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductRemnants">
+        <PropertyRef Name="RemnantsProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductWriteOffHistory_Product">
+    <End Type="Model.Product" Role="Product" Multiplicity="1" />
+    <End Type="Model.ProductWriteOffHistory" Role="ProductWriteOffHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductWriteOffHistory">
+        <PropertyRef Name="ProductW" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_TransactionsType">
+    <End Type="Model.TransactionType" Role="TransactionType" Multiplicity="1" />
+    <End Type="Model.Transactions" Role="Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionType">
+        <PropertyRef Name="TransactionsTypeId" />
+      </Principal>
+      <Dependent Role="Transactions">
         <PropertyRef Name="Type" />
       </Dependent>
     </ReferentialConstraint>

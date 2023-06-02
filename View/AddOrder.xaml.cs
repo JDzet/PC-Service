@@ -33,8 +33,6 @@ namespace PC_Service.View
            
         }
 
-
-
         public void Data() 
         {
             using (DataDB.entities = new EntitiesMain()) 
@@ -44,7 +42,6 @@ namespace PC_Service.View
                 cbMaster.ItemsSource = DataDB.entities.User.Where(x => x.Role.RoleId == 1).ToList();
             }
         }
-
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

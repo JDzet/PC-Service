@@ -39,11 +39,6 @@ namespace PC_Service
             SettingsFrame.Content = new RoleAndUser();
         }
 
-        private void ItemStatus_Click(object sender, RoutedEventArgs e)
-        {
-            SettingsFrame.Content = new StatusPag();
-        }
-
         private void ItemWorkShop_Click(object sender, RoutedEventArgs e)
         {
             SettingsFrame.Content = new WarehouseLokal();
@@ -52,6 +47,11 @@ namespace PC_Service
         private void ItemDeviceDirectoryPage_Click(object sender, RoutedEventArgs e)
         {
             SettingsFrame.Content = new DeviceDirectoryPage();
+        }
+
+        private void ItemFinance_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsFrame.Content = new FinanceCategories();
         }
     }
 }

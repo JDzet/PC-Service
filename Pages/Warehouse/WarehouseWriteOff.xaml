@@ -39,13 +39,14 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button  Name="Btn"
+                                          PreviewMouseDown="Btn_PreviewMouseDown"  
                                           Background="Gainsboro" >
                                         <Button.Content>
                                             <Image Source="/Pages/info.png" Height="15" Width="15" Stretch="Fill"/>
                                         </Button.Content>
                                     </Button>
                                     <Button  Name="BtnDel"
-                                             
+                                             PreviewMouseDown="BtnDel_Click"
                                           Background="Gainsboro" >
                                         <Button.Content>
                                             <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>

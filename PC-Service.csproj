@@ -108,6 +108,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Capital.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="ClassProject\ApiYandex.cs" />
     <Compile Include="BrandDevice.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
@@ -134,6 +137,9 @@
     <Compile Include="DeviceType.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="HistoryTransaction.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="InformationService.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -148,6 +154,9 @@
     </Compile>
     <Compile Include="Pages\Finance.xaml.cs">
       <DependentUpon>Finance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FinanceCategories.xaml.cs">
+      <DependentUpon>FinanceCategories.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\GeneralSettings.xaml.cs">
       <DependentUpon>GeneralSettings.xaml</DependentUpon>
@@ -212,6 +221,12 @@
     <Compile Include="Task.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Transactions.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionType.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -252,6 +267,9 @@
     <Compile Include="View\WriteOffAddV.xaml.cs">
       <DependentUpon>WriteOffAddV.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\WriteOffInfo.xaml.cs">
+      <DependentUpon>WriteOffInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WarehouseService.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -264,6 +282,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Finance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FinanceCategories.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -368,6 +390,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\WriteOffAddV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WriteOffInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

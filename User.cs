@@ -21,6 +21,7 @@ namespace PC_Service
             this.RegistrationProduct = new HashSet<RegistrationProduct>();
             this.ProductWriteOff = new HashSet<ProductWriteOff>();
             this.Task = new HashSet<Task>();
+            this.HistoryTransaction = new HashSet<HistoryTransaction>();
         }
     
         public int UserId { get; set; }
@@ -41,5 +42,7 @@ namespace PC_Service
         public virtual ICollection<ProductWriteOff> ProductWriteOff { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Task> Task { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HistoryTransaction> HistoryTransaction { get; set; }
     }
 }

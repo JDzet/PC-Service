@@ -18,14 +18,11 @@
         <AssociationConnector Association="Model.FK_Orders_Status" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Orders_User" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_User_Role" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="9.75" PointY="7.25" />
         <EntityTypeShape EntityType="Model.RegistrationProduct" Width="2.25" PointX="12.375" PointY="2.25" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_Client" />
         <AssociationConnector Association="Model.FK_RegistrationProduct_User" />
         <EntityTypeShape EntityType="Model.ProductHistoryRegistration" Width="2" PointX="15.375" PointY="4.75" />
         <EntityTypeShape EntityType="Model.ProductRemnants" Width="2.25" PointX="11.875" PointY="7.125" />
-        <AssociationConnector Association="Model.FK_ProductHistoryRegitration_Product" />
-        <AssociationConnector Association="Model.FK_ProductRemnants_Product" />
         <AssociationConnector Association="Model.FK_ProductHistoryRegitration_RegistrationProduct" />
         <EntityTypeShape EntityType="Model.InformationService" Width="1.5" PointX="0.875" PointY="0.5" />
         <EntityTypeShape EntityType="Model.WarehouseService" Width="1.875" PointX="10" PointY="1.5" />
@@ -33,13 +30,24 @@
         <AssociationConnector Association="Model.FK_ProductRemnants_WarehouseService" />
         <EntityTypeShape EntityType="Model.ProductWriteOff" Width="1.5" PointX="15.625" PointY="1.125" />
         <EntityTypeShape EntityType="Model.ProductWriteOffHistory" Width="1.5" PointX="19.5" PointY="4.5" />
-        <AssociationConnector Association="Model.FK_ProductWriteOffHistory_Product" />
         <AssociationConnector Association="Model.FK_ProductWriteOff_User" />
         <AssociationConnector Association="Model.FK_ProductWriteOff_WarehouseService" />
         <AssociationConnector Association="Model.FK_ProductWriteOffHistory_ProductWriteOff" />
         <EntityTypeShape EntityType="Model.Task" Width="1.5" PointX="0.625" PointY="5.25" />
         <AssociationConnector Association="Model.FK_Task_User" />
         <AssociationConnector Association="Model.FK_BrandDevice_DeviceType" />
+        <EntityTypeShape EntityType="Model.Capital" Width="1.5" PointX="12.125" PointY="11.25" />
+        <EntityTypeShape EntityType="Model.HistoryTransaction" Width="1.5" PointX="15.5" PointY="10.375" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="8.75" PointY="7.25" />
+        <EntityTypeShape EntityType="Model.Transactions" Width="1.5" PointX="12.125" PointY="13.125" />
+        <EntityTypeShape EntityType="Model.TransactionType" Width="1.5" PointX="8.875" PointY="13.25" />
+        <AssociationConnector Association="Model.FK_HistoryTransaction_Client" />
+        <AssociationConnector Association="Model.FK_HistoryTransaction_Transactions" />
+        <AssociationConnector Association="Model.FK_HistoryTransaction_User" />
+        <AssociationConnector Association="Model.FK_ProductHistoryRegitration_Product" />
+        <AssociationConnector Association="Model.FK_ProductRemnants_Product" />
+        <AssociationConnector Association="Model.FK_ProductWriteOffHistory_Product" />
+        <AssociationConnector Association="Model.FK_Transactions_TransactionsType" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

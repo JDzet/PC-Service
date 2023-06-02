@@ -19,7 +19,7 @@ namespace PC_Service
         public int ProductWQuantity { get; set; }
         public int ProductWriteOff { get; set; }
     
-        public virtual Product Product { get; set; }
         public virtual ProductWriteOff ProductWriteOff1 { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

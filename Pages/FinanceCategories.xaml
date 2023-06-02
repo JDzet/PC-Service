@@ -1,0 +1,115 @@
+﻿<Page x:Class="PC_Service.Pages.FinanceCategories"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PC_Service.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1100"
+      Title="FinanceCategories">
+
+    <Grid Background="Gray" Name="GridStatus">
+        <StackPanel>
+            <TextBlock Text="Список типов финансовых операций"
+                   FontSize="30"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="20,20,0,10"/>
+            <Border Grid.Row="1" Height="1" Background="Gray" Margin="0,0,0,20">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" />
+                </Border.Effect>
+            </Border>
+
+
+            <TextBlock Text="" FontSize="20" Margin="20,5,0,20"/>
+
+            <Button Width="200"    
+                     Height="45"
+                     Background="Gainsboro"
+                     Name="AddWarehouseClick"
+                     HorizontalAlignment="Left"
+                     Margin="20,0,0,0" Cursor="Hand" 
+                    >
+
+                <TextBlock Text="+ Добавить тип"
+                     FontSize="16"/>
+            </Button>
+        </StackPanel>
+
+        <Grid VerticalAlignment="Stretch" Margin="20,200,20,70">
+            <DataGrid x:Name="DataGrid"  
+                       Background="{StaticResource BackElement}"    
+                      FontSize="14" FontWeight="Bold"    
+                      AutoGenerateColumns="False" IsReadOnly="True" Cursor="">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Назваени" Binding="{Binding TransactionsName}" />
+                    <DataGridTextColumn Header="Категория" Binding="{Binding TransactionType.NameType}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button  Name="BtnEdit"
+                                          Background="Gainsboro" >
+                                        <Button.Content>
+                                            <Image Source="/Pages/EditMain.png" Height="15" Width="15" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                    <Button  Name="BtnDel"
+                                             
+                                          Background="Gainsboro" >
+                                        <Button.Content>
+                                            <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <TextBlock Text="Всего - 0" FontSize="15" Margin="20,20,0,30"
+                   VerticalAlignment="Bottom" Name="Count"
+                   />
+
+        <Border x:Name="FormContainer" Grid.Column="1" Background="White" Margin="10" CornerRadius="5" Visibility="Collapsed" HorizontalAlignment="Right">
+            <Grid Cursor="">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Заголовок формы -->
+                <Grid Grid.Row="0" Width="300" >
+                    <TextBlock Text="Добавить склад" FontSize="16" Margin="10" FontWeight="Bold" 
+                               HorizontalAlignment="Left"/>
+                    <Button Name="WatchtCases" Style="{x:Null}" Background="Transparent"  
+                            Margin="5" 
+                            HorizontalAlignment="Right"
+                            BorderThickness="0"
+                            >
+                        <Button.Content>
+                            <Image Source="/Pages/close78.png" Height="30" Width="30"/>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+
+                <!-- Поля для ввода -->
+                <TextBox Grid.Row="1" Margin="10" Text="{Binding WarehouseName}" Name="TbName"/>
+                <ComboBox Grid.Row="2" Margin="10" Text="{Binding WarehouseAddress}" Name="TbAddress" 
+                          IsEditable="True" />
+
+                <!-- Кнопка "Добавить" -->
+                <Button Grid.Row="3" Content="Добавить" HorizontalAlignment="Right" Margin="10" x:Name="BtAdd"
+                        />
+
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

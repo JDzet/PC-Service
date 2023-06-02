@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
-        Title="RegistratoinInfo" Height="600" Width="700">
+        Title="Информация о оприходование" Height="600" Width="700">
     <Grid Background="Gray">
         <StackPanel>
             <TextBlock Text="Информация о оприходовании"

@@ -21,7 +21,7 @@ namespace PC_Service
         public decimal ProductHAmount { get; set; }
         public int RegProduct { get; set; }
     
-        public virtual Product Product { get; set; }
         public virtual RegistrationProduct RegistrationProduct { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

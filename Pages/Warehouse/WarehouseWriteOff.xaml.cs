@@ -44,5 +44,40 @@ namespace PC_Service.Pages.Warehouse
             offAddV.ShowDialog();
             DataWriteOff();
         }
+
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+            ProductWriteOff writeOff = new ProductWriteOff();
+            writeOff = (sender as Button).DataContext as ProductWriteOff;
+
+            bool confirmed = MessageBox.Show("Удалить данное списание", "Внимамние", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
+
+            using (DataDB.entities = new EntitiesMain()) 
+            {
+                var product = DataDB.entities.ProductWriteOffHistory.Where(x => x.ProductWriteOff == writeOff.WriteOffID).ToList();
+                if (confirmed)
+                {
+                    foreach (var record in product) 
+                    {
+                        DataDB.entities.Entry(record).State = EntityState.Deleted;
+                    }
+
+                    DataDB.entities.Entry(writeOff).State = EntityState.Deleted;
+                    DataDB.entities.SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                    DataWriteOff();
+                }
+            }
+                
+            
+        }
+
+        private void Btn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ProductWriteOff writeOff = new ProductWriteOff();
+            writeOff = (sender as Button).DataContext as ProductWriteOff;
+            WriteOffInfo info = new WriteOffInfo(writeOff);
+            info.ShowDialog();
+        }
     }
 }

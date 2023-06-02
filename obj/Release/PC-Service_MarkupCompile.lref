@@ -3,6 +3,7 @@ FC:\Users\jaros\Source\Repos\JDzet\PC-Service\App.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\ClientPage.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\DeviceDirectoryPage.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\Finance.xaml;;
+FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\FinanceCategories.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\GeneralSettings.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\ProfilPage.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\Pages\StatusPag.xaml;;
@@ -26,4 +27,5 @@ FC:\Users\jaros\Source\Repos\JDzet\PC-Service\View\MainMenu.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\View\RegistrationAdd.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\View\RegistratoinInfo.xaml;;
 FC:\Users\jaros\Source\Repos\JDzet\PC-Service\View\WriteOffAddV.xaml;;
+FC:\Users\jaros\Source\Repos\JDzet\PC-Service\View\WriteOffInfo.xaml;;
 

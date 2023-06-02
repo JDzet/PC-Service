@@ -142,3 +142,7 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\DeviceDirectoryPage
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\ProfilPage.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\ProfilPage.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\App.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\WriteOffInfo.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\WriteOffInfo.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\FinanceCategories.g.cs
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\FinanceCategories.baml

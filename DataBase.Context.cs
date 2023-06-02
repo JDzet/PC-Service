@@ -32,7 +32,6 @@ namespace PC_Service
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<RegistrationProduct> RegistrationProduct { get; set; }
         public virtual DbSet<ProductHistoryRegistration> ProductHistoryRegistration { get; set; }
         public virtual DbSet<ProductRemnants> ProductRemnants { get; set; }
@@ -41,5 +40,10 @@ namespace PC_Service
         public virtual DbSet<ProductWriteOff> ProductWriteOff { get; set; }
         public virtual DbSet<ProductWriteOffHistory> ProductWriteOffHistory { get; set; }
         public virtual DbSet<Task> Task { get; set; }
+        public virtual DbSet<Capital> Capital { get; set; }
+        public virtual DbSet<HistoryTransaction> HistoryTransaction { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Transactions> Transactions { get; set; }
+        public virtual DbSet<TransactionType> TransactionType { get; set; }
     }
 }

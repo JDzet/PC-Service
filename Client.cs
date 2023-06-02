@@ -19,6 +19,7 @@ namespace PC_Service
         {
             this.Orders = new HashSet<Orders>();
             this.RegistrationProduct = new HashSet<RegistrationProduct>();
+            this.HistoryTransaction = new HashSet<HistoryTransaction>();
         }
     
         public int ClientId { get; set; }
@@ -33,5 +34,7 @@ namespace PC_Service
         public virtual ICollection<Orders> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RegistrationProduct> RegistrationProduct { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HistoryTransaction> HistoryTransaction { get; set; }
     }
 }

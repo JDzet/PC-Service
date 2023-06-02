@@ -35,10 +35,7 @@
                         <TextBlock Text="+ Добавить заказ"
                                FontSize="16"/>
                     </Button>
-                    <TextBox HorizontalAlignment ="Right" Width="200" Margin="0,0,20,0"
-                          
-                              Background="{StaticResource BackElement}" Foreground="White"/>
-                </Grid>
+            </Grid>
             
         </StackPanel>
         <Grid VerticalAlignment="Stretch" Margin="20,160,20,30">

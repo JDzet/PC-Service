@@ -43,27 +43,30 @@ namespace PC_Service
 
         public void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (TextBoxLogin.Text != "" && TextBoxPasswrod.Text != "")
-            {
-                userAutho = entities.User.FirstOrDefault(X => X.Login == TextBoxLogin.Text && X.Password == TextBoxPasswrod.Text);
-
-                if (userAutho != null)
+            
+            
+                if (TextBoxLogin.Text != "" && TextBoxPasswrod.Text != "")
                 {
-                    MessageBox.Show($"Добро пожаловать {userAutho.UserName}");
-                    mainMenu.Show();
-                    UserAuthorization.Worker = userAutho;
-                    this.Close();
+                    userAutho = entities.User.FirstOrDefault(X => X.Login == TextBoxLogin.Text && X.Password == TextBoxPasswrod.Text);
+
+                    if (userAutho != null)
+                    {
+                        MessageBox.Show($"Добро пожаловать {userAutho.UserName}");
+                        mainMenu.Show();
+                        UserAuthorization.Worker = userAutho;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пароль или логин неверный");
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show("Пароль или логин неверный");
+                    MessageBox.Show("Логин или пароль не введены");
                 }
-
-            }
-            else 
-            {
-                MessageBox.Show("Логин или пароль не введены");
-            }
+            
 
         }
 

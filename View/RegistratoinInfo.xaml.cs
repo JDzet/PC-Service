@@ -27,6 +27,7 @@ namespace PC_Service.View
             _reg = reg;
             DataContext = _reg;
             DataInfo();
+
         }
 
         public void DataInfo() 

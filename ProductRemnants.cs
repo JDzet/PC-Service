@@ -19,7 +19,7 @@ namespace PC_Service
         public int RemnantsQuantity { get; set; }
         public int RemanantsWarehouse { get; set; }
     
-        public virtual Product Product { get; set; }
         public virtual WarehouseService WarehouseService { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

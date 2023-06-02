@@ -80,18 +80,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Product">
-      <EntityTypeMapping TypeName="Model.Product">
-        <MappingFragment StoreEntitySet="Product">
-          <ScalarProperty Name="ProductPhoto" ColumnName="ProductPhoto" />
-          <ScalarProperty Name="ProductArticle" ColumnName="ProductArticle" />
-          <ScalarProperty Name="ProductCod" ColumnName="ProductCod" />
-          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
-          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RegistrationProduct">
       <EntityTypeMapping TypeName="Model.RegistrationProduct">
         <MappingFragment StoreEntitySet="RegistrationProduct">
@@ -179,6 +167,57 @@
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="TaskName" ColumnName="TaskName" />
           <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Capital">
+      <EntityTypeMapping TypeName="Model.Capital">
+        <MappingFragment StoreEntitySet="Capital">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CapitalID" ColumnName="CapitalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoryTransaction">
+      <EntityTypeMapping TypeName="Model.HistoryTransaction">
+        <MappingFragment StoreEntitySet="HistoryTransaction">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TransacClient" ColumnName="TransacClient" />
+          <ScalarProperty Name="TransacUser" ColumnName="TransacUser" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Expenses" ColumnName="Expenses" />
+          <ScalarProperty Name="Coming" ColumnName="Coming" />
+          <ScalarProperty Name="HistoryNameTransactions" ColumnName="HistoryNameTransactions" />
+          <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="Model.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductPhoto" ColumnName="ProductPhoto" />
+          <ScalarProperty Name="ProductArticle" ColumnName="ProductArticle" />
+          <ScalarProperty Name="ProductCod" ColumnName="ProductCod" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="Model.Transactions">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="TransactionsName" ColumnName="TransactionsName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="TransactionsID" ColumnName="TransactionsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionType">
+      <EntityTypeMapping TypeName="Model.TransactionType">
+        <MappingFragment StoreEntitySet="TransactionType">
+          <ScalarProperty Name="NameType" ColumnName="NameType" />
+          <ScalarProperty Name="TransactionsTypeId" ColumnName="TransactionsTypeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
-        Title="RegistrationAdd" Height="618" Width="900">
+        Title="Оприходоване" Height="618" Width="900">
     <Grid  Background="Gray">
         <StackPanel>
             <TextBlock Text="Новое оприходование"
@@ -70,10 +70,13 @@
                                          Background="{StaticResource BackElement}"
                                         Name="CBProduct"
                                         IsEditable="True"
-                                        Margin="0,0,50,0"/>
-                                <Button HorizontalAlignment="Right"
+                                        Margin="0,0,40,0"/>
+                                <Button HorizontalAlignment="Right" Height="25"
+                                        Width="25"
+                                        Style="{x:Null}"
                                          Background="{StaticResource BackElement}"
                                         Content="+"
+                                      
                                         Name="BrAddProduct">
                                 </Button>
 
