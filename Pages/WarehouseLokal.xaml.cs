@@ -51,10 +51,10 @@ namespace PC_Service.Pages
         {
             FormContainer.Visibility = Visibility.Visible;
 
-            // Добавьте анимацию, чтобы панель выезжала вправо
+           
             DoubleAnimation animation = new DoubleAnimation();
             animation.From = 0;
-            animation.To = 300; // Ширина формы (можете настроить под свои нужды)
+            animation.To = 300; // Ширина формы 
             animation.Duration = TimeSpan.FromSeconds(0.3);
             FormContainer.BeginAnimation(Border.WidthProperty, animation);
         }

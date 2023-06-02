@@ -27,12 +27,13 @@
             <Button Width="200"    
                      Height="45"
                      Background="Gainsboro"
-                     Name="AddWarehouseClick"
+                     Name="AddTransactionClick"
                      HorizontalAlignment="Left"
                      Margin="20,0,0,0" Cursor="Hand" 
+                     Click="AddTransactionClick_Click"
                     >
 
-                <TextBlock Text="+ Добавить тип"
+                <TextBlock Text="+ Добавить оперцию"
                      FontSize="16"/>
             </Button>
         </StackPanel>
@@ -45,19 +46,13 @@
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Назваени" Binding="{Binding TransactionsName}" />
-                    <DataGridTextColumn Header="Категория" Binding="{Binding TransactionType.NameType}"/>
+                    <DataGridTextColumn Header="Тип" Binding="{Binding TransactionType.NameType}"/>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button  Name="BtnEdit"
-                                          Background="Gainsboro" >
-                                        <Button.Content>
-                                            <Image Source="/Pages/EditMain.png" Height="15" Width="15" Stretch="Fill"/>
-                                        </Button.Content>
-                                    </Button>
                                     <Button  Name="BtnDel"
-                                             
+                                             Click="BtnDel_Click"
                                           Background="Gainsboro" >
                                         <Button.Content>
                                             <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>
@@ -75,7 +70,7 @@
                    VerticalAlignment="Bottom" Name="Count"
                    />
 
-        <Border x:Name="FormContainer" Grid.Column="1" Background="White" Margin="10" CornerRadius="5" Visibility="Collapsed" HorizontalAlignment="Right">
+        <Border x:Name="FormContainer" Grid.Column="1" Background="White" Margin="10" Height="300" CornerRadius="5" Visibility="Collapsed" HorizontalAlignment="Center" Cursor="">
             <Grid Cursor="">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -86,11 +81,12 @@
                 </Grid.RowDefinitions>
 
                 <!-- Заголовок формы -->
-                <Grid Grid.Row="0" Width="300" >
-                    <TextBlock Text="Добавить склад" FontSize="16" Margin="10" FontWeight="Bold" 
+                <Grid Grid.Row="0" Width="250">
+                    <TextBlock Text="Добавить операцию" FontSize="16" Margin="10" FontWeight="Bold" 
                                HorizontalAlignment="Left"/>
                     <Button Name="WatchtCases" Style="{x:Null}" Background="Transparent"  
                             Margin="5" 
+                            Click="WatchtCases_Click"
                             HorizontalAlignment="Right"
                             BorderThickness="0"
                             >
@@ -101,12 +97,13 @@
                 </Grid>
 
                 <!-- Поля для ввода -->
-                <TextBox Grid.Row="1" Margin="10" Text="{Binding WarehouseName}" Name="TbName"/>
-                <ComboBox Grid.Row="2" Margin="10" Text="{Binding WarehouseAddress}" Name="TbAddress" 
-                          IsEditable="True" />
+                <TextBox Grid.Row="1" Margin="10"  Name="TbName"/>
+                <ComboBox Grid.Row="2" Margin="10"  Name="CbType" 
+                          IsEditable="True" DisplayMemberPath="NameType"/>
 
                 <!-- Кнопка "Добавить" -->
-                <Button Grid.Row="3" Content="Добавить" HorizontalAlignment="Right" Margin="10" x:Name="BtAdd"
+                <Button Grid.Row="3" Content="Сохранить" HorizontalAlignment="Right" Margin="10" x:Name="BtAdd" 
+                        Click="BtAdd_Click"
                         />
 
             </Grid>
