@@ -83,7 +83,7 @@ namespace PC_Service.Pages
                 DataDB.entities.SaveChanges();
                 MessageBox.Show("Транзакция удалена");
             }
-
+            DataFinance();
         }
     }
 }

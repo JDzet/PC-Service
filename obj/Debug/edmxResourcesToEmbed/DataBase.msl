@@ -181,6 +181,7 @@
     <EntitySetMapping Name="HistoryTransaction">
       <EntityTypeMapping TypeName="Model.HistoryTransaction">
         <MappingFragment StoreEntitySet="HistoryTransaction">
+          <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="TransacClient" ColumnName="TransacClient" />
           <ScalarProperty Name="TransacUser" ColumnName="TransacUser" />

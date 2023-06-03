@@ -46,6 +46,7 @@
     <Property Name="TransacUser" Type="int" />
     <Property Name="TransacClient" Type="int" />
     <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="UserCreate" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="InformationService">
     <Key>
@@ -245,6 +246,18 @@
       </Principal>
       <Dependent Role="HistoryTransaction">
         <PropertyRef Name="TransacUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoryTransaction_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="HistoryTransaction" Type="Self.HistoryTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="HistoryTransaction">
+        <PropertyRef Name="UserCreate" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -510,6 +523,10 @@
       <End Role="HistoryTransaction" EntitySet="HistoryTransaction" />
     </AssociationSet>
     <AssociationSet Name="FK_HistoryTransaction_User" Association="Self.FK_HistoryTransaction_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="HistoryTransaction" EntitySet="HistoryTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoryTransaction_User1" Association="Self.FK_HistoryTransaction_User1">
       <End Role="User" EntitySet="User" />
       <End Role="HistoryTransaction" EntitySet="HistoryTransaction" />
     </AssociationSet>

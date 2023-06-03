@@ -22,9 +22,11 @@ namespace PC_Service
         public Nullable<int> TransacUser { get; set; }
         public Nullable<int> TransacClient { get; set; }
         public System.DateTime Date { get; set; }
+        public int UserCreate { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual Transactions Transactions { get; set; }
         public virtual User User { get; set; }
+        public virtual User User1 { get; set; }
     }
 }

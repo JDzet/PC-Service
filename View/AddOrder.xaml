@@ -25,7 +25,7 @@
         <ScrollViewer CanContentScroll="True" VerticalAlignment="Top" Margin="0,77,0,0">
             <StackPanel>
                 <TextBlock Text="Клиент" Foreground="Wheat" FontSize="25" Margin="120,0,0,20"/>
-                <StackPanel  Orientation="Horizontal" Height="100" VerticalAlignment="Top">
+                <StackPanel  Orientation="Horizontal" Height="150" VerticalAlignment="Top">
                     <StackPanel Width="270">
                         <TextBlock Text="Имя Фамилия Клиента"
                            FontSize="20"
@@ -35,23 +35,31 @@
                            FontSize="20" 
                            Margin="0,0,0,10"
                            HorizontalAlignment="Right"/>
+                        <TextBlock Text="Почта"
+                           FontSize="20" 
+                           Margin="0,0,0,10"
+                           HorizontalAlignment="Right"/>
                         <TextBlock Text="Адрес клиента"
                            FontSize="20" 
                            Margin="0,0,0,10"
                            HorizontalAlignment="Right"/>
                     </StackPanel>
                     <StackPanel>
-                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460" Name="tbName"
-                                 HorizontalAlignment="Left"
-                                 
-                                 Style="{StaticResource MaterialDesignTextBox}"
-                                   Background="{StaticResource BackElement}"/>
+                        <ComboBox  Margin="20,0,0,8" FontSize="15" Name="CbUser" 
+                                   IsEditable="True"
+                                   Background="{StaticResource BackElement}"
+                                   DisplayMemberPath="ClientName" SelectionChanged="CbUser_SelectionChanged"/>
                         <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                                  Name="tbPhone"
                                  HorizontalAlignment="Left"
                                  Style="{StaticResource MaterialDesignTextBox}"
                                    Background="{StaticResource BackElement}"
                                  />
+                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                 HorizontalAlignment="Left"
+                                 Style="{StaticResource MaterialDesignTextBox}"
+                                 Name="tbEmail"
+                                   Background="{StaticResource BackElement}"/>
                         <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                                  HorizontalAlignment="Left"
                                  Style="{StaticResource MaterialDesignTextBox}"

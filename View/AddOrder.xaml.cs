@@ -37,6 +37,7 @@ namespace PC_Service.View
         {
             using (DataDB.entities = new EntitiesMain()) 
             {
+                CbUser.ItemsSource = DataDB.entities.Client.ToList();
                 cbDevice.ItemsSource = DataDB.entities.DeviceType.ToList();
                 cbBrand.ItemsSource = DataDB.entities.BrandDevice.ToList();
                 cbMaster.ItemsSource = DataDB.entities.User.Where(x => x.Role.RoleId == 1).ToList();
@@ -47,19 +48,20 @@ namespace PC_Service.View
         {
             using (DataDB.entities = new EntitiesMain()) 
             {
-                var user = DataDB.entities.Client.FirstOrDefault(x => x.ClientName == tbName.Text);
+                var user = DataDB.entities.Client.FirstOrDefault(x => x.ClientName == CbUser.Text);
                 if (user == null)
                 {
-                    new_client.ClientName = tbName.Text;
+                    new_client.ClientName = CbUser.Text;
                     new_client.PhoneNumber = tbPhone.Text;
                     new_client.ClientAddress = tbAdress.Text;
+                    new_client.ClientEmail = tbEmail.Text;
                     DataDB.entities.Client.Add(new_client);
                     DataDB.entities.SaveChanges();
                 }
 
 
 
-                var usernow = DataDB.entities.Client.FirstOrDefault(x => x.ClientName == tbName.Text);
+                var usernow = DataDB.entities.Client.FirstOrDefault(x => x.ClientName == CbUser.Text);
 
                 if (new_order.OrderID == 0)
                 {
@@ -77,6 +79,28 @@ namespace PC_Service.View
             }
            
 
+
+        }
+
+        private void CbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (sender is ComboBox comboBox)
+            {
+                if (comboBox.SelectedItem is Client client)
+                {
+                    tbPhone.Text = client.PhoneNumber;
+                    tbEmail.Text = client.ClientEmail;
+                    tbAdress.Text = client.ClientAddress;
+                }
+                else    // Обработка случая, когда выбранный элемент равен null
+                {
+                
+                    tbPhone.Text = string.Empty;
+                    tbEmail.Text = string.Empty;
+                    tbAdress.Text = string.Empty;
+                }
+            }
 
         }
     }

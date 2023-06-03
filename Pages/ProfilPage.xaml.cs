@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Data.Entity;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -27,6 +28,15 @@ namespace PC_Service.Pages
 
             TbName.Text = UserAuthorization.Worker.UserName.ToString();
             Role.Text = UserAuthorization.Worker.Role.RoleName.ToString();
+            DataProfil();
+        }
+
+        public void DataProfil() 
+        {
+            using (DataDB.entities = new EntitiesMain()) 
+            {
+                DataGrid.ItemsSource = DataDB.entities.HistoryTransaction.Include(x => x.Transactions).Where(x=>x.TransacUser == UserAuthorization.Worker.UserId).ToList();
+            }
         }
 
      

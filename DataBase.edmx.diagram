@@ -48,6 +48,7 @@
         <AssociationConnector Association="Model.FK_ProductRemnants_Product" />
         <AssociationConnector Association="Model.FK_ProductWriteOffHistory_Product" />
         <AssociationConnector Association="Model.FK_Transactions_TransactionsType" />
+        <AssociationConnector Association="Model.FK_HistoryTransaction_User1" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

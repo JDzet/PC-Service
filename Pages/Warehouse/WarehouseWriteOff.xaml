@@ -30,7 +30,7 @@
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Списание №" Binding="{Binding WriteOffID}"/>
-                    <DataGridTextColumn Header="Дата и время" Binding="{Binding Date}"/>
+                    <DataGridTextColumn Header="Дата и время" Binding="{Binding Date, StringFormat=dd:MM:yyyy}"/>
                     <DataGridTextColumn Header="Сотрудник" Binding="{Binding User.UserName}"/>
                     <DataGridTextColumn Header="Склад" Binding="{Binding WarehouseService.WarehouseName}"/>
                     <DataGridTextColumn Header="Комментарий" Binding="{Binding Note}"/>

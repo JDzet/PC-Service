@@ -51,6 +51,7 @@
           <Property Name="TransacUser" Type="int" />
           <Property Name="TransacClient" Type="int" />
           <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="UserCreate" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="InformationService">
           <Key>
@@ -250,6 +251,18 @@
             </Principal>
             <Dependent Role="HistoryTransaction">
               <PropertyRef Name="TransacUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoryTransaction_User1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="HistoryTransaction" Type="Self.HistoryTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="HistoryTransaction">
+              <PropertyRef Name="UserCreate" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -518,6 +531,10 @@
             <End Role="User" EntitySet="User" />
             <End Role="HistoryTransaction" EntitySet="HistoryTransaction" />
           </AssociationSet>
+          <AssociationSet Name="FK_HistoryTransaction_User1" Association="Self.FK_HistoryTransaction_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="HistoryTransaction" EntitySet="HistoryTransaction" />
+          </AssociationSet>
           <AssociationSet Name="FK_Orders_BrandDevice" Association="Self.FK_Orders_BrandDevice">
             <End Role="BrandDevice" EntitySet="BrandDevice" />
             <End Role="Orders" EntitySet="Orders" />
@@ -690,6 +707,7 @@
           <NavigationProperty Name="ProductWriteOff" Relationship="Model.FK_ProductWriteOff_User" FromRole="User" ToRole="ProductWriteOff" />
           <NavigationProperty Name="Task" Relationship="Model.FK_Task_User" FromRole="User" ToRole="Task" />
           <NavigationProperty Name="HistoryTransaction" Relationship="Model.FK_HistoryTransaction_User" FromRole="User" ToRole="HistoryTransaction" />
+          <NavigationProperty Name="HistoryTransaction1" Relationship="Model.FK_HistoryTransaction_User1" FromRole="User" ToRole="HistoryTransaction" />
         </EntityType>
         <Association Name="FK_Orders_BrandDevice">
           <End Role="BrandDevice" Type="Self.BrandDevice" Multiplicity="1" />
@@ -875,6 +893,10 @@
           <AssociationSet Name="FK_Transactions_TransactionsType" Association="Model.FK_Transactions_TransactionsType">
             <End Role="TransactionType" EntitySet="TransactionType" />
             <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoryTransaction_User1" Association="Model.FK_HistoryTransaction_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="HistoryTransaction" EntitySet="HistoryTransaction" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="RegistrationProduct">
@@ -1118,6 +1140,8 @@
           <NavigationProperty Name="Client" Relationship="Model.FK_HistoryTransaction_Client" FromRole="HistoryTransaction" ToRole="Client" />
           <NavigationProperty Name="Transactions" Relationship="Model.FK_HistoryTransaction_Transactions" FromRole="HistoryTransaction" ToRole="Transactions" />
           <NavigationProperty Name="User" Relationship="Model.FK_HistoryTransaction_User" FromRole="HistoryTransaction" ToRole="User" />
+          <Property Name="UserCreate" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User1" Relationship="Model.FK_HistoryTransaction_User1" FromRole="HistoryTransaction" ToRole="User" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -1232,6 +1256,18 @@
             </Principal>
             <Dependent Role="Transactions">
               <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoryTransaction_User1">
+          <End Type="Model.User" Role="User" Multiplicity="1" />
+          <End Type="Model.HistoryTransaction" Role="HistoryTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="HistoryTransaction">
+              <PropertyRef Name="UserCreate" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1421,6 +1457,7 @@
           <EntitySetMapping Name="HistoryTransaction">
             <EntityTypeMapping TypeName="Model.HistoryTransaction">
               <MappingFragment StoreEntitySet="HistoryTransaction">
+                <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="TransacClient" ColumnName="TransacClient" />
                 <ScalarProperty Name="TransacUser" ColumnName="TransacUser" />

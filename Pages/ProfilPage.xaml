@@ -35,10 +35,9 @@
                       AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="Дата операции" Binding="{Binding OrderID}"/>
-                    <DataGridTextColumn Header="Выплата" Binding="{Binding Status.StatusName}"/>
-                    <DataGridTextColumn Header="Тип операции" Binding="{Binding Deadline, Mode=TwoWay, StringFormat=dd:MM:yyyy}"/>
-                   
+                    <DataGridTextColumn Header="Дата операции" Binding="{Binding Date, StringFormat=dd:MM:yyyy}"/>
+                    <DataGridTextColumn Header="Выплата" Binding="{Binding Expenses}"/>
+                    <DataGridTextColumn Header="Тип операции" Binding="{Binding Transactions.TransactionsName}"/>
 
 
                 </DataGrid.Columns>
