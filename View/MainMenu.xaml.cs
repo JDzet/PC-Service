@@ -1,6 +1,7 @@
 ﻿using PC_Service.Pages;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace PC_Service.View
         {
             InitializeComponent();
             MainFrame.Content = new Order();
-            Doc.IsEnabled = false;
+            
             
         }
 
@@ -46,6 +47,8 @@ namespace PC_Service.View
                 MessageBox.Show("У вас нет прав для перехода к данной форме", "Внимание");
             else
                 MainFrame.Content = new Settings();
+
+            
         }
 
         private void Order_Click(object sender, RoutedEventArgs e)

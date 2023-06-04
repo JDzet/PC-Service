@@ -76,6 +76,7 @@
     <Property Name="ReceiptTime" Type="date" Nullable="false" />
     <Property Name="AppearanceDevice" Type="nvarchar(max)" />
     <Property Name="Equipment" Type="nvarchar(max)" />
+    <Property Name="FileData" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Product">
     <Key>

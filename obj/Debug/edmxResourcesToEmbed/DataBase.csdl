@@ -56,6 +56,7 @@
     <NavigationProperty Name="DeviceType1" Relationship="Self.FK_Orders_DeviceType" FromRole="Orders" ToRole="DeviceType" />
     <NavigationProperty Name="Status" Relationship="Self.FK_Orders_Status" FromRole="Orders" ToRole="Status" />
     <NavigationProperty Name="User" Relationship="Self.FK_Orders_User" FromRole="Orders" ToRole="User" />
+    <Property Name="FileData" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Role">
     <Key>

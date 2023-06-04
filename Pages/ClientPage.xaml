@@ -56,9 +56,21 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Редактировать" Name="BtnEditClient" Background="Gainsboro"
-                                        Click="BtnEditClient_Click"
-                                        />
+                                <StackPanel Orientation="Horizontal">
+                                    <Button  Name="BtnEditClient_Click"
+                                          Background="Gainsboro" Click="BtnEditClient_Click">
+                                        <Button.Content>
+                                            <Image Source="/Pages/EditMain.png" Height="15" Width="15" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                    <Button  Name="BtnDel"
+                                             Click="BtnDel_Click"
+                                          Background="Gainsboro">
+                                        <Button.Content>
+                                            <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill" />
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

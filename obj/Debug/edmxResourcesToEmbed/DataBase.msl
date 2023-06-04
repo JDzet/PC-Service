@@ -34,6 +34,7 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="Model.Orders">
         <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="FileData" ColumnName="FileData" />
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
           <ScalarProperty Name="Deadline" ColumnName="Deadline" />

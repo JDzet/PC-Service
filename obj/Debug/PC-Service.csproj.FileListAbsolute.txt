@@ -148,3 +148,5 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\FinanceCategories.g
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\Pages\FinanceCategories.baml
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\AddTransaction.g.cs
 C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\View\AddTransaction.baml
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Debug\PC-Service.csproj.ResolveComReference.cache
+C:\Users\jaros\Source\Repos\JDzet\PC-Service\bin\Debug\Dock.docx

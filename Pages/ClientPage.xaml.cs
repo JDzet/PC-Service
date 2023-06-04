@@ -1,6 +1,7 @@
 ﻿using PC_Service.View;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,6 +55,24 @@ namespace PC_Service.Pages
             using (DataDB.entities = new EntitiesMain()) 
             {
                 DataGridClient.ItemsSource = DataDB.entities.Client.ToList();
+            }
+        }
+
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+            Client client = (sender as Button).DataContext as Client;
+            using (DataDB.entities = new EntitiesMain()) 
+            {
+                bool confirmed = MessageBox.Show("Удалить клиента", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
+
+                if (confirmed)
+                {
+
+                    DataDB.entities.Entry(client).State = EntityState.Deleted;
+                    DataDB.entities.SaveChanges();
+                    MessageBox.Show("Запись удалена");
+                    DataBase();
+                }
             }
         }
     }

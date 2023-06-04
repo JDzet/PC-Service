@@ -59,7 +59,13 @@
                                  HorizontalAlignment="Left"
                                  Style="{StaticResource MaterialDesignTextBox}"
                                  Name="tbEmail"
-                                   Background="{StaticResource BackElement}"/>
+                                   Background="{StaticResource BackElement}" TextChanged="tbEmail_TextChanged">
+                            <TextBox.ToolTip>
+                                <ToolTip>
+                                    Такая почта не подходит
+                                </ToolTip>
+                            </TextBox.ToolTip>
+                        </TextBox>
                         <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                                  HorizontalAlignment="Left"
                                  Style="{StaticResource MaterialDesignTextBox}"
@@ -101,19 +107,41 @@
                            HorizontalAlignment="Right"/>
                     </StackPanel>
                     <StackPanel>
-                        <ComboBox Margin="20,0,0,8" FontSize="15" Width="460"
-                                   Background="{StaticResource BackElement}"
-                                 
-                                 HorizontalAlignment="Left"
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox Margin="20,0,0,8" FontSize="15" Width="420"
+                                  Background="{StaticResource BackElement}"
+                                  HorizontalAlignment="Left"
                                   Name="cbDevice"
                                   DisplayMemberPath="NameDeviceType"
-                                  ItemStringFormat="String"/>
-                        <ComboBox Margin="20,0,0,8" FontSize="15" Width="460"
-                                   Background="{StaticResource BackElement}"
+                                  ItemStringFormat="String" SelectionChanged="cbDevice_SelectionChanged"/>
+
+                            <Button HorizontalAlignment="Right" Height="30" VerticalAlignment="Top"
+                                    Width="30"
+                                    Style="{x:Null}"
+                                    Margin="10,0,0,0"
+                                    Background="{StaticResource BackElement}"
+                                    Content="+"
+                                    Name="BtAddType" Click="BtAddType_Click">
+                            </Button>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox Margin="20,0,0,8" FontSize="15" Width="420"
+                                  Background="{StaticResource BackElement}"
                                   SelectedItem="{Binding BrandDevice1}"
-                                 HorizontalAlignment="Left"
+                                  HorizontalAlignment="Left"
                                   DisplayMemberPath="BrandName"
                                   Name="cbBrand"/>
+                            <Button HorizontalAlignment="Right" Height="30" VerticalAlignment="Top"
+                                    Width="30"
+                                    Style="{x:Null}"
+                                    Margin="10,0,0,0"
+                                    Background="{StaticResource BackElement}"
+                                    Content="+"
+                                    Name="BtAddBrand" Click="BtAddBrand_Click">
+                            </Button>
+                        </StackPanel>
+                        
                         <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
                                   Style="{StaticResource MaterialDesignTextBox}"
                                  Text="{Binding ModelDevice}"
@@ -213,5 +241,80 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
+
+        <Border x:Name="FormContainer" Grid.Column="1" Background="White" Height="200" Margin="10" CornerRadius="5" Visibility="Collapsed" HorizontalAlignment="Center">
+            <Grid Cursor="">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Заголовок формы -->
+                <Grid Grid.Row="0" Width="200" >
+                    <TextBlock Text="Тип устройства" FontSize="16" Margin="10" FontWeight="Bold" 
+                               HorizontalAlignment="Left" Name="TbHeader"/>
+                    <Button Name="WatchtCases" Style="{x:Null}" Background="Transparent"  
+                            Margin="5" 
+                            HorizontalAlignment="Right"
+                            Click="WatchtCases_Click"
+                            BorderThickness="0"
+                            >
+                        <Button.Content>
+                            <Image Source="/Pages/close78.png" Height="30" Width="30"/>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+
+                <!-- Поля для ввода -->
+                <TextBox Grid.Row="1" Margin="10" Name="TbName"/>
+
+                <!-- Кнопка "Добавить" -->
+                <Button Grid.Row="2" Content="Сохранить" HorizontalAlignment="Right" Margin="10" x:Name="BtAdd"
+                       Click="BtAdd_Click" />
+
+            </Grid>
+        </Border>
+
+
+        <!-- форма добавления брэнда -->
+        <Border x:Name="FormContainerBrand" Grid.Column="1" Background="White" Height="200" Margin="10" CornerRadius="5" Visibility="Collapsed" HorizontalAlignment="Center">
+            <Grid Cursor="">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Заголовок формы -->
+                <Grid Grid.Row="0" Width="200" >
+                    <TextBlock Text="Брэнд устройства" FontSize="16" Margin="10" FontWeight="Bold" 
+                               HorizontalAlignment="Left" />
+                    <Button Name="WatchtCasesBrand" Style="{x:Null}" Background="Transparent"  
+                            Margin="5" 
+                            HorizontalAlignment="Right"
+                            Click="WatchtCasesBrand_Click"
+                            BorderThickness="0"
+                            >
+                        <Button.Content>
+                            <Image Source="/Pages/close78.png" Height="30" Width="30"/>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+
+                <!-- Поля для ввода -->
+                <TextBox Grid.Row="1" Margin="10"  Name="TbNameBrand"/>
+                <ComboBox Grid.Row="2" Margin="10" Name="CbBrand" DisplayMemberPath="NameDeviceType"/>
+
+                <!-- Кнопка "Добавить" -->
+                <Button Grid.Row="3" Content="Сохранить" HorizontalAlignment="Right" Margin="10" Name="BrandAdd"
+                       Click="BrandAdd_Click" />
+
+            </Grid>
+        </Border>
     </Grid>
 </Window>

@@ -81,6 +81,7 @@
           <Property Name="ReceiptTime" Type="date" Nullable="false" />
           <Property Name="AppearanceDevice" Type="nvarchar(max)" />
           <Property Name="Equipment" Type="nvarchar(max)" />
+          <Property Name="FileData" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -672,6 +673,7 @@
           <NavigationProperty Name="DeviceType1" Relationship="Self.FK_Orders_DeviceType" FromRole="Orders" ToRole="DeviceType" />
           <NavigationProperty Name="Status" Relationship="Self.FK_Orders_Status" FromRole="Orders" ToRole="Status" />
           <NavigationProperty Name="User" Relationship="Self.FK_Orders_User" FromRole="Orders" ToRole="User" />
+          <Property Name="FileData" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -1310,6 +1312,7 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="Model.Orders">
               <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="FileData" ColumnName="FileData" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
                 <ScalarProperty Name="Deadline" ColumnName="Deadline" />

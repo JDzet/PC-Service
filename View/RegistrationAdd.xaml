@@ -77,7 +77,7 @@
                                          Background="{StaticResource BackElement}"
                                         Content="+"
                                       
-                                        Name="BrAddProduct">
+                                        Name="BrAddProduct" Click="BrAddProduct_Click">
                                 </Button>
 
 

@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -51,7 +53,45 @@ namespace PC_Service
             }
                 
 
-        } 
+        }
+
+        private void Btn_Click(object sender, RoutedEventArgs e)
+        {
+            
+            using (DataDB.entities = new EntitiesMain())
+            {
+                Orders orders = (sender as Button).DataContext as Orders;
+                if (orders != null && orders.FileData != null)
+                {
+                    string tempFilePath = System.IO.Path.GetTempFileName();
+                    File.WriteAllBytes(tempFilePath, orders.FileData);
+
+                    Process.Start(tempFilePath);
+                }
+                else
+                {
+                    MessageBox.Show("Файл не найден");
+                }
+            }
+        }
+
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+            Orders orders = (sender as Button).DataContext as Orders;
+            bool confirmed = MessageBox.Show("Удалить данное заказ", "Внимамние", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
+
+            using (DataDB.entities = new EntitiesMain())
+            {
+                if (confirmed)
+                {
+
+                    DataDB.entities.Entry(orders).State = EntityState.Deleted;
+                    DataDB.entities.SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                    DataOrder();
+                }
+            }
+        }
     }
 
 }

@@ -289,5 +289,15 @@ namespace PC_Service.View
                
         }
 
+        private void BrAddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            AddProduct product = new AddProduct(null);
+            product.ShowDialog();
+            using (DataDB.entities = new EntitiesMain())
+            {
+                CBProduct.ItemsSource = DataDB.entities.Product.ToList();
+            }
+                
+        }
     }
 }

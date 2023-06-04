@@ -27,6 +27,7 @@ namespace PC_Service
         public System.DateTime ReceiptTime { get; set; }
         public string AppearanceDevice { get; set; }
         public string Equipment { get; set; }
+        public byte[] FileData { get; set; }
     
         public virtual BrandDevice BrandDevice1 { get; set; }
         public virtual Client Client1 { get; set; }

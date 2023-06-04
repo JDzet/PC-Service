@@ -46,19 +46,39 @@
                       AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
 
-                        <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderID}"/>
-                        <DataGridTextColumn Header="Статус" Binding="{Binding Status.StatusName}"/>
-                        <DataGridTextColumn Header="Крайний срок" Binding="{Binding Deadline, Mode=TwoWay, StringFormat=dd:MM:yyyy}"/>
-                        <DataGridTextColumn Header= "Мастер" Binding="{Binding User.UserName}"/>
-                        <DataGridTextColumn Header="Тип устройтва" Binding="{Binding DeviceType1.NameDeviceType}"/>
-                        <DataGridTextColumn Header="Производитель" Binding="{Binding BrandDevice1.BrandName}"/>
-                        <DataGridTextColumn Header="Модель" Binding="{Binding ModelDevice}"/>
-                        <DataGridTextColumn Header="Поломка" Binding="{Binding Malfunction}"/>
-                        <DataGridTextColumn Header="Клиент" Binding="{Binding Client1.ClientName}"/>
-                        <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
-
-
-                    </DataGrid.Columns>
+                    <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderID}"/>
+                    <DataGridTextColumn Header="Статус" Binding="{Binding Status.StatusName}"/>
+                    <DataGridTextColumn Header="Крайний срок" Binding="{Binding Deadline, Mode=TwoWay, StringFormat=dd:MM:yyyy}"/>
+                    <DataGridTextColumn Header= "Мастер" Binding="{Binding User.UserName}"/>
+                    <DataGridTextColumn Header="Тип устройтва" Binding="{Binding DeviceType1.NameDeviceType}"/>
+                    <DataGridTextColumn Header="Производитель" Binding="{Binding BrandDevice1.BrandName}"/>
+                    <DataGridTextColumn Header="Модель" Binding="{Binding ModelDevice}"/>
+                    <DataGridTextColumn Header="Поломка" Binding="{Binding Malfunction}"/>
+                    <DataGridTextColumn Header="Клиент" Binding="{Binding Client1.ClientName}"/>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button  Name="Btn"
+                                          Click="Btn_Click"
+                                          Background="Gainsboro" >
+                                        <Button.Content>
+                                            <Image Source="/Pages/info.png" Height="15" Width="15" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                    <Button  Name="BtnDel"
+                                             Click="BtnDel_Click"
+                                          Background="Gainsboro" >
+                                        <Button.Content>
+                                            <Image Source="/Pages/Del.png" Height="20" Width="20" Stretch="Fill"/>
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
                 </DataGrid>
             </Grid>
            
