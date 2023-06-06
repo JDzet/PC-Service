@@ -11,7 +11,7 @@
     <Grid Background ="Gray" Name="MainGridFinance">
         <!-- Верхнее меню -->
         <StackPanel Margin="0,0,0,20" Height="{Binding ActualHeight,ElementName=MainGrid}">
-            <TextBlock Text="Задачи"
+            <TextBlock Text="Финансы"
                FontSize="30"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"

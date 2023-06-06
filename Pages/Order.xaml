@@ -47,7 +47,8 @@
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderID}"/>
-                    <DataGridTextColumn Header="Статус" Binding="{Binding Status.StatusName}"/>
+                    <DataGridComboBoxColumn Header="Статус" x:Name="CbStatus" DisplayMemberPath="StatusName"  IsReadOnly="False"
+                                                SelectedValueBinding="{Binding StatusId}" SelectedValuePath="StatusIв" />
                     <DataGridTextColumn Header="Крайний срок" Binding="{Binding Deadline, Mode=TwoWay, StringFormat=dd:MM:yyyy}"/>
                     <DataGridTextColumn Header= "Мастер" Binding="{Binding User.UserName}"/>
                     <DataGridTextColumn Header="Тип устройтва" Binding="{Binding DeviceType1.NameDeviceType}"/>

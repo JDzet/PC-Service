@@ -135,7 +135,6 @@ namespace PC_Service.View
                     tbAdress.Text = string.Empty;
                 }
             }
-
         }
 
         private void tbEmail_TextChanged(object sender, TextChangedEventArgs e)

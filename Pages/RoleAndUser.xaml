@@ -28,20 +28,18 @@
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left">
                 <Grid Width="{Binding ActualWidth,ElementName=GridUserAndRole}">
                     <StackPanel Orientation="Horizontal">
-                        <Button Width="180"
+                        <Button Width="192"
                         Content="+ Добавить сотрудника"
                         Height="45"
                         Background="Gainsboro"
-                        HorizontalAlignment="Left"
                         Margin="20,0,0,0" Cursor="Hand" 
-                            Name="ButtonAddUser" Click="ButtonAddUser_Click">
-                        </Button>
+                            Name="ButtonAddUser" Click="ButtonAddUser_Click"/>
                     </StackPanel>
 
                 </Grid>
             </StackPanel>
         </StackPanel>
-       
+
         <Grid VerticalAlignment="Stretch" Margin="20,150,20,70">
             <DataGrid x:Name="DataGridUser"  
                        Background="{StaticResource BackElement}"    

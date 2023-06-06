@@ -24,7 +24,7 @@
 
             <TextBlock Text="" FontSize="20" Margin="20,5,0,20"/>
 
-            <Button Width="200"    
+            <Button Width="209"    
                      Height="45"
                      Background="Gainsboro"
                      Name="AddTransactionClick"
@@ -33,7 +33,7 @@
                      Click="AddTransactionClick_Click"
                     >
 
-                <TextBlock Text="+ Добавить оперцию"
+                <TextBlock Text="+ Добавить операцию"
                      FontSize="16"/>
             </Button>
         </StackPanel>
@@ -66,9 +66,7 @@
             </DataGrid>
         </Grid>
 
-        <TextBlock Text="Всего - 0" FontSize="15" Margin="20,20,0,30"
-                   VerticalAlignment="Bottom" Name="Count"
-                   />
+      
 
         <Border x:Name="FormContainer" Grid.Column="1" Background="White" Margin="10" Height="300" CornerRadius="5" Visibility="Collapsed" HorizontalAlignment="Center" Cursor="">
             <Grid Cursor="">

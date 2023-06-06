@@ -57,7 +57,7 @@ namespace PC_Service
             {
                 if (_user.UserId == 0)
                 {
-
+                    _user.Password = TbPassword.Text;
                     _entities.User.Add(_user);
                     _entities.SaveChanges();
                     MessageBox.Show("Данные сохранены");
@@ -67,7 +67,7 @@ namespace PC_Service
                 {
                     try // если идет редактирование пользователя, а не добавление 
                     {
-
+                        _user.Password = TbPassword.Text;
                         _entities.Entry(_user).State = EntityState.Modified;
                         _entities.SaveChanges();
                         MessageBox.Show("Данные сохранены");

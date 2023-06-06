@@ -48,8 +48,7 @@ namespace PC_Service
                     .Include(o => o.BrandDevice1)
                     .Include(o => o.Client1)
                     .ToList();
-
-                
+                CbStatus.ItemsSource = DataDB.entities.Status.ToList();
             }
                 
 
@@ -92,6 +91,7 @@ namespace PC_Service
                 }
             }
         }
+
     }
 
 }

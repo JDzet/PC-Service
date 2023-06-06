@@ -32,9 +32,6 @@
                         <TextBlock Text="+ Добавить клиента"
                                FontSize="16"/>
                     </Button>
-                    <TextBox HorizontalAlignment ="Right" Width="200" Margin="0,0,20,0"
-                             Style="{StaticResource MaterialDesignTextBox}"
-                              Background="{StaticResource BackElement}" Foreground="White"/>
                 </Grid>
             </StackPanel>
         </StackPanel>
@@ -42,7 +39,7 @@
         <Grid VerticalAlignment="Stretch" Margin="20,160,20,30">
             <DataGrid x:Name="DataGridClient"  
                       Background="{StaticResource BackElement}"  
-                      GridLinesVisibility="All"
+                      
                       FontSize="14" FontWeight="Bold"    
                       AutoGenerateColumns="False" IsReadOnly="True">
                 

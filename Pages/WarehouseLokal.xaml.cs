@@ -54,7 +54,7 @@ namespace PC_Service.Pages
            
             DoubleAnimation animation = new DoubleAnimation();
             animation.From = 0;
-            animation.To = 300; // Ширина формы 
+            animation.To = 250; // Ширина формы 
             animation.Duration = TimeSpan.FromSeconds(0.3);
             FormContainer.BeginAnimation(Border.WidthProperty, animation);
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace PC_Service.ClassProject
@@ -19,10 +20,8 @@ namespace PC_Service.ClassProject
             password[0] = GetRandomUpperCaseChar();
 
             // Генерация следующих 2 символов - цифр
-            for (int i = 1; i <= 2; i++)
-            {
-                password[i] = GetRandomDigitChar();
-            }
+            password[1] = GetRandomDigitChar();
+            password[2] = GetRandomDigitChar();
 
             // Генерация остальных символов
             for (int i = 3; i < 8; i++)
@@ -33,7 +32,21 @@ namespace PC_Service.ClassProject
             // Перемешивание символов пароля
             ShufflePassword(password);
 
-            return new string(password);
+            var generatedPassword = new string(password);
+
+            // Проверка пароля на соответствие регулярному выражению
+            if (!IsValidPassword(generatedPassword))
+            {
+                // Если пароль не соответствует требованиям, сгенерировать новый пароль
+                generatedPassword = GeneratePassword();
+            }
+
+            return generatedPassword;
+        }
+
+        private static bool IsValidPassword(string password)
+        {
+            return Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*\d{2}).{8}$");
         }
 
         private static char GetRandomUpperCaseChar()

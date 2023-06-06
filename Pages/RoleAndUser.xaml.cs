@@ -22,7 +22,8 @@ namespace PC_Service
     /// Логика взаимодействия для RoleAndUser.xaml
     /// </summary>
     public partial class RoleAndUser : Page
-    { EntitiesMain entities = new EntitiesMain();
+    { 
+        EntitiesMain entities = new EntitiesMain();
         public RoleAndUser()
         {
             InitializeComponent();

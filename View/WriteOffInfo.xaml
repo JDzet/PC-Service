@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
-        Title="WriteOffInfo" Height="600" Width="800">
+        Title="Списание" Height="600" Width="800">
     <Grid Background="Gray">
         <StackPanel>
-            <TextBlock Text="Информация о оприходовании"
+            <TextBlock Text="Информация о списание"
                    FontSize="30"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
