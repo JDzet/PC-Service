@@ -20,7 +20,13 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Артикула" Binding="{Binding Product.ProductArticle}"/>
                     <DataGridTextColumn Header="Название" Binding="{Binding Product.ProductName}"/>
-                    <DataGridTextColumn Header="Изображение"/>
+                    <DataGridTemplateColumn Header="Изображение">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Product.ProductPhoto}" Width="100" Height="100"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTextColumn Header="Количество" Binding="{Binding RemnantsQuantity}"/>
                     <DataGridTextColumn Header="Склад" Binding="{Binding WarehouseService.WarehouseName}"/>
                 </DataGrid.Columns>

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\obj\Release\
+C:\Users\jaros\source\repos\JDzet\PC-Service\obj\Release\
 PC_Service
 none
 false
 TRACE
-C:\Users\jaros\Source\Repos\JDzet\PC-Service\App.xaml
+C:\Users\jaros\source\repos\JDzet\PC-Service\App.xaml
 30860271306
 2-867671577
 611323664340
-33-786910190
+33529638418
 Pages\ClientPage.xaml;Pages\DeviceDirectoryPage.xaml;Pages\Finance.xaml;Pages\FinanceCategories.xaml;Pages\GeneralSettings.xaml;Pages\ProfilPage.xaml;Pages\StatusPag.xaml;Pages\TasksPage.xaml;Pages\WarehouseLokal.xaml;Pages\Warehouse\WarehouseMenu.xaml;Pages\Warehouse\WarehouseProducts.xaml;Pages\Warehouse\WarehouseRegistration.xaml;Pages\Warehouse\WarehouseRemains.xaml;Pages\Warehouse\WarehouseWriteOff.xaml;View\AddClient.xaml;View\AddProduct.xaml;View\AddTask.xaml;View\AddTransaction.xaml;View\AddUser.xaml;Pages\Order.xaml;Pages\Settings.xaml;Pages\RoleAndUser.xaml;View\AddOrder.xaml;View\AuthorizationWindow.xaml;Theme\TextBoxStyle.xaml;View\MainMenu.xaml;View\RegistrationAdd.xaml;View\RegistratoinInfo.xaml;View\WriteOffAddV.xaml;View\WriteOffInfo.xaml;
 
 True

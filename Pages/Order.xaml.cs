@@ -49,6 +49,8 @@ namespace PC_Service
                     .Include(o => o.Client1)
                     .ToList();
                 CbStatus.ItemsSource = DataDB.entities.Status.ToList();
+                
+                
             }
                 
 
@@ -88,6 +90,98 @@ namespace PC_Service
                     DataDB.entities.SaveChanges();
                     MessageBox.Show("Данные удалены");
                     DataOrder();
+                }
+            }
+        }
+
+     
+
+        private void DataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            using (DataDB.entities = new EntitiesMain())
+            {
+                DataDB.entities.SaveChanges();
+            }
+        }
+
+        private void CbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            if (comboBox != null)
+            {
+                var selectedStatus = comboBox.SelectedItem as Status;
+                if (selectedStatus != null)
+                {
+                    // Выполните нужные действия при изменении статуса
+                    // Например, сохранение изменений в базе данных
+                    using (DataDB.entities = new EntitiesMain())
+                    {
+                        DataDB.entities.SaveChanges();
+                    }
+                }
+            }
+        }
+
+        private void CbStatus_LostFocus(object sender, RoutedEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            if (comboBox != null)
+            {
+                var selectedStatus = comboBox.SelectedItem as Status;
+                if (selectedStatus != null)
+                {
+                    // Выполните нужные действия при изменении статуса
+                    // Например, сохранение изменений в базе данных
+                    using (DataDB.entities = new EntitiesMain())
+                    {
+                        DataDB.entities.SaveChanges();
+                    }
+                }
+            }
+        }
+
+   
+
+        private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            if (e.Column.Header.ToString() == "Статус")
+            {
+                // Получаем выбранный объект заказа из строки редактируемой ячейки
+                Orders order = e.Row.Item as Orders;
+
+                if (order != null)
+                {
+                    // Получаем значение статуса из выбранного элемента комбобокса
+                    ComboBox comboBox = e.EditingElement as ComboBox;
+                    Status selectedStatus = comboBox.SelectedItem as Status;
+
+                    if (selectedStatus != null)
+                    {
+                        // Обновляем значение статуса в объекте заказа
+                        order.OrderStatus = selectedStatus.StatusId;
+                        order.Status = selectedStatus;
+                    }
+
+                    // Сохраняем изменения в базе данных
+                    using (DataDB.entities = new EntitiesMain())
+                    {
+                        DataDB.entities.Entry(order).State = EntityState.Modified;
+                        DataDB.entities.SaveChanges();
+                    }
+                }
+            }
+        }
+
+        public void DataGridCell_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is DataGridCell cell && cell.Column.Header.ToString() == "Статус")
+            {
+                if (cell.Content is ComboBox comboBox)
+                {
+                    if (cell.DataContext is Orders order)
+                    {
+                        comboBox.SelectedValue = order.OrderStatus;
+                    }
                 }
             }
         }

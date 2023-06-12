@@ -22,6 +22,7 @@ using System.Drawing;
 using System.Web.UI;
 using Control = System.Windows.Controls.Control;
 using PC_Service.Pages;
+using System.Xml.Linq;
 
 namespace PC_Service.View
 {
@@ -72,6 +73,12 @@ namespace PC_Service.View
 
         private void BRegistration_Click(object sender, RoutedEventArgs e) // обработка добавления оприходования
         {
+
+            if (!CheckData())
+            {
+                return;
+            }
+
             using (DataDB.entities = new EntitiesMain()) 
             {
                 RegistrationProduct regProd = new RegistrationProduct();
@@ -299,5 +306,47 @@ namespace PC_Service.View
             }
                 
         }
+
+
+        public bool CheckData()
+        {
+
+            var fieldsToCheck = new List<Control>
+            {
+                CBClient, Warehouse, CBProduct, 
+            };
+
+            bool allFieldsFilled = true;
+
+            // Проверяем каждое поле в списке
+            foreach (var field in fieldsToCheck)
+            {
+                // Проверяем, заполнено ли поле
+                if (field is System.Windows.Controls.TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    allFieldsFilled = false;
+                    textBox.BorderBrush = System.Windows.Media.Brushes.IndianRed;
+                }
+                else if (field is ComboBox comboBox && comboBox.SelectedItem == null)
+                {
+                    allFieldsFilled = false;
+                    comboBox.BorderBrush = System.Windows.Media.Brushes.IndianRed;
+                }
+                else
+                {
+                    field.ClearValue(Control.BorderBrushProperty);
+                }
+            }
+
+            if (!allFieldsFilled)
+            {
+                MessageBox.Show("Не все поля заполнены!");
+                return false;
+            }
+
+            return true;
+        }
+
+
     }
 }

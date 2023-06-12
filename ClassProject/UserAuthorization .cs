@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PC_Service
 {
-    internal class UserAuthorization
+    public class UserAuthorization
     {
         public static User Worker { get; set; }
 

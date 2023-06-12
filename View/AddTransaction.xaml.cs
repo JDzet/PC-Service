@@ -43,8 +43,54 @@ namespace PC_Service.View
             }
         }
 
+
+        public bool CheckData()
+        {
+
+            var fieldsToCheck = new List<Control>
+            {
+                TBNote,TbPrice,CbOperetion,DatePicekt
+            };
+
+            bool allFieldsFilled = true;
+
+            // Проверяем каждое поле в списке
+            foreach (var field in fieldsToCheck)
+            {
+                // Проверяем, заполнено ли поле
+                if (field is System.Windows.Controls.TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    allFieldsFilled = false;
+                    textBox.BorderBrush = Brushes.IndianRed;
+                }
+                else if (field is ComboBox comboBox && comboBox.SelectedItem == null)
+                {
+                    allFieldsFilled = false;
+                    comboBox.BorderBrush = Brushes.IndianRed;
+                }
+                else
+                {
+                    field.ClearValue(Control.BorderBrushProperty);
+                }
+            }
+
+            if (!allFieldsFilled)
+            {
+                MessageBox.Show("Не все поля заполнены!");
+                return false;
+            }
+
+            return true;
+        }
         private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
+
+            if (!CheckData())
+            {
+                return;
+            }
+
+
             try
             {
                 decimal coming, expenses;

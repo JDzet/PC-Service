@@ -49,7 +49,7 @@
                             <TextBlock Text="Название" VerticalAlignment="Center" Margin="10,10,10,10" 
                                        HorizontalAlignment="Right" FontSize="15"/>
                             <TextBox Grid.Column="1" Margin="5"  Background="{StaticResource BackElement}"
-                                     FontSize="15" Cursor="" Text="{Binding ProductName}"/>
+                                     FontSize="15" Cursor="" Text="{Binding ProductName}" Name="TbName"/>
                         </Grid>
 
                         <!-- Строка описание -->

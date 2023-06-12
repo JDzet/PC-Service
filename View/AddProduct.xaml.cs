@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
+using System.Xml.Linq;
 
 namespace PC_Service.View
 {
@@ -56,6 +57,11 @@ namespace PC_Service.View
 
         private void DataBaseProductAdd_Click(object sender, RoutedEventArgs e)
         {
+            if (!CheckData())
+            {
+                return;
+            }
+
             product = (Product)this.DataContext;
 
             
@@ -121,6 +127,45 @@ namespace PC_Service.View
                 BoxPhoto.Source = new BitmapImage(new Uri(fileDialog.FileName));
                 
             }
+        }
+
+        public bool CheckData()
+        {
+
+            var fieldsToCheck = new List<Control>
+            {
+                TbName
+            };
+
+            bool allFieldsFilled = true;
+
+            // Проверяем каждое поле в списке
+            foreach (var field in fieldsToCheck)
+            {
+                // Проверяем, заполнено ли поле
+                if (field is System.Windows.Controls.TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    allFieldsFilled = false;
+                    textBox.BorderBrush = Brushes.IndianRed;
+                }
+                else if (field is ComboBox comboBox && comboBox.SelectedItem == null)
+                {
+                    allFieldsFilled = false;
+                    comboBox.BorderBrush = Brushes.IndianRed;
+                }
+                else
+                {
+                    field.ClearValue(Control.BorderBrushProperty);
+                }
+            }
+
+            if (!allFieldsFilled)
+            {
+                MessageBox.Show("Не все поля заполнены!");
+                return false;
+            }
+
+            return true;
         }
     }
 }

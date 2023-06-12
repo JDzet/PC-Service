@@ -1,4 +1,5 @@
-﻿using PC_Service.ClassProject;
+﻿using MahApps.Metro.Controls;
+using PC_Service.ClassProject;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -49,8 +50,15 @@ namespace PC_Service.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+
+                if (!CheckData()) 
+                {
+                     return;
+                }
+
+
+
+
                 var user = dbContext.Client.FirstOrDefault(x => x.ClientName == CbUser.Text);
                 if (user == null)
                 {
@@ -82,7 +90,7 @@ namespace PC_Service.View
                     this.Close();
                 }
 
-                 var dock = new WordHelper("Dock.docx");
+                 var dock = new WordHelper("Dock.docx"); //Работа с документом 
 
                 InformationService informationService = dbContext.InformationService.FirstOrDefault();
                 new_order = dbContext.Orders.OrderByDescending(x => x.OrderID).FirstOrDefault();
@@ -109,12 +117,49 @@ namespace PC_Service.View
 
                 dock.Process(items);
 
-            
-           
-           
-
-
         }
+
+
+        public bool CheckData() 
+        {
+
+            var fieldsToCheck = new List<Control> 
+            {
+                CbUser, tbPhone, tbEmail, tbAdress, cbDevice, cbBrand,
+                tbModel, tbMalfunction, cbMaster, tbPrice
+            };
+
+            bool allFieldsFilled = true;
+
+            // Проверяем каждое поле в списке
+            foreach (var field in fieldsToCheck)
+            {
+                // Проверяем, заполнено ли поле
+                if (field is System.Windows.Controls.TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    allFieldsFilled = false;
+                    textBox.BorderBrush = Brushes.IndianRed;
+                }
+                else if (field is ComboBox comboBox && comboBox.SelectedItem == null)
+                {
+                    allFieldsFilled = false;
+                    comboBox.BorderBrush = Brushes.IndianRed;
+                }
+                else
+                {
+                    field.ClearValue(Control.BorderBrushProperty);
+                }
+            }
+
+            if (!allFieldsFilled)
+            {
+                MessageBox.Show("Не все поля заполнены!");
+                return false;
+            }
+            
+            return true;
+        }
+
 
         private void CbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -174,17 +219,13 @@ namespace PC_Service.View
 
             try
             {
-               
-                
                     cbBrand.ItemsSource = dbContext.BrandDevice.Where(x => x.Type == device.DeviceTypeId).ToList();
-                
+     
             }
             catch 
             {
 
-            }
-         
-               
+            }   
         }
 
         private void WatchtCases_Click(object sender, RoutedEventArgs e)

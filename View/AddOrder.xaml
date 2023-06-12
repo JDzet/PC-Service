@@ -6,8 +6,11 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
-        Title="Заказ" Height="600" Width="800">
-    <Grid Background="Gray">
+        Title="Заказ" Height="650" Width="800">
+
+ 
+    
+    <Grid Background="Gray" Name ="MainGrid">
 
         <StackPanel>
             <TextBlock Text="Новый заказ"
@@ -23,14 +26,13 @@
         </StackPanel>
         
         <ScrollViewer CanContentScroll="True" VerticalAlignment="Top" Margin="0,77,0,0">
-            <StackPanel>
+            <StackPanel Name="TextStack">
                 <TextBlock Text="Клиент" Foreground="Wheat" FontSize="25" Margin="120,0,0,20"/>
                 <StackPanel  Orientation="Horizontal" Height="150" VerticalAlignment="Top">
                     <StackPanel Width="270">
-                        <TextBlock Text="Имя Фамилия Клиента"
-                           FontSize="20"
-                           Margin="20,0,0,10"
-                           HorizontalAlignment="Right"/>
+                        <TextBlock FontSize="20" Margin="20,0,0,10" HorizontalAlignment="Right">
+                            <Run Text="Имя Фамилия Клиента"/>
+                        </TextBlock>
                         <TextBlock Text="Телефон"
                            FontSize="20" 
                            Margin="0,0,0,10"

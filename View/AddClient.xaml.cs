@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace PC_Service.View
 {
@@ -32,10 +33,55 @@ namespace PC_Service.View
             CheckBSapline.IsChecked = _client.Supplier;
         }
 
+        public bool CheckData()
+        {
+
+            var fieldsToCheck = new List<Control>
+            {
+                tbName,tbAdress
+            };
+
+            bool allFieldsFilled = true;
+
+            // Проверяем каждое поле в списке
+            foreach (var field in fieldsToCheck)
+            {
+                // Проверяем, заполнено ли поле
+                if (field is System.Windows.Controls.TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    allFieldsFilled = false;
+                    textBox.BorderBrush = Brushes.IndianRed;
+                }
+                else if (field is ComboBox comboBox && comboBox.SelectedItem == null)
+                {
+                    allFieldsFilled = false;
+                    comboBox.BorderBrush = Brushes.IndianRed;
+                }
+                else
+                {
+                    field.ClearValue(Control.BorderBrushProperty);
+                }
+            }
+
+            if (!allFieldsFilled)
+            {
+                MessageBox.Show("Не все поля заполнены!");
+                return false;
+            }
+
+            return true;
+        }
+
+
         private void DataBaseClientAdd_Click(object sender, RoutedEventArgs e)
         {
-            
-             _client = (Client)this.DataContext;
+            if (!CheckData())
+            {
+                return;
+            }
+
+
+            _client = (Client)this.DataContext;
 
             if(CheckBSapline.IsChecked == true) 
             {

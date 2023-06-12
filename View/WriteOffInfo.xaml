@@ -44,7 +44,7 @@
                 <TextBlock Text="Создатель списания:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15" Margin="0,0,10,0" Height="20"/>
                 <TextBlock Text="{Binding User.UserName}" Grid.Row="3" Grid.Column="1" FontSize="15"/>
                
-                <TextBlock Text="Скла:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15" Margin="0,0,10,0" Height="20"/>
+                <TextBlock Text="Склад:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15" Margin="0,0,10,0" Height="20"/>
                 <TextBlock Text="{Binding WarehouseService.WarehouseName}" Grid.Row="4" Grid.Column="1" FontSize="15"/>
 
                 <TextBlock Text="Примечание:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="15" Margin="0,0,10,0" Height="20" Width="91"/>

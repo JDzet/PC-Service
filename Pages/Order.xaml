@@ -43,12 +43,14 @@
             <DataGrid x:Name="DataGrid"  
                        Background="{StaticResource BackElement}"    
                       FontSize="14" FontWeight="Bold"    
-                      AutoGenerateColumns="False" IsReadOnly="True">
+                      AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="False" CellEditEnding="DataGrid_CellEditEnding">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderID}"/>
                     <DataGridComboBoxColumn Header="Статус" x:Name="CbStatus" DisplayMemberPath="StatusName"  IsReadOnly="False"
-                                                SelectedValueBinding="{Binding StatusId}" SelectedValuePath="StatusIв" />
+                                                SelectedValueBinding="{Binding StatusId}" SelectedValuePath="StatusIв">
+                    </DataGridComboBoxColumn>
+
                     <DataGridTextColumn Header="Крайний срок" Binding="{Binding Deadline, Mode=TwoWay, StringFormat=dd:MM:yyyy}"/>
                     <DataGridTextColumn Header= "Мастер" Binding="{Binding User.UserName}"/>
                     <DataGridTextColumn Header="Тип устройтва" Binding="{Binding DeviceType1.NameDeviceType}"/>

@@ -43,7 +43,14 @@ namespace PC_Service.ClassProject
                 {
                     Word.Find find = app.Selection.Find;
                     find.Text = item.Key;
-                    find.Replacement.Text = item.Value.ToString();
+                    if (item.Value != null)
+                    {
+                        find.Replacement.Text = item.Value.ToString();
+                    }
+                    else 
+                    {
+                        find.Replacement.Text = "";
+                    }
 
                     Object wrap = Word.WdFindWrap.wdFindContinue;
                     Object replace = Word.WdReplace.wdReplaceAll;

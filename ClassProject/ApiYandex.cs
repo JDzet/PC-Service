@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace PC_Service
 {
-    internal class ApiYandex
+    public class ApiYandex
     {
         private const string YandexGeocoderApiUrl = "https://geocode-maps.yandex.ru/1.x/";
         private const string YandexApiKey = "e28e8e09-c6e2-4b2d-9804-ab2b804fd379";

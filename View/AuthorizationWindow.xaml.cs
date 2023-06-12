@@ -43,34 +43,36 @@ namespace PC_Service
 
         public void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            
-                if (TextBoxLogin.Text != "" && TextBoxPasswrod.Text != "")
+            Authorization(TextBoxLogin.Text, PasswordBoxPassword.Password.ToString());   
+        }
+
+        public void Authorization(string login, string password) 
+        {
+            if (login != "" && password != "")
+            {
+                userAutho = entities.User.FirstOrDefault(X => X.Login == login && X.Password == password);
+
+                if (userAutho != null)
                 {
-                    userAutho = entities.User.FirstOrDefault(X => X.Login == TextBoxLogin.Text && X.Password == TextBoxPasswrod.Text);
-
-                    if (userAutho != null)
-                    {
-                        MessageBox.Show($"Добро пожаловать {userAutho.UserName}");
-                        mainMenu.Show();
-                        UserAuthorization.Worker = userAutho;
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Пароль или логин неверный");
-                    }
-
+                    MessageBox.Show($"Добро пожаловать {userAutho.UserName}");
+                    mainMenu.Show();
+                    UserAuthorization.Worker = userAutho;
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Логин или пароль не введены");
+                    MessageBox.Show("Пароль или логин неверный");
                 }
-            
 
+            }
+            else
+            {
+                MessageBox.Show("Логин или пароль не введены");
+            }
         }
 
-    
+
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -90,6 +92,24 @@ namespace PC_Service
             Environment.Exit(0);
         }
 
-    
+        private void BtPassword_Click(object sender, RoutedEventArgs e)
+        {
+            if (VisiblePasswordTextBox.Visibility == Visibility.Collapsed)
+            {
+                VisiblePasswordTextBox.Text = PasswordBoxPassword.Password;
+                PasswordBoxPassword.Visibility = Visibility.Collapsed;
+                VisiblePasswordTextBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PasswordBoxPassword.Visibility = Visibility.Visible;
+                VisiblePasswordTextBox.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void VisiblePasswordTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            PasswordBoxPassword.Password = VisiblePasswordTextBox.Text;
+        }
     }
 }

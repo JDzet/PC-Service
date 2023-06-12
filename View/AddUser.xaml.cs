@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace PC_Service
 {
@@ -38,8 +39,14 @@ namespace PC_Service
 
         }
 
+
         private void DataBaseUserAdd_Click(object sender, RoutedEventArgs e)
         {
+            if (!CheckData())
+            {
+                return;
+            }
+
             Protection(TbPassword.Text);
         }
 
@@ -50,8 +57,51 @@ namespace PC_Service
             TbPassword.Text = password.ToString();
         }
 
+        public bool CheckData()
+        {
+
+            var fieldsToCheck = new List<Control>
+            {
+                tbName,tbPhone,tbAdress,TbLogin,TbPassword,CbRole
+            };
+
+            bool allFieldsFilled = true;
+
+            // Проверяем каждое поле в списке
+            foreach (var field in fieldsToCheck)
+            {
+                // Проверяем, заполнено ли поле
+                if (field is System.Windows.Controls.TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    allFieldsFilled = false;
+                    textBox.BorderBrush = Brushes.IndianRed;
+                }
+                else if (field is ComboBox comboBox && comboBox.SelectedItem == null)
+                {
+                    allFieldsFilled = false;
+                    comboBox.BorderBrush = Brushes.IndianRed;
+                }
+                else
+                {
+                    field.ClearValue(Control.BorderBrushProperty);
+                }
+            }
+
+            if (!allFieldsFilled)
+            {
+                MessageBox.Show("Не все поля заполнены!");
+                return false;
+            }
+
+            return true;
+        }
+
+
         public int Protection(String str) 
         {
+
+            
+
             bool isValid = Regex.IsMatch(str, @"^(?=.*[A-Z])(?=.*\d{2}).{8}$");
             if (isValid)
             {

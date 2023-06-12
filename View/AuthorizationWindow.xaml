@@ -24,10 +24,17 @@
                     <TextBlock Text="С возвращением" FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="0 5"/>
                     <TextBlock Margin="25 15 0 0" Text="Логин" Foreground="White" FontSize="15"/>
                     <TextBox x:Name="TextBoxLogin" Margin="10 5 20 0"  Style="{StaticResource MaterialDesignTextBox}" Background="#202225"
-                        Foreground="White" Text="JDzet"/>
+                        Foreground="White" Text="JDzet"  materialDesign:HintAssist.Hint="Введите логин"/>
                     <TextBlock Margin="25 10 0 0" Text="Пароль" Foreground="White" FontSize="15"/>
-                    <TextBox x:Name="TextBoxPasswrod" Margin="10 5 20 0"  Style="{StaticResource MaterialDesignTextBox}" Background="#202225"
-                        Foreground="White" Text="123Qwe"/>
+                    <Grid>
+                        <PasswordBox x:Name="PasswordBoxPassword" Margin="10 5 20 0" Background="#202225" Foreground="White" Password="123Qwe" materialDesign:HintAssist.Hint="Введите пароль"/>
+                        <TextBox x:Name="VisiblePasswordTextBox" Margin="10 5 20 0" Style="{StaticResource MaterialDesignTextBox}" Background="#202225" Foreground="White" Text="123Qwe" materialDesign:HintAssist.Hint="Введите пароль" Visibility="Collapsed" TextChanged="VisiblePasswordTextBox_TextChanged" />
+                        <Button Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Transparent"  Margin="228,6,0,0" Height="23" Width="52" RenderTransformOrigin="0.222,0.261" Name="BtPassword" Click="BtPassword_Click">
+                            <Image Source="/View/eyeMain.png" Stretch="Fill" Width="20" Height="11"/>
+                        </Button>
+                    </Grid>
+
+
                     <Grid Margin="10 15 20 0">
                         <Button Content="Войти" HorizontalAlignment="Left" Width="130" Height="25" Background="Gainsboro"  FontSize="12" Cursor="Hand" Click="Button_Click" VerticalAlignment="Bottom"/>
                         <Button Content="Отмена" HorizontalAlignment="Right" Width="130" Height="25" Background="Gainsboro"  FontSize="12" Cursor="Hand" Click="Button_Click_1"/>

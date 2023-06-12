@@ -5,9 +5,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace PC_Service.ClassProject
+namespace PC_Service
 {
-    internal class PasswordGenerator
+    public class PasswordGenerator
     {
         private static Random random = new Random();
 
