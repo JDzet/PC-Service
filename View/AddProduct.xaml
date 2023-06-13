@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
-        Title="AddProduct" Height="450" Width="900">
+        Icon="/resources/logo.ico"
+        ResizeMode="NoResize"
+        Title="Товар" Height="450" Width="900">
     <Grid Background="Gray" Name="GridUserAndRole">
         <StackPanel Margin="0,0,0,0" Height="{Binding ActualHeight,ElementName=MainGrid}">
             <StackPanel>

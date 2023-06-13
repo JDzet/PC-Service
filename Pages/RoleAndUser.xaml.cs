@@ -43,6 +43,8 @@ namespace PC_Service
         private void ButtonAddUser_Click(object sender, RoutedEventArgs e)
         {
             AddUser addUser = new AddUser(null, entities);
+            addUser.Owner = Window.GetWindow(this);
+            addUser.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             addUser.ShowDialog();
             DataGridUser.ItemsSource = null;
             DataGridUser.ItemsSource = entities.User.ToList();

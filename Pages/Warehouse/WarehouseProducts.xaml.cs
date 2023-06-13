@@ -43,6 +43,8 @@ namespace PC_Service.Pages.Warehouse
         private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
         {
             AddProduct addProduct = new AddProduct(null);
+            addProduct.Owner = Window.GetWindow(this);
+            addProduct.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             addProduct.ShowDialog();
             DataProduct();
         }

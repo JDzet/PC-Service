@@ -26,15 +26,20 @@
             </Border>
 
           
-                <Grid Width="{Binding ActualWidth,ElementName=MainGrid}">
+            <Grid Width="{Binding ActualWidth,ElementName=MainGrid}">
+                <StackPanel Orientation="Horizontal">
                     <Button Width="180"
                         Height="45"
                         Background="Gainsboro"
                         HorizontalAlignment="Left"
-                        Margin="20,0,0,0" Cursor="Hand" Click="ButtonAdd">
+                        Margin="20,0,80,0" Cursor="Hand" Click="ButtonAdd">
                         <TextBlock Text="+ Добавить заказ"
                                FontSize="16"/>
                     </Button>
+
+                    <ComboBox  Background="{StaticResource BackElement}" FontSize="18" Height="40" Width="200" Name="CbStatus" DisplayMemberPath="StatusName" IsEnabled="False" SelectionChanged="CbStatus_SelectionChanged" />
+                    <TextBlock Text="Статус выбранного заказа" HorizontalAlignment="Center" Margin="20,5,0,0" FontSize="20"/>
+                </StackPanel>
             </Grid>
             
         </StackPanel>
@@ -43,14 +48,11 @@
             <DataGrid x:Name="DataGrid"  
                        Background="{StaticResource BackElement}"    
                       FontSize="14" FontWeight="Bold"    
-                      AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="False" CellEditEnding="DataGrid_CellEditEnding">
+                      AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"  SelectionChanged="DataGrid_SelectionChanged">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderID}"/>
-                    <DataGridComboBoxColumn Header="Статус" x:Name="CbStatus" DisplayMemberPath="StatusName"  IsReadOnly="False"
-                                                SelectedValueBinding="{Binding StatusId}" SelectedValuePath="StatusIв">
-                    </DataGridComboBoxColumn>
-
+                    <DataGridTextColumn Header="Статус" x:Name="TBStatus" Binding="{Binding Status.StatusName}"/>
                     <DataGridTextColumn Header="Крайний срок" Binding="{Binding Deadline, Mode=TwoWay, StringFormat=dd:MM:yyyy}"/>
                     <DataGridTextColumn Header= "Мастер" Binding="{Binding User.UserName}"/>
                     <DataGridTextColumn Header="Тип устройтва" Binding="{Binding DeviceType1.NameDeviceType}"/>

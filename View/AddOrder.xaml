@@ -6,7 +6,9 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
-        Title="Заказ" Height="650" Width="800">
+        Icon="/resources/logo.ico"
+        Title="Заказ" Height="650" Width="800"
+        ResizeMode="NoResize">
 
  
     

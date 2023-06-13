@@ -37,7 +37,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <TextBlock Text="Общий баланс:" FontSize="20" Margin="10" HorizontalAlignment="Center" />
+                <TextBlock Text="Общий баланс:" FontSize="20" Margin="10" HorizontalAlignment="Center" Name="TbBalance"/>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Content="+ Приход" FontSize="16" Margin="5" Background="#696" Foreground="White" Name="BtArrival" Click="BtArrival_Click"/>
                     <Button Content="- Расход" FontSize="16" Margin="5" Background="#c66" Foreground="White" Name="Btspending" Click="Btspending_Click" />

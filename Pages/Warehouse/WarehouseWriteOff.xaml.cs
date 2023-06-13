@@ -41,6 +41,8 @@ namespace PC_Service.Pages.Warehouse
         private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
         {
             WriteOffAddV offAddV = new WriteOffAddV();
+            offAddV.Owner = Window.GetWindow(this);
+            offAddV.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             offAddV.ShowDialog();
             DataWriteOff();
         }

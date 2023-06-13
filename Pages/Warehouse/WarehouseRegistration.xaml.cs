@@ -35,6 +35,8 @@ namespace PC_Service.Pages.Warehouse
         private void ButtonAddRegistration_Click(object sender, RoutedEventArgs e)
         {
             regAdd = new RegistrationAdd();
+            regAdd.Owner = Window.GetWindow(this);
+            regAdd.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             regAdd.ShowDialog();
         }
 

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="Задача" Height="440" Width="700" Icon="/resources/logo.ico">
     <Grid  Background="Gray">
         <StackPanel>

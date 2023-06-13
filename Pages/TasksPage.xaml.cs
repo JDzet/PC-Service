@@ -105,6 +105,8 @@ namespace PC_Service.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddTask add = new AddTask(null);
+            add.Owner = Window.GetWindow(this);
+            add.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             add.ShowDialog();
             DataTask();
         }

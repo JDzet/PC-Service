@@ -34,6 +34,9 @@ namespace PC_Service.Pages
             using (DataDB.entities = new EntitiesMain()) 
             {
                 DataGridMain.ItemsSource = DataDB.entities.HistoryTransaction.Include(x=>x.Transactions).Include(x=>x.User1).ToList();
+                Capital capital = DataDB.entities.Capital.FirstOrDefault();
+
+                TbBalance.Text = "Общий баланс: " + capital.Amount.ToString();
             }
                
         }
@@ -42,6 +45,8 @@ namespace PC_Service.Pages
         private void BtArrival_Click(object sender, RoutedEventArgs e)
         {
             AddTransaction addTransaction = new AddTransaction("Приход денег", 1);
+            addTransaction.Owner = Window.GetWindow(this);
+            addTransaction.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             addTransaction.ShowDialog();
             DataFinance();
         }
@@ -49,6 +54,8 @@ namespace PC_Service.Pages
         private void Btspending_Click(object sender, RoutedEventArgs e)
         {
             AddTransaction addTransaction = new AddTransaction("Расход" , 2);
+            addTransaction.Owner = Window.GetWindow(this);
+            addTransaction.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             addTransaction.ShowDialog();
             DataFinance();
         }

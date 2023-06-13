@@ -36,6 +36,8 @@ namespace PC_Service.Pages
         private void ButAddClient_Click(object sender, RoutedEventArgs e)
         {
             WindowClient = new AddClient(null);
+            WindowClient.Owner = Window.GetWindow(this);
+            WindowClient.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             WindowClient.ShowDialog();
             DataGridClient.ItemsSource = null;
             DataBase();
