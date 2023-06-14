@@ -43,12 +43,10 @@ namespace PC_Service.View
 
         private void MenuItem_Settings(object sender, RoutedEventArgs e)
         {
-            if (UserAuthorization.Worker.UserId != 1)
+            if (UserAuthorization.Worker.UserRole != 3)
                 MessageBox.Show("У вас нет прав для перехода к данной форме", "Внимание");
             else
-                MainFrame.Content = new Settings();
-
-            
+                MainFrame.Content = new Settings();  
         }
 
         private void Order_Click(object sender, RoutedEventArgs e)
@@ -58,7 +56,11 @@ namespace PC_Service.View
 
         private void ItemWarehouseMenu_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new WarehouseMenu();
+            if (UserAuthorization.Worker.UserRole != 2 )
+                MainFrame.Content = new WarehouseMenu();
+            else
+                MessageBox.Show("У вас нет прав для перехода к данной форме", "Внимание");
+
         }
 
         private void ItemClient_Click(object sender, RoutedEventArgs e)
@@ -68,7 +70,11 @@ namespace PC_Service.View
 
         private void FinanceMeny_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new Finance();
+            if (UserAuthorization.Worker.UserRole != 1)
+                MainFrame.Content = new Finance();
+            else
+                MessageBox.Show("У вас нет прав для перехода к данной форме", "Внимание");
+            
         }
 
         private void Tasks_Click(object sender, RoutedEventArgs e)
