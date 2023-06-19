@@ -215,21 +215,28 @@
                                   Background="{StaticResource BackElement}"
                                  Name="dpReceiptTime"
                                  SelectedDate="{x:Static sys:DateTime.Now}"
-                                 HorizontalAlignment="Left"/>
+                                 HorizontalAlignment="Left" SelectedDateChanged="dpReceiptTime_SelectedDateChanged"/>
                         
                         <DatePicker
                             Margin="20,0,0,8" FontSize="15" Width="460"
                                   Background="{StaticResource BackElement}"
                                  Name="dpDeadLine"
                                  SelectedDate="{x:Static sys:DateTime.Now}"
-                                 HorizontalAlignment="Left"/>
-                        
-                        <TextBox Margin="20,0,0,8" FontSize="15" Width="460"
+                                 HorizontalAlignment="Left" SelectedDateChanged="dpDeadLine_SelectedDateChanged"/>
+                        <Grid>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Margin="20,0,0,8" FontSize="15" Width="245"
                                   Style="{StaticResource MaterialDesignTextBox}"
                                    Background="{StaticResource BackElement}"
                                  Name="tbPrice"
                                  Text="{Binding Price}" 
-                                 HorizontalAlignment="Left"/>
+                                 HorizontalAlignment="Left" PreviewTextInput="tbPrice_PreviewTextInput"/>
+
+                                <TextBlock Text="₽" FontSize="20" Margin="5,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                        
+                        
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,40,0,0"
@@ -312,7 +319,7 @@
 
                 <!-- Поля для ввода -->
                 <TextBox Grid.Row="1" Margin="10"  Name="TbNameBrand"/>
-                <ComboBox Grid.Row="2" Margin="10" Name="CbBrand" DisplayMemberPath="NameDeviceType"/>
+                <ComboBox Grid.Row="2" Margin="10" Name="CbBrandAdd" DisplayMemberPath="NameDeviceType"/>
 
                 <!-- Кнопка "Добавить" -->
                 <Button Grid.Row="3" Content="Сохранить" HorizontalAlignment="Right" Margin="10" Name="BrandAdd"

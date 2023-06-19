@@ -14,6 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.Remoting.Contexts;
 
 
 namespace PC_Service.Pages
@@ -67,8 +68,9 @@ namespace PC_Service.Pages
 
         private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
-            using (DataDB.entities = new EntitiesMain()) 
-            {
+            EntitiesMain context = new EntitiesMain();
+          
+            
 
                 DeviceType device = new DeviceType()
                 {
@@ -78,19 +80,21 @@ namespace PC_Service.Pages
 
                 if (device.DeviceTypeId == 0)
                 {
-                    DataDB.entities.DeviceType.Add(device);
-                    DataDB.entities.SaveChanges();
+                    context.DeviceType.Add(device);
+                    context.SaveChanges();
                     MessageBox.Show("Тип устройтсва добален");
                 }
                 else 
                 {
-                    DataDB.entities.Entry(device).State = EntityState.Modified;
-                    DataDB.entities.SaveChanges();
+                    context.Entry(device).State = EntityState.Modified;
+                    context.SaveChanges();
                     MessageBox.Show("Изменение сохранено");
                 }
-                DataDevice();
                 FormContainer.Visibility = Visibility.Collapsed;
-            }
+                TbName.Text = null;
+                DataGridDevice.ItemsSource = context.DeviceType.ToList();
+                CbBrand.ItemsSource = context.DeviceType.ToList();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -124,22 +128,41 @@ namespace PC_Service.Pages
 
         private void BtnDel_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            DeviceType device = (sender as Button).DataContext as DeviceType;
-            using (DataDB.entities = new EntitiesMain()) 
+            try
             {
-                bool confirmed = MessageBox.Show("Вы уверены, что хотите удалить устройтво", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
-
-                if (confirmed)
+                DeviceType device = (sender as Button).DataContext as DeviceType;
+                using (DataDB.entities = new EntitiesMain())
                 {
-                    DataDB.entities.Entry(device).State = EntityState.Deleted;
-                    DataDB.entities.SaveChanges();
-                    DataDevice();
-                }
-                else
-                {
+                    bool confirmed = MessageBox.Show("Вы уверены, что хотите удалить устройтво", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
 
+                    if (confirmed)
+                    {
+                        List<BrandDevice> brandDevices = DataDB.entities.BrandDevice.Where(x => x.Type == device.DeviceTypeId).ToList();
+                        foreach (var brandDevice in brandDevices)
+                        {
+                            DataDB.entities.Entry(brandDevice).State = EntityState.Deleted;
+                        }
+
+                        DataDB.entities.Entry(device).State = EntityState.Deleted;
+                        DataDB.entities.SaveChanges();
+                        DataGridBrand.ItemsSource = null;
+                        List<DeviceType> deviceTypes = DataDB.entities.DeviceType.ToList();
+                        DataGridDevice.ItemsSource = deviceTypes;
+                        CbBrand.ItemsSource = deviceTypes;
+                    }
+                    else
+                    {
+
+                    }
                 }
+               
             }
+            catch 
+            {
+                MessageBox.Show("Один из брендов сейчас используется в заказе.\nЗакройте и удалите все заказы связанные с этим типом устройств","Внимание");
+            }
+           
+
         }
 
 
@@ -179,7 +202,7 @@ namespace PC_Service.Pages
                 {
                     DataDB.entities.BrandDevice.Add(brand);
                     DataDB.entities.SaveChanges();
-                    MessageBox.Show("Тип устройтсва добален");
+                    MessageBox.Show("Бренд устройства добален");
                 }
                 else
                 {
@@ -189,6 +212,8 @@ namespace PC_Service.Pages
                 }
                 DataGridBrand.ItemsSource = DataDB.entities.BrandDevice.Where(x=>x.Type == brand.Type).ToList();
                 FormContainerBrand.Visibility = Visibility.Collapsed;
+                TbNameBrand.Text = null;
+                CbBrand.SelectedIndex = -1;
             }
         }
 
@@ -199,23 +224,29 @@ namespace PC_Service.Pages
 
         private void BtnDelModel_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            BrandDevice brand = (sender as Button).DataContext as BrandDevice;
-            using (DataDB.entities = new EntitiesMain())
+            try
             {
-                bool confirmed = MessageBox.Show("Вы уверены, что хотите брэнд", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
-
-                if (confirmed)
+                BrandDevice brand = (sender as Button).DataContext as BrandDevice;
+                using (DataDB.entities = new EntitiesMain())
                 {
-                    DataDB.entities.Entry(brand).State = EntityState.Deleted;
-                    DataDB.entities.SaveChanges();
-                    DataGridBrand.ItemsSource = DataDB.entities.BrandDevice.Where(x => x.Type == brand.Type).ToList();
-                }
-                else
-                {
+                    bool confirmed = MessageBox.Show("Вы уверены, что хотите брэнд", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
 
+                    if (confirmed)
+                    {
+                        DataDB.entities.Entry(brand).State = EntityState.Deleted;
+                        DataDB.entities.SaveChanges();
+                        DataGridBrand.ItemsSource = DataDB.entities.BrandDevice.Where(x => x.Type == brand.Type).ToList();
+                    }
+                    else
+                    {
+
+                    }
                 }
             }
-
+            catch 
+            {
+                MessageBox.Show("Данный бренд устройства сейчас используется в заказе.\nЗакройте и удалите заказ перед удалением данного бренда", "Внимание");
+            }
         }
 
         private void BtnEditModel_PreviewMouseDown(object sender, MouseButtonEventArgs e)

@@ -35,7 +35,9 @@ namespace PC_Service.View
             InitializeComponent();
             DataContext = new_order;
             Data();
-           
+            Date();
+
+
         }
 
         public void Data() 
@@ -200,9 +202,9 @@ namespace PC_Service.View
         private void BtAddBrand_Click(object sender, RoutedEventArgs e)
         {
             FormContainerBrand.Visibility = Visibility.Visible;
-           
-            
-            CbBrand.ItemsSource = dbContext.DeviceType.ToList();
+
+
+            CbBrandAdd.ItemsSource = dbContext.DeviceType.ToList();
             
             DoubleAnimation animation = new DoubleAnimation();
             animation.From = 0;
@@ -250,6 +252,7 @@ namespace PC_Service.View
                 MessageBox.Show("Устройство добавлено");
                 FormContainer.Visibility = Visibility.Collapsed;
                 Data();
+                TbName.Text = null;
 
         }
 
@@ -258,7 +261,7 @@ namespace PC_Service.View
                 cbBrand.SelectedIndex = -1;
             
             
-                DeviceType device = cbBrand.SelectedItem as DeviceType;
+                DeviceType device = CbBrandAdd.SelectedItem as DeviceType;
                 BrandDevice brand = new BrandDevice
                 {
                     BrandName = TbNameBrand.Text,
@@ -268,7 +271,62 @@ namespace PC_Service.View
                 dbContext.SaveChanges();
                 MessageBox.Show("Брэнд добавлен");
                 FormContainerBrand.Visibility = Visibility.Collapsed;
-                Data();
+                TbNameBrand.Text = null;
+                CbBrandAdd.SelectedIndex = -1;
+                DeviceType deviceMain = cbDevice.SelectedItem as DeviceType;
+                if (deviceMain != null) 
+                {
+                    cbBrand.ItemsSource = dbContext.BrandDevice.Where(x => x.Type == deviceMain.DeviceTypeId).ToList();
+                }
+               
         }
+
+        private void dpDeadLine_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+          
+        }
+
+        private void dpReceiptTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dpDeadLine != null) 
+            {
+                Date();
+            }
+
+        }
+
+        public void Date() 
+        {
+            if (dpDeadLine.SelectedDate.HasValue && dpDeadLine.SelectedDate < dpReceiptTime.SelectedDate)
+            {
+                // Если выбранная дата во втором DatePicker раньше, чем в первом DatePicker,
+                // устанавливаем минимальную дату второго DatePicker на дату из первого DatePicker.
+                dpDeadLine.SelectedDate = dpReceiptTime.SelectedDate;
+            }
+
+            // Устанавливаем минимальное значение второго DatePicker равным выбранной дате в первом DatePicker.
+            dpDeadLine.DisplayDateStart = dpReceiptTime.SelectedDate;
+        }
+
+        private void tbPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            foreach (var c in e.Text)
+            {
+                if (!char.IsDigit(c))
+                {
+                    e.Handled = true; // Отменяет ввод символа, если он не является цифрой.
+                    return;
+                }
+            }
+
+            // Дополнительная проверка на положительные числа
+            if (tbPrice.Text.Length == 0 && e.Text == "0")
+            {
+                e.Handled = true; // Отменяет ввод нуля в начале, если положительные числа разрешены.
+                return;
+            }
+        }
+
+       
     }
 }

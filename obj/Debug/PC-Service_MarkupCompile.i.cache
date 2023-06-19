@@ -16,5 +16,5 @@ C:\Users\jaros\Source\Repos\JDzet\PC-Service\App.xaml
 33-786910190
 Pages\ClientPage.xaml;Pages\DeviceDirectoryPage.xaml;Pages\Finance.xaml;Pages\FinanceCategories.xaml;Pages\GeneralSettings.xaml;Pages\ProfilPage.xaml;Pages\StatusPag.xaml;Pages\TasksPage.xaml;Pages\WarehouseLokal.xaml;Pages\Warehouse\WarehouseMenu.xaml;Pages\Warehouse\WarehouseProducts.xaml;Pages\Warehouse\WarehouseRegistration.xaml;Pages\Warehouse\WarehouseRemains.xaml;Pages\Warehouse\WarehouseWriteOff.xaml;View\AddClient.xaml;View\AddProduct.xaml;View\AddTask.xaml;View\AddTransaction.xaml;View\AddUser.xaml;Pages\Order.xaml;Pages\Settings.xaml;Pages\RoleAndUser.xaml;View\AddOrder.xaml;View\AuthorizationWindow.xaml;Theme\TextBoxStyle.xaml;View\MainMenu.xaml;View\RegistrationAdd.xaml;View\RegistratoinInfo.xaml;View\WriteOffAddV.xaml;View\WriteOffInfo.xaml;
 
-True
+False
 

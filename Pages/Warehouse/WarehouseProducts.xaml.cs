@@ -74,7 +74,7 @@ namespace PC_Service.Pages.Warehouse
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message.ToString());
+                        MessageBox.Show("Товар участвует в какой-либо операции, или находится на складе.\nСпишите товар и удалите все операции связанные с ним, перед удалением.", "Внимание");
                     }
                 }
                 DataProduct();
