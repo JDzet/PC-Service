@@ -173,7 +173,8 @@
 
                 <!-- Поля для ввода -->
                 <TextBox Grid.Row="1" Margin="10"  materialDesign:HintAssist.Hint="Введите название" Name="TbNameBrand"/>
-                <ComboBox Grid.Row="2" Margin="10" Text="{Binding NameDeviceType}" Name="CbBrand" DisplayMemberPath="NameDeviceType" Cursor=""/>
+                <ComboBox Grid.Row="2" Margin="10" Text="{Binding NameDeviceType}" 
+                          materialDesign:HintAssist.Hint="Выберите бренд" Name="CbBrand" DisplayMemberPath="NameDeviceType" Cursor=""/>
 
                 <!-- Кнопка "Добавить" -->
                 <Button Grid.Row="3" Content="Сохранить" HorizontalAlignment="Right" Margin="10" Name="BrandAdd"

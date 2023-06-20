@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PC_Service.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1100"
       Title="FinanceCategories">
@@ -95,8 +96,8 @@
                 </Grid>
 
                 <!-- Поля для ввода -->
-                <TextBox Grid.Row="1" Margin="10"  Name="TbName"/>
-                <ComboBox Grid.Row="2" Margin="10"  Name="CbType" 
+                <TextBox Grid.Row="1" Margin="10"  Name="TbName" materialDesign:HintAssist.Hint="Введите название"/>
+                <ComboBox Grid.Row="2" Margin="10"  Name="CbType"  materialDesign:HintAssist.Hint="Выберите тип операции"
                           IsEditable="True" DisplayMemberPath="NameType"/>
 
                 <!-- Кнопка "Добавить" -->

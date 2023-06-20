@@ -269,7 +269,7 @@ namespace PC_Service.View
                 };
                 dbContext.BrandDevice.Add(brand);
                 dbContext.SaveChanges();
-                MessageBox.Show("Брэнд добавлен");
+                MessageBox.Show("Бренд добавлен");
                 FormContainerBrand.Visibility = Visibility.Collapsed;
                 TbNameBrand.Text = null;
                 CbBrandAdd.SelectedIndex = -1;

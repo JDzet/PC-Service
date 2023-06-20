@@ -130,13 +130,14 @@ namespace PC_Service
                         DataDB.entities.Entry(orders).State = EntityState.Modified;
                         DataDB.entities.SaveChanges();
 
-                        DataGrid.ItemsSource = DataDB.entities.Orders.Include(o => o.Status)
+                        List<Orders> ordersList = DataDB.entities.Orders.Include(o => o.Status)
                             .Include(o => o.User)
                             .Include(o => o.DeviceType1)
                             .Include(o => o.BrandDevice1)
                             .Include(o => o.Client1)
                             .Include(o => o.Status)
                             .ToList();
+                        DataGrid.ItemsSource = ordersList;
                     }
                    
                 }
