@@ -31,7 +31,13 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Код" Binding="{Binding ProductCod}"/>
                     <DataGridTextColumn Header="Артикул" Binding="{Binding ProductArticle}"/>
-                    <DataGridTextColumn Header="Наименование" Binding="{Binding ProductName}"/>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding ProductName}" Width="300">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                     <DataGridTemplateColumn Header="Изображение">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -39,7 +45,13 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Описание" Binding="{Binding ProductDescription}"/>
+                    <DataGridTextColumn Header="Описание" Binding="{Binding ProductDescription}" Width="300">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

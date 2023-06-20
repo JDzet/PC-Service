@@ -48,7 +48,13 @@
                     <DataGridTextColumn Header="Имя/компания" Binding="{Binding ClientName}"/>
                     <DataGridTextColumn Header="Email" Binding="{Binding ClientEmail}"/>
                     <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}"/>
-                    <DataGridTextColumn Header="Адресс" Binding="{Binding ClientAddress}"/>
+                    <DataGridTextColumn Header="Адресс" Binding="{Binding ClientAddress}" Width="250">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                     <DataGridTextColumn Header="Примичание" Binding="{Binding Note}"/>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>

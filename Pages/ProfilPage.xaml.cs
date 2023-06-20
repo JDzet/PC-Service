@@ -32,7 +32,8 @@ namespace PC_Service.Pages
         {
             using (DataDB.entities = new EntitiesMain()) 
             {
-                DataGrid.ItemsSource = DataDB.entities.HistoryTransaction.Include(x => x.Transactions).Where(x=>x.TransacUser == UserAuthorization.Worker.UserId).ToList();
+                DataGrid.ItemsSource = DataDB.entities.HistoryTransaction.Include(x => x.Transactions)
+                    .Where(x=>x.TransacUser == UserAuthorization.Worker.UserId && x.Expenses > 0).ToList();
                 TbName.Text = UserAuthorization.Worker.UserName.ToString();
                 Role.Text = UserAuthorization.Worker.Role.RoleName.ToString();
             }

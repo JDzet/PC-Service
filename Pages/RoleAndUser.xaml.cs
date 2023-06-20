@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,8 +53,8 @@ namespace PC_Service
 
         private void ButtonDeleteUser_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+            try
+            {
                 User user = (sender as Button).DataContext as User;
 
                 if (MessageBox.Show($"Вы точно хотите удалить пользователя", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -64,13 +65,19 @@ namespace PC_Service
                         entities.SaveChanges();
                         MessageBox.Show("Пользователь удален");
                     }
-                    catch (Exception ex)
+                    catch (DbUpdateException)
                     {
-                        MessageBox.Show(ex.Message.ToString());
+                        MessageBox.Show("Пользователь учавствует в процессах.\nЗакройте и удалите все связанные с пользователем процессы, перед удалением.", "Внимание");
                     }
                 }
                 DataGridUser.ItemsSource = null;
                 DataGridUser.ItemsSource = entities.User.ToList();
+            }
+            catch 
+            {
+                
+            }
+               
             
           
 

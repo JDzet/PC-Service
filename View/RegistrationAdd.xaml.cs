@@ -145,8 +145,10 @@ namespace PC_Service.View
                     }
                     DataDB.entities.SaveChanges();
                 }
+
+                
             }
-             
+            this.Close(); 
         }
         
 
@@ -313,7 +315,7 @@ namespace PC_Service.View
 
             var fieldsToCheck = new List<Control>
             {
-                CBClient, Warehouse, CBProduct, 
+                CBClient, Warehouse, TBInvoiceNumber,DataPicekt
             };
 
             bool allFieldsFilled = true;

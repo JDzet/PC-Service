@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,9 +141,9 @@ namespace PC_Service.Pages
                         DataDB.entities.SaveChanges();
                         MessageBox.Show("Склад удален");
                     }
-                    catch (Exception ex)
+                    catch (DbUpdateException)
                     {
-                        MessageBox.Show(ex.Message.ToString());
+                        MessageBox.Show("Склад учавствует операциях системы.\nЗакройте и удалите все связанные со складом операции, перед удалением.", "Внимание");
                     }
                     DataWarehouseLokal();
                 }

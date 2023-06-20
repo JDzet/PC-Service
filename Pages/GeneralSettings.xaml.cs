@@ -27,6 +27,7 @@ namespace PC_Service.Pages
         {
             InitializeComponent();
             DataSettings();
+            tbNameComp.Focus();
         }
 
         public void DataSettings() 

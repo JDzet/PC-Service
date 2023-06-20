@@ -127,7 +127,7 @@ namespace PC_Service.View
 
             var fieldsToCheck = new List<Control> 
             {
-                CbUser, tbPhone, tbEmail, tbAdress, cbDevice, cbBrand,
+                CbUser, tbPhone, tbEmail, cbDevice, cbBrand,
                 tbModel, tbMalfunction, cbMaster, tbPrice
             };
 

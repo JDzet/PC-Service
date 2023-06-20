@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,20 +63,28 @@ namespace PC_Service.Pages
 
         private void BtnDel_Click(object sender, RoutedEventArgs e)
         {
-            Client client = (sender as Button).DataContext as Client;
-            using (DataDB.entities = new EntitiesMain()) 
+            try
             {
-                bool confirmed = MessageBox.Show("Удалить клиента", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
-
-                if (confirmed)
+                Client client = (sender as Button).DataContext as Client;
+                using (DataDB.entities = new EntitiesMain())
                 {
+                    bool confirmed = MessageBox.Show("Удалить клиента", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;
 
-                    DataDB.entities.Entry(client).State = EntityState.Deleted;
-                    DataDB.entities.SaveChanges();
-                    MessageBox.Show("Запись удалена");
-                    DataBase();
+                    if (confirmed)
+                    {
+
+                        DataDB.entities.Entry(client).State = EntityState.Deleted;
+                        DataDB.entities.SaveChanges();
+                        MessageBox.Show("Запись удалена");
+                        DataBase();
+                    }
                 }
             }
+            catch(DbUpdateException) 
+            {
+                MessageBox.Show("Клиент учавствует в заказе.\nЗакройте и удалите все связанные с пользователем заказы, перед удалением.", "Внимание");
+            }
+            
         }
     }
 }

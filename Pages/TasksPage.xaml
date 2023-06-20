@@ -60,7 +60,13 @@
                             </DataGridCheckBoxColumn >
                             <DataGridTextColumn Header="Название задачи" Binding="{Binding TaskName}">
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="200"/>
+                            <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="350">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn Header="Крайний срок" Binding="{Binding Date}"/>
                             <DataGridTextColumn Header="Исполнитель" Binding="{Binding User.UserName}"/>
                             <DataGridTemplateColumn>
@@ -114,7 +120,13 @@
                                 </DataGridCheckBoxColumn.CellStyle>
                             </DataGridCheckBoxColumn >
                             <DataGridTextColumn Header="Название задачи" Binding="{Binding TaskName}"/>
-                            <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="200"/>
+                            <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="350">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn Header="Дата" Binding="{Binding Date}"/>
                             <DataGridTextColumn Header="Исполнитель" Binding="{Binding User.UserName}"/>
                             <DataGridTemplateColumn>

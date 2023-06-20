@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:PC_Service.View"
         mc:Ignorable="d"
         Icon="/resources/logo.ico"
-        Title="Заказ" Height="650" Width="800"
+        Title="Заказ" Height="600" Width="800"
         ResizeMode="NoResize">
 
  
@@ -240,7 +240,7 @@
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,40,0,0"
-                            HorizontalAlignment="Right">
+                            HorizontalAlignment="Right" Cursor="">
                     <Button Width="180"
                         Height="45"
                         Background="Gainsboro"

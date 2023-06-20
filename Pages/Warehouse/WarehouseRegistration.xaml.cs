@@ -38,6 +38,7 @@ namespace PC_Service.Pages.Warehouse
             regAdd.Owner = Window.GetWindow(this);
             regAdd.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             regAdd.ShowDialog();
+            DataRegistrationProduct();
         }
 
         public void DataRegistrationProduct()

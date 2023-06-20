@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Pages",
+    "\\Pages\\Warehouse",
     "\\View"
   ],
-  "SelectedNode": "\\Pages\\DeviceDirectoryPage.xaml",
+  "SelectedNode": "\\Pages\\Warehouse\\WarehouseProducts.xaml.cs",
   "PreviewInSolutionExplorer": false
 }
